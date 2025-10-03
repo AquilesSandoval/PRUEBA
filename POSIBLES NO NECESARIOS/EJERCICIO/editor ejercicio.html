@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0080)https://app.allinyourmind.es/web/index.php?r=exercisesexercise/update&id=584&cp= -->
-<html lang="ES-es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
-body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
-</style>
+<html lang="ES-es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Aiym Panel :: AIYM YUC</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
@@ -21,7 +19,8 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 <script src="../../assets/jquery-2.1.4.js.descarga"></script>    <link rel="stylesheet" href="../../assets/demo.css">
     <link rel="stylesheet" href="../../assets/alertif.min.css">
 
-<link type="text/css" rel="stylesheet" href="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/css/mcafee_fonts.css"></head>
+<link type="text/css" rel="stylesheet" href="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/css/mcafee_fonts.css">    <link rel="stylesheet" href="editor ejercicio.css">
+</head>
 
 
 <body data-background-color="bg3">
@@ -411,17 +410,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 					</div>
 					<div class="card">
 					<div class="card-body">
-						<style>
-.card-img-top {
-    width: 70% !important;
-    height: 300px !important;
-}
-
-.imgdiv {
-    align-items: center !important;
-    padding-left: 20% !important;
-}
-</style>
+						
 
 
 <form id="w0" action="https://app.allinyourmind.es/web/index.php?r=exercisesexercise/update&amp;id=584&amp;cp=" method="post" enctype="multipart/form-data">
@@ -431,11 +420,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 <div style="clear: both;"></div>
 <div class="row">
     <div class="card col-sm-4" align="center">
-        <style>
-        .img-border {
-            border-radius: 5px;
-        }
-        </style>
+        
         <div align="center">
                         <img class="img-border" src="../../assets/e31748bcebb04f0ea1b628fdd0d6de57.jpg" width="250px" alt="IMAGE">                    </div>
         <div class="card-body">
@@ -586,99 +571,13 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 </div>
 
 
-</form><script>
-$(document).ready(function() {
-        $('#title_img').text('exercises/images/e31748bcebb04f0ea1b628fdd0d6de57.jpg');
-    $('#title_video').text('exercises/videos/f43406affebf46d1a1730d4092b57f74.mp4');
-        $('#file_img').change(function() {
-        $('#title_img').text($(this).val());
-    });
-    $('#file_video').change(function() {
-        $('#title_video').text($(this).val());
-    });
-    $('.submitFormBtn').click(function() {
-
-
-        var $this = $(this);
-        var $next = $this.next();
-        if ($next.hasClass('submitFormBtnBlock')) {
-            $blockBtn = $next;
-        } else {
-
-            var form = document.getElementById('w0');
-            var dtClear = 0;
-            for (var i = 0; i < form.elements.length; i++) {
-                if (form.elements[i].value === '' && form.elements[i].hasAttribute('required')) {
-                    dtClear++;
-                }
-            }
-
-            if (dtClear == 0) {
-                $blockBtn = $this.clone();
-                $blockBtn.attr('type', 'button');
-                $blockBtn.html(
-                    'Espere un momento...'
-                );
-                $blockBtn.addClass('submitFormBtnBlock');
-                $blockBtn.removeClass('submitFormBtn');
-                $blockBtn.insertAfter($this);
-                $blockBtn.attr('disabled', 'disabled');
-
-                $this.hide();
-                $blockBtn.show();
-            }
-        }
-
-
-    });
-
-
-    $('.submitFormBtn').parents('form').on('afterValidate', function(event, messages, errorAttributes) {
-        if (errorAttributes.length > 0) {
-            $('.submitFormBtn').show();
-            $('.submitFormBtnBlock').hide();
-        }
-    });
-
-});
-</script>					</div>
+</form>					</div>
 				</div>
 			</div>
 		</div>
 </div>
 
-<script type="text/javascript">
 
-    function confirmDelete(){
-		var key = "S2gra2g5MnM1Y0dhZ2E0K1NSYlZzZz09"; 
-		var token = "";
-		
-        alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro?', 
-            function(){
-                $.ajax({
-                     type: 'POST',
-                     url: "index.php?r=exercisesexercise/delete",
-                     data:{key:key, token:token},
-                     success:function(bool){
-						 //console.log('success '+bool);
-                        if (bool == true){
-                            alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado espere un momento ...</span>', 2 , function (){
-								window.location.href = "index.php?r=exercisesexercise/index&del=true&cp="; 
-							}); 
-                        }else{
-							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
-						}
-                     },
-                     error: function(data){ 
-                        // console.log('error '+data);
-						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
-                     },
-                });
-            },
-            function(){
-            });
-    }
-</script>
 
             </div>
         </div>
@@ -717,53 +616,14 @@ $(document).ready(function() {
 <script src="../../assets/atlantis2.min.js.descarga"></script>
 <script src="../../assets/yii.validation.js.descarga"></script>
 <script src="../../assets/yii.activeForm.js.descarga"></script>
-<script>jQuery(function ($) {
-jQuery('#w0').yiiActiveForm([{"id":"exercisesexercise-name","name":"name","container":".field-exercisesexercise-name","input":"#exercisesexercise-name","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Nombre no puede estar vacío."});yii.validation.string(value, messages, {"message":"Nombre debe ser una cadena de caracteres.","max":255,"tooLong":"Nombre debería contener como máximo 255 letras.","skipOnEmpty":1});}},{"id":"exercisesexercise-athlete_description","name":"athlete_description","container":".field-exercisesexercise-athlete_description","input":"#exercisesexercise-athlete_description","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Descripción atleta no puede estar vacío."});yii.validation.string(value, messages, {"message":"Descripción atleta debe ser una cadena de caracteres.","skipOnEmpty":1});}},{"id":"exercisesexercise-level_id","name":"level_id","container":".field-exercisesexercise-level_id","input":"#exercisesexercise-level_id","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Nivel debe ser un número entero.","skipOnEmpty":1});}},{"id":"exercisesexercise-sport_id","name":"sport_id","container":".field-exercisesexercise-sport_id","input":"#exercisesexercise-sport_id","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Deporte debe ser un número entero.","skipOnEmpty":1});}},{"id":"exercisesexercise-type_id","name":"type_id","container":".field-exercisesexercise-type_id","input":"#exercisesexercise-type_id","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Tipo debe ser un número entero.","skipOnEmpty":1});}},{"id":"exercisesexercise-technical_description","name":"technical_description","container":".field-exercisesexercise-technical_description","input":"#exercisesexercise-technical_description","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Descripción técnica no puede estar vacío."});yii.validation.string(value, messages, {"message":"Descripción técnica debe ser una cadena de caracteres.","skipOnEmpty":1});}},{"id":"exercisesexercise-updated_at","name":"updated_at","container":".field-exercisesexercise-updated_at","input":"#exercisesexercise-updated_at","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Updated At no puede estar vacío."});}},{"id":"exercisesexercise-activoexcercise","name":"activoExcercise","container":".field-exercisesexercise-activoexcercise","input":"#exercisesexercise-activoexcercise","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.boolean(value, messages, {"trueValue":"1","falseValue":"0","message":"Activo ejercicio debe ser \"1\" o \"0\".","skipOnEmpty":1});}},{"id":"exercisesexercise-status","name":"status","container":".field-exercisesexercise-status","input":"#exercisesexercise-status","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Estado no puede estar vacío."});yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Estado debe ser un número entero.","skipOnEmpty":1});}},{"id":"exercisesexercise-selected","name":"selected","container":".field-exercisesexercise-selected","input":"#exercisesexercise-selected","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Seleccionado no puede estar vacío."});yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Seleccionado debe ser un número entero.","skipOnEmpty":1});}},{"id":"exercisesexercise-calories","name":"calories","container":".field-exercisesexercise-calories","input":"#exercisesexercise-calories","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?\s*$/,"message":"Calorías debe ser un número.","skipOnEmpty":1});}}], []);
-});</script>
+
 
 
 
 
 
 <script src="../../assets/bootstrap-notify.min.js.descarga"></script>
-<script>
-function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
-    $.ajax({
-        url: '/web/index.php?r=idiomas/changeidioma',
-        type: "POST",
-        data: "id=" + id + "&flag=" + flag,
-        success: function(response) {
-            location.reload();
-        }
-    });
-}
-</script><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div><span id="PING_CONTENT_DLS_POPUP" style="display: none;"></span><div style="background-color: transparent; border: none; bottom: 15px; display: block; margin: 0px; opacity: 1; padding: 0px; position: fixed; right: 15px; z-index: 2147483647;"><template shadowrootmode="closed"><style>/*!
- * 
- *     MCAFEE RESTRICTED CONFIDENTIAL
- *     Copyright (c) 2025 McAfee, LLC
- *
- *     The source code contained or described herein and all documents related
- *     to the source code ("Material") are owned by McAfee or its
- *     suppliers or licensors. Title to the Material remains with McAfee
- *     or its suppliers and licensors. The Material contains trade
- *     secrets and proprietary and confidential information of McAfee or its
- *     suppliers and licensors. The Material is protected by worldwide copyright
- *     and trade secret laws and treaty provisions. No part of the Material may
- *     be used, copied, reproduced, modified, published, uploaded, posted,
- *     transmitted, distributed, or disclosed in any way without McAfee's prior
- *     express written permission.
- *
- *     No license under any patent, copyright, trade secret or other intellectual
- *     property right is granted to or conferred upon you by disclosure or
- *     delivery of the Materials, either expressly, by implication, inducement,
- *     estoppel or otherwise. Any license under such intellectual property rights
- *     must be expressed and approved by McAfee in writing.
- *
- */
-@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-Thin.ttf") format("truetype");font-weight:100;font-style:normal}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-ThinItalic.ttf") format("truetype");font-weight:100;font-style:italic}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-ExtraLight.ttf") format("truetype");font-weight:200;font-style:normal}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-ExtraLightItalic.ttf") format("truetype");font-weight:200;font-style:italic}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-Light.ttf") format("truetype");font-weight:300;font-style:normal}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-LightItalic.ttf") format("truetype");font-weight:300;font-style:italic}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-Regular.ttf") format("truetype");font-weight:400;font-style:normal}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-Italic.ttf") format("truetype");font-weight:400;font-style:italic}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-Medium.ttf") format("truetype");font-weight:500;font-style:normal}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-MediumItalic.ttf") format("truetype");font-weight:500;font-style:italic}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-SemiBoldItalic.ttf") format("truetype");font-weight:600;font-style:italic}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-Bold.ttf") format("truetype");font-weight:700;font-style:normal}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-BoldItalic.ttf") format("truetype");font-weight:700;font-style:italic}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-ExtraBold.ttf") format("truetype");font-weight:800;font-style:normal}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-ExtraBoldItalic.ttf") format("truetype");font-weight:800;font-style:italic}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-Black.ttf") format("truetype");font-weight:900;font-style:normal}@font-face{font-family:"McAfeePoppins";src:url("../../../fonts/Poppins-BlackItalic.ttf") format("truetype");font-weight:900;font-style:italic}*{border:0;box-sizing:border-box;font:inherit;font-family:"McAfeePoppins",Helvetica,Arial;font-size:100%;margin:0;padding:0;vertical-align:baseline;outline:none}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}html,body{background-color:#f5f6fa;font-family:"McAfeePoppins",Helvetica,Arial;line-height:1;height:100%;width:100%}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}table{border-collapse:collapse;border-spacing:0}b{font-weight:bold}img{display:block}.dls__container{align-items:center;display:flex;margin:0 auto;margin-top:50px;position:relative}.dls__popup__expanded{align-items:center;overflow:hidden;border-radius:100px;cursor:pointer;display:flex;left:0;padding:15px;position:absolute;height:95px;width:383px;background-color:#fff;transition:all .3s ease-in-out}.dls__popup__expanded .dls__icon{height:65px;width:73px}.content{margin-left:12px}.content .content__images{display:flex;align-items:center;width:250px}.content .content__images .seperator__line{margin-left:5px;margin-right:10px}.content .content__images #dls_close_icon{cursor:pointer;margin-left:auto;margin-right:0px}.content p{font-family:"McAfeePoppins",Helvetica,Arial;font-weight:"400";font-size:14px;line-height:20px;margin-top:8px;color:#4258ff;width:250px;cursor:pointer}.shield{overflow:hidden;box-shadow:0px 2px 4px 0px rgba(33,41,52,.12),0px -1px 2px 0px rgba(0,0,0,.08);align-items:center;border-radius:100px;bottom:0;display:flex;height:95px;justify-content:center;position:absolute;right:0;width:383px;transition:all .3s ease-in-out}.shield__circle{display:flex;justify-content:center;align-items:center;width:55px;height:55px;background-color:#c01818;transition:all .6s ease-in-out .2s;z-index:1;opacity:0}
-
-/*# sourceMappingURL=../sourceMap/chrome/css/download_scan_popup.css.map*/</style><div class="dls__container">
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div><span id="PING_CONTENT_DLS_POPUP" style="display: none;"></span><div style="background-color: transparent; border: none; bottom: 15px; display: block; margin: 0px; opacity: 1; padding: 0px; position: fixed; right: 15px; z-index: 2147483647;"><template shadowrootmode="closed"><div class="dls__container">
   <div class="shield" style="background: transparent; opacity: 0.1; display: none;">
     <div class="shield__circle" style="opacity: 1;">
       <img src="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/images/download_scan/mcafee_logo_white.svg?secret=s1kyx8" x-mcsrc="" id="dls_ballon_icon" x-mcsrcparsed="true">
@@ -781,29 +641,5 @@ function changeIdioma(id, flag) {
       </div>
     </div>
   </div>
-</div><style>/*!
- * 
- *     MCAFEE RESTRICTED CONFIDENTIAL
- *     Copyright (c) 2025 McAfee, LLC
- *
- *     The source code contained or described herein and all documents related
- *     to the source code ("Material") are owned by McAfee or its
- *     suppliers or licensors. Title to the Material remains with McAfee
- *     or its suppliers and licensors. The Material contains trade
- *     secrets and proprietary and confidential information of McAfee or its
- *     suppliers and licensors. The Material is protected by worldwide copyright
- *     and trade secret laws and treaty provisions. No part of the Material may
- *     be used, copied, reproduced, modified, published, uploaded, posted,
- *     transmitted, distributed, or disclosed in any way without McAfee's prior
- *     express written permission.
- *
- *     No license under any patent, copyright, trade secret or other intellectual
- *     property right is granted to or conferred upon you by disclosure or
- *     delivery of the Materials, either expressly, by implication, inducement,
- *     estoppel or otherwise. Any license under such intellectual property rights
- *     must be expressed and approved by McAfee in writing.
- *
- */
-.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}
-
-/*# sourceMappingURL=../sourceMap/chrome/css/interactive_balloon.css.map*/</style></template></div></body></html>
+</div></template></div>    <script src="editor ejercicio.js"></script>
+</body></html>
