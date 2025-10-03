@@ -64,7 +64,7 @@ Highcharts.chart('container', {
 					  series: [
 											{
 						type: 'line',
-						name: 2022,
+						name: '',
 						  lineColor: "#68869e",
 						  lineWidth: 4,
 						marker: {
@@ -73,12 +73,12 @@ Highcharts.chart('container', {
 						  lineWidth: 3,
 						  fillColor: "#ffffff",
 						},
-						data: [6.5,7.3,7.1,6.6,5.1],
+						data: [],
 						pointPlacement: 'on'
 					  },
 											{
 						type: 'line',
-						name: 2022,
+						name: '',
 						  lineColor: "#74ccfb",
 						  lineWidth: 4,
 						marker: {
@@ -87,12 +87,12 @@ Highcharts.chart('container', {
 						  lineWidth: 3,
 						  fillColor: "#ffffff",
 						},
-						data: [7.2,7.2,7.4,7.7,9],
+						data: [],
 						pointPlacement: 'on'
 					  }, 
 										{
 						type: 'line',
-						name: 'Actual',
+						name: '',
 						  lineColor: "#2889A7",
 						  lineWidth: 4,
 						marker: {
@@ -101,7 +101,7 @@ Highcharts.chart('container', {
 						  lineWidth: 3,
 						  fillColor: "#ffffff",
 						},
-						  data: [7.6,7.5,7,7,8.2,],
+						  data: [],
 						/*data: [2.3, 4, 3.7, 4, 8.1]/*data: [46, 16, 13.9, 11.8, 0.9]*/
 					  }
 						]
