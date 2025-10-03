@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0071)https://app.allinyourmind.es/web/index.php?r=athletesparq/create&at=146 -->
-<html lang="ES-es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
-body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
-</style>
+<html lang="ES-es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Aiym Panel :: AIYM YUC</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
@@ -21,6 +19,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 <script src="../../../assets/jquery-2.1.4.js.descarga"></script>    <link rel="stylesheet" href="../../../assets/demo.css">
     <link rel="stylesheet" href="../../../assets/alertif.min.css">
 
+    <link rel="stylesheet" href="PARQ.css">
 </head>
 
 
@@ -595,43 +594,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
         <button type="submit" class="btn btn-save mr-2"><i class="fa fa-check"></i> &nbsp; Guardar y continuar</button>    </div>
 </div>
 
-</form><script>
-$(document).ready(function() {
-    console.log('h')
-    let flag = false;
-    $('input[type="checkbox"]').each(function(index) {
-        console.log(index + ": " + $(this).text());
-        if ($(this).is(":checked")) {
-            flag = true;
-        }
-    });
-    if (flag == true) {
-        document.getElementById('text-stratifica').innerHTML = "Alto Riesgo, se debe recabar información y autorización médica específica antes de iniciar con un programa de ejercicio.";
-        document.getElementById('text-stratifica').style.background = '#DC3545';
-    } else {
-        document.getElementById('text-stratifica').innerHTML = "Sin Riesgo Aparente";
-        document.getElementById('text-stratifica').style.background = '#43b02a';
-    }
-    $('input[type="checkbox"]').change(function() {
-        console.log($(this).val());
-        let flag = false;
-        $('input[type="checkbox"]').each(function(index) {
-            console.log(index + ": " + $(this).text());
-            if ($(this).is(":checked")) {
-                flag = true;
-            }
-        });
-        if (flag == true) {
-            document.getElementById('text-stratifica').innerHTML = "Alto Riesgo, se debe recabar información y autorización médica específica antes de iniciar con un programa de ejercicio.";
-            document.getElementById('text-stratifica').style.background = '#DC3545';
-        } else {
-            document.getElementById('text-stratifica').innerHTML = "Sin Riesgo Aparente";
-            document.getElementById('text-stratifica').style.background = '#43b02a';
-        }
-
-    })
-})
-</script>					</div>
+</form>					</div>
 				</div>
 			</div>
 		</div>
@@ -673,25 +636,12 @@ $(document).ready(function() {
 <script src="../../../assets/atlantis2.min.js.descarga"></script>
 <script src="../../../assets/yii.validation.js.descarga"></script>
 <script src="../../../assets/yii.activeForm.js.descarga"></script>
-<script>jQuery(function ($) {
-jQuery('#w0').yiiActiveForm([{"id":"athletesparq-has_heart_disease","name":"has_heart_disease","container":".field-athletesparq-has_heart_disease","input":"#athletesparq-has_heart_disease","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Tiene una enfermedad del corazón debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesparq-has_chestpain","name":"has_chestpain","container":".field-athletesparq-has_chestpain","input":"#athletesparq-has_chestpain","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Tiene dolor de pecho debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesparq-has_chestpain_lastmonth","name":"has_chestpain_lastmonth","container":".field-athletesparq-has_chestpain_lastmonth","input":"#athletesparq-has_chestpain_lastmonth","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Tiene dolor de pecho el mes pasado debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesparq-has_loss_balance","name":"has_loss_balance","container":".field-athletesparq-has_loss_balance","input":"#athletesparq-has_loss_balance","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Tiene balance de pérdida debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesparq-has_bone_problems","name":"has_bone_problems","container":".field-athletesparq-has_bone_problems","input":"#athletesparq-has_bone_problems","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Tiene problemas de huesos debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesparq-has_medication","name":"has_medication","container":".field-athletesparq-has_medication","input":"#athletesparq-has_medication","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Tiene medicación debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesparq-has_practice_physical","name":"has_practice_physical","container":".field-athletesparq-has_practice_physical","input":"#athletesparq-has_practice_physical","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Tiene Práctica Física debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesparq-athlete_id","name":"athlete_id","container":".field-athletesparq-athlete_id","input":"#athletesparq-athlete_id","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"ID Atleta debe ser un número entero.","skipOnEmpty":1});}}], []);
-});</script>
+
 
 
 
 
 
 <script src="../../../assets/bootstrap-notify.min.js.descarga"></script>
-<script>
-function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
-    $.ajax({
-        url: '/web/index.php?r=idiomas/changeidioma',
-        type: "POST",
-        data: "id=" + id + "&flag=" + flag,
-        success: function(response) {
-            location.reload();
-        }
-    });
-}
-</script><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div></body></html>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div>    <script src="PARQ.js"></script>
+</body></html>

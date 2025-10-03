@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0068)https://app.allinyourmind.es/web/index.php?r=exercisesexercise/index -->
-<html lang="ES-es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
-body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
-</style>
+<html lang="ES-es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Aiym Panel :: AIYM YUC</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
@@ -20,6 +18,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 <link href="../../assets/atlantis2.css" rel="stylesheet">    <link rel="stylesheet" href="../../assets/demo.css">
     <link rel="stylesheet" href="../../assets/alertif.min.css">
 
+    <link rel="stylesheet" href="LISTADO DE EJERCICIOS.css">
 </head>
 
 
@@ -459,51 +458,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
     </div>
 </div>
 
-<script type="text/javascript">
-function confirmDelete(key, token) {
-    alertify.confirm(
-        'Confirmación',
-        'Seguro que desea eliminar el registro?',
-        function() {
-            $.ajax({
-                type: 'POST',
-                url: "index.php?r=exercisesexercise/delete",
-                data: {
-                    key: key,
-                    token: token
-                },
-                success: function(bool) {
-                    //console.log('success '+bool);
-                    if (bool == true) {
-                        alertify.success(
-                            '<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado espere un momento ...</span>',
-                            2,
-                            function() {
-                                location.reload();
-                            });
-                    } else {
-                        alertify.error(
-                            '<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>',
-                            2,
-                            function() {
-                                location.reload();
-                            });
-                    }
-                },
-                error: function(data) {
-                    // console.log('error '+data);
-                    alertify.error(
-                        '<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>',
-                        2,
-                        function() {
-                            location.reload();
-                        });
-                },
-            });
-        },
-        function() {});
-}
-</script>
+
             </div>
         </div>
 
@@ -540,25 +495,12 @@ function confirmDelete(key, token) {
 <script src="../../assets/bootstrap.min.js.descarga"></script>
 <script src="../../assets/jquery.scrollbar.min.js.descarga"></script>
 <script src="../../assets/atlantis2.min.js.descarga"></script>
-<script>jQuery(function ($) {
-jQuery('#w0').yiiGridView({"filterUrl":"\/web\/index.php?r=exercisesexercise\/index","filterSelector":"#w0-filters input, #w0-filters select","filterOnFocusOut":true});
-});</script>
+
 
 
 
 
 
 <script src="../../assets/bootstrap-notify.min.js.descarga"></script>
-<script>
-function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
-    $.ajax({
-        url: '/web/index.php?r=idiomas/changeidioma',
-        type: "POST",
-        data: "id=" + id + "&flag=" + flag,
-        success: function(response) {
-            location.reload();
-        }
-    });
-}
-</script><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div></body></html>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div>    <script src="LISTADO DE EJERCICIOS.js"></script>
+</body></html>

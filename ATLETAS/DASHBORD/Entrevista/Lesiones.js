@@ -1,0 +1,15 @@
+jQuery(function ($) {
+jQuery('#w0').yiiActiveForm([{"id":"athleteshinjuries-disorders_manifestation","name":"disorders_manifestation","container":".field-athleteshinjuries-disorders_manifestation","input":"#athleteshinjuries-disorders_manifestation","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.string(value, messages, {"message":"Manifestación debe ser una cadena de caracteres.","skipOnEmpty":1});yii.validation.string(value, messages, {"message":"Manifestación debe ser una cadena de caracteres.","skipOnEmpty":1});}},{"id":"athleteshinjuries-disorders_effects","name":"disorders_effects","container":".field-athleteshinjuries-disorders_effects","input":"#athleteshinjuries-disorders_effects","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.string(value, messages, {"message":"Efectos de éstas en la vida personal debe ser una cadena de caracteres.","skipOnEmpty":1});yii.validation.string(value, messages, {"message":"Efectos de éstas en la vida personal debe ser una cadena de caracteres.","skipOnEmpty":1});}},{"id":"athleteshinjuries-disorders_repercussions","name":"disorders_repercussions","container":".field-athleteshinjuries-disorders_repercussions","input":"#athleteshinjuries-disorders_repercussions","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.string(value, messages, {"message":"Repercusiones / Limitaciones para la práctica debe ser una cadena de caracteres.","skipOnEmpty":1});yii.validation.string(value, messages, {"message":"Repercusiones / Limitaciones para la práctica debe ser una cadena de caracteres.","skipOnEmpty":1});}},{"id":"athleteshinjuries-previous_injuries","name":"previous_injuries","container":".field-athleteshinjuries-previous_injuries","input":"#athleteshinjuries-previous_injuries","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.string(value, messages, {"message":"Lesiones previas debe ser una cadena de caracteres.","skipOnEmpty":1});yii.validation.string(value, messages, {"message":"Lesiones previas debe ser una cadena de caracteres.","skipOnEmpty":1});}},{"id":"athleteshinjuries-athlete_id","name":"athlete_id","container":".field-athleteshinjuries-athlete_id","input":"#athleteshinjuries-athlete_id","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"ID Atleta debe ser un número entero.","skipOnEmpty":1});}}], []);
+});
+
+function changeIdioma(id, flag) {
+    console.log(id + "-" + flag);
+    $.ajax({
+        url: '/web/index.php?r=idiomas/changeidioma',
+        type: "POST",
+        data: "id=" + id + "&flag=" + flag,
+        success: function(response) {
+            location.reload();
+        }
+    });
+}

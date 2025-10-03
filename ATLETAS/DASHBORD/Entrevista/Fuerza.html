@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0083)https://app.allinyourmind.es/web/index.php?r=athletesstrengthtraining/create&at=146 -->
-<html lang="ES-es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
-body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
-</style>
+<html lang="ES-es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Aiym Panel :: AIYM YUC</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
@@ -21,6 +19,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 <script src="../../../assets/jquery-2.1.4.js.descarga"></script>    <link rel="stylesheet" href="../../../assets/demo.css">
     <link rel="stylesheet" href="../../../assets/alertif.min.css">
 
+    <link rel="stylesheet" href="Fuerza.css">
 </head>
 
 
@@ -627,19 +626,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 		<button type="submit" class="btn btn-save mr-2"><i class="fa fa-check"></i> &nbsp; Guardar y continuar</button>    </div>
 </div>
 
- </form><script>
-function clasifica(){
-	if($('#athletesstrengthtraining-training').is(":checked")){
-		document.getElementById('nameClasifica').value = "A definir por el entrenador";
-		document.getElementById("athletesstrengthtraining-estimated_classification").value = 8;
-	}else{
-		document.getElementById('nameClasifica').value = "Sedentario";
-		document.getElementById("athletesstrengthtraining-estimated_classification").value = 1;
-	}		
-}
-	
-
-</script>
+ </form>
 					</div>
 				</div>
 			</div>
@@ -682,25 +669,12 @@ function clasifica(){
 <script src="../../../assets/atlantis2.min.js.descarga"></script>
 <script src="../../../assets/yii.validation.js.descarga"></script>
 <script src="../../../assets/yii.activeForm.js.descarga"></script>
-<script>jQuery(function ($) {
-jQuery('#w0').yiiActiveForm([{"id":"athletesstrengthtraining-training","name":"training","container":".field-athletesstrengthtraining-training","input":"#athletesstrengthtraining-training","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Entrenamiento debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesstrengthtraining-time_training","name":"time_training","container":".field-athletesstrengthtraining-time_training","input":"#athletesstrengthtraining-time_training","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Tiempo entrenamiento debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesstrengthtraining-week_training","name":"week_training","container":".field-athletesstrengthtraining-week_training","input":"#athletesstrengthtraining-week_training","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Semana entrenamiento debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesstrengthtraining-difficulty_training","name":"difficulty_training","container":".field-athletesstrengthtraining-difficulty_training","input":"#athletesstrengthtraining-difficulty_training","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Dificultad de entrenamiento debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesstrengthtraining-correct_training","name":"correct_training","container":".field-athletesstrengthtraining-correct_training","input":"#athletesstrengthtraining-correct_training","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Entrenamiento correcto debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesstrengthtraining-estimated_classification","name":"estimated_classification","container":".field-athletesstrengthtraining-estimated_classification","input":"#athletesstrengthtraining-estimated_classification","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Clasificación estimada debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesstrengthtraining-coach_classification","name":"coach_classification","container":".field-athletesstrengthtraining-coach_classification","input":"#athletesstrengthtraining-coach_classification","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Clasificación de Entrenador debe ser un número entero.","skipOnEmpty":1});}},{"id":"athletesstrengthtraining-athlete_id","name":"athlete_id","container":".field-athletesstrengthtraining-athlete_id","input":"#athletesstrengthtraining-athlete_id","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"ID Atleta debe ser un número entero.","skipOnEmpty":1});}}], []);
-});</script>
+
 
 
 
 
 
 <script src="../../../assets/bootstrap-notify.min.js.descarga"></script>
-<script>
-function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
-    $.ajax({
-        url: '/web/index.php?r=idiomas/changeidioma',
-        type: "POST",
-        data: "id=" + id + "&flag=" + flag,
-        success: function(response) {
-            location.reload();
-        }
-    });
-}
-</script><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div></body></html>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div>    <script src="Fuerza.js"></script>
+</body></html>
