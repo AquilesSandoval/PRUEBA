@@ -1713,104 +1713,11 @@
 
         <div class="col-sm-12 float-left  pleft-0">
             <table width="100%" class="table table-responsive table-striped table-bordered table-sm">
-                <tbody><tr style="background: #003a5d; color: #FFFFFF; ">
-                    <td width="15%"> </td>
-                    <td width="17%">
-                        <div id="divVelocidad3" style="">
-                            V (km/h)                            <span class="errorRojo">*</span>
-                        </div>
-                        <div id="divPotencia3" style="display: none;">
-                            P (W)                            <span class="errorRojo">*</span>
-                        </div>
-                    </td>
-                    <td width="17%">
-                        VO2 (mL/kg/min)                        <span class="errorRojo">*</span>
-                    </td>
-                    <td width="17%">
-                        FC (ppm)                        <span class="errorRojo">*</span>
-                    </td>
-                    <td width="17%">
-                        RQ                        <span class="errorRojo">*</span>
-                    </td>
-                    <td width="17%" class="tdPotenciaCarrera" style="">
-                        Potencia(w)
-                    </td>
-                </tr>
-                </tbody><tbody id="table-body">
-                </tbody>
-                <tbody><tr>
-                    <td align="left">
-                        VO2 pico/max                    </td>
-                    <td>
-                        <div id="divVelocidad4" style="">
-                            <input type="number" step="00.1" placeholder="--.-" id="reportsfolder-txtVO2PicoVelocidad" name="Reportsfolder[txtVO2PicoVelocidad]" class="form-control" aria-invalid="false" onkeypress="return validaFormatoERGO(&#39;txtVO2PicoVelocidad&#39;, &#39;UNDECIMAL&#39;, 3)" value="">
-                        </div>
-                        <div id="divPotencia4" style="display: none;">
-                            <input type="number" step="001" placeholder="---" id="reportsfolder-txtVO2PicoPotencia" name="Reportsfolder[txtVO2PicoPotencia]" class="form-control" onkeypress="return validaFormatoERGO(&#39;txtVO2PicoPotencia&#39;, &#39;SOLOENTEROS&#39;, 3)" value="">
-                        </div>
-                    </td>
-                    <td>
-                        <input type="number" step="00.1" placeholder="--.-" id="reportsfolder-txtVO2PicoVO2" name="Reportsfolder[txtVO2PicoVO2]" class="form-control" aria-invalid="false" onkeypress="return validaFormatoERGO(&#39;txtVO2PicoVO2&#39;, &#39;UNDECIMAL&#39;, 3)" value="" required="">
-                    </td>
-                    <td>
-                        <input type="number" step="001" placeholder="---" id="reportsfolder-txtVO2PicoFC" name="Reportsfolder[txtVO2PicoFC]" class="form-control" aria-invalid="false" onkeypress="return validaFormatoERGO(&#39;txtVO2PicoFC&#39;, &#39;SOLOENTEROS&#39;, 3)" value="" required="">
-                    </td>
-                    <td>
-                        <input type="number" step="0.01" placeholder="-.--" id="reportsfolder-txtVO2PicoRQ" name="Reportsfolder[txtVO2PicoRQ]" class="form-control" aria-invalid="false" onkeypress="return validaFormatoERGO(&#39;txtVO2PicoRQ&#39;, &#39;DOSDECIMALES&#39;, 3)" value="" required="">
-                    </td>
-                    <td class="tdPotenciaCarrera" style="">
-                        <input type="number" step="0.01" placeholder="---" id="reportsfolder-txtPotenciaCarrera2VO2" name="Reportsfolder[txtPotenciaCarrera2VO2]" class="form-control" onkeypress="return validaFormatoERGO(&#39;txtPotenciaCarrera2VO2&#39;, &#39;SOLOENTEROS&#39;, 3)" value="">
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left">
-                        2do umbral                    </td>
-                    <td>
-                        <div id="divVelocidad14" style="">
-                            <input type="number" step="00.1" placeholder="--.-" id="reportsfolder-txtUmbral2Velocidad" name="Reportsfolder[txtUmbral2Velocidad]" class="form-control" aria-invalid="false" onkeypress="return validaFormatoERGO(&#39;txtUmbral2Velocidad&#39;, &#39;UNDECIMAL&#39;, 3)" value="">
-                        </div>
-                        <div id="divPotencia14" style="display: none;">
-                            <input type="number" step="001" placeholder="---" id="reportsfolder-txtUmbral2Potencia" name="Reportsfolder[txtUmbral2Potencia]" class="form-control" onkeypress="return validaFormatoERGO(&#39;txtUmbral2Potencia&#39;, &#39;SOLOENTEROS&#39;, 3)" value="">
-                        </div>
-                    </td>
-                    <td>
-                        <input type="number" step="00.1" placeholder="--.-" id="reportsfolder-txtUmbral2VO2" name="Reportsfolder[txtUmbral2VO2]" class="form-control" aria-invalid="false" onkeypress="return validaFormatoERGO(&#39;txtUmbral2VO2&#39;, &#39;UNDECIMAL&#39;, 3)" value="" required="">
-                    </td>
-                    <td>
-                        <input type="number" step="001" placeholder="---" id="reportsfolder-txtUmbral2FC" name="Reportsfolder[txtUmbral2FC]" class="form-control" aria-invalid="false" onkeypress="return validaFormatoERGO(&#39;txtUmbral2FC&#39;, &#39;SOLOENTEROS&#39;, 3)" value="" required="">
-                    </td>
-                    <td>
-                        <input type="number" step="0.01" placeholder="-.--" id="reportsfolder-txtUmbral2RQ" name="Reportsfolder[txtUmbral2RQ]" class="form-control" aria-invalid="false" onkeypress="return validaFormatoERGO(&#39;txtUmbral2RQ&#39;, &#39;DOSDECIMALES&#39;, 3)" value="" required="">
-                    </td>
-                    <td class="tdPotenciaCarrera" style="">
-                        <input type="number" step="0.01" placeholder="---" id="reportsfolder-txtPotenciaCarrera2Umbral2" name="Reportsfolder[txtPotenciaCarrera2Umbral2]" class="form-control" onkeypress="return validaFormatoERGO(&#39;txtPotenciaCarrera2Umbral2&#39;, &#39;SOLOENTEROS&#39;, 3)" value="">
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left">
-                        1er umbral                    </td>
-                    <td>
-                        <div id="divVelocidad24" style="">
-                            <input type="number" step="00.1" placeholder="--.-" id="reportsfolder-txtUmbral1Velocidad" name="Reportsfolder[txtUmbral1Velocidad]" class="form-control" aria-invalid="false" onkeypress="return validaFormatoERGO(&#39;txtUmbral1Velocidad&#39;, &#39;UNDECIMAL&#39;, 3)" value="">
-                        </div>
-                        <div id="divPotencia24" style="display: none;">
-                            <input type="number" step="001" placeholder="---" id="reportsfolder-txtUmbral1Potencia" name="Reportsfolder[txtUmbral1Potencia]" class="form-control" onkeypress="return validaFormatoERGO(&#39;txtUmbral1Potencia&#39;, &#39;SOLOENTEROS&#39;, 3)" value="">
-                        </div>
-                    </td>
-                    <td>
-                        <input type="number" step="00.1" placeholder="--.-" id="reportsfolder-txtUmbral1VO2" name="Reportsfolder[txtUmbral1VO2]" class="form-control" aria-invalid="false" onkeypress="return validaFormatoERGO(&#39;txtUmbral1VO2&#39;, &#39;UNDECIMAL&#39;, 3)" value="" required="">
-                    </td>
-                    <td>
-                        <input type="number" step="001" placeholder="---" id="reportsfolder-txtUmbral1FC" name="Reportsfolder[txtUmbral1FC]" class="form-control" aria-invalid="false" onkeypress="return validaFormatoERGO(&#39;txtUmbral1FC&#39;, &#39;SOLOENTEROS&#39;, 3)" value="" required="">
-                    </td>
-                    <td>
-                        <input type="number" step="0.01" placeholder="-.--" id="reportsfolder-txtUmbral1RQ" name="Reportsfolder[txtUmbral1RQ]" class="form-control" aria-invalid="false" onkeypress="return validaFormatoERGO(&#39;txtUmbral1RQ&#39;, &#39;DOSDECIMALES&#39;, 3)" value="" required="">
-                    </td>
-                    <td class="tdPotenciaCarrera" style="">
-                        <input type="number" step="0.01" placeholder="---" id="reportsfolder-txtPotenciaCarrera2Umbral1" name="Reportsfolder[txtPotenciaCarrera2Umbral1]" class="form-control" onkeypress="return validaFormatoERGO(&#39;txtPotenciaCarrera2Umbral1&#39;, &#39;SOLOENTEROS&#39;, 3)" value="">
-                    </td>
-                </tr>
-            </tbody></table>
+                <tbody>
+</tbody><tbody id="table-body">
+</tbody>
+                <tbody>
+</tbody></table>
         </div>
         <div class="col-sm-2 float-left  pleft-0" id="divVelocidad5" style="">
             <div class="form-group field-usuariosapi-usuarioapiid">

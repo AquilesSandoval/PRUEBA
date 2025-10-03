@@ -1308,68 +1308,11 @@
 					<div id="error_agregar" class="alert alert-danger" role="alert" style="color: red; display: none;">
 					</div>
 					<table width="100%" class="table table-responsive table-striped table-bordered table-sm">
-						<tbody><tr style="background: #003a5d; color: #FFFFFF; ">
-							<td width="11.2%">
-								<span id="spanRDDistanciaPoder">Distancia</span> (m)
-								<span class="errorRojo">*</span>
-							</td>
-							<td width="11.2%" class="tdcolumnaCarrera" style="">
-								<span id="spanRDTiempo">Tiempo (min:ss)</span>
-								<span id="spanRDTiempo2" class="errorRojo">*</span>
-							</td>
-							<td width="11.2%" class="tdcolumnaCarrera" style="">
-								<span id="spanRDCiclo1">F. Ciclo1 (T6, ss.dd)</span>
-							</td>
-							<td width="11.2%" class="tdcolumnaCarrera" style="">
-								<span id="spanRDCiclo2">F. Ciclo2 (T6, ss.dd)</span>
-							</td>
-							<td width="11.2%">
-								FC (ppm)								<span class="errorRojo">*</span>
-							</td>
-							<td width="11.2%">
-								RPE (0-10)							</td>
-							<td width="11.2%">
-								LA (mMoI/L)								<span class="errorRojo">*</span>
-							</td>
-							<td width="11.2%" class="dtPotenciaCarrera" style="">
-							Velocidad(W)
-							</td>
-							<td width="5%">
-							</td>
-						</tr>
-						</tbody><tbody id="table-body">
-						</tbody>
-						<tbody><tr>
-							<td>
-								
-								<input type="number" step="0001" placeholder="----" id="txtDistancia" name="txtDistancia" class="form-control" aria-invalid="false" onkeypress="return validaFormatoLACTATO(&#39;txtDistancia&#39;, &#39;ENTEROS_DISTANCIA_POTENCIA&#39;, 4)">
-							</td>
-							<td class="tdcolumnaCarrera" style="">
-								<input type="text" autocomplete="off" placeholder="--:--" id="txtTiempo" name="txtTiempo" class="form-control" aria-invalid="false" onkeypress="return validaFormatoLACTATO(&#39;txtTiempo&#39;, &#39;TIEMPO&#39;, 5)">
-							</td>
-							<td class="tdcolumnaCarrera" style="">
-								<input type="number" step="0.01" placeholder="-.--" id="txtCiclo1" name="txtCiclo1" class="form-control" aria-invalid="false" onkeypress="return validaFormatoLACTATO(&#39;txtCiclo1&#39;, &#39;DOSDECIMALES&#39;, 3)">
-							</td>
-							<td class="tdcolumnaCarrera" style="">
-								<input type="number" step="0.01" placeholder="-.--" id="txtCiclo2" name="txtCiclo2" class="form-control" aria-invalid="false" onkeypress="return validaFormatoLACTATO(&#39;txtCiclo2&#39;, &#39;DOSDECIMALES&#39;, 3)">
-							</td>
-							<td>
-								<input type="number" step="001" placeholder="---" id="txtFC" name="txtFC" class="form-control" aria-invalid="false" onkeypress="return validaFormatoLACTATO(&#39;txtFC&#39;, &#39;SOLOENTEROS&#39;, 3)">
-							</td>
-							<td>
-								<input type="number" step="00.1" placeholder="--.-" id="txtRPE" name="txtRPE" class="form-control" aria-invalid="false" onkeypress="return validaFormatoLACTATO(&#39;txtRPE&#39;, &#39;UNDECIMAL&#39;, 3)">
-							</td>
-							<td>
-								<input type="number" step="0.01" placeholder="--.-" id="txtLA" name="txtLA" class="form-control" aria-invalid="false" onkeypress="return validaFormatoLACTATO(&#39;txtLA&#39;, &#39;UNDECIMAL&#39;, 3)">
-							</td>
-							<td class="dtPotenciaCarrera" style="">
-								<input type="number" min="0" step="0.01" placeholder="-.--" id="txtPotenciaCarrera1" class="form-control" name="txtPotenciaCarrera1" onkeypress="return validaFormatoLACTATO(&#39;txtPotenciaCarrera1&#39;, &#39;SOLOENTEROS&#39;, 3)" value="">
-							</td>
-							<td>
-								<a href="javascript:void(0);" id="add_prod_button" title="Agregar escalón"><i style="" class="fa fa-check-circle fa-2x"></i></a>
-							</td>
-						</tr>
-					</tbody></table>
+						<tbody>
+</tbody><tbody id="table-body">
+</tbody>
+						<tbody>
+</tbody></table>
 					
 					<div align="right">
 						<a class="add-modal-click btn btn-info btnAddform" style="display:none;" id="abreModal1" value="index.php?r=reportsfolder/createmodal" href="#" title="Buscar facturas" data-toggle="modal">
@@ -1421,64 +1364,8 @@
 							</td>
 						</tr>
 						</thead>
-						<tbody><tr>
-							<td>Zona 2</td>
-							<td>
-								<input type="hidden" id="reportsfolder-txtItemLactato2ID" name="Reportsfolder[txtItemLactato2ID]" value="">
-								<input type="number" autocomplete="off" placeholder="--.-" id="reportsfolder-txtZona2V" name="Reportsfolder[txtZona2V]" class="form-control" aria-invalid="false" value="" required=""><!--onKeyPress="return validaFormatoLACTATO('reportsfolder-txtZona2V', 'TIEMPO', 5)"-->
-							</td>
-							<td class="tdcolumnaCarrera" style="">
-								<span id="spanZona2Tiempo">0.00</span>
-							</td>
-							<td>
-								<input type="number" step="0.01" placeholder="---" id="reportsfolder-txtZona2FC" name="Reportsfolder[txtZona2FC]" class="form-control" aria-invalid="false" value="" onkeypress="return validaFormatoLACTATO(&#39;reportsfolder-txtZona2FC&#39;, &#39;SOLOENTEROS&#39;, 3)" required="">
-							</td>
-							<td>
-								<input type="number" step="0.01" placeholder="--.-" id="reportsfolder-txtZona2Lactato" name="Reportsfolder[txtZona2Lactato]" class="form-control" aria-invalid="false" value="" onkeypress="return validaFormatoLACTATO(&#39;reportsfolder-txtZona2Lactato&#39;, &#39;UNDECIMAL&#39;, 3)">
-							</td>
-							<td class="dtPotenciaCarrera" style="">
-								<input type="number" min="0" step="0.01" placeholder="-.--" id="reportsfolder-txtPotenciaCarreraZ2" class="form-control" name="Reportsfolder[txtPotenciaCarreraZ2]" onkeypress="return validaFormatoLACTATO(&#39;reportsfolder-txtPotenciaCarreraZ2&#39;, &#39;SOLOENTEROS&#39;, 3)" value="">
-							</td>
-						</tr>
-						<tr>
-							<td>Zona 4</td>
-							<td>
-								<input type="hidden" id="reportsfolder-txtItemLactato4ID" name="Reportsfolder[txtItemLactato4ID]" value="">
-								<input type="number" autocomplete="off" placeholder="--.-" id="reportsfolder-txtZona4V" name="Reportsfolder[txtZona4V]" class="form-control" aria-invalid="false" value="" required="">
-							</td>
-							<td class="tdcolumnaCarrera" style="">
-								<span id="spanZona4Tiempo">0.00</span>
-							</td>
-							<td>
-								<input type="number" step="0.01" placeholder="---" id="reportsfolder-txtZona4FC" name="Reportsfolder[txtZona4FC]" class="form-control" aria-invalid="false" value="" onkeypress="return validaFormatoLACTATO(&#39;reportsfolder-txtZona4FC&#39;, &#39;SOLOENTEROS&#39;, 3)">
-							</td>
-							<td>
-								<input type="number" step="0.01" placeholder="--.-" id="reportsfolder-txtZona4Lactato" name="Reportsfolder[txtZona4Lactato]" class="form-control" aria-invalid="false" value="" onkeypress="return validaFormatoLACTATO(&#39;reportsfolder-txtZona4Lactato&#39;, &#39;UNDECIMAL&#39;, 3)">
-							</td>
-							<td class="dtPotenciaCarrera" style="">
-								<input type="number" min="0" step="0.01" placeholder="-.--" id="reportsfolder-txtPotenciaCarreraZ4" class="form-control" name="Reportsfolder[txtPotenciaCarreraZ4]" onkeypress="return validaFormatoLACTATO(&#39;reportsfolder-txtPotenciaCarreraZ4&#39;, &#39;SOLOENTEROS&#39;, 3)" value="">
-							</td>
-						</tr>
-						<tr>
-							<td>Zona 6</td>
-							<td>
-								<input type="hidden" id="reportsfolder-txtItemLactato6ID" name="Reportsfolder[txtItemLactato6ID]" value="">
-								<input type="number" autocomplete="off" placeholder="--.-" id="reportsfolder-txtZona6V" name="Reportsfolder[txtZona6V]" class="form-control" aria-invalid="false" value="" required="">
-							</td>
-							<td class="tdcolumnaCarrera" style="">
-								<span id="spanZona6Tiempo">0.00</span>
-							</td>
-							<td>
-								<input type="number" step="0.01" placeholder="---" id="reportsfolder-txtZona6FC" name="Reportsfolder[txtZona6FC]" class="form-control" aria-invalid="false" value="" onkeypress="return validaFormatoLACTATO(&#39;reportsfolder-txtZona6FC&#39;, &#39;SOLOENTEROS&#39;, 3)" required="">
-							</td>
-							<td>
-								<input type="number" step="0.01" placeholder="--.-" id="reportsfolder-txtZona6Lactato" name="Reportsfolder[txtZona6Lactato]" class="form-control" aria-invalid="false" value="" onkeypress="return validaFormatoLACTATO(&#39;reportsfolder-txtZona6Lactato&#39;, &#39;UNDECIMAL&#39;, 3)">
-							</td>
-							<td class="dtPotenciaCarrera" style="">
-								<input type="number" min="0" step="0.01" placeholder="-.--" id="reportsfolder-txtPotenciaCarreraZ6" class="form-control" name="Reportsfolder[txtPotenciaCarreraZ6]" onkeypress="return validaFormatoLACTATO(&#39;reportsfolder-txtPotenciaCarreraZ6&#39;, &#39;SOLOENTEROS&#39;, 3)" value="">
-							</td>
-						</tr>
-					</tbody></table>
+						<tbody>
+</tbody></table>
 				</div>
 
 				<div class="col-sm-12 float-left  pleft-0">
