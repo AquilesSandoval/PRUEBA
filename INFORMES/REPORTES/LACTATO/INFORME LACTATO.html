@@ -454,9 +454,9 @@
         <img style="border-radius:18px; position:relative;" id="selectedImg1" width="90" height="90" src="../../../assets/sin_imagen.jpg">    </div>
 
     <div class="col-sm-10 float-left pleft-0">
-        <strong>Alberto Garcia</strong>
+        <strong id="athlete-name-lactato"></strong>
         <br>
-        A partir de los datos en la prueba del 29 de Diciembre del 2023, hemos determinado unas intensidades personales para los diversos objetivos del entrenamiento. Estas referencias pueden ser matizadas conforme evolucione el programa y según se adapte a las condiciones del medio donde entrene. A partir de ahora, utilice dichos rangos, lo cual será bastante fiable durante cierto tiempo, y posteriormente deben actualizarse con otra evaluación.    </div>
+        A partir de los datos en la prueba del <span id="fecha-prueba-lactato"></span>, hemos determinado unas intensidades personales para los diversos objetivos del entrenamiento. Estas referencias pueden ser matizadas conforme evolucione el programa y según se adapte a las condiciones del medio donde entrene. A partir de ahora, utilice dichos rangos, lo cual será bastante fiable durante cierto tiempo, y posteriormente deben actualizarse con otra evaluación.    </div>
 </div>
 </form></div>
 
@@ -473,19 +473,19 @@
             </h3>
             <div class="divInformeCorporal fondoInformCorporal">
                 <strong>Ritmo                    (min/100)</strong>
-                <label class="informeCorporal"><strong><label class="datosDelTest">2:00</label><label class="datosDelTest">1:55</label><label class="datosDelTest">1:50</label><label class="datosDelTest">1:45</label><label class="datosDelTest">1:40</label></strong></label>
+                <label class="informeCorporal"><strong id="ritmo-data-container"></strong></label>
             </div>
             <div class="divInformeCorporal">
                 <strong>FC (ppm)</strong>
-                <label class="informeCorporal"><strong><label class="datosDelTest">100</label><label class="datosDelTest">120</label><label class="datosDelTest">134</label><label class="datosDelTest">148</label><label class="datosDelTest">160</label></strong></label>
+                <label class="informeCorporal"><strong id="fc-data-container"></strong></label>
             </div>
             <div class="divInformeCorporal fondoInformCorporal">
                 <strong>LA (mMol/L)</strong>
-                <label class="informeCorporal"><strong><label class="datosDelTest">2.1</label><label class="datosDelTest">1.9</label><label class="datosDelTest">3.4</label><label class="datosDelTest">5.8</label><label class="datosDelTest">9.2</label></strong></label>
+                <label class="informeCorporal"><strong id="lactato-data-container"></strong></label>
             </div>
             <div class="divInformeCorporal">
                 <strong>RPE (0-10)</strong>
-                <label class="informeCorporal"><strong><label class="datosDelTest">2</label><label class="datosDelTest">4</label><label class="datosDelTest">6</label><label class="datosDelTest">8</label><label class="datosDelTest">9</label></strong></label>
+                <label class="informeCorporal"><strong id="rpe-data-container"></strong></label>
             </div>
         </div>
         <div class="col-sm-4 float-left pleft-0">
@@ -511,36 +511,36 @@
                 </div>
                 <div class="col-sm-12 float-left pleft-0 divInformeCorporal fondoInformCorporal">
                     <div class="col-sm-3 float-left pleft-0">
-                        <strong>Zona                            2</strong>
+                        <strong>Zona                            <span id="zona2-numero"></span></strong>
                     </div>
-                    <div class="col-sm-3 float-left pleft-0">
-                        2                    </div>
-                    <div class="col-sm-3 float-left pleft-0">
-                        120                    </div>
-                    <div class="col-sm-3 float-left pleft-0">
-                        1.9                    </div>
+                    <div class="col-sm-3 float-left pleft-0" id="zona2-ritmo">
+                                            </div>
+                    <div class="col-sm-3 float-left pleft-0" id="zona2-fc">
+                                            </div>
+                    <div class="col-sm-3 float-left pleft-0" id="zona2-lactato">
+                                            </div>
                 </div>
                 <div class="col-sm-12 float-left pleft-0 divInformeCorporal">
                     <div class="col-sm-3 float-left pleft-0">
-                        <strong>Zona                            4</strong>
+                        <strong>Zona                            <span id="zona4-numero"></span></strong>
                     </div>
-                    <div class="col-sm-3 float-left pleft-0">
-                        3                    </div>
-                    <div class="col-sm-3 float-left pleft-0">
-                        143                    </div>
-                    <div class="col-sm-3 float-left pleft-0">
-                        4.5                    </div>
+                    <div class="col-sm-3 float-left pleft-0" id="zona4-ritmo">
+                                            </div>
+                    <div class="col-sm-3 float-left pleft-0" id="zona4-fc">
+                                            </div>
+                    <div class="col-sm-3 float-left pleft-0" id="zona4-lactato">
+                                            </div>
                 </div>
                 <div class="col-sm-12 float-left pleft-0 divInformeCorporal fondoInformCorporal">
                     <div class="col-sm-3 float-left pleft-0">
-                        <strong>Zona                            6</strong>
+                        <strong>Zona                            <span id="zona6-numero"></span></strong>
                     </div>
-                    <div class="col-sm-3 float-left pleft-0">
-                        4                    </div>
-                    <div class="col-sm-3 float-left pleft-0">
-                        160                    </div>
-                    <div class="col-sm-3 float-left pleft-0">
-                        9.2                    </div>
+                    <div class="col-sm-3 float-left pleft-0" id="zona6-ritmo">
+                                            </div>
+                    <div class="col-sm-3 float-left pleft-0" id="zona6-fc">
+                                            </div>
+                    <div class="col-sm-3 float-left pleft-0" id="zona6-lactato">
+                                            </div>
                 </div>
             </div>
         </div>

@@ -1,6 +1,41 @@
-# PRUEBA - Sitio Web Refactorizado
+# PRUEBA - Aplicación de Gestión Deportiva
 
-## 🎯 Descripción
+## 🎯 Estado del Proyecto
+
+**✅ DOBLE TRANSFORMACIÓN COMPLETADA**
+
+1. **Refactorización (Octubre 2024)**: Sitio web optimizado y autocontenido
+2. **🆕 Dinamización (Diciembre 2024)**: Plantillas dinámicas listas para base de datos
+
+---
+
+## 🚀 NUEVO: Sistema de Plantillas Dinámicas
+
+### 📚 **EMPIEZA AQUÍ: [INDICE.md](INDICE.md)**
+
+El proyecto ahora incluye un sistema completo de plantillas dinámicas listas para integración con backend:
+
+| Documento | Descripción |
+|-----------|-------------|
+| **[INDICE.md](INDICE.md)** | 📖 Navegador de documentación - Empieza aquí |
+| **[RESUMEN_TRANSFORMACION.md](RESUMEN_TRANSFORMACION.md)** | 📊 Resumen ejecutivo |
+| **[ARQUITECTURA.md](ARQUITECTURA.md)** | 🏗️ Diagramas y patrones |
+| **[data_format.md](data_format.md)** | 📋 Especificación JSON completa |
+| **[PLANTILLAS_README.md](PLANTILLAS_README.md)** | 🔧 Guía de implementación |
+| **[ejemplo_implementacion.js](ejemplo_implementacion.js)** | 💻 Código listo para usar |
+
+### ✨ Qué Incluye la Dinamización
+
+- ✅ 6 plantillas HTML convertidas a "lienzos en blanco"
+- ✅ 100+ campos de datos limpiados y convertidos a IDs
+- ✅ Especificación completa de formato JSON
+- ✅ 350+ líneas de código JavaScript de ejemplo
+- ✅ Guías de implementación paso a paso
+- ✅ Diagramas de arquitectura
+
+---
+
+## 🎯 Descripción Original
 
 Este repositorio contiene un sitio web estático completamente autocontenido y optimizado, resultado de una refactorización completa que:
 - Convierte todas las URLs externas a rutas relativas locales

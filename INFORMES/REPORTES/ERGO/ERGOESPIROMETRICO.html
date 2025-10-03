@@ -454,20 +454,20 @@
 					<div class="col-sm-1 float-left  pleft-0">
 					<img style="border-radius:18px; position:relative;" id="selectedImg1" width="80" height="80" src="../../../assets/f4600a4902d2492aab666a0359eb4c42.jpg">				</div>
 				<div class="col-sm-11 float-left pleft-0" id="divInformeMetabolico0" style="">
-					<strong>JOURDAN MENDIETA</strong>
+					<strong id="athlete-name-metabolico"></strong>
 					<br>
 					El presente informe sintetiza los resultados obtenidos en la prueba de Metabolismo de Reposo y en durante el Esfuerzo (en caso de hacerse). Se analizaron tanto el gasto energético en reposo (acostado/a durante 15 minutos), como el rango de intensidades en esfuerzo, con medición directa de intercambio gaseoso (VO<sub>2</sub> y VCO<sub>2</sub>). Todos estos datos son clave de cara a establecer pautas nutricionales de acuerdo a sus características. Por ello, para relativizar estas variables, se consideran valores de antropometría y composición corporal.					
 				</div>
 
 				<div class="col-sm-11 float-left pleft-0" id="divInformeEsfuerzo0" style="display: none;">
-					<strong>JOURDAN MENDIETA</strong>
+					<strong id="athlete-name-esfuerzo"></strong>
 					<br>
-					Con fecha 21 de Noviembre del 2024, se realizó un test de rendimiento con el/la Dr./Dra. , siendo el protocolo realizado el de AVANZADO. 				</div>
+					Con fecha <span id="fecha-prueba-esfuerzo"></span>, se realizó un test de rendimiento con el/la Dr./Dra. <span id="medico-nombre"></span>, siendo el protocolo realizado el de <span id="protocolo-nombre"></span>. 				</div>
 
 				<div class="col-sm-11 float-left pleft-0" id="divInformeDeportivo0" style="display: none;">
-					<strong>JOURDAN MENDIETA</strong>
+					<strong id="athlete-name-deportivo"></strong>
 					<br>
-					A partir de los datos en la prueba del 21 de Noviembre del 2024, hemos determinado unas intensidades personales para los diversos objetivos del entrenamiento. Estas referencias pueden ser matizadas conforme evolucione el programa y según se adapte al terreno real y condiciones de entrenamiento. A partir de ahora, utilice dichos rangos, lo cual será bastante fiable durante cierto tiempo, y posteriormente deben actualizarse. Para un mejor criterio de uso de estas variables en relación a la zona de esfuerzo, considere la siguiente explicación. Al final del informe observará su nivel de rendimiento en relación a la elite profesional en ese deporte y género. Esa comparación relativa también la puede hacer respecto a usted en sucesivas evaluaciones.				</div>
+					A partir de los datos en la prueba del <span id="fecha-prueba-deportivo"></span>, hemos determinado unas intensidades personales para los diversos objetivos del entrenamiento. Estas referencias pueden ser matizadas conforme evolucione el programa y según se adapte al terreno real y condiciones de entrenamiento. A partir de ahora, utilice dichos rangos, lo cual será bastante fiable durante cierto tiempo, y posteriormente deben actualizarse. Para un mejor criterio de uso de estas variables en relación a la zona de esfuerzo, considere la siguiente explicación. Al final del informe observará su nivel de rendimiento en relación a la elite profesional en ese deporte y género. Esa comparación relativa también la puede hacer respecto a usted en sucesivas evaluaciones.				</div>
 				</form></div>
 				
 		<!-- Evaluación de la Composición Corporal Metabolico1 - ->
@@ -482,37 +482,37 @@
 				<div class="col-sm-3 float-left pleft-0">
 					<strong>Comentario:</strong>
 					<br>
-					Su composición corporal es mejorable. Debe mantener su cantidad de tejido graso pero debe incrementar su masa muscular. 				</div>
+					<span id="comentario-composicion-corporal"></span>				</div>
 				<div class="col-sm-3 float-left  pleft-0">
 					<div class="divInformeCorporal fondoInformCorporal">
 					Peso Corporal (kg):
-						<label class="informeCorporal">63</label>
+						<label class="informeCorporal" id="peso-corporal"></label>
 					</div>
 					<div class="divInformeCorporal">
 					Estatura (cms):
-						<label class="informeCorporal">171</label>
+						<label class="informeCorporal" id="estatura"></label>
 					</div>
 					<div class="divInformeCorporal fondoInformCorporal">
 						IMC (kg/m2):
-						<label class="informeCorporal">21.5</label>
+						<label class="informeCorporal" id="imc"></label>
 					</div>
 				</div>
 				<div class="col-sm-3 float-left  pleft-0">
 					<div class="divInformeCorporal fondoInformCorporal">
 						% Grasa:
-						<label class="informeCorporal">12</label>
+						<label class="informeCorporal" id="porcentaje-grasa"></label>
 					</div>
 					<div class="divInformeCorporal">
 						% Músculo:
-						<label class="informeCorporal">40.0</label>
+						<label class="informeCorporal" id="porcentaje-musculo"></label>
 					</div>
 					<div class="divInformeCorporal fondoInformCorporal">
 					Peso Graso (kg):
-						<label class="informeCorporal">7.6</label>
+						<label class="informeCorporal" id="peso-graso"></label>
 					</div>
 					<div class="divInformeCorporal">
 					Peso Muscular (kg):
-						<label class="informeCorporal">25</label>
+						<label class="informeCorporal" id="peso-muscular"></label>
 					</div>
 				</div>
 			</div>
@@ -531,67 +531,67 @@
 				<div class="col-sm-3 float-left  pleft-0">
 					<div class="divInformeCorporal fondoInformCorporal">
 						VO<sub>2</sub> Promedio (mL/kg/min):
-						<label class="informeCorporal">3.5</label>
+						<label class="informeCorporal" id="vo2-promedio"></label>
 					</div>
 					<div class="divInformeCorporal">
 						FC Reposo (ppm):
-						<label class="informeCorporal">50</label>
+						<label class="informeCorporal" id="fc-reposo"></label>
 					</div>
 					<div class="divInformeCorporal fondoInformCorporal">
 						<span style="font-size:12px;">Gasto Diario Reposo (REE) kcal/día:</span>
-						<label class="informeCorporal">1750</label>
+						<label class="informeCorporal" id="gasto-diario-kcal"></label>
 					</div>
 					<div class="divInformeCorporal">
 						METs:
-						<label class="informeCorporal">1.00</label>
+						<label class="informeCorporal" id="mets"></label>
 					</div>
 					<div class="divInformeCorporal fondoInformCorporal">
 						METs Ajustados:
-						<label class="informeCorporal">1.00</label>
+						<label class="informeCorporal" id="mets-ajustados"></label>
 					</div>
 				</div>
 				<div class="col-sm-3 float-left  pleft-0">
 					<div class="divInformeCorporal fondoInformCorporal">
-						RQ:						<label class="informeCorporal">0.85</label>
+						RQ:						<label class="informeCorporal" id="rq"></label>
 					</div>
 					<div class="divInformeCorporal">
-						CHO (%):						<label class="informeCorporal">52</label>
+						CHO (%):						<label class="informeCorporal" id="cho-porcentaje"></label>
 					</div>
 					<div class="divInformeCorporal fondoInformCorporal">
 					Grasa (%):
-						<label class="informeCorporal">48</label>
+						<label class="informeCorporal" id="grasa-porcentaje"></label>
 					</div>
 					<div class="divInformeCorporal">
 						CHO (g/día):
-						<label class="informeCorporal">222</label>
+						<label class="informeCorporal" id="cho-gramos-dia"></label>
 					</div>
 					<div class="divInformeCorporal fondoInformCorporal">
 					Grasa (g/día):
-						<label class="informeCorporal">87</label>
+						<label class="informeCorporal" id="grasa-gramos-dia"></label>
 					</div>
 				</div>
 				<div class="col-sm-3 float-left  pleft-0">
 					<div class="divInformeCorporal fondoInformCorporal">
 						% Grasa esperada:
-						<label class="informeCorporal">12</label>
+						<label class="informeCorporal" id="grasa-esperada"></label>
 					</div>
 					<div class="divInformeCorporal">
 						% Muscular con peso ideal:
-						<label class="informeCorporal">39.7</label>
+						<label class="informeCorporal" id="muscular-peso-ideal"></label>
 					</div>
 					<div class="divInformeCorporal fondoInformCorporal">
 					Kg de Masa Grasa a perder:
 						
-						<label class="informeCorporal"></label>
+						<label class="informeCorporal" id="masa-grasa-perder"></label>
 					</div>
 					<div class="divInformeCorporal">
 					Peso ideal (kg):
-						<label class="informeCorporal">63.0</label>
+						<label class="informeCorporal" id="peso-ideal"></label>
 					</div>
 				</div>
 				<div class="col-sm-12 float-left  pleft-0" style="padding-top:30px; padding-left:30px;">
 					<strong>Comentario:</strong> 
-					Niveles de actividad metabólica dentro del estándar, considerando una composición corporal óptima a medio plazo.														</div>
+					<span id="comentario-gasto-energetico"></span>														</div>
 			</div>
 		</div>
 		<!-- fin Gasto Energético de Reposo Metabolico2 -->
