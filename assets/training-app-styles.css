@@ -184,6 +184,27 @@
     color: #F39C12;
 }
 
+/* Plan loader button */
+#quick-plan-loader {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#quick-plan-loader .btn-round {
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+#quick-plan-loader .btn-round:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .context-menu {
