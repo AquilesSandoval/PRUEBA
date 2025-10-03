@@ -101,6 +101,16 @@ PRUEBA/
 - ✅ Portable - fácil de compartir y distribuir
 - ✅ Sin dependencias externas
 
+### 🆕 Nueva Funcionalidad de Entrenamiento (Octubre 2024)
+- ✅ **Carga de Planes Predefinidos**: 4 mesociclos listos para usar
+- ✅ **Drag & Drop**: Mueve sesiones entre días arrastrando
+- ✅ **Menú Contextual**: Editar, duplicar, mover, copiar y eliminar sesiones
+- ✅ **Cálculos Automáticos**: Distancias y calorías basadas en zonas
+- ✅ **Botón Flotante**: Acceso rápido a "Cargar Plan"
+
+Ver [Guía Rápida de Uso](GUIA_RAPIDA_USO.md) | [Documentación Completa](DOCUMENTACION_IMPLEMENTACION.md)
+
+
 ## 🛠️ Detalles Técnicos
 
 ### Tecnologías Utilizadas
