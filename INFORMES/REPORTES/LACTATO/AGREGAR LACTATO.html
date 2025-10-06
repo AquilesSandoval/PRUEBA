@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)https://app.allinyourmind.es/web/index.php?r=reportsfolder/create&id=28 -->
+<html lang="ES-es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aiym Panel :: AIYM YUC</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <link rel="icon" type="image/png" href="https://app.allinyourmind.es/web/require/img/favicon-32x32.png">
+    <!-- Fonts and icons -->
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../../../assets/css">
+        <!-- plugins css -->
+    <meta name="csrf-param" content="_csrf">
+<meta name="csrf-token" content="BICzp0cJNWaWo-yWi5ZMooXRGjhuCINTmwt3Z1jXP9RwudnfNF4CKMD6j8_HziXUsOFNXxt_ywq2Rj4LE6IGtw==">
+
+<link href="../../../assets/fonts.min.css" rel="stylesheet">
+<link href="../../../assets/bootstrap.min.css" rel="stylesheet">
+<link href="../../../assets/atlantis2.css" rel="stylesheet">
+<link href="../../../assets/select2.css" rel="stylesheet">
+<link href="../../../assets/select2-addl.css" rel="stylesheet">
+<link href="../../../assets/select2-krajee.css" rel="stylesheet">
+<link href="../../../assets/kv-widgets.css" rel="stylesheet">
+<script src="../../../assets/jquery-2.1.4.js.descarga"></script>
+<script src="../../../assets/highcharts.js.descarga"></script>
+<script src="../../../assets/data.js.descarga"></script>
+<script src="../../../assets/series-label.js.descarga"></script>
+<script src="../../../assets/exporting.js.descarga"></script>
+<script src="../../../assets/export-data.js.descarga"></script>
+<script src="../../../assets/accessibility.js.descarga"></script>
+<script src="../../../assets/formatoRegEx.js.descarga"></script>
+    <link rel="stylesheet" href="../../../assets/demo.css">
+    <link rel="stylesheet" href="../../../assets/alertif.min.css">
+
+    <link rel="stylesheet" href="AGREGAR LACTATO.css">
+</head>
+
+
+<body data-background-color="bg3">
+    <div class="wrapper page-container">
+
+        <div class="main-header" data-background-color="white" style="">
+            <div class="nav-top">
+                <div class="container d-flex flex-row">
+
+                    <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+                    <!-- Logo Header -->
+                    <a class="logo d-flex align-items-center" href="../../../INICIO.html"><img src="../../../assets/logo_all.png" alt="logo" class="navbar-brand"></a>                    <!-- End Logo Header -->
+
+                    <!-- Navbar Header -->
+                    <nav class="navbar navbar-header navbar-expand-lg p-0">
+
+                        <div class="container-fluid p-0">
+
+                            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                                <!--
+								<li class="nav-item dropdown hidden-caret" >
+									<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+										<img src="require/img/es.svg" style="width:25px; border:solid 0px;"/>
+									</a>
+									<ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown" style="width: 70px; background: #FFFFFF;" >
+										<li>
+											<div class="notif-center">
+																								<a href="javascript:;" onClick="changeIdioma(1,'es.svg')">
+													<div class="notif-content" style="padding-left: 15px;">
+														<span class="block">
+															<img src="require/img/es.svg" style="width:25px; border:solid 0px;"/> Español														</span>
+													</div>
+												</a>
+																								<a href="javascript:;" onClick="changeIdioma(2,'gb.svg')">
+													<div class="notif-content" style="padding-left: 15px;">
+														<span class="block">
+															<img src="require/img/gb.svg" style="width:25px; border:solid 0px;"/> English														</span>
+													</div>
+												</a>
+																							</div>
+										</li>
+									</ul>
+								</li>
+								-->
+                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false" title="Ajuste de idiomas">
+                                        <!--<i class="fas fa-stream" style="color: #19b2eb;"></i>-->
+                                        <img src="../../../assets/es.svg" style="width:25px; border:solid 0px;">
+                                    </a>
+                                    <div class="dropdown-menu quick-actions quick-actions-info animated fadeIn">
+
+                                        <div class="scroll-wrapper quick-actions-scroll scrollbar-outer" style="position: relative;"><div class="quick-actions-scroll scrollbar-outer scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
+                                            <div class="quick-actions-items">
+                                                <div class="row m-0">
+                                                                                                        <a class="col-6 col-md-4 p-0" href="javascript:;" onclick="changeIdioma(1,&#39;es.svg&#39;)">
+                                                        <div class="quick-actions-item">
+                                                            <img src="../../../assets/es.svg" style="width:25px; border:solid 0px;">
+
+                                                            <span class="text">Español                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                                                                        <a class="col-6 col-md-4 p-0" href="javascript:;" onclick="changeIdioma(2,&#39;gb.svg&#39;)">
+                                                        <div class="quick-actions-item">
+                                                            <img src="../../../assets/gb.svg" style="width:25px; border:solid 0px;">
+
+                                                            <span class="text">English                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                    
+                                                    <!-- inicio -->
+
+                                                </div>
+                                            </div>
+                                        </div><div class="scroll-element scroll-x" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
+                                    </div>
+                                </li>
+
+
+                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false" title="Lecciones">
+                                        <i class="far fa-folder-open" style="font-size: 24px;color:#215373;"></i>                                    </a>
+                                    <div class="dropdown-menu quick-actions quick-actions-info animated fadeIn">
+                                        <div class="scroll-wrapper quick-actions-scroll scrollbar-outer" style="position: relative;"><div class="quick-actions-scroll scrollbar-outer scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
+                                            <div class="quick-actions-items">
+                                                <div class="row m-0">
+                                                    <div class="quick-actions-item col-md-12">
+																		<div class="avatar-item bg-grey1 rounded-circle">
+																			<i class="icon-ban"></i>
+																		</div>
+																		<span class="text">Sin permisos</span>
+																	</div>
+                                                </div>
+                                            </div>
+                                        </div><div class="scroll-element scroll-x" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
+                                    </div>
+                                </li>
+                                                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false" title="Entrenamientos">
+                                        <img src="../../../assets/menu_entrenamientos.png" style="width: 28px;">                                        <!--	<i class="fas fa-cubes " style="font-size: 25px; color: #19b2eb;"></i> -->
+                                    </a>
+                                    <div class="dropdown-menu quick-actions quick-actions-info animated fadeIn">
+                                        <!--
+										<div class="quick-actions-header">
+											<span class="title mb-1">Entrenamientos</span>
+										</div>
+										-->
+                                        <div class="scroll-wrapper quick-actions-scroll scrollbar-outer" style="position: relative;"><div class="quick-actions-scroll scrollbar-outer scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
+                                            <div class="quick-actions-items">
+                                                <div class="row m-0">
+                                                    <a class="col-6 col-md-4 p-0" href="../../../POSIBLES NO NECESARIOS/EJERCICIO/EJERCICIO INICIO.html"><div class="quick-actions-item">
+																			<img src="../../../assets/m_ejercicio.png" style="width: 40px;">
+																			<span class="text">Ejercicio</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../../../POSIBLES NO NECESARIOS/Circuitos/INICIO CIRCUITO.html"><div class="quick-actions-item">
+																			<img src="../../../assets/m_circuito.png" style="width: 40px;">
+																			<span class="text">Circuito</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../../../POSIBLES NO NECESARIOS/DRILLS/INICIO DRILLS.html"><div class="quick-actions-item">
+																		<img src="../../../assets/drills.svg" style="width: 32px;margin-top:4px;margin-bottom:4px">
+																		<span class="text">Drills</span>
+																	</div></a><a class="col-6 col-md-4 p-0" href="../../../POSIBLES NO NECESARIOS/SESION/SESION INICIO.html"><div class="quick-actions-item">
+																			<img src="../../../assets/m_sesion.png" style="width: 40px;">
+																			<span class="text">Sesión</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item">
+																			<img src="../../../assets/m_progresion.png" style="width: 40px;">
+																			<span class="text">Progresión</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../../../MICRO/INICIO MICRO.html"><div class="quick-actions-item">
+																			<img src="../../../assets/m_micro.png" style="width: 40px;">
+																			<span class="text">Microciclo</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../../../MESO/INICIO MESO.html"><div class="quick-actions-item">
+																			<img src="../../../assets/m_meso.png" style="width: 40px;">
+																			<span class="text">Mesociclo</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../../../MACRO/INICIO MACRO.html"><div class="quick-actions-item">
+																			<img src="../../../assets/m_macro.png" style="width: 40px;">
+																			<span class="text">Macrociclo</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item">
+																		<i class="far fa-folder-open" style="font-size: 30px;color:#215373; margin:5px 0"></i>
+																			<span class="text">Personal</span>
+																		</div></a>
+                                                </div>
+                                            </div>
+                                        </div><div class="scroll-element scroll-x" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
+                                    </div>
+                                </li>
+
+
+                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false" title="Menu">
+                                        <!--<i class="fas fa-stream" style="color: #19b2eb;"></i>-->
+                                        <img src="../../../assets/menu_menu.png" style="width: 28px;">                                    </a>
+                                    <div class="dropdown-menu  quick-actions quick-actions-info animated fadeIn">
+                                        <!--
+										<div class="quick-actions-header">
+											<span class="title mb-1">Menu</span>
+																					</div>
+										-->
+                                        <div class="scroll-wrapper quick-actions-scroll scrollbar-outer" style="position: relative;"><div class="quick-actions-scroll scrollbar-outer scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
+                                            <div class="quick-actions-items">
+                                                <div class="row m-0">
+                                                    <a class="col-6 col-md-4 p-0" href="../../../INICIO.html"><div class="quick-actions-item">
+																			
+																			<img src="../../../assets/m_inicio.png" style="width: 40px;">
+																			<span class="text">Inicio</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item">
+																			
+																			<img src="../../../assets/m_perfil.png" style="width: 40px;">
+																			<span class="text">Perfiles</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../../../ATLETAS/Atletas INICIO.html"><div class="quick-actions-item">
+																			
+																			<img src="../../../assets/m_atletas.png" style="width: 40px;">
+																			<span class="text">Atletas</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../REPORTES.html"><div class="quick-actions-item">
+																			
+																			<img src="../../../assets/d_informes.png" style="width: 40px;">
+																			<span class="text">Informes</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item">
+																			
+																			<img src="../../../assets/m_dash.png" style="width: 40px;">
+																			<span class="text">Dashboard</span>
+																		</div></a>                                                </div>
+                                            </div>
+                                        </div><div class="scroll-element scroll-x" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
+                                    </div>
+                                </li>
+                                
+
+                                                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="dropdown-toggle profile-pic " data-toggle="dropdown" href="#" aria-expanded="false">
+                                        <div style="float: left; padding: 10px; 7px; color: #535353;">
+                                            | YUC                                        </div>
+
+                                        <div class="avatar-sm" style="float: left;">
+                                            <img src="../../../assets/user_242.png" alt="..." class="avatar-img rounded-circle imgshadow">
+
+                                        </div>
+
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user animated fadeIn">
+                                        <div class="scroll-wrapper dropdown-user-scroll scrollbar-outer" style="position: relative;"><div class="dropdown-user-scroll scrollbar-outer scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
+                                            <li>
+                                                <div class="user-box">
+
+                                                    <div class="avatar-lg"><img src="../../../assets/user_242.png" alt="image profile" class="avatar-img rounded"></div>
+                                                    <div class="u-text">
+                                                        <h4>
+                                                                                                                    </h4>
+                                                        <p class="text-muted">
+                                                            AIYM YUC                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Patrocinios</a>
+                                                <!--<a class="dropdown-item" href="#">Mis Pagos</a>-->
+                                                <div class="dropdown-divider"></div>
+                                                                                                                                                <a class="dropdown-item" href="#" style="color:#777; font-weight:400;" data-method="post">Salir</a>                                            </li>
+                                        </div><div class="scroll-element scroll-x" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- End Navbar -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="main-panel">
+            <div class="container" style="min-height: 550px;">
+
+                <!--
+				<br>
+                <div class="row">
+                    <div class="  col-md-8" style="height:500px">
+                        <div class="card" style="border-radius:10px;height:100%">
+                            <div class="card-body">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d29805.280428365306!2d-89.62315766221845!3d20.966162694049682!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1642448948414!5m2!1ses!2smx" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row map-controls align-items-end mt-3">
+                                    <div class="col-12 col-md-3">
+                                        <p class="mb-0 text-title" style="color: #477289;"><b>Hoy somos:</b></p>
+                                        <div class="card"
+                                            style="border-radius:10px;margin:0px;background-color:#003B5C;color:white"
+                                            align="center">
+                                            <p class="mb-0">0 Atletas</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <p class="mb-0 text-title" style="color: #477289;"><b>Hemos recorrido
+                                                juntos:</b></p>
+                                        <div class="card"
+                                            style="border-radius:10px;margin:0px;background-color:#003B5C;color:white"
+                                            align="center">
+                                            <p class="mb-0">0 Kms</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <p class="mb-0 text-title" style="color: #477289;"><b>Presentes en:</b></p>
+                                        <div class="card"
+                                            style="border-radius:10px;margin:0px;background-color:#003B5C;color:white"
+                                            align="center">
+                                            <p class="mb-0">0 Países</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3 text-right"><button class="btn btn-trans btn-edit"
+                                            name="button" type="button"><i aria-hidden="" class="fas fa-pencil-alt"></i>
+                                            Editar </button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-md-4" style="height:500px">
+                        <div class="card" style="border-radius:10px;height: 47%">
+                            <div class="card-header">
+                                <p class="mb-0 text-title" style="color: #477289;"><b>Mis pendientes</b></p>
+                            </div>
+                            <div class="card-body">
+
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" id="seguimiento" class="btn"><b>+ Añadir pendiente</b></a>
+                            </div>
+                        </div>
+                        <div class="card" style="border-radius:10px; height: 47%">
+                                                        <div class="card-body">
+                                <div class="row">
+                                    <div class="col  d-flex flex-column justify-content-center align-items-center p-3">
+                                        <img alt="" src="athlete/icons_dashboard/birthday-garland.png" width="121">
+                                        <img alt="" class="mt-3" src="athlete/icons_dashboard/birthday-cake.png"
+                                            width="30">
+                                        <p class="mb-0 mt-3 birthday-day text-uppercase">
+                                            Septiembr                                        </p>
+                                        <p class="mb-0 mt-2 birthday-age text-uppercase" style="font-size:9px">
+                                            <b>Cumpleaños del mes
+                                            </b>
+                                        </p>
+                                        <div class="row">
+                                            <button class="btn btn-trans p-0" name="button" type="button"><i
+                                                    aria-hidden="" class="fas fa-arrow-left"></i></button>
+                                            <button class="btn btn-trans p-0 ml-3" name="button" type="button"><i
+                                                    aria-hidden="" class="fas fa-arrow-right"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="" style="overflow-y: scroll;height:200px">
+                                            <div class="">
+                                                <img width="20" height="20" alt="" class="photo"
+                                                    src="https://d2459t746dpyli.cloudfront.net/media/default.png">
+                                                <div
+                                                    class="d-flex flex-column justify-content-center align-items-start ml-2">
+
+                                                    <p class="mb-0 athlete-name">Sergio Matilla Miguel
+                                                    </p>
+                                                    <p class="mb-0 mt-1 birthday-date">2 de Enero</p>
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <img width="20" height="20" alt="" class="photo"
+                                                    src="https://d2459t746dpyli.cloudfront.net/media/default.png">
+                                                <div
+                                                    class="d-flex flex-column justify-content-center align-items-start ml-2">
+                                                    <p class="mb-0 athlete-name">Sergio Matilla Miguel
+                                                    </p>
+                                                    <p class="mb-0 mt-1 birthday-date">2 de Enero</p>
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <img width="20" height="20" alt="" class="photo"
+                                                    src="https://d2459t746dpyli.cloudfront.net/media/default.png">
+                                                <div
+                                                    class="d-flex flex-column justify-content-center align-items-start ml-2">
+                                                    <p class="mb-0 athlete-name">Sergio Matilla Miguel
+                                                    </p>
+                                                    <p class="mb-0 mt-1 birthday-date">2 de Enero</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="  col-md-12" style="height:200px">
+                        <div class="card" style="border-radius:10px;height:100%">
+                            <div class="card-body">
+                                Gráfica en construcción
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				-->
+                  
+
+
+
+<div class="page-inner">
+	<!-- aqui inicia el contenido -->
+	<div class="row">
+			<div class="col-md-12">
+				
+					<div class="page-navs py-2">
+						<div class="page-header">
+							<h5 class="page-title">
+								Informe de lactato	
+							</h5>
+							<ul class="breadcrumbs">
+								<li class="nav-home">				
+									<i class="far fa-folder-open" style="font-size: 18px;"></i>
+								</li>
+								<li class="separator">
+									<i class="flaticon-right-arrow"></i>
+								</li>
+								<li class="nav-item">
+									Agregar registro								</li>
+							</ul>
+							<div class="ml-auto">
+								<div class="page-header-breadcrumb">
+									<a class="btn btn-info  btn-sm mr-2 fontBold" href="../REPORTES.html"><i class="icon-magnifier" style="font-weight:700"></i> Consulta</a><a class="btn btn-info  btn-sm mr-2 fontBold" href="#"><i class="icon-plus" style="font-weight:700"></i> Agregar</a>								</div>
+							</div>
+						</div>	
+					</div>
+					
+						
+
+
+ <form id="w0" action="https://app.allinyourmind.es/web/index.php?r=reportsfolder/create&amp;id=28" method="post">
+<input type="hidden" name="_csrf" value="BICzp0cJNWaWo-yWi5ZMooXRGjhuCINTmwt3Z1jXP9RwudnfNF4CKMD6j8_HziXUsOFNXxt_ywq2Rj4LE6IGtw==">
+<div class="col-sm-12 pleft-0">
+</div>
+
+
+<div style="clear: both;"></div>
+<div class="card">
+					<div class="card-body" style="padding-top: 30px;">
+
+				<div class="col-sm-8 float-left  pleft-0" style="margin-top:-20px;" align="left">
+					<h4>Seleccione un deporte	:</h4>
+										<input type="text" id="reportsfolder-txtFolderID" name="Reportsfolder[txtFolderID]" value="28" style="display:none;">
+					<div class="form-group">
+						<label class="btn btn-save btn-sm mr-2" id="divDeporte1">
+							<input type="radio" id="reportsfolder-deporteID1" name="Reportsfolder[deporteID]" value="1" class="radio1" onclick="validaChk()" checked="checked">
+							<span id="divTexto1" class="textoBlanco">Carrera</span>
+						</label>
+						<label class="btn btn-save btn-sm mr-2 btn-border" id="divDeporte2" <="" labe="">
+							<input type="radio" id="reportsfolder-deporteID2" name="Reportsfolder[deporteID]" value="2" class="radio1" onclick="validaChk()">
+							<span id="divTexto2" class="textoNegro">Ciclismo</span>
+						</label>
+						<label class="btn btn-save btn-sm mr-2 btn-border" id="divDeporte3">
+							<input type="radio" id="reportsfolder-deporteID3" name="Reportsfolder[deporteID]" value="3" class="radio1" onclick="validaChk()">
+							<span id="divTexto3" class="textoNegro">Natación </span>
+						</label>
+					</div>
+				</div>
+				<div class="col-sm-4 float-left  pleft-0">
+					<span style="display:none;">
+					<div class="form-group field-reportsfolder-athlete_id">
+<label class="control-label" for="reportsfolder-athlete_id">ID Atleta</label>
+<select id="reportsfolder-athlete_id" class="form-control select2-hidden-accessible" name="Reportsfolder[athlete_id]" data-s2-options="s2options_d6851687" data-krajee-select2="select2_d1834d28" style="width: 1px; height: 1px; visibility: hidden;" data-select2-id="reportsfolder-athlete_id" tabindex="-1" aria-hidden="true">
+<option value="" data-select2-id="2"> --- Selecciona --- </option>
+<option value="2179"> Marlon David Santos</option>
+<option value="192">A1 - Avanzado 1 </option>
+<option value="191">A2 - Avanzado 2 </option>
+<option value="784">AARON ADASAT HERNANDEZ GRILLO</option>
+<option value="2268">Abelardo  Baca</option>
+<option value="1746">Abigail  Cabrera Martínez </option>
+<option value="348">Addy Zepeda Pimienta</option>
+<option value="1060">Adria Haimann</option>
+<option value="1639">ADRIANA  AGUILAR </option>
+<option value="2291">Adriana Paola  Mendoza</option>
+<option value="2398">Aida  Traconis </option>
+<option value="486">Aitor Díaz </option>
+<option value="2026">ALBA LIBIA  NUÑO GONZALEZ</option>
+<option value="2022">Albert Mascaró López</option>
+<option value="326">Alberto Garcia C.</option>
+<option value="1896">ALEJANDRA  PEREZ PEREZ</option>
+<option value="2235">Alejandra Sandoval</option>
+<option value="2315">Alejandro Cortés Rubiales</option>
+<option value="2331">ALEJANDRO TRUJILLO OJEDA</option>
+<option value="2345">ALEJANDRO  SAMPEDRO GUZMAN </option>
+<option value="2374">ALEJANDRO PINEDA PONCE</option>
+<option value="2424">ALEJANDRO  SACRAMENTO </option>
+<option value="2434">Alejandro Cortes</option>
+<option value="2509">ALEJANDRO ARANA NAVARRETE</option>
+<option value="880">Alejandro Jose Granja Peniche</option>
+<option value="2176">Alex Corado</option>
+<option value="1971">Àlex Gómez Martínez</option>
+<option value="1742">Alex Benimeli</option>
+<option value="1789">ALEX GÓMEZ PIEDRA</option>
+<option value="1505">Alexander Jimenez Alfaro</option>
+<option value="1209">Alexis Jan Bando Osika</option>
+<option value="1944">ALFA GENESIS DOPORTO CASTILLO</option>
+<option value="2208">ALFONSO AVILA  ZENTENO</option>
+<option value="2480">ALFREDO GALÁN MARTÍNEZ</option>
+<option value="1687">ALICIA ANDERSON</option>
+<option value="1708">ALLAN Gómez Baños</option>
+<option value="1363">ALMA JAHAYRA CARDENAS AZAMAR</option>
+<option value="1542">Alonso Maldonado Ocampo</option>
+<option value="2275">alvaro soto</option>
+<option value="2239">Ana Clavería</option>
+<option value="2468">Ana Barbara Duarte Canto</option>
+<option value="2433">ANA CECICLIA ZAPATA SALAS</option>
+<option value="1584">Ana Cristina  Arana</option>
+<option value="2171">Ana Gabriela Cardona</option>
+<option value="2313">Ana Karin Carranza</option>
+<option value="910">Ana Laura Mendiburu Carrillo</option>
+<option value="2365">ANA LUCÍA GUTIÉRREZ</option>
+<option value="2382">ANA MONICA GONZÁLEZ SÁNCHEZ</option>
+<option value="1609">ANA PAU PARRA ZAPIAIN</option>
+<option value="1351">Ana Paula Jimenez Diaz</option>
+<option value="2440">ANA PAULA  VIVANCO LUGO</option>
+<option value="2011">Ana Sofía Kanter Velazquez</option>
+<option value="1737">Anabel Lòpez</option>
+<option value="2191">Andrea Lima</option>
+<option value="2450">Andrea  Castañon Muriel </option>
+<option value="2504">ANDREA RODRIGUEZ LARA</option>
+<option value="1236">Andrea Aviles ibarra</option>
+<option value="982">Andrea Hurtado</option>
+<option value="2335">Andrés Ros Gorgojo</option>
+<option value="1408">ANGEL RAMIREZ GUTIERREZ DE VELAZCO</option>
+<option value="2008">ÁNGEL LÓPEZ GONZÁLEZ</option>
+<option value="2107">ANGEL ARMANDO ALVAREZ DEL CASTILLO MEJIA</option>
+<option value="168">Ángel Leonel Vázquez Reyes</option>
+<option value="2444">Angel Rodrigo Monroy Viveros</option>
+<option value="1504">ANGÉLICA HERNÁNDEZ GONZÁLEZ</option>
+<option value="1963">Anna Pagès Tarrés</option>
+<option value="1666">ANNA LORENA XACUR TRUJILLO</option>
+<option value="1183">Antonella Gallo Vargas</option>
+<option value="2366">ANTONIO  PEGUEROS VICARTE</option>
+<option value="670">ANTONIO LOPEZ ALCOCER</option>
+<option value="2212">Antonio  Longoria</option>
+<option value="1991">Antonio José  González Campos</option>
+<option value="2476">Arely Daniela  Martinez Hidalgo </option>
+<option value="1216">Armando felice Sandoval Re</option>
+<option value="1969">ARTURO  CAMACHO BANUET </option>
+<option value="2417">ARTURO JAVIER MEDINA ABRAHAM</option>
+<option value="1524">ASTRID NOVELO</option>
+<option value="1291">Augusto Sepúlveda Sánchez Hidalgo</option>
+<option value="696">Autonómico 1 </option>
+<option value="697">Autonómico 2 </option>
+<option value="2406">Axel Emiliano Alvarez Flores</option>
+<option value="1519">AZUCENA TENORIO</option>
+<option value="194">B1 - Basico 1 </option>
+<option value="193">B2 - Basico 2 </option>
+<option value="707">Básico 1 </option>
+<option value="671">Básico 2 </option>
+<option value="1809">BEGOÑA DE ALDECOA BALBUENA</option>
+<option value="2379">BELEN FERNANDEZ</option>
+<option value="1594">Benhadad Carrillo Valencia</option>
+<option value="1376">BERENICE MOSES MAUPOMÈ</option>
+<option value="1948">Berenizze Castro Bejarano</option>
+<option value="544">Bernat Vicens Vidal</option>
+<option value="2465">Berta Cararach Mias</option>
+<option value="1364">Bertha Elena Lopez Gual</option>
+<option value="1507">Blanca  Juan Ferrat</option>
+<option value="1648">BLANCA ESTELA  CASTELLANOS </option>
+<option value="2130">BRENDA  AGUIRRE MARTINEZ </option>
+<option value="2109">BRISEYDA JHOANNA MORA CRUZ</option>
+<option value="860">Bruno Castrejón Camacho</option>
+<option value="2129">BRYAN ALEXIS  ANCONA ARRIOLA</option>
+<option value="2193">Byron Chen</option>
+<option value="1861">Camilo Santos Baez</option>
+<option value="2053">Carla García Castanedo</option>
+<option value="2198">CARLA ABASCAL SECCHI</option>
+<option value="2080">CARLA JACK FLORES BRITO</option>
+<option value="2473">CARLO ANTONIO RAMOS REYES</option>
+<option value="1539">CARLOS  GONZALEZ ALVAREZ</option>
+<option value="2102">Carlos Arias</option>
+<option value="2104">Carlos Basto</option>
+<option value="832">CARLOS DE LA ROSA</option>
+<option value="2377">CARLOS  MENDOZA HERRERA</option>
+<option value="2209">Carlos  Camargo </option>
+<option value="2244">Carlos González</option>
+<option value="2246">CARLOS  ALBERTO  MUROGOYOS</option>
+<option value="2448">Carlos Adrian Menchaca Moreno</option>
+<option value="1816">Carlos Alberto Cortés Armenta</option>
+<option value="300">Carlos Alberto Rojas Oropeza</option>
+<option value="406">Carlos Ángel Calderón Carrillo</option>
+<option value="420">Carlos De la Cruz Estrella Narváez</option>
+<option value="1856">Carlos Gustavo Cortes López </option>
+<option value="1476">Carlos Miguel Yañez González</option>
+<option value="2118">CAROLINA MADERA ARELLANO</option>
+<option value="586">CAROLINA UC ECHEVERRIA</option>
+<option value="1893">CAROLINA  CHEL MAURIES</option>
+<option value="1763">CAROLINA GUTIÉRREZ GARCIA </option>
+<option value="295">Carolyn Herrera Cabrera</option>
+<option value="2328">Cecilia  Merino Navarro</option>
+<option value="1591">CECILIA PATRÓN PRIEGO</option>
+<option value="2437">CECILIA HERRERA NIQUETE</option>
+<option value="2451">Cecilia Ortiz</option>
+<option value="2237">Cesar Montejo</option>
+<option value="2414">CHRISTIAN CASTRO RAMÍREZ</option>
+<option value="2415">Christian Jair Alfaro Zamora</option>
+<option value="2467">CLAUDIA R DE LA GALA FLORES</option>
+<option value="184">Claudia Cardona</option>
+<option value="1621">CLAUDIO ESPADAS LAVALLE</option>
+<option value="606">CORREDOR A1 </option>
+<option value="605">CORREDOR A2 </option>
+<option value="608">CORREDOR B1 </option>
+<option value="607">CORREDOR B2 </option>
+<option value="272">CORREDOR EI </option>
+<option value="602">CORREDOR EN </option>
+<option value="609">CORREDOR IN </option>
+<option value="604">CORREDOR N1 </option>
+<option value="603">CORREDOR N2 </option>
+<option value="610">CORREDOR SE </option>
+<option value="615">CORREDORA A1 </option>
+<option value="614">CORREDORA A2 </option>
+<option value="617">CORREDORA B1 </option>
+<option value="616">CORREDORA B2 </option>
+<option value="263">CORREDORA EI </option>
+<option value="601">CORREDORA EI </option>
+<option value="611">CORREDORA EN </option>
+<option value="618">CORREDORA IN </option>
+<option value="613">CORREDORA N1 </option>
+<option value="612">CORREDORA N2 </option>
+<option value="619">CORREDORA SE </option>
+<option value="1946">Cristel Beatriz Vasquez Jiménez</option>
+<option value="1441">Cristina Fernandez</option>
+<option value="1229">Cristina Sellés</option>
+<option value="1799">Cristopher Ragoo Solis Pacheco</option>
+<option value="2475">CYNTHIA KASSIAN GALLARDO</option>
+<option value="587">Cynthia Lucia Bolio Lopez</option>
+<option value="2254">DALILA BACELIS AVILES</option>
+<option value="2276">dalila duenas</option>
+<option value="280">Dámaris Bravo Luna</option>
+<option value="1829">Daniel Arguello </option>
+<option value="2097">DANIEL  vidal</option>
+<option value="2148">Daniel  Ledezma</option>
+<option value="907">Daniel Vaqué Nuñez</option>
+<option value="1936">DANIEL  ROSILLO HERRERA</option>
+<option value="920">Daniel Alberto Fayad Cabañas</option>
+<option value="2497">Daniel Arturo Retureta Acosta</option>
+<option value="2308">Daniela Cruz Azcoitia</option>
+<option value="1923">DANIELA  PÉREZ TABOADA </option>
+<option value="1706">Daniela  Castellanos Campos</option>
+<option value="1272">Daniela Salgado</option>
+<option value="2175">Danilo Antonio Lastro</option>
+<option value="1918">Danna Rivera</option>
+<option value="1949">DAVID  SCHERRER MORALES </option>
+<option value="2495">DAVID SOSA</option>
+<option value="1551">DAVID ALEJANDRO YARCE CERON</option>
+<option value="1885">David Andres  Ceballos</option>
+<option value="246">David Jonathan Garcia Soto</option>
+<option value="689">David Raul Rodriguez</option>
+<option value="1668">DAYANA COBOS LLADÓ</option>
+<option value="2278">Debora Mejia</option>
+<option value="2314">Delia Denisse Godoy Monzón</option>
+<option value="2051">DIANA  ESILDE TOLEDO </option>
+<option value="2142">DIANA JANETH NAPOLES ROBLES</option>
+<option value="2460">Diana Luz Fernández Aguirre</option>
+<option value="2326">DIEGO DE PAZ PINOT</option>
+<option value="2411">DIEGO RUIZ LAMAS</option>
+<option value="2490">DIEGO  MENENDEZ OSORIO</option>
+<option value="488">Diego </option>
+<option value="2156">Diego Alejandro  Arevalo Celada </option>
+<option value="2324">DIego Sebastian  Ortiz Casillas </option>
+<option value="1241">DOMENEC TABERNER TARAZONA</option>
+<option value="1187">Dorian Elvira Favela Ortiz</option>
+<option value="2485">DULA YADIRA MONTALVO HERNANDEZ</option>
+<option value="2166">Dulce Menzel Valdez</option>
+<option value="1920">DULCE ESCALERA </option>
+<option value="1456">Eder Villanueva</option>
+<option value="2338">EDGAR RODRÍGUEZ GONZÁLEZ</option>
+<option value="1732">EDGAR  HERNANDEZ RIVEROS </option>
+<option value="2061">EDITH ILEANA  MONTORO TORRES</option>
+<option value="2316">Eduardo Ibáñez Castro</option>
+<option value="1334">Eduardo Gonzalez Errasti</option>
+<option value="317">Eduardo castañeda sarabia</option>
+<option value="867">Eduardo Prada</option>
+<option value="2469">EDUARDO  UGARTE</option>
+<option value="2279">Edwin Camey</option>
+<option value="2133">EDWIN ALFONSO  PUC MAY</option>
+<option value="2019">EFRAIN PENICHE LOPE</option>
+<option value="594">Efrain Fernando De Atocha Zapata Sosa</option>
+<option value="1993">EFRAÍN MANUEL MARTÍNEZ LOM</option>
+<option value="1444">Egner Reinel Rivero Quiñones</option>
+<option value="188">EI - Elite Internacional </option>
+<option value="1482">Einar Reyes Valdez</option>
+<option value="2182">ELEAZAR  MURRIETA RODRIGYEZ</option>
+<option value="1958">Elena Rodríguez </option>
+<option value="2456">ELIEZER COLI MENA</option>
+<option value="2190">Elisa Jazmin Tzunun</option>
+<option value="2403">Elvia Yuliana Flores Loera</option>
+<option value="2234">Ely Sandoval</option>
+<option value="2298">EMILIO JEFFREY MABARAK</option>
+<option value="2343">EMMA ROJAS FERNANDEZ</option>
+<option value="187">EN - Elite Nacional </option>
+<option value="2356">ENRIQUE LARRAGA</option>
+<option value="863">Enrique Najera Castro</option>
+<option value="2204">ENRIQUE JAVIER MALDONADO</option>
+<option value="1583">Erick Mendez</option>
+<option value="1890">ERICK NOE BUSTOS ORTIZ</option>
+<option value="2288">Ericka Pimentel</option>
+<option value="2320">Erik Peraza Cruz</option>
+<option value="2006">ERIKA GUADALUPE CERVERA BAEZA</option>
+<option value="1886">Ernesto  Venegas Chavez </option>
+<option value="2286">Ernesto Alejandro Luque</option>
+<option value="2297">Ernesto Rene Samos Pech</option>
+<option value="2222">Ervin Estrada</option>
+<option value="2056">ESBEIDY LOPEZ MORALES</option>
+<option value="2272">esmirna folgar</option>
+<option value="2325">ESTEFANI CUYUCH DE ESTEBAN</option>
+<option value="1685">Estefania Ayelèn  Nazario Morend</option>
+<option value="2189">Estuardo Vásquez</option>
+<option value="1851">Eugenia Rovnykh</option>
+<option value="2224">Evelyn Estrada</option>
+<option value="2385">EYDER  MENDEZ</option>
+<option value="2091">Fanny Carolina Tenorio Murillo</option>
+<option value="266">FÁTIMA FERNÁNDEZ</option>
+<option value="2371">FATIMA ARANZA TORRES NAÑEZ</option>
+<option value="327">FAUSTO RUSSI CRUZ</option>
+<option value="1647">FELIPE  AMARO CANTO </option>
+<option value="1907">FELIPE RAMÍREZ</option>
+<option value="777">Felipe Raul Flores Chávez</option>
+<option value="1362">Fernanda Alfaro López</option>
+<option value="1619">FERNANDO BELLO SANCHEZ</option>
+<option value="2408">FERNANDO GOMEZ DIAZ</option>
+<option value="2486">Fernando  Sanchez Cadena </option>
+<option value="1244">Fernando Marin puig</option>
+<option value="413">Fernando Humberto Castillo López</option>
+<option value="2134">Flavia Mendoza Márquez </option>
+<option value="2307">Flor de María Jiménez Guillén</option>
+<option value="1406">Francisco Humberto Canto Rejón</option>
+<option value="2419">Francisco Misael  Ramirez Arroniz</option>
+<option value="2200">Gabriel Prado</option>
+<option value="1780">Gabriel Novelo Duarte</option>
+<option value="1670">GABRIELA GONZÁLEZ BOLADO</option>
+<option value="2423">Gabrielga Garcia Jimenez</option>
+<option value="936">GENNY BALLARD</option>
+<option value="1215">Gerardo Jheman Briceño</option>
+<option value="2012">Gerardo Abraham</option>
+<option value="1508">GERARDO BORBOLLA</option>
+<option value="1573">GERARDO ANTONIO BUCHAN URBINA</option>
+<option value="452">Gerardo Jose Cardenas Guillermo</option>
+<option value="2361">GERARDO MIGUEL  MACEDO CARRILLO</option>
+<option value="2283">GERMAN GUDIÑO MONTOYA</option>
+<option value="1854">GIEZI  TEC</option>
+<option value="2463">Gilberto  Loyo Villareal</option>
+<option value="2046">GINO VALLADO FERNANDEZ</option>
+<option value="2242">Gladis Osorio</option>
+<option value="1511">Gloria Angélica López Barbosa</option>
+<option value="2304">Gris Tinoco Lomeli</option>
+<option value="1680">GUILLERMINA COSTA ARRIGUNAGA</option>
+<option value="1713">GUILLERMO  CAMACHO MUNOZCANO</option>
+<option value="2407">Gustavo  Alcalá Sánchez</option>
+<option value="1402">GUSTAVO LAMOTHE ALE</option>
+<option value="2232">Gustavo Gamboa</option>
+<option value="2263">Gustavo Navarta</option>
+<option value="1560">Haidet Sanchez</option>
+<option value="2229">Harry Lechuga</option>
+<option value="2353">Hazael Garcia Casillas Cardona</option>
+<option value="385">Héctor Quezada</option>
+<option value="1990">Héctor Vilà Hernández</option>
+<option value="2017">Hector  Hernandez</option>
+<option value="2404">HELLEN BATZER</option>
+<option value="2108">HUGO YZA SANDOVAL</option>
+<option value="1745">Humberto Solis Martinez</option>
+<option value="2507">HUMBERTO CARLO RICHAUD APOLINAR</option>
+<option value="1906">IKER ANTONIO CIMADECILLA ONTIVEROS</option>
+<option value="2081">ILIANA ROSADO GOMEZ</option>
+<option value="350">Iliana Gabriela Dagdug Paredes</option>
+<option value="195">IN - Iniciación </option>
+<option value="2295">Inaya Cuevas</option>
+<option value="1733">INES  MOLINA RODRIGUEZ </option>
+<option value="708">Iniciación </option>
+<option value="2284">Irene González Gilabert</option>
+<option value="2255">Isabel Benitez Tadeo </option>
+<option value="149">ISABELLA LUCKIE PICCOLO</option>
+<option value="1131">ISABELLE CORTES BALLARD</option>
+<option value="2341">ISAEL MONTALVO CORTAZAR</option>
+<option value="2373">Isidro  Quintana Garza</option>
+<option value="1024">Isis Madai Ramos Valiente</option>
+<option value="827">ISRAEL SOLORZANO REYES</option>
+<option value="1473">Israel Santamaria Chan</option>
+<option value="2010">IULIIA  VAREZHKINA</option>
+<option value="1878">Ivan  Ceballos Licona</option>
+<option value="1965">IVAN RIOS PEREZ DEL VALLE</option>
+<option value="1968">IVAN BECERRIL TORRES</option>
+<option value="1329">Ivan Alejandro Canto Cancino</option>
+<option value="2154">IVANNA  ANAYA LEE</option>
+<option value="2472">IVANNA CERVANTES RICHARDS</option>
+<option value="2319">Ivette  León Leal</option>
+<option value="1693">Jackeline Valdez Aldana</option>
+<option value="1407">JAIME RIVERO GARCIA</option>
+<option value="2505">JAIME ELIAS ESCAMILLA MARTIN</option>
+<option value="2024">JANETH EMILIA IBARRA BUENO</option>
+<option value="1903">JAQUELINE CANALES RAYA</option>
+<option value="2225">Javalinne Gabriel</option>
+<option value="1307">Javier Vega Luna</option>
+<option value="2106">Javier López</option>
+<option value="854">Javier Cano Adalid</option>
+<option value="2479">Javier  Lomelin Gascon</option>
+<option value="2512">Javier Alvar Cruz</option>
+<option value="2023">JAVIER  CANTON ESQUIVEL</option>
+<option value="2396">Javier David Alvar Cruz</option>
+<option value="2093">Javier Leon Orantes Escalante</option>
+<option value="2076">Jazmin Ruiz Berea</option>
+<option value="2491">JEARIM DANELLY  ORELLA BARRIOS </option>
+<option value="1765">Jenzent Adan  Jarillo Palacios</option>
+<option value="1822">JESSICA  LEON GUZMAN</option>
+<option value="1902">Jesus  Martinez Moncada</option>
+<option value="2477">Jesus Tenorio Murillo</option>
+<option value="1712">Jesus  Villanueva</option>
+<option value="1317">Jesus Daniel Solis Kuh</option>
+<option value="1331">JESUS EDUARDO MARTINEZ TORRES</option>
+<option value="1081">jesus escorcha </option>
+<option value="441">Jhoana Marisol Rodríguez Ortiz</option>
+<option value="526">Jhonatan Gil </option>
+<option value="1470">Jimena Ruiz Salceda</option>
+<option value="2387">Joaquim Ramis Pla</option>
+<option value="1556">Joel Moreno Herrera</option>
+<option value="2340">JONATHAN  MANDUJANO ENRIQUEZ</option>
+<option value="77">Jonathan Esteve</option>
+<option value="2511">JONATHAN CARMONA MUGICA</option>
+<option value="1164">Jordi Pernias Llamas</option>
+<option value="401">Jordi Roca Navarro</option>
+<option value="1938">Jordi Pla Pintre</option>
+<option value="1499">JORDI ESTEVE CARDONA</option>
+<option value="1544">Jorge Albertos Leon</option>
+<option value="2362">JORGE HERNANDEZ MARTINEZ</option>
+<option value="1628">JORGE RODRÍGUEZ GONZÁLEZ</option>
+<option value="1929">Jorge  Martinez Moncada </option>
+<option value="2442">JORGE PALOMEQUE LÓPEZ</option>
+<option value="2227">Jorge Silva</option>
+<option value="1720">Jorge Bonales</option>
+<option value="1491">Jorge Carlos Chapur Auais</option>
+<option value="1747">Jorge Cesar  Moreno Medina</option>
+<option value="433">Jorge Diego Vargas schimpf</option>
+<option value="1379">Jorge Eduardo Rodriguez Rosado</option>
+<option value="1767">Jorge Emilio Quintanar Ortega</option>
+<option value="1197">Jorge Enrique Rodríguez Sansores</option>
+<option value="2496">JORGE IGNACIO VILLARES ANDRES</option>
+<option value="2267">JORGE IVÁN CASTRO RODRÍGUEZ</option>
+<option value="2381">JORGE LUIS  BRITO</option>
+<option value="1912">Jorge Manuel  Parra Mendoza</option>
+<option value="1741">JORGE MARIO FIGUEROA GONZÁLEZ</option>
+<option value="396">JOSE DIAZ</option>
+<option value="2195">Jose Tschen</option>
+<option value="1724">Josè Agustin  Puerto Basteris</option>
+<option value="2180">Jose Alberto Pardo</option>
+<option value="1171">José Alberto Rodriguez Vargas</option>
+<option value="2197">Jose Alejandro Castellanos</option>
+<option value="2188">José Alfredo Cabrera</option>
+<option value="1771">José Antonio Braga</option>
+<option value="1267">José Antonio Segovia Roaro</option>
+<option value="1324">jose carlos aguirre maldonado</option>
+<option value="2217">Jose Eduardo Vega</option>
+<option value="2482">JOSE EDUARDO TEC PAREDES</option>
+<option value="2114">JOSE FERNANDO  OCON CAMPOS</option>
+<option value="2416">JOSE GILBERTO PECH MORALES</option>
+<option value="1472">José Hernando Pérez Aguilera</option>
+<option value="1757">José Israel Sánchez Armenta</option>
+<option value="1367">Jose Luis García Ojendiz</option>
+<option value="1682">Jose Luis  Ortega </option>
+<option value="2032">JOSÉ LUÍS SANTANA MARÍN</option>
+<option value="289">José Manuel Ponce de León Fernández</option>
+<option value="1088">José Manuel Serrano Cardoz</option>
+<option value="2399">Jose Manuel  Muñoz Carrillo</option>
+<option value="2192">Jose Manuel Medrano</option>
+<option value="2457">José Manuel Basto Acosta </option>
+<option value="2238">Jose Manuel Blanco</option>
+<option value="1811">Jose Maria  Kuri</option>
+<option value="2103">JOSE MAYOLO  AVENDAÑO GARCIA </option>
+<option value="2447">JOSÉ PABLO  ALVAREZ DE LAS HERAS</option>
+<option value="1015">José Pablo Ramírez Cervantes</option>
+<option value="2506">Jose Roberto Mireles Tovar</option>
+<option value="861">JOSÈ RODRIGO MARÌN FRANCO</option>
+<option value="1779">JOSE RODRIGO RUIZ HINOJOSA</option>
+<option value="311">José roque Vela cauich</option>
+<option value="146">JOURDAN MENDIETA</option>
+<option value="1589">JUAN ALMAZAN</option>
+<option value="1917">Juan  Galindo </option>
+<option value="1558">JUAN ANTONIO PONCE FIGUEROA</option>
+<option value="1310">JUAN CARLOS SALDAÑA MORAN</option>
+<option value="2454">JUAN CARLOS CORDOVA JIMENEZ</option>
+<option value="2322">Juan de Dios Sanchez Castillo</option>
+<option value="2115">JUAN FRANCISCO VILLAMIL</option>
+<option value="1695">Juan Francisco Rubio</option>
+<option value="2350">JUAN JESÚS PRIEGO TORRES</option>
+<option value="1415">JUAN JOSE  REMES MARTINEZ</option>
+<option value="2401">Juan Pablo Hernandez Zorilla</option>
+<option value="2425">JUAN PABLO MARTINEZ RON</option>
+<option value="2181">Juan Pablo García</option>
+<option value="2464">JUAN PABLO GARCIA ZAVALA</option>
+<option value="2187">Juliana De Leon</option>
+<option value="2228">Julio De la vega</option>
+<option value="2236">Julio Villalta</option>
+<option value="2494">Julio López Méndez</option>
+<option value="2161">Karen Gómez Ayala</option>
+<option value="1836">KARLA ECHEVERRIA LECOURTOIS</option>
+<option value="1646">KARLA  SANCHEZ ALDANA </option>
+<option value="2233">Karla Lepe</option>
+<option value="2240">Karla Vasquez</option>
+<option value="1562">KATIA DEL ROSARIO PEREZ RUL RUIZ</option>
+<option value="2196">Kellin Gómez</option>
+<option value="2194">Kevin Lopez</option>
+<option value="2311">Kristell Alejandra Morales Díaz</option>
+<option value="2185">Kristofer Gómez</option>
+<option value="325">Laura Alejandra Mendoza Espadas</option>
+<option value="2303">laura beatriz Paredes coot</option>
+<option value="2418">LEONARDO FRANCO GARCIA</option>
+<option value="2452">Lesdye Paloma Gonzalez Navarro</option>
+<option value="2137">LETICIA DEL ROSARIO PRIETO ZAMUDIO</option>
+<option value="1899">LEYDI GUADALUPE  CEBALLOS CETINA </option>
+<option value="2317">Liliana Rivera Sánchez</option>
+<option value="890">Lily Meza Chan</option>
+<option value="2290">LISETTE MORALES HERNANDEZ</option>
+<option value="2461">Lizardo Atietl Fernández Aguirre</option>
+<option value="2273">lizeth castellanos</option>
+<option value="2152">Lluis Maillo Pascual</option>
+<option value="2124">Lola Echevarria</option>
+<option value="2101">LOURDES NOEMI VILLAMIL  YAM</option>
+<option value="2280">Lubin Sandoval</option>
+<option value="786">Lucia Enciso Peláez</option>
+<option value="2203">Luis Gonell</option>
+<option value="1901">LUIS  ALBERTO  ROMERO LOPEZ </option>
+<option value="1177">Luis Alberto Sierra Sauri</option>
+<option value="2484">Luis Alberto  Gonzalez Salas </option>
+<option value="2309">Luís Alfonso Cuevas Ruiz</option>
+<option value="1831">Luis Armando  Paredes Perez</option>
+<option value="2132">LUIS AROLDO  MEDINA CASTILLO</option>
+<option value="1117">LUIS ARTUREE ANDRADE SANTIBAÑEZ</option>
+<option value="1113">Luis Arturo Andrade Santibañez</option>
+<option value="2498">Luis fernando  Raya santillano</option>
+<option value="2499">LUIS FERNANDO   RAYA SANTILLANO</option>
+<option value="829">Luis Guillermo Ruiz Ruiz</option>
+<option value="2258">LUIS GUILLERMO  PERALTA GARCIA </option>
+<option value="716">MA VERONICA ZAPATA CASTELLANOS</option>
+<option value="2172">Macario Antonio Monroy</option>
+<option value="2270">madellin lemus</option>
+<option value="2206">Majo  Aguirre</option>
+<option value="2369">MANUEL RUIZ GARCÍA</option>
+<option value="2150">MANUEL AUGUSTO PANTI PENICHE</option>
+<option value="1353">Manuel Jesus Cruz Gorocica</option>
+<option value="2241">Marcela Corzantes</option>
+<option value="1388">MARCELINO FERNANDEZ RUIZ</option>
+<option value="792">Marcial rosales</option>
+<option value="1669">MARCO  CEJUDO TEJEDA</option>
+<option value="1418">Marco Antonio Blanco Cocom</option>
+<option value="2503">MARENE PUENTE DEL SOBRAL</option>
+<option value="2310">Margarita Quijano Moreno</option>
+<option value="1777">MARGARITA FERNÁNDEZ ROMERO</option>
+<option value="1950">MARGARITA ELENY RODRIGUEZ BAQUEDANO</option>
+<option value="2400">Margil  Quijano Perez</option>
+<option value="1704">Maria Eugenia Añez</option>
+<option value="2323">maria alejandra gonzalez m</option>
+<option value="2177">María Alejandra  Trujillo</option>
+<option value="2199">MARIA ALICIA GARCIA ZAVALA</option>
+<option value="2186">María Celeste Salguero</option>
+<option value="2095">María Cristina Medina Avilés</option>
+<option value="2388">Maria del Carmen  Mireles Tovar</option>
+<option value="1561">MARIA DEL PILAR FERNANDEZ RUIZ</option>
+<option value="2352">MARÍA DEL PILAR DÍAZ GARCÍA</option>
+<option value="2380">María Eliza  López</option>
+<option value="2136">MARIA FERNANDA VILLA CRESPO</option>
+<option value="2207">Maria Fernanda  Estrada </option>
+<option value="1480">MARIA FERNANDA CALDERON GARCIA</option>
+<option value="2248">MARIA FERNANDA  HERNANDEZ GAITAN</option>
+<option value="2205">María Guadalupe  Flores Nava</option>
+<option value="806">Maria Inés Castro Guerra</option>
+<option value="2337">MARIA ISABEL CAMARENA LOZANO </option>
+<option value="1624">María José Evia Rodríguez</option>
+<option value="2140">MARIA JOSE PALMA GONZALEZ</option>
+<option value="2216">María José Ramírez</option>
+<option value="1791">MARÍA LAURA FÉLIX CHINCHILLAS</option>
+<option value="1135">María Luisa Rosado Villajuana</option>
+<option value="1826">MARIA PAULA  CABRERA ROSADO</option>
+<option value="2474">MARIA PAULINA RODRIGUEZ CRUZ</option>
+<option value="2069">MARIA REBECA GONZALEZ SILVA</option>
+<option value="2453">Maria Regina  Gutiérrez Fonseca</option>
+<option value="1679">MARÍA TERESA ROSILES ZAVARIZ</option>
+<option value="409">Maria Teresa Campos Rios</option>
+<option value="828">Mariana Arias Garcia</option>
+<option value="2147">Mariana  Montes de Oca </option>
+<option value="1658">MARIANA ARJONA LÓPEZ</option>
+<option value="2210">Mariana Morales</option>
+<option value="938">Mariana Escamilla Pérez</option>
+<option value="2492">MARIANA CHEDRAUI STIVALET</option>
+<option value="2265">Mariana  Calderon </option>
+<option value="2390">MARIANN LOPEZ MONDRAGON</option>
+<option value="1793">Mariano Rio Cauich</option>
+<option value="2431">Mariano Rafael  Aguilar Wejebe</option>
+<option value="423">Maribel Morales</option>
+<option value="2436">MARICARMEN CASTILLO CID</option>
+<option value="1365">MARINA BARRETO</option>
+<option value="2223">Marinés García</option>
+<option value="1309">MARIO DELFIN V</option>
+<option value="2261">Mario Andrés  Candia </option>
+<option value="1633">Mario Israel Correa</option>
+<option value="1500">MARIO URIEL ALEJANDRO LOPEZ SUAREZ</option>
+<option value="1385">MARISOL CORDERO AGUILAR</option>
+<option value="1783">MARISOL OBAYA RAMIREZ</option>
+<option value="1830">Marlin  Rivero Argaez</option>
+<option value="394">Marta Burgués Ros</option>
+<option value="2113">Martín  Costas</option>
+<option value="322">Marvi Lorena Ortiz Villanueva</option>
+<option value="1386">Máster </option>
+<option value="1266">Matias Puebla. </option>
+<option value="2072">Mauricio  Monroy Hau</option>
+<option value="2164">Mauricio Lopez Serna</option>
+<option value="1919">mayra campos </option>
+<option value="2449">Mayra Alejandra Virrueta Fernandez</option>
+<option value="2085">MELANIE NOEMI  GONGORA GOMEZ</option>
+<option value="2183">Melvin Iván Pardo</option>
+<option value="2271">merari lopez</option>
+<option value="328">Michelle Chapluk</option>
+<option value="1509">Mieko  Watanabe Sánchez</option>
+<option value="2441">MIGUEL  RODRIGUEZ</option>
+<option value="1790">Miguel  Bolon Tun</option>
+<option value="2354">Miguel Angel Hernandez Carmona</option>
+<option value="435">MIJAIL FARFAN VARGAS</option>
+<option value="2219">Milvia Garcia</option>
+<option value="2412">MINERVA SARAHI UC DAVILA</option>
+<option value="2502">Miquel Campderrich Lecumberri</option>
+<option value="2458">Miriam Navarro Mancilla</option>
+<option value="2230">Mirna Tun</option>
+<option value="2299">MONICA FUEYO TORRES</option>
+<option value="1818">Monserrat  Gayol Hernandez </option>
+<option value="2274">mynor morales</option>
+<option value="190">N1 - Nacional 1 </option>
+<option value="189">N2 - Nacional 2 </option>
+<option value="698">Nacional 1 </option>
+<option value="700">Nacional 2 </option>
+<option value="1586">Nacira Montañez Rufino</option>
+<option value="1321">Nadia Valdez</option>
+<option value="1128">Nadia Irene Quintero Perez</option>
+<option value="1541">NAHUN TRUJILLO VAZQUEZ</option>
+<option value="838">Nain Yusefh Carmona Ortega</option>
+<option value="2312">Nancy Carranza</option>
+<option value="1877">Natividad Fuentes Sanchez </option>
+<option value="1133">Nayelli Izquierdo Malvaez</option>
+<option value="1534">NAYME  MANUEL GIRON</option>
+<option value="2420">NAZHELI BEATRIZ  RAMOS CASTILLO </option>
+<option value="2231">Nelly Hernández</option>
+<option value="481">Nelson Macias</option>
+<option value="140">Nicolás García</option>
+<option value="2462">NICOLAS ROMERO FERNANDEZ</option>
+<option value="2500">NICOLAS  SANTOS PACIOS </option>
+<option value="1735">NICOLAS  COUTIÑO ALBORES</option>
+<option value="2349">Nicoló Rizza</option>
+<option value="2213">Nina Machorro Sotomayor</option>
+<option value="375">Nora Faride Dominguez Medina</option>
+<option value="2487">NORDER 1.1CDMX CDMX</option>
+<option value="2488">NORDER 1.2CDMX CDMX</option>
+<option value="2405">NORDER2 TRAINING</option>
+<option value="2096">NORMAN MARIN ASTORGA</option>
+<option value="551">Nurby Esther Gómez Vázquez</option>
+<option value="646">O1 - Opositor Basico </option>
+<option value="647">O2 - Opositor Medio </option>
+<option value="648">O3 - Opositor Avanzado </option>
+<option value="2184">Oliver Emanuel Moscoso</option>
+<option value="2306">OMAR OBREGON HERNANDEZ</option>
+<option value="2446">OMAR ALEJANDRO RICHAUD APOLINAR</option>
+<option value="2432">Orlando  Chacon De Jesus</option>
+<option value="2508">Orlando  Misael Muzule Gonzalez </option>
+<option value="2100">OSCAR CANALES RAYA</option>
+<option value="1200">OSCAR BORGES SANSORES</option>
+<option value="2489">OSCAR  RODRIGUEZ ORTEGA</option>
+<option value="2138">OSCAR EMILIANO MEDINA AGUILAR</option>
+<option value="2426">Osvaldo Revilla Contreras</option>
+<option value="2300">OSVALDO BERMEJO ALONZO</option>
+<option value="165">Owen Torres</option>
+<option value="1553">Pablo Rubello</option>
+<option value="2220">Pablo Hernández</option>
+<option value="2471">PABLO VICENTE  VAZQUEZ MAKUL</option>
+<option value="1602">PALOMA ROJAS GARCÍA</option>
+<option value="2048">PALOMA DEL CARMEN CAHUICH HUCIN</option>
+<option value="388">Patricia Baquedano</option>
+<option value="1805">Patricio  Maldonado Baquedano </option>
+<option value="1316">pau alva</option>
+<option value="816">Paula Martínez Buenfil</option>
+<option value="506">Paula Rodriguez Habeica</option>
+<option value="2344">Paula Andrea Garcia Villalpando </option>
+<option value="768">Paulina Pinto  Povedano</option>
+<option value="2422">PAULINA PÉREZ NAVARRETE</option>
+<option value="2429">PAULINA DIAZ TORRES</option>
+<option value="2252">PAULINA HERNÁNDEZ JIMÉNEZ</option>
+<option value="2321">Pedro Sánchez García</option>
+<option value="1935">Pedro Solis</option>
+<option value="277">pepe </option>
+<option value="2332">Peter Cat</option>
+<option value="831">Peter Derycz</option>
+<option value="686">Primero </option>
+<option value="1927">PRISMA GABRIELA  ROMERO SOLIS</option>
+<option value="37">Prueba Natación, Ciclismo, Carrera</option>
+<option value="2098">Prueba Prueba</option>
+<option value="199">PRUEBA DE QUE NO LLEGA A ADMIN </option>
+<option value="185">PRUEBA1 </option>
+<option value="2099">prueba2 prueba2</option>
+<option value="1808">RAFAEL MENÉNDEZ BRAVO</option>
+<option value="2287">Raimundo  Riojas</option>
+<option value="2389">Ramón  Garduño Alarcón </option>
+<option value="1638">RAMON  PEREZ SANCHEZ</option>
+<option value="330">Ramon Felipe López Gual</option>
+<option value="2170">Raúl Castellanos</option>
+<option value="1220">RAUL IVAN SANDOVAL VILLA</option>
+<option value="1608">RENE CERVANTES</option>
+<option value="1375">Reyes Daniel Reyes Morales</option>
+<option value="1801">Ricard Castrillo Helgadottir</option>
+<option value="1807">Ricardo Azcorra Quijano</option>
+<option value="2358">RICARDO MARTÍNEZ RIVAS</option>
+<option value="372">Ricardo Roche Maldonado</option>
+<option value="2445">RICARDO PEÑA PULIDO</option>
+<option value="2214">Ricardo Hernandez</option>
+<option value="2001">Ricardo Revilla Lopez</option>
+<option value="2439">RICARDO IVÁN CARRILLO TORAYA</option>
+<option value="1979">Riccardo Tosi</option>
+<option value="582">Robert Campos Soteras</option>
+<option value="2318">Roberta Gutiérrez Zertuche</option>
+<option value="2386">Roberto  Gutierrez Gonzalez</option>
+<option value="1736">ROBERTO LEON GUERRERO </option>
+<option value="2168">Roberto Alejandro Chávez</option>
+<option value="2173">Roberto Alejandro Castellanos</option>
+<option value="1330">Rodolfo Anzures Medina</option>
+<option value="308">Rodrigo Castillo</option>
+<option value="2372">RODRIGO ROJAS</option>
+<option value="1875">Rodrigo  Valerio</option>
+<option value="2201">RODRIGO  SANCHEZ</option>
+<option value="2478">Rodrigo Gustavo Villalba Rodríguez </option>
+<option value="2305">Rodrigo Uri Luna Zuñiga</option>
+<option value="1537">ROGELIO MARTINEZ RODRIGUEZ</option>
+<option value="1219">Roger Abdiel Luna Escalante</option>
+<option value="2000">Roger Eduardo Poot Rubio</option>
+<option value="1667">RONALDO LAGUNES LARA</option>
+<option value="1883">Ronel Sashida</option>
+<option value="1559">Rosa Maria Rivera Lopez</option>
+<option value="2282">Rosa Maria Noriega Spinola</option>
+<option value="340">Rosangela Diaz Santos</option>
+<option value="1803">ROSARIO  RAMON DIAZ</option>
+<option value="2215">Rosibel Monroy</option>
+<option value="2086">Rubí Alejandra  Capitanachi Centeno </option>
+<option value="2178">Ruth Eunice Arrecis</option>
+<option value="1662">saasas  </option>
+<option value="591">SALIM YAMIL BARBOSA CALDERON</option>
+<option value="2383">SANDRA GUADALUPE MIRELES TOVAR</option>
+<option value="2481">Sandra Ivone  Ojeda Robledo</option>
+<option value="2393">Sandra Paulina Anguiano Mendez</option>
+<option value="2049">SANTIAGO CHÁVEZ</option>
+<option value="2075">Santiago Fernandez</option>
+<option value="2090">SANTIAGO SANCHEZ SIERRA</option>
+<option value="1234">Saúl Acosta muro</option>
+<option value="2421">SAUL ASCANDERT RETURETA BAEZ</option>
+<option value="331">Sayda Melina Rodríguez Gómez</option>
+<option value="196">SE - Sedentario </option>
+<option value="709">Sedentario </option>
+<option value="41">SELECCIÓN YUCATECA TRIATLÓN 16-17</option>
+<option value="42">SELECCIÓN YUCATECA TRIATLÓN 18-20</option>
+<option value="43">SELECCIÓN YUCATECA TRIATLÓN 14-15</option>
+<option value="2221">Selene Mérida</option>
+<option value="1858">Sergei Vallejo Acosta </option>
+<option value="2510">Shail Hernandez Saravia</option>
+<option value="211">Silvana Combaluzier Millet</option>
+<option value="1104">Sofia Ponce Campos</option>
+<option value="1653">SOFIA  AVILA PORTILLO</option>
+<option value="2025">SOFIA GARCÍA</option>
+<option value="2157">Stephanie Heinemann</option>
+<option value="2455">Susana Ivonne Gonzalez Duran</option>
+<option value="1855">Tamara   Buggs Sandoval</option>
+<option value="2470">Tania Berenice Lopez Rodriguez</option>
+<option value="1715">TERESITA DE JESUS MARTÍNEZ MERCADO</option>
+<option value="1287">Thelma Bolón Moheno</option>
+<option value="898">Tiare del Rocío González Pérez</option>
+<option value="520">Tino anguita </option>
+<option value="2243">Tomas Barreno</option>
+<option value="2333">Tony Motola</option>
+<option value="31">TRIATLETA HOMBRE A1</option>
+<option value="55">TRIATLETA HOMBRE SE</option>
+<option value="56">TRIATLETA HOMBRE IN</option>
+<option value="57">TRIATLETA HOMBRE B1</option>
+<option value="58">TRIATLETA HOMBRE B2</option>
+<option value="59">TRIATLETA HOMBRE A2</option>
+<option value="61">TRIATLETA HOMBRE N2</option>
+<option value="62">TRIATLETA HOMBRE N1</option>
+<option value="63">TRIATLETA HOMBRE EN</option>
+<option value="64">TRIATLETA HOMBRE EI</option>
+<option value="44">TRIATLETA MUJER EI</option>
+<option value="45">TRIATLETA MUJER EI</option>
+<option value="46">TRIATLETA MUJER EN</option>
+<option value="47">TRIATLETA MUJER N2</option>
+<option value="48">TRIATLETA MUJER N1</option>
+<option value="49">TRIATLETA MUJER A1</option>
+<option value="50">TRIATLETA MUJER A2</option>
+<option value="51">TRIATLETA MUJER B2</option>
+<option value="52">TRIATLETA MUJER B1</option>
+<option value="53">TRIATLETA MUJER IN</option>
+<option value="54">TRIATLETA MUJER SE</option>
+<option value="2483">Uriel Garcia</option>
+<option value="1941">Valentina Muñoz Solis</option>
+<option value="2378">Valeria Quintana Guerrero</option>
+<option value="2202">Valeria Perez Ventura</option>
+<option value="1465">Valeria Tatis</option>
+<option value="2292">VALERIA ALVAREZ RUIZ</option>
+<option value="1354">Veronica Perez Troyo</option>
+<option value="2226">Verónica Gordillo</option>
+<option value="1891">VICTOR  BUSTOS ORTIZ </option>
+<option value="2430">Victor Gonzalez Bautista</option>
+<option value="2443">VÍCTOR LÓPEZ RIVAS</option>
+<option value="1749">VICTOR  REYES</option>
+<option value="1959">Victor Arturo Miranda mora</option>
+<option value="1224">Víctor Emmanuel Zambrano Gonzalez</option>
+<option value="2334">Víctor Manuel  Chan</option>
+<option value="1947">Victoria  Quiroz Rendon</option>
+<option value="2110">Viridiana Pat Figueroa </option>
+<option value="2260">Viridiana  Balvanera Pacheco</option>
+<option value="2218">Viviana Carrillo</option>
+<option value="2174">William  López</option>
+<option value="1930">XATRIA  MANZO HERRERA </option>
+<option value="1161">Xavier Figuerola Ortín</option>
+<option value="1574">Ximena  Penagos</option>
+<option value="2277">Ximena García</option>
+<option value="1709">YAHIR  MORENO BAUTISTA</option>
+<option value="2413">YANELY BRITO IBARRA</option>
+<option value="2493">YARESMI MORENO NUÑEZ</option>
+<option value="2395">Yuliana Flores</option>
+<option value="1800">Zuiri Sanchez </option>
+</select><span class="select2 select2-container select2-container--krajee" dir="ltr" data-select2-id="1" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-reportsfolder-athlete_id-container"><span class="select2-selection__rendered" id="select2-reportsfolder-athlete_id-container" role="textbox" aria-readonly="true"><span class="select2-selection__placeholder"> --- Selecciona --- </span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+<div class="help-block errorHiden"></div>
+</div>					</span>
+				</div>
+
+				<div class="col-sm-12 float-left  pleft-0">
+					<div class="row row-nav-line" style="border: solid 0px; margin-top:-20px; margin-bottom: 10px; ">
+						<ul class="nav nav-tabs nav-line nav-color-secondary w-100 pl-3" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active show" data-toggle="tab" href="#" role="tab" aria-selected="true">
+									Datos generales								</a>
+							</li>
+						</ul>
+					</div>	
+				</div>
+<div class="col-sm-4 float-left  pleft-0 d-nones">
+            <div class="form-group field-reportsfolder-with_logo">
+<label class="checkLabel" for="reportsfolder-with_logo">Con logo </label>
+<input type="hidden" name="Reportsfolder[with_logo]" value="0"><label><div class="toggle btn btn-black off margenLabel" data-toggle="toggle" style="width: 88.225px; height: 43.4px;"><input type="checkbox" id="reportsfolder-with_logo" name="Reportsfolder[with_logo]" value="1" data-toggle="toggle" data-onstyle="primary" data-on="Si" data-off="No" data-style="margenLabel"><div class="toggle-group"><label class="btn btn-primary toggle-on">Si</label><label class="btn btn-black active toggle-off">No</label><span class="toggle-handle btn btn-black"></span></div></div> </label>
+
+<div class="help-block errorHiden"></div>
+</div>        </div>
+				<div style="clear: both;"></div>
+				
+				<div class="col-sm-4 float-left  pleft-0">
+					<div class="form-group field-reportsfolder-birthdate">
+<label class="control-label" for="reportsfolder-birthdate">Fecha de nacimiento</label>
+<input type="date" id="reportsfolder-birthdate" class="form-control form-control-sm" name="Reportsfolder[birthdate]" value="1975-12-24">
+
+<div class="help-block errorHiden"></div>
+</div>				</div>
+				<div class="col-sm-4 float-left  pleft-0">
+					<div class="form-group field-reportsfolder-sporttestdate required">
+<label class="control-label" for="reportsfolder-sporttestdate">Fecha de prueba deportiva</label>
+<input type="date" id="reportsfolder-sporttestdate" class="form-control form-control-sm" name="Reportsfolder[sportTestDate]" aria-required="true">
+
+<div class="help-block errorHiden"></div>
+</div>				</div>
+
+				<div class="col-sm-4 float-left  pleft-0">
+					<div class="form-group field-reportsfolder-name required">
+<label class="control-label" for="reportsfolder-name">Nombre</label>
+<input type="text" id="reportsfolder-name" class="form-control form-control-sm" name="Reportsfolder[name]" value="Alberto Garcia" maxlength="255" autocomplete="off" aria-required="true">
+
+<div class="help-block errorHiden"></div>
+</div>				</div>
+				<div class="col-sm-4 float-left  pleft-0">
+					<div class="form-group field-reportsfolder-gender">
+<label class="control-label" for="reportsfolder-gender">Género</label>
+<select id="reportsfolder-gender" class="form-control" name="Reportsfolder[gender]" value="1" required="required" style="height: 31px">
+<option value="">-- Selecciona --</option>
+<option value="1" selected="">Masculino</option>
+<option value="0">Femenino</option>
+</select>
+
+<div class="help-block errorHiden"></div>
+</div>				</div>
+				<div class="col-sm-4 float-left  pleft-0">
+					<div class="form-group field-reportsfolder-height required">
+<label class="control-label" for="reportsfolder-height">Estatura</label>
+<input type="number" id="reportsfolder-height" class="form-control form-control-sm" name="Reportsfolder[height]" value="168" placeholder="---" min="0" step="001" aria-required="true">
+
+<div class="help-block errorHiden"></div>
+</div>				</div>
+				<div class="col-sm-4 float-left  pleft-0">
+					<div class="form-group field-usuariosapi-usuarioapiid">
+						<label class="control-label required" for="reportsfolder-txtPeso">Peso(Kg)</label>
+						<span class="errorRojo">*</span>
+						<input type="number" min="0" step="000.1" placeholder="000.0" id="reportsfolder-txtPeso" class="form-control form-control-sm" name="Reportsfolder[txtPeso]" value="" aria-invalid="false" required="">
+					</div>
+				</div>
+	</div></div>
+<div class="card">
+	<div class="card-body" style="padding-top: 30px;">
+				<div style="clear: both;"></div>
+
+				<div class="col-sm-4 float-left  pleft-0">
+					<div class="row row-nav-line" style="border: solid 0px; margin-bottom: 10px; margin-top:-5px; line-height:8px;">
+						<ul class="nav nav-tabs nav-line nav-color-secondary w-100 pl-3" role="tablist" style="line-height: 8px; padding: 0px;">
+							<li class="nav-item">
+								<a class="nav-link active show" data-toggle="tab" href="#" role="tab" aria-selected="true">
+									
+									Registro de datos								</a>
+							</li>
+						</ul>
+					</div>	
+				</div>
+
+				<div class="col-sm-12 float-left  pleft-0">
+					<div id="error_agregar" class="alert alert-danger" role="alert" style="color: red; display: none;">
+					</div>
+					<table width="100%" class="table table-responsive table-striped table-bordered table-sm">
+						<tbody>
+</tbody><tbody id="table-body">
+</tbody>
+						<tbody>
+</tbody></table>
+					
+					<div align="right">
+						<a class="add-modal-click btn btn-info btnAddform" style="display:none;" id="abreModal1" value="index.php?r=reportsfolder/createmodal" href="#" title="Buscar facturas" data-toggle="modal">
+							<i class="icon-graph"></i> Ver						</a>
+					</div>
+				</div>
+
+				<div class="col-sm-12 float-left  pleft-0" style="padding-top: 8px;">
+					
+					Comentario General (opcional)					<textarea id="reportsfolder-txtComentario" class="form-control" name="Reportsfolder[txtComentario]" maxlength="500" rows="2" aria-required="true"></textarea>
+				</div>
+
+				<div style="clear: both;"></div>
+
+	</div>
+</div>
+<div class="card">
+	<div class="card-body" style="padding-top: 30px;">
+				<div class="col-sm-4 float-left  pleft-0">
+					<div class="row row-nav-line" style="border: solid 0px; margin-bottom: 10px; line-height:8px;">
+						<ul class="nav nav-tabs nav-line nav-color-secondary w-100 pl-3" role="tablist" style="line-height: 8px; padding: 0px;">
+							<li class="nav-item">
+								<a class="nav-link active show" data-toggle="tab" href="#" role="tab" aria-selected="true">
+									
+									Zonas de entrenamiento								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-sm-12 float-left  pleft-0">
+					<table width="100%" class="table table-striped table-bordered table-sm">
+						<thead>
+						<tr style="background: #003a5d; color: #FFFFFF; ">
+							<td width="15%">Zona							</td>
+							<td width="17%">
+								<span id="spanZEVkmPorHr">V (Km/hr)</span>
+								<span class="errorRojo">*</span>
+							</td>
+							<td width="17%" class="tdcolumnaCarrera" style="">
+								<span id="spanTituloTiempoMinKm">Ritmo (mins/km)</span>
+							</td>
+							<td width="17%">FC (ppm)								<span class="errorRojo">*</span>
+							</td>
+							<td width="17%">Lactato(mMol/L)							</td>
+							<td width="17%" class="dtPotenciaCarrera" style="">
+								<span id="spanTituloTiempoMinKm">
+								Potencia(W)								</span>
+							</td>
+						</tr>
+						</thead>
+						<tbody>
+</tbody></table>
+				</div>
+
+				<div class="col-sm-12 float-left  pleft-0">
+					<div class="form-group field-reportsfolder-activoreportsfolder">
+
+<input type="hidden" id="reportsfolder-activoreportsfolder" class="form-control" name="Reportsfolder[activoReportsFolder]" value="1">
+
+<div class="help-block errorHiden"></div>
+</div>					<br>
+				</div>
+</div></div>
+<div style="clear: both;"></div>
+<div class="col-sm-12 pleft-0" align="right">
+    <div class="form-group">
+		<!--<a href="index.php?r=reportsfolder/createel" class="btn btn-primary"><i class="icon-graph"></i> &nbsp; Ver gráfica</a>-->
+		<div id="div"></div>
+				
+		<button type="submit" class="btn btn-save mr-2 submitFormBtn"><i class="fa fa-check"></i> &nbsp; Guardar</button>		<input type="hidden" id="hddValida" value="0">
+		<!--hash-->
+		<div class="form-group field-reportsfolder-created_by_id">
+
+<input type="hidden" id="reportsfolder-created_by_id" class="form-control" name="Reportsfolder[created_by_id]" value="242">
+
+<div class="help-block errorHiden"></div>
+</div><div class="form-group field-reportsfolder-status required">
+
+<input type="hidden" id="reportsfolder-status" class="form-control" name="Reportsfolder[status]" value="1" aria-required="true">
+
+<div class="help-block errorHiden"></div>
+</div>    </div>
+</div>
+<input type="text" name="TXTnombre2" style="display:none;"><br>
+
+
+ </form>
+
+
+
+
+<div id="add-modal" class="fade modal" role="dialog" tabindex="-1">
+<div class="modal-dialog ">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+</div>
+<div class="modal-body">
+<div id="addModalContent" style="width:890px"></div>
+</div>
+
+</div>
+</div>
+</div><script src="../../../assets/sweetalert.min.js.descarga"></script>			</div>
+		</div>
+</div>
+            </div>
+        </div>
+
+
+        <div style="clear: both;"></div>
+        <div class="footer ">
+            <!---->
+            <div class="container">
+                <div class="col-sm-12">
+                    <div class="col-sm-3" style="float: left;">
+                        <img src="../../../assets/logo_all.png" alt="logo" class="navbar-brand">                    </div>
+                    <div class="col-sm-9" style="float: left; text-align: right; padding-top: 15px; font-weight: 700; color: #003A5D;">
+                        Copyright © 2025 by <a href="http://allinyourmind.es/" target="_blank"> ALL
+                            IN YOUR MIND</a>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+
+
+    </div>
+
+
+
+    <!--   Core JS Files   -->
+    <script src="../../../assets/jquery.min.js.descarga"></script>
+    <script src="../../../assets/alertif.min.js.descarga"></script>
+    <script src="../../../assets/bootstrap-toggle.min.js.descarga"></script>
+    <script src="../../../assets/yii.js.descarga"></script>
+<script src="../../../assets/jquery-ui.min.js.descarga"></script>
+<script src="../../../assets/popper.min.js.descarga"></script>
+<script src="../../../assets/bootstrap.min.js.descarga"></script>
+<script src="../../../assets/jquery.scrollbar.min.js.descarga"></script>
+<script src="../../../assets/atlantis2.min.js.descarga"></script>
+<script src="../../../assets/select2.full.js.descarga"></script>
+<script src="../../../assets/es.js.descarga"></script>
+<script src="../../../assets/select2-krajee.js.descarga"></script>
+<script src="../../../assets/kv-widgets.js.descarga"></script>
+<script src="../../../assets/yii.validation.js.descarga"></script>
+<script src="../../../assets/yii.activeForm.js.descarga"></script>
+
+
+
+
+
+
+<script src="../../../assets/bootstrap-notify.min.js.descarga"></script>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div>    <script src="AGREGAR LACTATO.js"></script>
+</body></html>

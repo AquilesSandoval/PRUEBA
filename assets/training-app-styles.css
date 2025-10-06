@@ -1,0 +1,287 @@
+/**
+ * Training App Styles
+ * Styles for drag & drop, context menus, and enhanced UI
+ */
+
+/* Session items - draggable */
+.session-item {
+    cursor: move;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.session-item:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.session-item.dragging {
+    opacity: 0.5;
+    transform: rotate(3deg);
+}
+
+/* Drag over states */
+.day-container.drag-over,
+.cuadroInfo.drag-over {
+    background-color: rgba(66, 139, 202, 0.1);
+    border: 2px dashed #428bca;
+    transition: all 0.2s ease;
+}
+
+/* Context Menu */
+.context-menu {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 200px;
+    padding: 5px 0;
+    z-index: 10000;
+}
+
+.context-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.context-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.context-menu li.divider {
+    border-top: 1px solid #e5e5e5;
+    margin: 5px 0;
+}
+
+.context-menu a {
+    display: block;
+    padding: 8px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.context-menu a:hover {
+    background-color: #f5f5f5;
+    color: #428bca;
+}
+
+.context-menu a i {
+    margin-right: 10px;
+    width: 16px;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Session details */
+.session-duration,
+.session-distance {
+    font-weight: bold;
+}
+
+/* Mesociclo selector enhancements */
+#mesociclo_select,
+#mesociclo_select_personal {
+    width: 100%;
+}
+
+/* Calendar day containers */
+.cuadroInfo {
+    min-height: 80px;
+    transition: all 0.2s ease;
+}
+
+/* Modal enhancements */
+.modal-content {
+    border-radius: 8px;
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Week statistics */
+.week-stats {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.week-stats .stat-item {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.week-stats .stat-label {
+    font-weight: bold;
+    color: #666;
+}
+
+.week-stats .stat-value {
+    color: #428bca;
+    font-size: 1.1em;
+}
+
+/* Loading indicator */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #428bca;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Enhanced buttons */
+.btn-add-plan {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    color: white;
+}
+
+.btn-add-plan:hover {
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+/* Icon colors for different sports */
+.sport-icon-running {
+    color: #4ACF74;
+}
+
+.sport-icon-cycling {
+    color: #5DADE2;
+}
+
+.sport-icon-swimming {
+    color: #48C9B0;
+}
+
+.sport-icon-strength {
+    color: #F39C12;
+}
+
+/* Plan loader button */
+#quick-plan-loader {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#quick-plan-loader .btn-round {
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+#quick-plan-loader .btn-round:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .context-menu {
+        min-width: 150px;
+    }
+    
+    .session-item {
+        font-size: 11px;
+    }
+}
+
+/* Tooltip for sessions */
+.session-tooltip {
+    position: absolute;
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.session-item:hover .session-tooltip {
+    opacity: 1;
+}
+
+/* Plan preview */
+.plan-preview {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.plan-preview-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #428bca;
+}
+
+.plan-preview-sessions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.plan-preview-session {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 8px;
+    flex: 0 0 calc(25% - 10px);
+    font-size: 12px;
+}
+
+/* Hierarchy navigation breadcrumb */
+.training-breadcrumb {
+    background: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.training-breadcrumb a {
+    color: #428bca;
+    text-decoration: none;
+}
+
+.training-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.training-breadcrumb .separator {
+    margin: 0 10px;
+    color: #999;
+}

@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://app.allinyourmind.es/web/index.php?r=athletesathlete/update&id=146 -->
+<html lang="ES-es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aiym Panel :: AIYM YUC</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <link rel="icon" type="image/png" href="https://app.allinyourmind.es/web/require/img/favicon-32x32.png">
+    <!-- Fonts and icons -->
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../../assets/css">
+        <!-- plugins css -->
+    <meta name="csrf-param" content="_csrf">
+<meta name="csrf-token" content="AKPCvXxxhPjqshumTlKuOtSc9ofTUruzCVh-HyJz6cZ0mqjFDyaztrzreP8CCsdM4ayh4KYl8-okFTdzaQbQpQ==">
+
+<link href="../../assets/fonts.min.css" rel="stylesheet">
+<link href="../../assets/bootstrap.min.css" rel="stylesheet">
+<link href="../../assets/atlantis2.css" rel="stylesheet">
+<link href="../../assets/select2.css" rel="stylesheet">
+<link href="../../assets/select2-addl.css" rel="stylesheet">
+<link href="../../assets/select2-krajee.css" rel="stylesheet">
+<link href="../../assets/kv-widgets.css" rel="stylesheet">
+<script src="../../assets/jquery-2.1.4.js.descarga"></script>
+    <link rel="stylesheet" href="../../assets/demo.css">
+    <link rel="stylesheet" href="../../assets/alertif.min.css">
+
+    <link rel="stylesheet" href="Atletas Editar.css">
+</head>
+
+
+<body data-background-color="bg3">
+    <div class="wrapper page-container">
+
+        <div class="main-header" data-background-color="white" style="">
+            <div class="nav-top">
+                <div class="container d-flex flex-row">
+
+                    <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+                    <!-- Logo Header -->
+                    <a class="logo d-flex align-items-center" href="../../INICIO.html"><img src="../../assets/logo_all.png" alt="logo" class="navbar-brand"></a>                    <!-- End Logo Header -->
+
+                    <!-- Navbar Header -->
+                    <nav class="navbar navbar-header navbar-expand-lg p-0">
+
+                        <div class="container-fluid p-0">
+
+                            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                                <!--
+								<li class="nav-item dropdown hidden-caret" >
+									<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+										<img src="require/img/es.svg" style="width:25px; border:solid 0px;"/>
+									</a>
+									<ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown" style="width: 70px; background: #FFFFFF;" >
+										<li>
+											<div class="notif-center">
+																								<a href="javascript:;" onClick="changeIdioma(1,'es.svg')">
+													<div class="notif-content" style="padding-left: 15px;">
+														<span class="block">
+															<img src="require/img/es.svg" style="width:25px; border:solid 0px;"/> Español														</span>
+													</div>
+												</a>
+																								<a href="javascript:;" onClick="changeIdioma(2,'gb.svg')">
+													<div class="notif-content" style="padding-left: 15px;">
+														<span class="block">
+															<img src="require/img/gb.svg" style="width:25px; border:solid 0px;"/> English														</span>
+													</div>
+												</a>
+																							</div>
+										</li>
+									</ul>
+								</li>
+								-->
+                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="nav-link" data-toggle="dropdown" href="Atletas Editar.html#" aria-expanded="false" title="Ajuste de idiomas">
+                                        <!--<i class="fas fa-stream" style="color: #19b2eb;"></i>-->
+                                        <img src="../../assets/es.svg" style="width:25px; border:solid 0px;">
+                                    </a>
+                                    <div class="dropdown-menu quick-actions quick-actions-info animated fadeIn">
+
+                                        <div class="scroll-wrapper quick-actions-scroll scrollbar-outer" style="position: relative;"><div class="quick-actions-scroll scrollbar-outer scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
+                                            <div class="quick-actions-items">
+                                                <div class="row m-0">
+                                                                                                        <a class="col-6 col-md-4 p-0" href="javascript:;" onclick="changeIdioma(1,&#39;es.svg&#39;)">
+                                                        <div class="quick-actions-item">
+                                                            <img src="../../assets/es.svg" style="width:25px; border:solid 0px;">
+
+                                                            <span class="text">Español                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                                                                        <a class="col-6 col-md-4 p-0" href="javascript:;" onclick="changeIdioma(2,&#39;gb.svg&#39;)">
+                                                        <div class="quick-actions-item">
+                                                            <img src="../../assets/gb.svg" style="width:25px; border:solid 0px;">
+
+                                                            <span class="text">English                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                    
+                                                    <!-- inicio -->
+
+                                                </div>
+                                            </div>
+                                        </div><div class="scroll-element scroll-x" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
+                                    </div>
+                                </li>
+
+
+                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="nav-link" data-toggle="dropdown" href="Atletas Editar.html#" aria-expanded="false" title="Lecciones">
+                                        <i class="far fa-folder-open" style="font-size: 24px;color:#215373;"></i>                                    </a>
+                                    <div class="dropdown-menu quick-actions quick-actions-info animated fadeIn">
+                                        <div class="scroll-wrapper quick-actions-scroll scrollbar-outer" style="position: relative;"><div class="quick-actions-scroll scrollbar-outer scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
+                                            <div class="quick-actions-items">
+                                                <div class="row m-0">
+                                                    <div class="quick-actions-item col-md-12">
+																		<div class="avatar-item bg-grey1 rounded-circle">
+																			<i class="icon-ban"></i>
+																		</div>
+																		<span class="text">Sin permisos</span>
+																	</div>
+                                                </div>
+                                            </div>
+                                        </div><div class="scroll-element scroll-x" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
+                                    </div>
+                                </li>
+                                                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="nav-link" data-toggle="dropdown" href="Atletas Editar.html#" aria-expanded="false" title="Entrenamientos">
+                                        <img src="../../assets/menu_entrenamientos.png" style="width: 28px;">                                        <!--	<i class="fas fa-cubes " style="font-size: 25px; color: #19b2eb;"></i> -->
+                                    </a>
+                                    <div class="dropdown-menu quick-actions quick-actions-info animated fadeIn">
+                                        <!--
+										<div class="quick-actions-header">
+											<span class="title mb-1">Entrenamientos</span>
+										</div>
+										-->
+                                        <div class="scroll-wrapper quick-actions-scroll scrollbar-outer" style="position: relative;"><div class="quick-actions-scroll scrollbar-outer scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
+                                            <div class="quick-actions-items">
+                                                <div class="row m-0">
+                                                    <a class="col-6 col-md-4 p-0" href="../../POSIBLES NO NECESARIOS/EJERCICIO/EJERCICIO INICIO.html"><div class="quick-actions-item">
+																			<img src="../../assets/m_ejercicio.png" style="width: 40px;">
+																			<span class="text">Ejercicio</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../../POSIBLES NO NECESARIOS/Circuitos/INICIO CIRCUITO.html"><div class="quick-actions-item">
+																			<img src="../../assets/m_circuito.png" style="width: 40px;">
+																			<span class="text">Circuito</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../../POSIBLES NO NECESARIOS/DRILLS/INICIO DRILLS.html"><div class="quick-actions-item">
+																		<img src="../../assets/drills.svg" style="width: 32px;margin-top:4px;margin-bottom:4px">
+																		<span class="text">Drills</span>
+																	</div></a><a class="col-6 col-md-4 p-0" href="../../POSIBLES NO NECESARIOS/SESION/SESION INICIO.html"><div class="quick-actions-item">
+																			<img src="../../assets/m_sesion.png" style="width: 40px;">
+																			<span class="text">Sesión</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item">
+																			<img src="../../assets/m_progresion.png" style="width: 40px;">
+																			<span class="text">Progresión</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../../MICRO/INICIO MICRO.html"><div class="quick-actions-item">
+																			<img src="../../assets/m_micro.png" style="width: 40px;">
+																			<span class="text">Microciclo</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../../MESO/INICIO MESO.html"><div class="quick-actions-item">
+																			<img src="../../assets/m_meso.png" style="width: 40px;">
+																			<span class="text">Mesociclo</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../../MACRO/INICIO MACRO.html"><div class="quick-actions-item">
+																			<img src="../../assets/m_macro.png" style="width: 40px;">
+																			<span class="text">Macrociclo</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item">
+																		<i class="far fa-folder-open" style="font-size: 30px;color:#215373; margin:5px 0"></i>
+																			<span class="text">Personal</span>
+																		</div></a>
+                                                </div>
+                                            </div>
+                                        </div><div class="scroll-element scroll-x" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
+                                    </div>
+                                </li>
+
+
+                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="nav-link" data-toggle="dropdown" href="Atletas Editar.html#" aria-expanded="false" title="Menu">
+                                        <!--<i class="fas fa-stream" style="color: #19b2eb;"></i>-->
+                                        <img src="../../assets/menu_menu.png" style="width: 28px;">                                    </a>
+                                    <div class="dropdown-menu  quick-actions quick-actions-info animated fadeIn">
+                                        <!--
+										<div class="quick-actions-header">
+											<span class="title mb-1">Menu</span>
+																					</div>
+										-->
+                                        <div class="scroll-wrapper quick-actions-scroll scrollbar-outer" style="position: relative;"><div class="quick-actions-scroll scrollbar-outer scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
+                                            <div class="quick-actions-items">
+                                                <div class="row m-0">
+                                                    <a class="col-6 col-md-4 p-0" href="../../INICIO.html"><div class="quick-actions-item">
+																			
+																			<img src="../../assets/m_inicio.png" style="width: 40px;">
+																			<span class="text">Inicio</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item">
+																			
+																			<img src="../../assets/m_perfil.png" style="width: 40px;">
+																			<span class="text">Perfiles</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../Atletas INICIO.html"><div class="quick-actions-item">
+																			
+																			<img src="../../assets/m_atletas.png" style="width: 40px;">
+																			<span class="text">Atletas</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="../../INFORMES/REPORTES/REPORTES.html"><div class="quick-actions-item">
+																			
+																			<img src="../../assets/d_informes.png" style="width: 40px;">
+																			<span class="text">Informes</span>
+																		</div></a><a class="col-6 col-md-4 p-0" href="#"><div class="quick-actions-item">
+																			
+																			<img src="../../assets/m_dash.png" style="width: 40px;">
+																			<span class="text">Dashboard</span>
+																		</div></a>                                                </div>
+                                            </div>
+                                        </div><div class="scroll-element scroll-x" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
+                                    </div>
+                                </li>
+                                
+
+                                                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="dropdown-toggle profile-pic " data-toggle="dropdown" href="Atletas Editar.html#" aria-expanded="false">
+                                        <div style="float: left; padding: 10px; 7px; color: #535353;">
+                                            | YUC                                        </div>
+
+                                        <div class="avatar-sm" style="float: left;">
+                                            <img src="../../assets/user_242.png" alt="..." class="avatar-img rounded-circle imgshadow">
+
+                                        </div>
+
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user animated fadeIn">
+                                        <div class="scroll-wrapper dropdown-user-scroll scrollbar-outer" style="position: relative;"><div class="dropdown-user-scroll scrollbar-outer scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
+                                            <li>
+                                                <div class="user-box">
+
+                                                    <div class="avatar-lg"><img src="../../assets/user_242.png" alt="image profile" class="avatar-img rounded"></div>
+                                                    <div class="u-text">
+                                                        <h4>
+                                                                                                                    </h4>
+                                                        <p class="text-muted">
+                                                            AIYM YUC                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Patrocinios</a>
+                                                <!--<a class="dropdown-item" href="#">Mis Pagos</a>-->
+                                                <div class="dropdown-divider"></div>
+                                                                                                                                                <a class="dropdown-item" href="#" style="color:#777; font-weight:400;" data-method="post">Salir</a>                                            </li>
+                                        </div><div class="scroll-element scroll-x" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y" style=""><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- End Navbar -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="main-panel">
+            <div class="container" style="min-height: 550px;">
+
+                <!--
+				<br>
+                <div class="row">
+                    <div class="  col-md-8" style="height:500px">
+                        <div class="card" style="border-radius:10px;height:100%">
+                            <div class="card-body">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d29805.280428365306!2d-89.62315766221845!3d20.966162694049682!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1642448948414!5m2!1ses!2smx" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row map-controls align-items-end mt-3">
+                                    <div class="col-12 col-md-3">
+                                        <p class="mb-0 text-title" style="color: #477289;"><b>Hoy somos:</b></p>
+                                        <div class="card"
+                                            style="border-radius:10px;margin:0px;background-color:#003B5C;color:white"
+                                            align="center">
+                                            <p class="mb-0">0 Atletas</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <p class="mb-0 text-title" style="color: #477289;"><b>Hemos recorrido
+                                                juntos:</b></p>
+                                        <div class="card"
+                                            style="border-radius:10px;margin:0px;background-color:#003B5C;color:white"
+                                            align="center">
+                                            <p class="mb-0">0 Kms</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <p class="mb-0 text-title" style="color: #477289;"><b>Presentes en:</b></p>
+                                        <div class="card"
+                                            style="border-radius:10px;margin:0px;background-color:#003B5C;color:white"
+                                            align="center">
+                                            <p class="mb-0">0 Países</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3 text-right"><button class="btn btn-trans btn-edit"
+                                            name="button" type="button"><i aria-hidden="" class="fas fa-pencil-alt"></i>
+                                            Editar </button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-md-4" style="height:500px">
+                        <div class="card" style="border-radius:10px;height: 47%">
+                            <div class="card-header">
+                                <p class="mb-0 text-title" style="color: #477289;"><b>Mis pendientes</b></p>
+                            </div>
+                            <div class="card-body">
+
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" id="seguimiento" class="btn"><b>+ Añadir pendiente</b></a>
+                            </div>
+                        </div>
+                        <div class="card" style="border-radius:10px; height: 47%">
+                                                        <div class="card-body">
+                                <div class="row">
+                                    <div class="col  d-flex flex-column justify-content-center align-items-center p-3">
+                                        <img alt="" src="athlete/icons_dashboard/birthday-garland.png" width="121">
+                                        <img alt="" class="mt-3" src="athlete/icons_dashboard/birthday-cake.png"
+                                            width="30">
+                                        <p class="mb-0 mt-3 birthday-day text-uppercase">
+                                            Septiembr                                        </p>
+                                        <p class="mb-0 mt-2 birthday-age text-uppercase" style="font-size:9px">
+                                            <b>Cumpleaños del mes
+                                            </b>
+                                        </p>
+                                        <div class="row">
+                                            <button class="btn btn-trans p-0" name="button" type="button"><i
+                                                    aria-hidden="" class="fas fa-arrow-left"></i></button>
+                                            <button class="btn btn-trans p-0 ml-3" name="button" type="button"><i
+                                                    aria-hidden="" class="fas fa-arrow-right"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="" style="overflow-y: scroll;height:200px">
+                                            <div class="">
+                                                <img width="20" height="20" alt="" class="photo"
+                                                    src="https://d2459t746dpyli.cloudfront.net/media/default.png">
+                                                <div
+                                                    class="d-flex flex-column justify-content-center align-items-start ml-2">
+
+                                                    <p class="mb-0 athlete-name">Sergio Matilla Miguel
+                                                    </p>
+                                                    <p class="mb-0 mt-1 birthday-date">2 de Enero</p>
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <img width="20" height="20" alt="" class="photo"
+                                                    src="https://d2459t746dpyli.cloudfront.net/media/default.png">
+                                                <div
+                                                    class="d-flex flex-column justify-content-center align-items-start ml-2">
+                                                    <p class="mb-0 athlete-name">Sergio Matilla Miguel
+                                                    </p>
+                                                    <p class="mb-0 mt-1 birthday-date">2 de Enero</p>
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <img width="20" height="20" alt="" class="photo"
+                                                    src="https://d2459t746dpyli.cloudfront.net/media/default.png">
+                                                <div
+                                                    class="d-flex flex-column justify-content-center align-items-start ml-2">
+                                                    <p class="mb-0 athlete-name">Sergio Matilla Miguel
+                                                    </p>
+                                                    <p class="mb-0 mt-1 birthday-date">2 de Enero</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="  col-md-12" style="height:200px">
+                        <div class="card" style="border-radius:10px;height:100%">
+                            <div class="card-body">
+                                Gráfica en construcción
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				-->
+                
+
+
+<div class="page-inner">
+	<!-- aqui inicia el contenido -->
+	<div class="row">
+			<div class="col-md-12">
+				
+					<div class="page-navs py-2">
+						<div class="page-header">
+							<h5 class="page-title"> Atletas	</h5>
+							<ul class="breadcrumbs">
+								<li class="nav-home">				
+									<i class="far fa-folder-open" style="font-size: 18px;"></i>
+								</li>
+								<li class="separator">
+									<i class="flaticon-right-arrow"></i>
+								</li>
+								<li class="nav-item">
+								Editar registro	
+								</li>
+							</ul>
+							<div class="ml-auto">
+								<div class="page-header-breadcrumb">
+									<a class="btn btn-info  btn-sm mr-2 fontBold" href="../Atletas INICIO.html"><i class="icon-magnifier" style="font-weight:700"></i> Regresar</a><a class="btn btn-info  btn-sm mr-2 fontBold" href="../DASHBORD/Atletas DASHBOARD.html"><i class="icon-grid"></i> Dashboard</a><a class="btn btn-info  btn-sm mr-2 fontBold" href="#"><i class="icon-lock"></i> Contraseña</a>										<a class="btn btn-info  btn-sm mr-2 fontBold" href="Atletas Editar.html#" onclick="confirmDelete()">	<i class="icon-close" style="font-weight:700"></i> Eliminar</a>
+								</div>
+							</div>
+						</div>	
+					</div>
+				<div class="card">
+					<div class="card-body">
+						
+
+
+<form id="w0" action="https://app.allinyourmind.es/web/index.php?r=athletesathlete/update&amp;id=146" method="post" enctype="multipart/form-data">
+<input type="hidden" name="_csrf" value="AKPCvXxxhPjqshumTlKuOtSc9ofTUruzCVh-HyJz6cZ0mqjFDyaztrzreP8CCsdM4ayh4KYl8-okFTdzaQbQpQ==">
+<div class="col-sm-12 pleft-0">
+    </div>
+<div style="clear: both;"></div>
+<!-- array(1) {
+  [0]=>
+  array(26) {
+    ["id"]=>
+    string(3) "118"
+    ["password"]=>
+    string(78) "pbkdf2_sha256$120000$UGFgQhsPWem4$mPK/KGFqq0eMHVkkqIJSbf7kagmsQ6PmcU+PzBMDz60="
+    ["last_login"]=>
+    NULL
+    ["is_superuser"]=>
+    string(1) "0"
+    ["username"]=>
+    string(28) "jourdan.mendieta@hotmail.com"
+    ["first_name"]=>
+    string(0) ""
+    ["last_name"]=>
+    string(0) ""
+    ["is_staff"]=>
+    string(1) "0"
+    ["is_active"]=>
+    string(1) "1"
+    ["date_joined"]=>
+    string(26) "2020-06-05 23:40:44.847062"
+    ["type"]=>
+    string(1) "2"
+    ["photo"]=>
+    string(0) ""
+    ["email"]=>
+    string(28) "jourdan.mendieta@hotmail.com"
+    ["email_verified"]=>
+    string(1) "0"
+    ["created_at"]=>
+    string(26) "2020-06-05 23:40:44.848425"
+    ["updated_at"]=>
+    string(26) "2022-08-02 18:43:34.791060"
+    ["reminder"]=>
+    NULL
+    ["has_superuser"]=>
+    string(1) "0"
+    ["allow_login"]=>
+    string(1) "1"
+    ["version_app"]=>
+    NULL
+    ["AuthKey"]=>
+    NULL
+    ["activoSecurityUser"]=>
+    string(1) "1"
+    ["estadoSecurityUser"]=>
+    string(1) "1"
+    ["activaemergencia"]=>
+    string(1) "0"
+    ["esAyudante"]=>
+    string(1) "0"
+    ["user_parent_id"]=>
+    NULL
+  }
+}
+ 
+-->
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-first_name required">
+<label class="control-label" for="athletesathlete-first_name">Nombre(s)</label>
+<input type="text" id="athletesathlete-first_name" class="form-control form-control-sm" name="Athletesathlete[first_name]" value="" maxlength="255" aria-required="true">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-last_name required">
+<label class="control-label" for="athletesathlete-last_name">Apellidos</label>
+<input type="text" id="athletesathlete-last_name" class="form-control form-control-sm" name="Athletesathlete[last_name]" value="" maxlength="255" aria-required="true">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-birthday required">
+<label class="control-label" for="athletesathlete-birthday">Fecha Nacimiento</label>
+<input type="date" id="athletesathlete-birthday" class="form-control form-control-sm" name="Athletesathlete[birthday]" value="" maxlength="255" aria-required="true">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div style="clear: both;"></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-company">
+<label class="control-label" for="athletesathlete-company">Empresa</label>
+<input type="text" id="athletesathlete-company" class="form-control form-control-sm" name="Athletesathlete[company]" value="" maxlength="255">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-email required has-success">
+<label class="control-label" for="athletesathlete-email">Correo</label>
+<input type="text" id="athletesathlete-email" class="form-control form-control-sm" name="Athletesathlete[email]" value="" maxlength="255" autocomplete="off" aria-required="true" aria-invalid="false">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+
+
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-contact required">
+<label class="control-label" for="athletesathlete-contact">Telefono</label>
+<input type="text" id="athletesathlete-contact" class="form-control form-control-sm" name="Athletesathlete[contact]" value="" maxlength="255" aria-required="true">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div style="clear: both;"></div>
+
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-form">
+<label class="control-label" for="athletesathlete-form">Forma</label>
+<input type="number" id="athletesathlete-form" class="form-control form-control-sm" name="Athletesathlete[form]" value="90" placeholder="--">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-fatigue">
+<label class="control-label" for="athletesathlete-fatigue">Fatiga</label>
+<input type="number" id="athletesathlete-fatigue" class="form-control form-control-sm" name="Athletesathlete[fatigue]" value="0" placeholder="--">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-recovery">
+<label class="control-label" for="athletesathlete-recovery">Recuperación</label>
+<input type="number" id="athletesathlete-recovery" class="form-control form-control-sm" name="Athletesathlete[recovery]" value="0" placeholder="--">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div style="clear: both;"></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-default_c_zona_carrera">
+<label class="control-label" for="athletesathlete-default_c_zona_carrera">Default Control Zonas para Carrera</label>
+<select id="athletesathlete-default_c_zona_carrera" class="form-control" name="Athletesathlete[default_c_zona_carrera]">
+<option value="">-- Selecciona --</option>
+<option value="FC">FC</option>
+<option value="P">Potencia</option>
+<option value="V">Velocidad</option>
+</select>
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-default_c_zona_natacion">
+<label class="control-label" for="athletesathlete-default_c_zona_natacion">Default Control Zonas para Natación</label>
+<select id="athletesathlete-default_c_zona_natacion" class="form-control" name="Athletesathlete[default_c_zona_natacion]">
+<option value="">-- Selecciona --</option>
+<option value="FC">FC</option>
+<option value="P">Potencia</option>
+<option value="V">Velocidad</option>
+</select>
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-default_c_zona_ciclismo">
+<label class="control-label" for="athletesathlete-default_c_zona_ciclismo">Default Control Zonas para Ciclismo</label>
+<select id="athletesathlete-default_c_zona_ciclismo" class="form-control" name="Athletesathlete[default_c_zona_ciclismo]">
+<option value="">-- Selecciona --</option>
+<option value="FC">FC</option>
+<option value="P">Potencia</option>
+<option value="V">Velocidad</option>
+</select>
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div style="clear: both;"></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-sport_id">
+<label class="control-label" for="athletesathlete-sport_id">Deporte</label>
+<select id="athletesathlete-sport_id" class="form-control select2-hidden-accessible" name="Athletesathlete[sport_id]" data-s2-options="s2options_d6851687" data-krajee-select2="select2_110cffd1" style="width: 1px; height: 1px; visibility: hidden;" data-select2-id="athletesathlete-sport_id" tabindex="-1" aria-hidden="true">
+<option value=""> --- Selecciona--- </option>
+<option value="1">Bici</option>
+<option value="3" selected="" data-select2-id="2">Carrera</option>
+<option value="6">Duatlon</option>
+<option value="2">Natación</option>
+<option value="5">Otros</option>
+<option value="4">Triatlón</option>
+</select><span class="select2 select2-container select2-container--krajee" dir="ltr" data-select2-id="1" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-athletesathlete-sport_id-container"><span class="select2-selection__rendered" id="select2-athletesathlete-sport_id-container" role="textbox" aria-readonly="true" title="Carrera"><span class="select2-selection__clear" title="Eliminar todos los elementos" data-select2-id="3">×</span>Carrera</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-contract_type_id">
+<label class="control-label" for="athletesathlete-contract_type_id">Tipo de contrato</label>
+<select id="athletesathlete-contract_type_id" class="form-control select2-hidden-accessible" name="Athletesathlete[contract_type_id]" data-s2-options="s2options_d6851687" data-krajee-select2="select2_110cffd1" style="width: 1px; height: 1px; visibility: hidden;" data-select2-id="athletesathlete-contract_type_id" tabindex="-1" aria-hidden="true">
+<option value=""> --- Selecciona--- </option>
+<option value="2">Carrera On Line</option>
+<option value="3">Carrera Otros</option>
+<option value="1" selected="" data-select2-id="5">Carrera Presencial</option>
+<option value="8">Ciclismo On Line</option>
+<option value="9">Ciclismo Otros</option>
+<option value="7">Ciclismo Presencial</option>
+<option value="11">Natación On Line</option>
+<option value="12">Natación Otros</option>
+<option value="10">Natación Presencial</option>
+<option value="13">Otros</option>
+<option value="5">Triatlón On Line</option>
+<option value="6">Triatlón Otros</option>
+<option value="4">Triatlón Presencial</option>
+</select><span class="select2 select2-container select2-container--krajee" dir="ltr" data-select2-id="4" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-athletesathlete-contract_type_id-container"><span class="select2-selection__rendered" id="select2-athletesathlete-contract_type_id-container" role="textbox" aria-readonly="true" title="Carrera Presencial"><span class="select2-selection__clear" title="Eliminar todos los elementos" data-select2-id="6">×</span>Carrera Presencial</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+<div class="help-block errorHiden"></div>
+</div></div>
+
+
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-activoatleta">
+<label class="checkLabel" for="athletesathlete-activoatleta">Activo </label>
+<input type="hidden" name="Athletesathlete[activoAtleta]" value="0"><label><div class="toggle btn btn-primary margenLabel" data-toggle="toggle" style="width: 88.225px; height: 43.4px;"><input type="checkbox" id="athletesathlete-activoatleta" name="Athletesathlete[activoAtleta]" value="1" checked="" data-toggle="toggle" data-onstyle="primary" data-on="Si" data-off="No" data-style="margenLabel"><div class="toggle-group"><label class="btn btn-primary toggle-on">Si</label><label class="btn btn-black active toggle-off">No</label><span class="toggle-handle btn btn-black"></span></div></div> </label>
+
+<div class="help-block errorHiden"></div>
+</div></div>
+
+<div style="clear: both;"></div>
+
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-contacto_emergencia">
+<label class="control-label" for="athletesathlete-contacto_emergencia">Contacto emergencia</label>
+<input type="text" id="athletesathlete-contacto_emergencia" class="form-control form-control-sm" name="Athletesathlete[contacto_emergencia]" maxlength="255">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-telefono_emergencia">
+<label class="control-label" for="athletesathlete-telefono_emergencia">Telefono emergencia</label>
+<input type="text" id="athletesathlete-telefono_emergencia" class="form-control form-control-sm" name="Athletesathlete[telefono_emergencia]" maxlength="255">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-parentesco">
+<label class="control-label" for="athletesathlete-parentesco">Parentesco</label>
+<input type="text" id="athletesathlete-parentesco" class="form-control form-control-sm" name="Athletesathlete[parentesco]" maxlength="255">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-contacto_emergencia2">
+<label class="control-label" for="athletesathlete-contacto_emergencia2">Contacto emergencia</label>
+<input type="text" id="athletesathlete-contacto_emergencia2" class="form-control form-control-sm" name="Athletesathlete[contacto_emergencia2]" maxlength="255">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-telefono_emergencia2">
+<label class="control-label" for="athletesathlete-telefono_emergencia2">Telefono emergencia</label>
+<input type="text" id="athletesathlete-telefono_emergencia2" class="form-control form-control-sm" name="Athletesathlete[telefono_emergencia2]" maxlength="255">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-parentesco2">
+<label class="control-label" for="athletesathlete-parentesco2">Parentesco</label>
+<input type="text" id="athletesathlete-parentesco2" class="form-control form-control-sm" name="Athletesathlete[parentesco2]" maxlength="255">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+
+
+
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-tipo_sangre">
+<label class="control-label" for="athletesathlete-tipo_sangre">Tipo de sangre:</label>
+<input type="text" id="athletesathlete-tipo_sangre" class="form-control form-control-sm" name="Athletesathlete[tipo_sangre]" maxlength="255">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-alergias">
+<label class="control-label" for="athletesathlete-alergias">Alergias a medicamentos:</label>
+<input type="text" id="athletesathlete-alergias" class="form-control form-control-sm" name="Athletesathlete[alergias]" maxlength="255">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-datos_gastos_medicos">
+<label class="control-label" for="athletesathlete-datos_gastos_medicos">Datos Seguro Gastos Médicos:</label>
+<input type="text" id="athletesathlete-datos_gastos_medicos" class="form-control form-control-sm" name="Athletesathlete[datos_gastos_medicos]" maxlength="255">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-hospital">
+<label class="control-label" for="athletesathlete-hospital">Hospital al que trasladar:</label>
+<input type="text" id="athletesathlete-hospital" class="form-control form-control-sm" name="Athletesathlete[hospital]" maxlength="255">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+<div class="col-sm-4 float-left  pleft-0">
+    <div class="form-group field-athletesathlete-numero_afiliacion_federacion">
+<label class="control-label" for="athletesathlete-numero_afiliacion_federacion">Numero Afiliacion Federacion</label>
+<input type="text" id="athletesathlete-numero_afiliacion_federacion" class="form-control form-control-sm" name="Athletesathlete[numero_afiliacion_federacion]" maxlength="100">
+
+<div class="help-block errorHiden"></div>
+</div></div>
+
+<div style="clear: both;"></div>
+<div class="col-sm-4 float-left pleft-0" style="height: 150px; border: solid 0px;" align="center">
+    <div align="left">Foto</div>
+        <div class="" style="position:absolute; bottom: 0px; border: solid 0px; width: 100%;">
+        <div class="file-select" id="src-file1">
+            <input type="file" name="src-file1" aria-label="Archivo" style="width:130px;">
+            <span id="spanSelected" style="border: solid 0px; position: absolute; left: 55px; bottom: 35px; max-height:110px;"><img style="border-radius:35px;" id="selectedImg1" width="75" src="../../assets/f4600a4902d2492aab666a0359eb4c42.jpg"></span>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4 float-left pleft-0" style="height: 150px; border: solid 0px;" align="center">
+    <div align="left">
+        Contrato    </div>
+    <div class="" style="border: solid 0px; width: 100%; padding-right: 20px;">
+        <br>
+								Archivo no disponible
+								<div class="alert alert-warning" role="alert" style=" padding: 0px; box-shadow:none;">
+										 <i class="fa fa-check-square-o" aria-hidden="true"></i> 
+									 </div>        <div class="file-select" id="src-file2">
+            <br>
+            <input type="file" name="src-file2" aria-label="Archivo" style="width:130px;">
+            <span id="spanSelected" style="border: solid 0px; position: absolute; left: -80px; bottom: 35px; width:330px;">
+                <img style="border-radius:35px; margin-top:-30px;" id="selectedImg1" width="45" src="../../assets/icon_contrato.png">
+                <br> <br>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4 float-left pleft-0" style="height: 150px; border: solid 0px;" align="center">
+    <div align="left">
+        Electrocardiograma    </div>
+    <div class="" style="border: solid 0px; width: 100%; padding-right: 20px;">
+        <br>
+								Archivo no disponible
+								<div class="alert alert-warning" role="alert" style=" padding: 0px; box-shadow:none;">
+										 <i class="fa fa-check-square-o" aria-hidden="true"></i> 
+									 </div>        <div class="file-select" id="src-file2">
+            <br>
+            <input type="file" name="src-file3" aria-label="Archivo" style="width:130px;">
+            <span id="spanSelected" style="border: solid 0px; position: absolute; left: 55px; bottom: 35px;">
+                <img style="border-radius:35px;" id="selectedImg1" width="45" src="../../assets/icon_presupuesto.png">
+                <br> <br>
+            </span>
+        </div>
+    </div>
+</div>
+<div style="clear: both;"></div>
+<div class="col-sm-12 right-0">
+    <div class="form-group" align="right" style="margin-top: 40px;">
+        <button type="button" class="btn btn-save mr-2 save_b"><i class="fa fa-check"></i> &nbsp; Guardar</button>        <div class="form-group field-athletesathlete-updated_at required">
+
+<input type="hidden" id="athletesathlete-updated_at" class="form-control" name="Athletesathlete[updated_at]" value="2025-09-29 23:02:05" aria-required="true">
+
+<div class="help-block errorHiden"></div>
+</div>    </div>
+</div>
+
+</form>
+
+<script src="../../assets/sweetalert.min.js.descarga"></script>					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+
+            </div>
+        </div>
+
+
+        <div style="clear: both;"></div>
+        <div class="footer ">
+            <!---->
+            <div class="container">
+                <div class="col-sm-12">
+                    <div class="col-sm-3" style="float: left;">
+                        <img src="../../assets/logo_all.png" alt="logo" class="navbar-brand">                    </div>
+                    <div class="col-sm-9" style="float: left; text-align: right; padding-top: 15px; font-weight: 700; color: #003A5D;">
+                        Copyright © 2025 by <a href="http://allinyourmind.es/" target="_blank"> ALL
+                            IN YOUR MIND</a>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+
+
+    </div>
+
+
+
+    <!--   Core JS Files   -->
+    <script src="../../assets/jquery.min.js.descarga"></script>
+    <script src="../../assets/alertif.min.js.descarga"></script>
+    <script src="../../assets/bootstrap-toggle.min.js.descarga"></script>
+    <script src="../../assets/yii.js.descarga"></script>
+<script src="../../assets/jquery-ui.min.js.descarga"></script>
+<script src="../../assets/popper.min.js.descarga"></script>
+<script src="../../assets/bootstrap.min.js.descarga"></script>
+<script src="../../assets/jquery.scrollbar.min.js.descarga"></script>
+<script src="../../assets/atlantis2.min.js.descarga"></script>
+<script src="../../assets/yii.validation.js.descarga"></script>
+<script src="../../assets/select2.full.js.descarga"></script>
+<script src="../../assets/es.js.descarga"></script>
+<script src="../../assets/select2-krajee.js.descarga"></script>
+<script src="../../assets/kv-widgets.js.descarga"></script>
+<script src="../../assets/yii.activeForm.js.descarga"></script>
+
+
+
+
+
+
+<script src="../../assets/bootstrap-notify.min.js.descarga"></script>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div>    <script src="Atletas Editar.js"></script>
+</body></html>
