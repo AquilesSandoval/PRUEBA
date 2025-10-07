@@ -1,79 +1,73 @@
 $(document).ready(function(){
-	 
+
 	 $('.submitFormBtn').click(function(){
         var $this = $(this);
         var $next = $this.next();
         if($next.hasClass('submitFormBtnBlock')) {
             $blockBtn = $next;
         } else {
-			
-			var form = document.getElementById('w0');			
+
+			var form = document.getElementById('w0');
 			var dtClear = 0;
 			var errores="";
 			for(var i=0; i < form.elements.length; i++){
 				if(form.elements[i].value === '' && form.elements[i].hasAttribute('required')){
-					//alert(form.elements[i].name);
 					if(form.elements[i].name=="Circuitscircuit[name]"){
-						//errores += "> Nombre del circuito\n";
-						//alert(form.elements[i].name);
 					}
 					if(form.elements[i].name=="")
 						errores += errores += "> Nombre del Ejercicio\n";
-					
+
 					if(form.elements[i].name=="reps[]")
 						errores += "> Repeticiones\n";
-					
+
 					if(form.elements[i].name=="orden[]")
 						errores += "> Orden\n";
-					
+
 					dtClear ++;
 				 }
 			}
-			
+
 			if(dtClear == 0){
 				$blockBtn = $this.clone();
 				$blockBtn.attr('type', 'button');
-				$blockBtn.html('Espere un momento...'); 
+				$blockBtn.html('Espere un momento...');
 				$blockBtn.addClass('submitFormBtnBlock');
 				$blockBtn.removeClass('submitFormBtn');
 				$blockBtn.insertAfter($this);
 				$blockBtn.attr('disabled', 'disabled');
-				
+
 				$this.hide();
 		 		$blockBtn.show();
 			}
-			
+
 			if(dtClear>0){
-				if($("#circuitscircuit-name").val()=="") 
+				if($("#circuitscircuit-name").val()=="")
 					errores = "> Nombre del circuito\n" + errores;
 				swal("Campos requeridos!", "" + errores, {
 					icon : "warning",
-					buttons: {        			
+					buttons: {
 						confirm: {
 							className : 'btn btn-warning'
 						}
 					},
 				});
 				return false;
-			}	 
+			}
         }
-	
-	
-		$('.submitFormBtn').parents('form').on('afterValidate', function (event, messages, errorAttributes) {				
+
+		$('.submitFormBtn').parents('form').on('afterValidate', function (event, messages, errorAttributes) {
 			if(errorAttributes.length > 0) {
 				$('.submitFormBtn').show();
 				$('.submitFormBtnBlock').hide();
 			}
 		});
 	});
-	
+
 });
 $(document).ready(function() {
     cont = 0;
     cont = 8;
     $("#add_line").click(function() {
-        //cont = cont + 1;
-        console.log(cont);
         $("#circuits_items>tbody").append('<tr id="fila_' + cont + '">' +
             '<td><div><img id="image' + cont +
             '" src="require/img/race-blue-icon.png" style="border-radius:18px; position:relative;" width="45px" height="45px" /></div></td>' +
@@ -114,7 +108,6 @@ $(document).ready(function() {
             '</tr>');
             cont+=1;
     });
-    //$('.remove_line').click(DeleteRow);
     $('#ecos_0').click(function() {
 
         if ($(this).prop('checked')) {
@@ -129,7 +122,6 @@ $(document).ready(function() {
         ecos_tot();
     });
     $('#exercise').keyup(function() {
-        console.log('exercise');
         $.ajax({
             type: 'get',
             url: "/web/index.php?r=circuitscircuit/getexercise",
@@ -137,14 +129,12 @@ $(document).ready(function() {
                 word: $(this).val()
             },
             success: function(data) {
-                console.log(data);
                 document.getElementById('exercise').innerHTML = data;
             },
             error: function(data) {},
         });
     });
     $('#exer').keyup(function() {
-        console.log('exercise');
         $.ajax({
             type: 'get',
             url: "/web/index.php?r=circuitscircuit/getexercises",
@@ -152,8 +142,6 @@ $(document).ready(function() {
                 word: $(this).val()
             },
             success: function(data) {
-                console.log(data);
-                //document.getElementById('exerList').innerHTML = data;
                 $('#exerList').fadeIn();
                 $('#exerList').html(data);
             },
@@ -161,9 +149,6 @@ $(document).ready(function() {
         });
     });
     $('.liexerlist').click(function() {
-        //console.log('liiiii')
-        /*$('#exer').val($(this).text());
-        $('#exerList').fadeOut();*/
     })
     $('#save').click(function() {
         swal({
@@ -180,18 +165,6 @@ $(document).ready(function() {
                 }
             }
         });
-        /*swal("Campos requeridos!", "" + errores, {
-            icon: "warning",
-            buttons: {
-                confirm: {
-                    className: 'btn btn-warning'
-                }
-            },
-        });
-        swal("Espere un momento", {
-            buttons: false,
-            timer: 3000,
-        });*/
     })
 
 });
@@ -205,7 +178,6 @@ function eliminarFila(index) {
 }
 
 function getEcosCalorias(_id) {
-	//alert($("#exerid" + _id).val() + ' ' + $("#category" + _id).val() + ' ' + $("#series" + _id).val() + ' ' + $("#reps" + _id).val() + ' ');
 	if($("#exerid" + _id).val()==""){
 		$("#reps" + _id).val("");
 		swal("Debe seleccionar un ejercicio", {
@@ -214,36 +186,27 @@ function getEcosCalorias(_id) {
         });
 		return;
 	}
-	//alert($("#series" + _id).val());
 	$.ajax({
         type: 'get',
         url: "/web/index.php?r=circuitscircuit/getecoscalorias",
         data: {
-            //tipo: "ecos",
             ejercicio: $("#exerid" + _id).val(),
 			categoria: $("#category" + _id).val(),
             serie: $("#series" + _id).val(),
 			repeticiones: $("#reps" + _id).val(),
-			
+
         },
         success: function(data) {
-			//alert(data);
 			var porciones = data.split('|');
-			//ECOS
 			$('#ecos'+ _id).val(porciones[0]);
             $('#ecos_tot').empty();
 			var tot_ecos = 0;
 			$('.ecos').each(function() {
-				//alert($(this).val());
 				tot_ecos += Number($(this).val());
-				//alert(":"+tot_ecos);
 			});
 			tot_ecos= tot_ecos.toFixed(0);
-			//alert(tot_ecos);
 			$('#ecos_tot').append(tot_ecos);
 			$('#circuitscircuit-total_ecos').val(tot_ecos);
-			
-			//KILOCALORIAS
 			$('#kcal'+ _id).val(porciones[1]);
 			 $('#kcal_tot').empty();
 			var tot = 0;
@@ -265,7 +228,6 @@ function ecos_tot() {
     });
     $('#ecos_tot').append(tot_ecos);
     $('#circuitscircuit-total_ecos').val(tot_ecos);
-    console.log(tot_ecos);
 }
 
 function kcal_tot() {
@@ -276,11 +238,9 @@ function kcal_tot() {
     });
     $('#kcal_tot').append('<br>' + tot);
     $('#circuitscircuit-total_calories').val(tot);
-    console.log(tot);
 }
 
 function getE(id_exer) {
-    console.log('exercise');
     $.ajax({
         type: 'get',
         url: "/web/index.php?r=circuitscircuit/getexercises",
@@ -289,8 +249,6 @@ function getE(id_exer) {
             index: id_exer,
         },
         success: function(data) {
-            console.log(data);
-            //document.getElementById('exerList').innerHTML = data;
             $('#exerList' + id_exer).fadeIn();
             $('#exerList' + id_exer).html(data);
         },
@@ -309,11 +267,8 @@ function clickli(id_exer, item, category, id) {
             index: id,
         },
         success: function(data) {
-            console.log(data);
-            //document.getElementById('exerList').innerHTML = data;
             $("#image" + id_exer).attr("src", "../../media/" + data + "");
             $("#exerid" + id_exer).val(id);
-            //$('#exerList' + id_exer).html(data);
         },
         error: function(data) {},
     });
@@ -336,7 +291,6 @@ function confirmDelete() {
                     token: token
                 },
                 success: function(bool) {
-                    //console.log('success '+bool);
                     if (bool == true) {
                         alertify.success(
                             '<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado espere un momento ...</span>',
@@ -354,7 +308,6 @@ function confirmDelete() {
                     }
                 },
                 error: function(data) {
-                    // console.log('error '+data);
                     alertify.error(
                         '<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>',
                         2,
@@ -372,7 +325,6 @@ jQuery('#w0').yiiActiveForm([{"id":"circuitscircuit-status","name":"status","con
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

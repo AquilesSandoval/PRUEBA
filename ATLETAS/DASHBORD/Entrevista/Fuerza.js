@@ -5,7 +5,7 @@ function clasifica(){
 	}else{
 		document.getElementById('nameClasifica').value = "Sedentario";
 		document.getElementById("athletesstrengthtraining-estimated_classification").value = 1;
-	}		
+	}
 }
 
 jQuery(function ($) {
@@ -13,7 +13,6 @@ jQuery('#w0').yiiActiveForm([{"id":"athletesstrengthtraining-training","name":"t
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

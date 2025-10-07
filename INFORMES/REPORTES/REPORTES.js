@@ -2,24 +2,21 @@ var s2options_d6851687 = {"themeCss":".select2-container--krajee","sizeCss":"","
 window.select2_e6279efa = {"allowClear":true,"minimumInputLength":3,"language":{"errorLoading":function () { return 'No se encontraron datos'; }},"ajax":{"url":"\/web\/index.php?r=sessionsssession\/getcitylist","dataType":"json","data":function(params) { return {q:params.term}; }},"escapeMarkup":function (markup) { return markup; },"templateResult":function(city) { return city.text; },"templateSelection":function (city) { return city.text; },"theme":"krajee","width":"100%","placeholder":"Escribe almenos 3 caracteres para buscar..."};
 
 function confirmDeleteRep(_id, _type){
-		//_type =  1=ergoespirometrico		2=lactato
-		alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro', 
+		alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro',
             function(){
                 $.ajax({
                      type: 'get',
                      url: "index.php?r=reportsfolder/deletereporte",
                      data:{_id:_id, _type: _type},
                      success:function(bool){
-						 //console.log('success '+bool);
                         if (bool == true){
-                            alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado. Espere un momento...</span>', 2 , function (){location.reload(); }); 
+                            alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado. Espere un momento...</span>', 2 , function (){location.reload(); });
 
                         }else{
-							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
 						}
                      },
-                     error: function(data){ 
-                        // console.log('error '+data);
+                     error: function(data){
 						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
                      },
                 });
@@ -27,7 +24,7 @@ function confirmDeleteRep(_id, _type){
             function(){
             });
 	}
-	
+
 	$("#btnVincular").click(function(){
 		if($("#reportsfolder-athlete_id").val()==""){
 			swal({
@@ -39,7 +36,7 @@ function confirmDeleteRep(_id, _type){
 			});
 			return;
 		}
-		
+
 		$.ajax({
 			type: 'get',
 			url: "/web/index.php?r=reportsfolder/vicularatleta",
@@ -60,7 +57,7 @@ function confirmDeleteRep(_id, _type){
 			error: function(data) {},
 		});
 	});
-	
+
 	$(document).ready(function() {
 					$.ajax({
 				type: 'get',
@@ -75,28 +72,26 @@ function confirmDeleteRep(_id, _type){
 			});
 
 function confirmDelete(){
-		var key = "bS9YN081Q2FyRDMxaUU4TXFUaWF3QT09"; 
+		var key = "bS9YN081Q2FyRDMxaUU4TXFUaWF3QT09";
 		var token = "";
-		
-        alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro?', 
+
+        alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro?',
             function(){
                 $.ajax({
                      type: 'POST',
                      url: "index.php?r=reportsfolder/delete",
                      data:{key:key, token:token},
                      success:function(bool){
-						 //console.log('success '+bool);
                         if (bool == true){
                             alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado. Espere un momento...</span>', 2 , function (){
-								window.location.href = "index.php?r=reportsfolder/index&del=true"; 
-							}); 
+								window.location.href = "index.php?r=reportsfolder/index&del=true";
+							});
                         }else{
-							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
 						}
                      },
-                     error: function(data){ 
-                        // console.log('error '+data);
-						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+                     error: function(data){
+						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
                      },
                 });
             },
@@ -113,7 +108,6 @@ jQuery('#w0').yiiActiveForm([{"id":"reportsfolder-athlete_id","name":"athlete_id
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

@@ -9,7 +9,6 @@ $(document).ready(function() {
     });
     $('.submitFormBtn').click(function() {
 
-
         var $this = $(this);
         var $next = $this.next();
         if ($next.hasClass('submitFormBtnBlock')) {
@@ -40,9 +39,7 @@ $(document).ready(function() {
             }
         }
 
-
     });
-
 
     $('.submitFormBtn').parents('form').on('afterValidate', function(event, messages, errorAttributes) {
         if (errorAttributes.length > 0) {
@@ -54,28 +51,26 @@ $(document).ready(function() {
 });
 
 function confirmDelete(){
-		var key = "S2gra2g5MnM1Y0dhZ2E0K1NSYlZzZz09"; 
+		var key = "S2gra2g5MnM1Y0dhZ2E0K1NSYlZzZz09";
 		var token = "";
-		
-        alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro?', 
+
+        alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro?',
             function(){
                 $.ajax({
                      type: 'POST',
                      url: "index.php?r=exercisesexercise/delete",
                      data:{key:key, token:token},
                      success:function(bool){
-						 //console.log('success '+bool);
                         if (bool == true){
                             alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado espere un momento ...</span>', 2 , function (){
-								window.location.href = "index.php?r=exercisesexercise/index&del=true&cp="; 
-							}); 
+								window.location.href = "index.php?r=exercisesexercise/index&del=true&cp=";
+							});
                         }else{
-							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
 						}
                      },
-                     error: function(data){ 
-                        // console.log('error '+data);
-						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+                     error: function(data){
+						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
                      },
                 });
             },
@@ -88,7 +83,6 @@ jQuery('#w0').yiiActiveForm([{"id":"exercisesexercise-name","name":"name","conta
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

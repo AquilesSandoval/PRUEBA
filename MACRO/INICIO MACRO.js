@@ -25,14 +25,14 @@ function modalCopy(_id, _cp, _name){
 			return false;
 		}
 	});
-    
+
 	$('#btnBuscar').click(function() {
 		$('#btnPrevisualizar').hide();
         let sel = $('#txtBuscar').val();
 		if(sel.trim()==""){
 			swal("Campos requeridos!", "Debe escribir almenos 3 caráteres para buscar", {
 				icon : "warning",
-				buttons: {        			
+				buttons: {
 					confirm: {
 						className : 'btn btn-warning'
 					}
@@ -58,7 +58,7 @@ function modalCopy(_id, _cp, _name){
 			});
 		}
     });
-	
+
 	$('#folder_select').change(function() {
 		$('#btnCopiar').addClass("d-none");
 		$('#btnMover').addClass("d-none");
@@ -75,7 +75,7 @@ function modalCopy(_id, _cp, _name){
 			}
 		}
 	});
-	
+
 	function validaMover(_msg){
 		$('#btnCopiar').addClass("d-none");
 		$('#btnMover').addClass("d-none");
@@ -88,16 +88,14 @@ function modalCopy(_id, _cp, _name){
 		if(dtClear==0){
 			valida=true;
 		}
-		//alert(valida);
 		if(valida){
-			//$('#btnCopiar').removeClass("d-none");
 			return true;
 		}
 		else{
 			if(_msg){
 				swal("Campos requeridos!", "" + errores, {
 					icon : "warning",
-					buttons: {        			
+					buttons: {
 						confirm: {
 							className : 'btn btn-warning'
 						}
@@ -107,8 +105,7 @@ function modalCopy(_id, _cp, _name){
 			return false;
 		}
 	}
-	
-	
+
 function dup() {
 	var valida= false;
 	if($('#folder_select').val()!="" && $('#hddMesoID').val()!=""){
@@ -117,16 +114,14 @@ function dup() {
 	else{
 		swal("Campos requeridos!", "Seleccione un circuito", {
 			icon : "warning",
-			buttons: {        			
+			buttons: {
 				confirm: {
 					className : 'btn btn-warning'
 				}
 			},
 		});
 	}
-	
-	//valida = validaMover(true);
-		
+
 	if(valida){
 		alertify.confirm(
 		'Confirmación',
@@ -141,7 +136,7 @@ function dup() {
 			var folderOrigenID = $('#hddfolderID').val();
 			var folderDestinoID = $('#folder_select').val();
 			var _name = $('#txtName').val();
-			
+
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=mesocyclesmesocycle/mesodup",
@@ -154,11 +149,10 @@ function dup() {
 					"option" : 2, //mesociclo
 				},
 				success: function(data) {
-					console.log(data);
 					if(data=="Exito"){
 						swal("Mesociclo copiado correctamente", "", {
 							icon : "success",
-							buttons: {        			
+							buttons: {
 								confirm: {
 									className : 'btn btn-warning'
 								}
@@ -172,7 +166,7 @@ function dup() {
 					else{
 						swal("Error!", "" + data, {
 							icon : "error",
-							buttons: {        			
+							buttons: {
 								confirm: {
 									className : 'btn btn-warning'
 								}
@@ -186,8 +180,7 @@ function dup() {
 		function() {});
 	}
 }
-	
-	
+
 function move() {
 	var valida= false;
 	if($('#folder_select').val()!="" && $('#hddMesoID').val()!=""){
@@ -196,7 +189,7 @@ function move() {
 	else{
 		swal("Campos requeridos!", "Seleccione un circuito", {
 			icon : "warning",
-			buttons: {        			
+			buttons: {
 				confirm: {
 					className : 'btn btn-warning'
 				}
@@ -216,7 +209,7 @@ function move() {
 			var origen_id = $('#hddMesoID').val();
 			var folderOrigenID = $('#hddfolderID').val();
 			var folderDestinoID = $('#folder_select').val();
-			
+
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=mesocyclesmesocycle/mesomove",
@@ -226,11 +219,10 @@ function move() {
 					"folderDestinoID": folderDestinoID,
 				},
 				success: function(data) {
-					console.log(data);
 					if(data=="Exito"){
 						swal("El mesociclo fué movido correctamente", "", {
 							icon : "success",
-							buttons: {        			
+							buttons: {
 								confirm: {
 									className : 'btn btn-warning'
 								}
@@ -244,7 +236,7 @@ function move() {
 					else{
 						swal("Error!", "" + data, {
 							icon : "error",
-							buttons: {        			
+							buttons: {
 								confirm: {
 									className : 'btn btn-warning'
 								}
@@ -258,7 +250,7 @@ function move() {
 		function() {});
 	}
 }
-	
+
 function confirmDelete(key, token) {
     alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro',
         function() {
@@ -270,7 +262,6 @@ function confirmDelete(key, token) {
                     token: token
                 },
                 success: function(bool) {
-                    //console.log('success '+bool);
                     if (bool == true) {
                         alertify.success(
                             '<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado<br>Espere un momento...</span>',
@@ -288,7 +279,6 @@ function confirmDelete(key, token) {
                     }
                 },
                 error: function(data) {
-                    // console.log('error '+data);
                     alertify.error(
                         '<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>',
                         2,
@@ -306,7 +296,6 @@ jQuery('#w0').yiiGridView({"filterUrl":"\/web\/index.php?r=mesocyclesfolder\/mac
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

@@ -1,8 +1,6 @@
 $('.txtOrden').on('keypress', function(event) {
-		//$("#spanMensaje").html("Espere un momento..");
         if (event.which === 13) { // 13 es el código de la tecla "Enter"
             event.preventDefault(); // Evita la acción por defecto si es un formulario
-            // Acción a ejecutar al presionar "Enter"
             $.ajax({
 				 type: 'POST',
 				 url: "index.php?r=drills/updateorden",
@@ -18,47 +16,42 @@ $('.txtOrden').on('keypress', function(event) {
 							},
 							timer: 1500,
 						}).then((result) => {
-							//if (result.isConfirmed) {}
 							location.reload();
 						});
-						//alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro ordenado<br>espere un momento ...</span>', 2 , function (){location.reload(); }); 
 					}else{
-						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
 					}
 				 },
-				 error: function(data){ 
-					// console.log('error '+data);
-					alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+				 error: function(data){
+					alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
 				 },
 			});
         }
     });
-	
+
     function confirmDelete(key, token){
-        alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro', 
+        alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro',
             function(){
                 $.ajax({
                      type: 'POST',
                      url: "index.php?r=drills/delete",
                      data:{key:key, token:token},
                      success:function(bool){
-						 //console.log('success '+bool);
                         if (bool == true){
-                            alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado<br>Espere un momento...</span>', 2 , function (){location.reload(); }); 
+                            alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado<br>Espere un momento...</span>', 2 , function (){location.reload(); });
                         }else{
-							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
 						}
                      },
-                     error: function(data){ 
-                        // console.log('error '+data);
-						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+                     error: function(data){
+						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
                      },
                 });
             },
             function(){
             });
     }
-	
+
 function modalMove(_id, _cp, _name){
 	$('#folder_select').val("");
 	$('#btnCopiar').addClass("d-none");
@@ -92,14 +85,14 @@ function modalCopy(_id, _cp, _name){
 			return false;
 		}
 	});
-    
+
 	$('#btnBuscar').click(function() {
 		$('#btnPrevisualizar').hide();
         let sel = $('#txtBuscar').val();
 		if(sel.trim()==""){
 			swal("Campos requeridos!", "Debe escribir almenos 3 caráteres para buscar", {
 				icon : "warning",
-				buttons: {        			
+				buttons: {
 					confirm: {
 						className : 'btn btn-warning'
 					}
@@ -125,7 +118,7 @@ function modalCopy(_id, _cp, _name){
 			});
 		}
     });
-	
+
 	$('#folder_select').change(function() {
 		$('#btnCopiar').addClass("d-none");
 		$('#btnMover').addClass("d-none");
@@ -141,7 +134,7 @@ function modalCopy(_id, _cp, _name){
 			}
 		}
 	});
-	
+
 	function validaMover(_msg){
 		$('#btnCopiar').addClass("d-none");
 		$('#btnMover').addClass("d-none");
@@ -154,16 +147,14 @@ function modalCopy(_id, _cp, _name){
 		if(dtClear==0){
 			valida=true;
 		}
-		//alert(valida);
 		if(valida){
-			//$('#btnCopiar').removeClass("d-none");
 			return true;
 		}
 		else{
 			if(_msg){
 				swal("Campos requeridos!", "" + errores, {
 					icon : "warning",
-					buttons: {        			
+					buttons: {
 						confirm: {
 							className : 'btn btn-warning'
 						}
@@ -173,8 +164,7 @@ function modalCopy(_id, _cp, _name){
 			return false;
 		}
 	}
-	
-	
+
 function dup() {
 	var valida= false;
 	if($('#folder_select').val()!="" && $('#hddprogresionID').val()!=""){
@@ -183,16 +173,15 @@ function dup() {
 	else{
 		swal("Campos requeridos!", "Seleccione un circuito drill", {
 			icon : "warning",
-			buttons: {        			
+			buttons: {
 				confirm: {
 					className : 'btn btn-warning'
 				}
 			},
 		});
 	}
-		
+
 	if(valida){
-		//valida = validaMover(true);
 		alertify.confirm(
 		'Confirmación',
 		'Seguro que desea duplicar el registro',
@@ -206,7 +195,7 @@ function dup() {
 			var folderOrigenID = $('#hddfolderID').val();
 			var folderDestinoID = $('#folder_select').val();
 			var _name = $('#txtName').val();
-			
+
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=drills/drillsdup",
@@ -217,11 +206,10 @@ function dup() {
 					"name" : _name,
 				},
 				success: function(data) {
-					console.log(data);
 					if(data=="Exito"){
 						swal("Circuito drill copiado correctamente", "", {
 							icon : "success",
-							buttons: {        			
+							buttons: {
 								confirm: {
 									className : 'btn btn-warning'
 								}
@@ -235,7 +223,7 @@ function dup() {
 					else{
 						swal("Error!", "" + data, {
 							icon : "error",
-							buttons: {        			
+							buttons: {
 								confirm: {
 									className : 'btn btn-warning'
 								}
@@ -249,8 +237,7 @@ function dup() {
 		function() {});
 	}
 }
-	
-	
+
 function move() {
 	var valida= false;
 	if($('#folder_select').val()!="" && $('#hddprogresionID').val()!=""){
@@ -259,7 +246,7 @@ function move() {
 	else{
 		swal("Campos requeridos!", "Seleccione un circuito", {
 			icon : "warning",
-			buttons: {        			
+			buttons: {
 				confirm: {
 					className : 'btn btn-warning'
 				}
@@ -279,7 +266,7 @@ function move() {
 			var drillID = $('#hddprogresionID').val();
 			var folderOrigenID = $('#hddfolderID').val();
 			var folderDestinoID = $('#folder_select').val();
-			
+
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=drills/drillmove",
@@ -289,11 +276,10 @@ function move() {
 					"folderDestinoID": folderDestinoID,
 				},
 				success: function(data) {
-					console.log(data);
 					if(data=="Exito"){
 						swal("El circuito fué movido correctamente", "", {
 							icon : "success",
-							buttons: {        			
+							buttons: {
 								confirm: {
 									className : 'btn btn-warning'
 								}
@@ -307,7 +293,7 @@ function move() {
 					else{
 						swal("Error!", "" + data, {
 							icon : "error",
-							buttons: {        			
+							buttons: {
 								confirm: {
 									className : 'btn btn-warning'
 								}
@@ -327,7 +313,6 @@ jQuery('#w0').yiiGridView({"filterUrl":"\/web\/index.php?r=drills\/index\u0026cp
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

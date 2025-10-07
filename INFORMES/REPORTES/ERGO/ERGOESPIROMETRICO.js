@@ -89,7 +89,7 @@ Highcharts.chart('container', {
 						},
 						data: [],
 						pointPlacement: 'on'
-					  }, 
+					  },
 										{
 						type: 'line',
 						name: '',
@@ -102,17 +102,15 @@ Highcharts.chart('container', {
 						  fillColor: "#ffffff",
 						},
 						  data: [],
-						/*data: [2.3, 4, 3.7, 4, 8.1]/*data: [46, 16, 13.9, 11.8, 0.9]*/
 					  }
 						]
 					});
 
 $(document).ready(function(){
 	validaChk();
-	//alert($('.highcharts-grid-line').attr('stroke-width'));
 	$('.highcharts-grid-line').attr('stroke-width', '0');
 });
-	
+
 $(document).ready(function() {
     $('.highcharts-a11y-proxy-button').hide();
     $('.highcharts-credits').hide();
@@ -170,20 +168,17 @@ function validaChk(){
 }
 
 $(document).ready(function(){
-	$("#pdfDownloader").click(function(){	
+	$("#pdfDownloader").click(function(){
 		const btn = document.getElementById('pdfDownloader');
 		btn.textContent = 'Espere un momento...';
 		document.getElementById("pdfDownloader").disabled = true;
-		
 
 		let flag=1;
 		if($("#reportsfolder-deporteID1").is(':checked')){
 			flag=1;
 			html2canvas(document.querySelector("#tasamaxima")).then(canvas => {
-				//canvas:10,			
 			var imagedata = canvas.toDataURL('image/png');
 			var imgdata = imagedata.replace(/^data:image\/(png|jpeg);base64,/, "");
-					//ajax call to save image inside folder
 			$.ajax({
 					async:false,
 					url: '/web/index.php?r=reportsfolder/saveimg',
@@ -191,13 +186,12 @@ $(document).ready(function(){
 						imgdata:imgdata, orden:'1', cp:'671', er:'2076'
 						},
 					type: 'post',
-					success: function (response) {   
-						console.log(response);
+					success: function (response) {
 						mandar(btn, flag);
 					}
 				});
 			});
-			
+
 		}
 		else if($("#reportsfolder-deporteID2").is(':checked')){
 			flag=2;
@@ -206,10 +200,8 @@ $(document).ready(function(){
 		else if($("#reportsfolder-deporteID3").is(':checked')){
 			flag=3;
 			html2canvas(document.querySelector("#graficas")).then(canvas => {
-				//canvas:10,			
 			var imagedata = canvas.toDataURL('image/png');
 			var imgdata = imagedata.replace(/^data:image\/(png|jpeg);base64,/, "");
-					//ajax call to save image inside folder
 			$.ajax({
 					async:false,
 					url: '/web/index.php?r=reportsfolder/saveimg',
@@ -217,27 +209,25 @@ $(document).ready(function(){
 						imgdata:imgdata, orden:'0', cp:'671', er:'2076'
 						},
 					type: 'post',
-					success: function (response) {   
-						console.log(response);
+					success: function (response) {
 						mandar(btn, flag);
 					}
 				});
 			});
 		}
 		sleep(60).then(() => {
-			
+
 		});
 		$('#cols-det').removeClass('col-md-8').addClass('col-md-10');
-    });	
-	//$("#pdfDownloader").click();
-});	
+    });
+});
 
 function mandar(btn, flag){
 	btn.textContent = 'Descargar PDF';
 			document.getElementById("pdfDownloader").disabled = false;
 			window.open('index.php?r=reportsfolder/savepdf&cp=671&er=2076&type=2&informe='+flag+'', '_blank');
 }
-	
+
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
@@ -247,7 +237,6 @@ jQuery('#w0').yiiActiveForm([{"id":"reportsfolder-created_by_id","name":"created
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

@@ -27,7 +27,6 @@ $(document).ready(function() {
         $(".trans").hide();
         $(".trans_level").show();
         $(".sports_level").hide();
-        //alert($(this).val());
         let sport_string = $(this).val();
         var trans = $('.trans');
         $.each(trans, function(index, item) {
@@ -35,7 +34,6 @@ $(document).ready(function() {
             let posicion = cadena.indexOf(sport_string);
             if (posicion !== -1) {
                 $(this).show();
-                //console.log($(this).val());
             }
 
         });
@@ -47,12 +45,10 @@ $(document).ready(function() {
         $('.plan_level').show();
         let arr = $(this).val();
         let split_arr = arr.split("_");
-        //console.log(split_arr.length);
         let arr_colors = ['bg-light', 'bg-light', 'bg-light']
         $.each(split_arr, function(index, item) {
             let r = (Math.random() + 1).toString(36).substring(7);
             r = item + '_' + index + '_' + r;
-            //console.log("random", r);
             $('#plan_level').append(
                 '<div style="overflow: auto;width:' + (90 / split_arr.length).toFixed() +
                 '%" class="chart-wrap horizontal ' + r +
@@ -79,17 +75,9 @@ $(document).ready(function() {
             let arr_info = $(this).data('info').split('_');
             $('#select_blocks').append('<option value="' + $(this).data('info') + '">' +
                 arr_info[0].toUpperCase() + '</option>');
-            //console.log($(this).data('info'));
         });
     });
     $("#button_make_div").click(function() {
-        /*console.log('div_structure');
-        console.log($('#select_blocks').val());
-        console.log($('#select_zone').val());
-        console.log($('#select_quantity_large').val());
-        console.log($('#select_type_large').val());
-        console.log($('#pause').val());
-        console.log($('#times').val());*/
         let case_type = $('#select_type_large').val();
         let string_type = 'default';
         switch (case_type) {
@@ -108,8 +96,6 @@ $(document).ready(function() {
             times = 1;
         }
 
-
-
         block = $(this).val();
         times = Number(times);
         quantity_large = Number($('#select_quantity_large').val());
@@ -125,21 +111,9 @@ $(document).ready(function() {
             make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                 zone, pause, 'min');
         }
-
-
-        /*for (let i = 0; i < times; i++) {
-            $('#' + $('#select_blocks').val()).append('<div class="bar" style="margin-bottom:' + Number(
-                    pause) * 6 + 'px;--bar-value:' + Number(zone) * 10 + '%;--bar-thickness: ' +
-                Number(quantity_large) * 4 + 'px" data-name="' + quantity_large + ' ' +
-                string_type +
-                '" title="' + $(this).val() + '&#013; Zona:' + Number(zone) + '; &#013;' +
-                quantity_large + ' ' + string_type + '; &#013; Pausa: ' + pause +
-                ' minuto(s)"></div>');
-        }*/
         $('#exampleModal').modal('hide');
     })
     $("#set_defaults").click(function() {
-        //set defaults
         let sport_split = $('#select_blocks').val().split('_');
         let sport = sport_split[0];
         let block = $('#button_make_div').val();
@@ -153,7 +127,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -164,7 +137,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -175,7 +147,6 @@ $(document).ready(function() {
                         pause = 10;
                         string_type = 'mts';
                         pause_type = 'seg';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -193,7 +164,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -204,7 +174,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -215,7 +184,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'mts';
                         pause_type = 'seg';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -230,7 +198,6 @@ $(document).ready(function() {
                         pause = 1 * 6;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -241,7 +208,6 @@ $(document).ready(function() {
                         pause = 1 * 6;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -252,7 +218,6 @@ $(document).ready(function() {
                         pause = 1 * 6;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -270,7 +235,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -281,7 +245,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -292,7 +255,6 @@ $(document).ready(function() {
                         pause = 10;
                         string_type = 'mts';
                         pause_type = 'seg';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -310,7 +272,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 1;
@@ -319,7 +280,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 1;
@@ -328,7 +288,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -339,7 +298,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 1;
@@ -348,7 +306,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 1;
@@ -357,7 +314,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -368,7 +324,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'mts';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 1;
@@ -377,7 +332,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'mts';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 1;
@@ -386,7 +340,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'mts';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -401,7 +354,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 1;
@@ -410,7 +362,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 1;
@@ -419,7 +370,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 3;
@@ -428,7 +378,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
 
@@ -440,7 +389,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 1;
@@ -449,7 +397,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 1;
@@ -458,7 +405,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 3;
@@ -467,7 +413,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'min';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
 
@@ -479,7 +424,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'mts';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 1;
@@ -488,7 +432,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'mts';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 1;
@@ -497,7 +440,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'mts';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 3;
@@ -506,7 +448,6 @@ $(document).ready(function() {
                         pause = 0;
                         string_type = 'mts';
                         pause_type = '';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -521,7 +462,6 @@ $(document).ready(function() {
                         pause = 1 * 6;
                         string_type = 'min';
                         pause_type = 'min';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 2;
@@ -530,7 +470,6 @@ $(document).ready(function() {
                         pause = 1 * 6;
                         string_type = 'mts';
                         pause_type = 'min';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -541,7 +480,6 @@ $(document).ready(function() {
                         pause = 1 * 6;
                         string_type = 'min';
                         pause_type = 'min';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 2;
@@ -550,7 +488,6 @@ $(document).ready(function() {
                         pause = 1 * 6;
                         string_type = 'min';
                         pause_type = 'min';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -561,7 +498,6 @@ $(document).ready(function() {
                         pause = 20;
                         string_type = 'mts';
                         pause_type = 'seg';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         times = 2;
@@ -570,7 +506,6 @@ $(document).ready(function() {
                         pause = 40;
                         string_type = 'mts';
                         pause_type = 'seg';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -585,7 +520,6 @@ $(document).ready(function() {
                         pause = 1 * 6;
                         string_type = 'min';
                         pause_type = 'min';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -596,7 +530,6 @@ $(document).ready(function() {
                         pause = 1 * 6;
                         string_type = 'min';
                         pause_type = 'min';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -607,7 +540,6 @@ $(document).ready(function() {
                         pause = 20;
                         string_type = 'mts';
                         pause_type = 'seg';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -622,7 +554,6 @@ $(document).ready(function() {
                         pause = 30;
                         string_type = 'seg';
                         pause_type = 'seg';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -633,7 +564,6 @@ $(document).ready(function() {
                         pause = 30;
                         string_type = 'seg';
                         pause_type = 'seg';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -644,7 +574,6 @@ $(document).ready(function() {
                         pause = 25;
                         string_type = 'mts';
                         pause_type = 'mts';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -659,7 +588,6 @@ $(document).ready(function() {
                         pause = 2 * 6;
                         string_type = 'mts';
                         pause_type = 'min';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -670,7 +598,6 @@ $(document).ready(function() {
                         pause = (1.5) * 6;
                         string_type = 'min';
                         pause_type = 'min';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -681,7 +608,6 @@ $(document).ready(function() {
                         pause = 1 * 6;
                         string_type = 'mts';
                         pause_type = 'min';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -696,7 +622,6 @@ $(document).ready(function() {
                         pause = 30;
                         string_type = 'mts';
                         pause_type = 'seg';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -707,7 +632,6 @@ $(document).ready(function() {
                         pause = 30;
                         string_type = 'seg';
                         pause_type = 'seg';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -718,7 +642,6 @@ $(document).ready(function() {
                         pause = 30;
                         string_type = 'mts';
                         pause_type = 'seg';
-                        console.log('call funcion')
                         make_bar($('#select_blocks').val(), block, times, quantity_large, string_type,
                             zone, pause, pause_type);
                         break;
@@ -728,7 +651,6 @@ $(document).ready(function() {
     });
 
     function make_bar(sport, block, times, quantity_large, string_type, zone, pause, pause_type) {
-        console.log('inside')
         for (let i = 0; i < times; i++) {
             let r_id = (Math.random() + 1).toString(36).substring(7);
             r_id = sport + '_' + block + '_' + r_id;
@@ -794,15 +716,11 @@ $(document).ready(function() {
                 }
             }
 
-
-
-
         }
         $('#exampleModal').modal('hide');
     }
 
     function edit_bar(id, sport, block, times, quantity_large, string_type, zone, pause, pause_type) {
-        console.log('edit')
         let r_id = id;
         let string_to_put = '';
         for (let i = 0; i < times; i++) {
@@ -878,7 +796,6 @@ $(document).ready(function() {
         $('#exampleModal2').modal('hide');
     });
     $('#button_edit_div').click(function() {
-        //$('#'+$(this).val()).remove();
         let case_type = $('#select_type_large_edit').val();
         let string_type = 'default';
         switch (case_type) {
@@ -896,7 +813,6 @@ $(document).ready(function() {
         if (times == '') {
             times = 1;
         }
-        //block = $(this).val();
         times = Number(times);
         quantity_large = Number($('#select_quantity_large_edit').val());
         if (string_type == 'min') {
@@ -909,10 +825,6 @@ $(document).ready(function() {
                 'block'), times, quantity_large,
             string_type,
             zone, pause, 'min');
-
-        /*$('#'+$(this).val()).css('margin-bottom',pause);
-        $('#'+$(this).val()).css('--bar-value',Number(zone) * 10);
-        $('#'+$(this).val()).css('--bar-thickness',quantity_large);*/
         $('#exampleModal2').modal('hide');
     });
 });
@@ -930,7 +842,6 @@ function confirmDelete(key, token) {
                     token: token
                 },
                 success: function(bool) {
-                    //console.log('success '+bool);
                     if (bool == true) {
                         alertify.success(
                             '<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado espere un momento ...</span>',
@@ -948,7 +859,6 @@ function confirmDelete(key, token) {
                     }
                 },
                 error: function(data) {
-                    // console.log('error '+data);
                     alertify.error(
                         '<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>',
                         2,
@@ -1005,7 +915,6 @@ jQuery('#w0').yiiGridView({"filterUrl":"\/web\/index.php?r=sessionsssession\/ind
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

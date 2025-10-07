@@ -3,7 +3,6 @@ jQuery('#w0').yiiActiveForm([{"id":"athletessensory-sight_manifestation","name":
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

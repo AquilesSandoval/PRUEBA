@@ -1,14 +1,11 @@
 function dataChkdata(){
 		var total = document.getElementById("data").value;
-		//console.log(total);
 		var datosChk = 0;
 		for (var i = 1; i <= total; i++) {
 			if($('#cbox_'+i).is(":checked")){
-				//console.log('#cbox_'+i);
 				datosChk++;
-			}				
+			}
 		}
-		console.log(datosChk);
 		if(datosChk != 0){
 		   document.getElementById("signos").checked = true;
 		   $('#signos').bootstrapToggle('on');
@@ -18,10 +15,9 @@ function dataChkdata(){
 			$('#signos').bootstrapToggle('off');
 		}
 	}
-	
+
 	function dataChk(){
 		if($('#signos').is(":checked")){
-			//console.log("Si");
 			var total = document.getElementById("data").value;
 			var datosChk = 0;
 			for (var i = 1; i <= total; i++) {
@@ -32,113 +28,98 @@ function dataChkdata(){
 			if(datosChk == 0){
 				document.getElementById("cbox_1").checked = true;
 			}
-			
+
 		}else{
-			//console.log("No");
-			//document.getElementById("cbox_1").checked = false;			
 			var total = document.getElementById("data").value;
 			for (var i = 1; i <= total; i++) {
 				document.getElementById("cbox_"+i).checked = false;
 			}
 		}
-		
+
 		factorRiesgo();
-		
+
 	}
-	
-	
+
 	function generaNum(){
-		console.log("generando riesgo");
 		var num = 0;
-		
+
 		var d1 = 0; var d2 = 0; var d3 = 0; var d4 = 0; var d5 = 0; var d6 = 0; var d7 = 0; var d8 = 0; var d9 = 1; var d10 = 0;
-		
+
 		if($('#athletescardiacrisk-senior_human').is(":checked")){
 			d1 = 1;
 		}
-		
+
 		if($('#athletescardiacrisk-infarct_parents').is(":checked")){
 			d2 = 1;
 		}
-		
+
 		if($('#athletescardiacrisk-is_smoker').is(":checked")){
 			d3 = 1;
 		}
-		
+
 		if($('#athletescardiacrisk-has_blood_pressure').is(":checked")){
 			d4 = 1;
 		}
-		
+
 		if($('#athletescardiacrisk-glucose_level').is(":checked")){
 			d5 = 1;
 		}
-		
+
 		if($('#athletescardiacrisk-has_high_cholesterol').is(":checked")){
 			d6 = 1;
 		}
-		
+
 		if($('#has_low_cholesterol').is(":checked")){
 			d7 = 1;
 		}
-		
+
 		if($('#athletescardiacrisk-has_highdl_cholesterol').is(":checked")){
 			d8 = 1;
 		}
-		
+
 		if($('#athletescardiacrisk-do_exercise').is(":checked")){
 			d9 = 0;
 		}
-		
+
 		if($('#athletescardiacrisk-high_imc').is(":checked")){
 			d10 = 1;
 		}
-		
-		
-		
-				
+
 		num = num + d1 + d2 + d3 + d4 + d5 + d10 + d9;
 		if(d6==1 || d7==1){
 			num = num + 1;
 		}
-		
+
 		num = num - d8;
 		if(num<0){
 			num=0;
 		}
 		document.getElementById('athletescardiacrisk-number_risk_factor').value = num;
 		factorRiesgo();
-		
+
 	}
-	
+
 	function factorRiesgo(){
 		 var numDatos = document.getElementById('athletescardiacrisk-number_risk_factor').value;
-		
-		//text-stratifica
-		//athletescardiacrisk-initial_stratification
 		var d1 = 0; var d2 = 0;
 		if($('#athletescardiacrisk-has_some_disease').is(":checked")){
 			d1 = 1;
 		}
-		
+
 		if($('#signos').is(":checked")){
 			d2 = 1;
 		}
-		
-		
+
 		if(d1==1 || d2==1){
-			//Alto Riesgo
 			document.getElementById('text-stratifica').innerHTML = "Alto Riesgo";
 			document.getElementById('athletescardiacrisk-initial_stratification').value = 3;
 			document.getElementById('text-stratifica').style.background = '#003b5c';
-			//background: #767676;
 		}else{
 			if(numDatos < 2){
-				//Bajo Riesgo
 				document.getElementById('text-stratifica').innerHTML = "Bajo Riesgo";
 				document.getElementById('athletescardiacrisk-initial_stratification').value = 1;
 				document.getElementById('text-stratifica').style.background = '#43b02a';
 			}else{
-				//Riesgo Moderado
 				document.getElementById('text-stratifica').innerHTML = "Riesgo Moderado";
 				document.getElementById('athletescardiacrisk-initial_stratification').value = 2;
 				document.getElementById('text-stratifica').style.background = '#9b9b9b';
@@ -152,7 +133,6 @@ jQuery('#w0').yiiActiveForm([{"id":"athletescardiacrisk-has_some_disease","name"
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

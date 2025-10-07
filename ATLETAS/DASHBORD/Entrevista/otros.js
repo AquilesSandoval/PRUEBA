@@ -3,7 +3,6 @@ jQuery('#w0').yiiActiveForm([{"id":"athletesrisksfactors-medicament","name":"med
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

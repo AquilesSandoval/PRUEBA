@@ -35,9 +35,8 @@ function notificacionToast(_mensaje) {
 		});
 		tiempoToast = 1000
 	}
-	
+
 	function actionMoverRadiobuttom(numeroDia, fila){
-		//$('#sesion_select').val();
 		if(is_variasVeces) {
 			dup($("#hddIndex").val(), $("#hddWeek").val(), $("#hddDay").val(), $("#hddDivID").val(), $("#hddValID1").val());
 		}
@@ -45,26 +44,14 @@ function notificacionToast(_mensaje) {
 		$('#days_select').val(numeroDia);
         $("#add_ss").click();
 		$(".rbMoverAqui").prop("checked", false);
-		
+
 		if(!is_variasVeces) {
 			$(".rbMoverAqui").hide();
 		}
-		/*window.setTimeout(function () {
-			$(".rbMoverAqui").prop("checked", false);
-			$(".rbMoverAqui").hide();
-		}, 15000);/**/
 	}
 
 $( function() {
-    /*$( ".divDragAndDrop" ).sortable();
-    $( ".divDragAndDrop" ).disableSelection();
-    $( ".divDragAndDrop1" ).sortable();
-    $( ".divDragAndDrop1" ).disableSelection();*/
   } );
-
-
-
-// Helper function to update zone values - replaces thousands of lines of repetitive code
 function updateZoneValues(type, sport, zones, addValue) {
     addValue = addValue || 0;
     for (var i = 1; i <= zones; i++) {
@@ -74,515 +61,189 @@ function updateZoneValues(type, sport, zones, addValue) {
         $("#span" + type + sport + "Z0_" + i).html(Math.round(val0));
     }
 }
-
-// Helper function to update weekly zone values
 function updateWeeklyZoneValues(type, sport, zones, week) {
     for (var i = 1; i <= zones; i++) {
         var val = Number($("#span" + type + sport + "Z" + i + "_week" + week).html()) + 0;
         $("#span" + type + sport + "Z" + i + "_week" + week).html(Math.round(val));
     }
 }
-
-
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 30);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
-//ciclismo TIME
 updateZoneValues("Time", "Ciclismo", 10, 0);
-
-//carrera TIME
 updateZoneValues("Time", "Carrera", 10, 0);
-
-//natacion TIME
 updateZoneValues("Time", "Natacion", 10, 0);
-
-//ciclismo DISTANCIA
 updateZoneValues("Distancia", "Ciclismo", 10, 0);
-
-//carrera DISTANCIA
 updateZoneValues("Distancia", "Carrera", 10, 0);
-
-//natacion DISTANCIA
 updateZoneValues("Distancia", "Natacion", 10, 0);
 function getAddSesion(numeroDia, fila){//numeroDia =>  1=lunes, 2=martes, etc etc
 		var _profile= $("#mesocyclesmesocycle-profile_id").val();
-	//index.php?r=
 	var url= 'sessionsssession/create&cp=&orgn=meso&idorgn=30901&cporgn=&dayID=0&numeroDia='+numeroDia+'&fila='+fila+'&pr='+_profile+'&orgnDash=&orgnDash=false';
-	//document.location.href= url;
-	//
 	validaEdit(url);
 }
 
@@ -606,7 +267,7 @@ function verformulasMeso(tipo){
 		$("#btnSemanal").addClass('btn-border');
 		$("#divCuadroEstadisticas").show();
 	}
-	else{		
+	else{
 		$("#tblSemanal").show();
 		$("#btnGeneral").addClass('btn-border');
 		$("#divCuadroEstadisticas").hide();
@@ -618,7 +279,6 @@ function getMoverA(divID, valID){
 	$('#divSemanaDia').show();
 	$("#hddMoverA").val("moverA");
 	$("#hddMoviendoID").val(divID);
-	//$('#sesion_select').val(valID);
 	$('#sesion_select').empty();
 	$('#sesion_select').append('<option value="' + valID + '"> </option>');
 	$('#btnPrevisualizar').click();
@@ -627,14 +287,12 @@ function getMoverA(divID, valID){
 	$("#btnPrevisualizar").hide();
 	$('#divAtletasParaCopiar').hide();
 	$("#btnCopiarAtleta").hide();
-	//alert(valID);
 }
 
 function getCopiarAtleta(divID, valID){
 	$('#divSemanaDia').hide();
 	$("#hddMoverA").val("copiarA");
 	$("#hddMoviendoID").val(divID);
-	//$('#sesion_select').val(valID);
 	$('#sesion_select').empty();
 	$('#sesion_select').append('<option value="' + valID + '"> </option>');
 	$('#btnPrevisualizar').click();
@@ -644,14 +302,13 @@ function getCopiarAtleta(divID, valID){
 	$("#btnCopiarAtleta").show();
 	$('#divAtletasParaCopiar').show();
 }
-	
+
 function addLine2(){
-	
+
 }
 function readlines(html_intermedia,cont_line){
 	let html='';
-	$(".week_item").each(function() {	
-		console.log('hh-');
+	$(".week_item").each(function() {
 		let cont = $(this).data('cont');
 
 		html='<div class="week_item row week' + cont + '" id="week' + cont + '" data-cont="'+cont+'">' +
@@ -660,14 +317,12 @@ function readlines(html_intermedia,cont_line){
 		if(cont_line===cont){
 			$('#weeks').append(html_intermedia);
 		}
-		
+
 	});
-	console.log(html);
-	//$('#weeks').empty();
-	
+
 }
 var is_preview=true;
-		
+
 $(document).ready(function() {
 		is_variasVeces=false;
 	is_variasVeces_count=0;
@@ -680,14 +335,11 @@ $(document).ready(function() {
 	$('#divAtletasParaCopiar').hide();
 	$("#btnCopiarAtleta").hide();
 	$('#aVerGrafica').html('');
-	
-	//alert("");
-		
-	
+
 	$("#btnMover").click(function() {
         $("#add_ss").click();
     });
-	
+
 	$("#search_session").on('keypress', function (e) {
 	  var keycode = e.keyCode || e.which;
 		if (keycode == 13) {
@@ -695,7 +347,7 @@ $(document).ready(function() {
 			return false;
 		}
 	});
-	
+
 	$("#search_progresion").on('keypress', function (e) {
 	  var keycode = e.keyCode || e.which;
 		if (keycode == 13) {
@@ -703,16 +355,16 @@ $(document).ready(function() {
 			return false;
 		}
 	});
-	
+
 	$("#search_microciclo").on('keypress', function (e) {
-		
+
 	  var keycode = e.keyCode || e.which;
 		if (keycode == 13) {
 			$('#searchMicrociclo').click();
 			return false;
 		}
 	});
-	
+
 	$("#search_mesociclo").on('keypress', function (e) {
 	  var keycode = e.keyCode || e.which;
 		if (keycode == 13) {
@@ -720,7 +372,7 @@ $(document).ready(function() {
 			return false;
 		}
 	});
-	
+
 	$("#txtBuscarAtleta").on('keypress', function (e) {
 	  var keycode = e.keyCode || e.which;
 		if (keycode == 13) {
@@ -728,24 +380,22 @@ $(document).ready(function() {
 			return false;
 		}
 	});
-	
-	let totalesEcosSemanalZ1=0; 
+
+	let totalesEcosSemanalZ1=0;
 	dayID="";
 	$('.submitFormBtn').click(function(){
-		//$('#labelSubmitFormBtn').html("Espere un momento");
-		//alert("Espere un momento.")
 		swal("Espere un momento. Cargando...", {
 			buttons: false,
 			timer: 5000,
 		});
-		
+
         var $this = $(this);
         var $next = $this.next();
         if($next.hasClass('submitFormBtnBlock')) {
             $blockBtn = $next;
         } else {
-			
-			var form = document.getElementById('w0');			
+
+			var form = document.getElementById('w0');
 			var dtClear = 0;
 			var errores="";
 			for(var i=0; i < form.elements.length; i++){
@@ -753,18 +403,17 @@ $(document).ready(function() {
 					dtClear ++;
 				 }
 			}
-			
+
 			var valida=false;
 			var sesionesSelecionados= Number($('#hddValida').val());
 			if(sesionesSelecionados>0)
 				valida=true;
-			
+
 			if($("#Mesocyclesmesocycle-name").val()=="") errores += "> Número\n";
-			
-			
+
 							if($("#sport_select").val()=="") errores += "> Deporte\n";
 				if($("#distance_select").val()=="") errores += "> Distancia\n";
-			
+
 				if($('#sport_select').val()==4){//Triatlón
 					if($("#nlevel_select").val()=="") {errores += "> Nivel Natación\n"; dtClear ++;}
 					if($("#blevel_select").val()=="") {errores += "> Nivel Ciclismo\n"; dtClear ++;}
@@ -789,26 +438,26 @@ $(document).ready(function() {
 					if($("#level_select").val()=="") {errores += "> Nivel\n"; dtClear ++;}
 					if($("#contain_select").val()=="") {errores += "> Contenido\n"; dtClear ++;}
 				}
-						
+
 			if(dtClear == 0 && valida==true){
 				$blockBtn = $this.clone();
 				$blockBtn.attr('type', 'button');
-				$blockBtn.html('Espere un momento...'); 
+				$blockBtn.html('Espere un momento...');
 				$blockBtn.addClass('submitFormBtnBlock');
 				$blockBtn.removeClass('submitFormBtn');
 				$blockBtn.insertAfter($this);
 				$blockBtn.attr('disabled', 'disabled');
-				
+
 				$this.hide();
 		 		$blockBtn.show();
 			}
-			
+
 			if(dtClear>0){
 				if(sesionesSelecionados==0)
 					errores = "> Debe seleccionar almenos una sesión\n" + errores;
 				swal("Campos requeridos!", "" + errores, {
 					icon : "warning",
-					buttons: {        			
+					buttons: {
 						confirm: {
 							className : 'btn btn-warning'
 						}
@@ -846,20 +495,13 @@ $(document).ready(function() {
 								flagExistecodigo= false;
 							}
 							console.log(data);//
-							//alert(data);
 						},
 						error: function(data) {},
 					});
-					/*let codigo= "ME" + $("#Mesocyclesmesocycle-name").val();
-					codigo += $('#sport_select option:selected').html();
-					codigo += $('#distance_select option:selected').html();
-					codigo += $('#level_select option:selected').html();
-					codigo += $('#contain_select option:selected').html();*/
-
 					if(flagExistecodigo){
 						swal("El mesociclo ya existe", "Puede cambiar uno o más valores seleccionados.\n Número | Deporte | Distancia | Nivel | Contenido", {
 						icon : "error",
-						buttons: {        			
+						buttons: {
 							confirm: {
 								className : 'btn btn-warning'
 							}
@@ -869,30 +511,27 @@ $(document).ready(function() {
 					}
 							}
         }
-	
-	
-		$('.submitFormBtn').parents('form').on('afterValidate', function (event, messages, errorAttributes) {				
+
+		$('.submitFormBtn').parents('form').on('afterValidate', function (event, messages, errorAttributes) {
 			if(errorAttributes.length > 0) {
 				$('.submitFormBtn').show();
 				$('.submitFormBtnBlock').hide();
 			}
 		});
 	});
-	
+
 	$('#mesocyclesmesocycle-profile_id').change(function() {
 		let _idPerfil = $(this).val();
 		let url="";
 		url= '';
-		//alert(url);
 
 							document.location.href = 'index.php?r=mesocyclesmesocycle/update'+url+'&id=30901&cp=&perfilsel=' +  _idPerfil;
-								//$('.submitFormBtn').click();
 				swal("Espere un momento. Cargando...", {
 					buttons: false,
 					timer: 20000,
 				});
 					});
-	
+
 			$.ajax({
 			type: 'get',
 			url: "/web/index.php?r=sessionsssession/getatletas",
@@ -906,24 +545,22 @@ $(document).ready(function() {
     $("#add_line").click(function() {
         agregarLinea();
     });
-	
-	
+
 	function agregarLinea(){
 		contador_weeks = 1;
-		$(".week_item").each(function() {	
+		$(".week_item").each(function() {
 			cont_item_text = $(this).data('textcont');
 			if(cont_item_text!=='?'){
 				contador_weeks = Number(contador_weeks + 1);
-			}			
+			}
 		});
 		var $divs = $(".clsSemana").toArray().length;
-		console.log("Hay " + $divs + " elementos");
 		if($divs==0){
 			cont=-1;
 		}
 
 		cont = cont + 1;
-		
+
 		let fechaRealizaL="";
 		let fechaRealizaM="";
 		let fechaRealizaMi="";
@@ -933,7 +570,7 @@ $(document).ready(function() {
 		let fechaRealizaD="";
 		var fecha_inicio = new Date();
 		var dias = cont * 7; // Número de días a agregar
-		
+
 				let btn_add='';
 		if(!is_preview){
 			btn_add='<div  style="position: absolute; bottom: 8%;margin-left:2px">'+
@@ -948,9 +585,8 @@ $(document).ready(function() {
 			'<input type="hidden" id="hddMinZona3' + cont + '" name="hddMinZona3' + cont + '" value="0" style="width:70px;">' +
 			'<input type="hidden" id="hddMinZona4' + cont + '" name="hddMinZona4' + cont + '" value="0" style="width:70px;">' +
 			'<div class="fondoBordeBlanco" style="position:relative; margin-top:10px;">' +
-			//'<br /> <b class="clsSemana">Semana ' + Number(cont + 1) +
 			'<br /> <b class="clsSemana">Semana ' + contador_weeks +
-			
+
             '</b> &nbsp; <span class="" style="cursor:pointer; position:absolute; right:8px; top:5px;" title="Eliminar semana" onclick="eliminarFila(' + cont + ');">X</span><b class="centrado2DEL"><img src="require/img/ecos70.png" class="centrado" style="cursor: pointer;" onClick="verTooltipSemana(\'' + cont + '\', \'ver\')"/>' +
 			'<div class="centrado" id="ecos_tot' + cont + '" style="color:white; cursor: pointer; padding-left:6px;" onClick="verTooltipSemana(\'' + cont + '\',\'ver\')">0</div>' +
 			'<div id="divSemana' + cont + '" class="tooltipSemana ocultoSemana row">' +
@@ -1021,22 +657,13 @@ $(document).ready(function() {
             '</div>');
 	}
 
-	
-	
 	$("#add_line2").click(function() {
 		$("#add_line").click();
 		$('#weeks_selectMacro').empty();
-		/*for(var iC=0; iC<=cont; iC++){
-			$('#weeks_selectMacro').append('<option value="' + contador_weeks + '">Semana ' +
-				Number(contador_weeks + 1) + '</option>');
-			contador_weeks = Number(contador_weeks + 1);
-		}*/
 		contador_weeks = 1;
-		$(".week_item").each(function() {	
+		$(".week_item").each(function() {
 			cont_item = $(this).data('cont');
 			cont_item_text = $(this).data('textcont');
-
-			console.log('hh-'+cont_item);
 			if(cont_item_text==='?'){
 				$('#weeks_selectMacro').append('<option value="' + cont_item + '">Semana ' +
 				cont_item_text + '</option>');
@@ -1044,7 +671,7 @@ $(document).ready(function() {
 				$('#weeks_selectMacro').append('<option value="' + cont_item + '">Semana ' +
 				contador_weeks + '</option>');
 				contador_weeks = Number(contador_weeks + 1);
-			}			
+			}
 		});
 		swal({
 			title: "Semana agregada!",
@@ -1058,7 +685,7 @@ $(document).ready(function() {
 			timer: 2000
 		});
 	});
-	
+
     $.ajax({
         type: 'get',
         url: "/web/index.php?r=sessionsssession/getsport",
@@ -1116,7 +743,7 @@ $(document).ready(function() {
 		activarDistancia();
 		activarCombosNivelContenido();
     });
-	
+
 	function activarDistancia(){
 		let sel = $('#sport_select').val();
         $.ajax({
@@ -1132,7 +759,7 @@ $(document).ready(function() {
             error: function(data) {},
         });
 	}
-	
+
 	function activarCombosNivelContenido(){
 		$('#divLevel').hide();
 		$('#divnLevel').hide();
@@ -1167,14 +794,14 @@ $(document).ready(function() {
 			$('#divContent').show();
 		}
 	}
-	
+
     $('#search').click(function() {
         $('#btnPrevisualizar').hide();
         let sel = $('#search_session').val();
 		if(sel.trim()==""){
 			swal("Campos requeridos!", "Debe escribir al menos 3 carácteres para buscar", {
 				icon : "warning",
-				buttons: {        			
+				buttons: {
 					confirm: {
 						className : 'btn btn-warning'
 					}
@@ -1198,21 +825,20 @@ $(document).ready(function() {
 						width: '100%'
 					});
 					var $select2 = $('#sesion_select').data('select2');
-					// Abre el select2 programáticamente
 					$select2.open();
 				},
 				error: function(data) {},
 			});
 		}
     });
-    
+
 	$('#searchProgresion').click(function() {
         $('#btnPrevisualizarP').hide();
         let sel = $('#search_progresion').val();
 		if(sel.trim()==""){
 			swal("Campos requeridos!", "Debe escribir al menos 3 carácteres para buscar", {
 				icon : "warning",
-				buttons: {        			
+				buttons: {
 					confirm: {
 						className : 'btn btn-warning'
 					}
@@ -1236,14 +862,13 @@ $(document).ready(function() {
 						width: '100%'
 					});
 					var $select2 = $('#progresion_select').data('select2');
-					// Abre el select2 programáticamente
 					$select2.open();
 				},
 				error: function(data) {},
 			});
 		}
     });
-    
+
 	$('#sesion_select').select2({
 		placeholder: 'Buscar...',
 		minimumInputLength: 3, // Número mínimo de caracteres para activar la búsqueda
@@ -1255,15 +880,11 @@ $(document).ready(function() {
 				console.log($('#checkses').is(':checked'))
 				return {
 					word: params.term, // Término de búsqueda introducido por el usuario
-					//check:$('#checkses').is(':checked')
 					check:false //el check es para saber si debe traer libreria personal(true) o no (false)
 
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
-				
-
 				return {
 					results: data
 				};
@@ -1288,9 +909,6 @@ $(document).ready(function() {
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
-				
-
 				return {
 					results: data
 				};
@@ -1299,7 +917,6 @@ $(document).ready(function() {
 		},
 		width:'100%'
 	});
-	// Inicializa Select2 en el select
 	$('#microciclo_select').select2({
 		placeholder: 'Buscar...',
 		minimumInputLength: 3, // Número mínimo de caracteres para activar la búsqueda
@@ -1310,12 +927,10 @@ $(document).ready(function() {
 			data: function (params) {
 				return {
 					word: params.term, // Término de búsqueda introducido por el usuario
-					//check:$('#checkmic').is(':checked')
 					check:false
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
 				$('#btnPrevisualizarM').show();
 
 				return {
@@ -1340,7 +955,6 @@ $(document).ready(function() {
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
 				$('#btnPrevisualizarMPersonal').show();
 
 				return {
@@ -1351,7 +965,6 @@ $(document).ready(function() {
 		},
 		width:'100%'
 	});
-	// Inicializa Select2 en el select
 	$('#progresion_select').select2({
 		placeholder: 'Buscar...',
 		minimumInputLength: 3, // Número mínimo de caracteres para activar la búsqueda
@@ -1365,7 +978,6 @@ $(document).ready(function() {
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
 				return {
 					results: data
 				};
@@ -1374,7 +986,6 @@ $(document).ready(function() {
 		},
 		width:'100%'
 	});
-	// Inicializa Select2 en el select
 	$('#mesociclo_select').select2({
 		placeholder: 'Buscar...',
 		minimumInputLength: 3, // Número mínimo de caracteres para activar la búsqueda
@@ -1383,16 +994,13 @@ $(document).ready(function() {
 			dataType: 'json',
 			delay: 250, // Retraso en milisegundos antes de enviar la solicitud
 			data: function (params) {
-				console.log(params);
 				return {
 					word: params.term, // Término de búsqueda introducido por el usuario
-					//check:$('#checkmes').is(':checked')
 					check:false
 
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
 				$('#btnPrevisualizarMeso').show();
 				return {
 					results: data
@@ -1410,7 +1018,6 @@ $(document).ready(function() {
 			dataType: 'json',
 			delay: 250, // Retraso en milisegundos antes de enviar la solicitud
 			data: function (params) {
-				console.log(params);
 				return {
 					word: params.term, // Término de búsqueda introducido por el usuario
 					check:true
@@ -1418,7 +1025,6 @@ $(document).ready(function() {
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
 				$('#btnPrevisualizarMesoPersonal').show();
 				return {
 					results: data
@@ -1428,14 +1034,14 @@ $(document).ready(function() {
 		},
 		width:'100%'
 	});
-	    
+
 	$('#searchMicrociclo').click(function() {
         $('#btnPrevisualizarM').hide();
         let sel = $('#search_microciclo').val();
 		if(sel.trim()==""){
 			swal("Campos requeridos!", "Debe escribir al menos 3 carácteres para buscar", {
 				icon : "warning",
-				buttons: {        			
+				buttons: {
 					confirm: {
 						className : 'btn btn-warning'
 					}
@@ -1454,22 +1060,20 @@ $(document).ready(function() {
 					"word": sel
 				},
 				success: function(data) {
-					console.log(data);
 					document.getElementById('microciclo_select').innerHTML = data;
 					$('#btnPrevisualizarM').show();
 					$('#microciclo_select').select2({
 						width: '100%'
 					});
 					var $select2 = $('#microciclo_select').data('select2');
-					// Abre el select2 programáticamente
 					$select2.open();
-			
+
 				},
 				error: function(data) {},
 			});
 		}
     });
-	
+
 	$('#sesion_select').change(function() {
 		$("#add_ss").show();
 		$("#btnMover").hide();
@@ -1478,7 +1082,7 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModal(0);
     });
-	
+
 	$('#btnPrevisualizar').click(function() {
 		$("#add_ss").show();
 		$("#btnMover").hide();
@@ -1494,7 +1098,7 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModal(1);
     });
-	
+
 	$('#btnPrevisualizarPersonal').click(function() {
 		$("#add_ss").show();
 		$("#btnMover").hide();
@@ -1502,13 +1106,13 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModal(1);
 	});
-	
+
 	$('#btnBuscarAtleta').click(function() {
 		let sel = $('#txtBuscarAtleta').val();
 		if(sel.trim()==""){
 			swal("Campos requeridos!", "Debe escribir al menos 3 carácteres para buscar", {
 				icon : "warning",
-				buttons: {        			
+				buttons: {
 					confirm: {
 						className : 'btn btn-warning'
 					}
@@ -1536,12 +1140,11 @@ $(document).ready(function() {
 			});
 		}
 	});
-	
+
 	$('#btnCopiarAtleta').click(function() {
 		var _fechaCopy = $("#txtFechaInicialCopiar").val();
 		var _atletaCopy = $("#cmbAtletaACopiar").val();
 		var sessionID = $("#sesion_select").val();
-		//alert(sessionID);
 		var _errors = "";
 		if(_fechaCopy == ""){
 			_errors += "-Seleccione una fecha";
@@ -1552,7 +1155,7 @@ $(document).ready(function() {
 		if(_errors != ""){
 			swal("Campos requeridos!", _errors, {
 				icon : "warning",
-				buttons: {        			
+				buttons: {
 					confirm: {
 						className : 'btn btn-warning'
 					}
@@ -1575,7 +1178,7 @@ $(document).ready(function() {
 				$(".hddAtletaID").each(function() {
 					_atletaCopy += (_atletaCopy != "" ? "||" : "") + this.value;
 				});
-								  
+
 				$.ajax({
 					type: 'get',
 					url: "/web/index.php?r=progressionsprogression/copysesionatleta",
@@ -1610,11 +1213,11 @@ $(document).ready(function() {
 								},
 							});
 						}
-						
+
 						else{
 							swal("Error al copiar la sesion!", "" + data, {
 								icon : "warning",
-								buttons: {        			
+								buttons: {
 									confirm: {
 										className : 'btn btn-warning'
 									}
@@ -1633,22 +1236,13 @@ $(document).ready(function() {
 			);
 		}
 	});
-	
+
 	function getModal(es_personal){
 		contador_weeks = 1;
         $('#weeks_select').empty();
-        /*$(".week").each(function() {
-            //console.log('sleec week')
-			alert(cont);
-            $('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-                Number(contador_weeks + 1) + '</option>');
-            contador_weeks = Number(contador_weeks + 1);
-        });*/
-		$(".week_item").each(function() {	
+		$(".week_item").each(function() {
 			cont_item = $(this).data('cont');
 			cont_item_text = $(this).data('textcont');
-			console.log('hh-'+cont_item);				
-
 			if(cont_item_text==='?'){
 				$('#weeks_select').append('<option value="' + cont_item + '">Semana ' +
 				cont_item_text + '</option>');
@@ -1656,23 +1250,18 @@ $(document).ready(function() {
 				$('#weeks_select').append('<option value="' + cont_item + '">Semana ' +
 				contador_weeks + '</option>');
 				contador_weeks = Number(contador_weeks + 1);
-			}	
+			}
 		});
-		/*for(var iC=0; iC<=cont; iC++){
-			$('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-                Number(contador_weeks + 1) + '</option>');
-            contador_weeks = Number(contador_weeks + 1);
-		}*/
 		if(es_personal){
 			sesion = $('#sesion_select_personal');
 		}else{
 			sesion = $('#sesion_select');
 		}
-        
+
 		if(sesion.val().trim()=="" || sesion.val()=="" || sesion.val()=="null"){
 			swal("Campos requeridos!", "Seleccione una sesión para poder visualizar.", {
 				icon : "warning",
-				buttons: {        			
+				buttons: {
 					confirm: {
 						className : 'btn btn-warning'
 					}
@@ -1680,19 +1269,18 @@ $(document).ready(function() {
 			});
 			return false;
 		}
-		$('#add_ss').html('Agregar'); 
+		$('#add_ss').html('Agregar');
 		$('#add_ss').addClass('submitFormBtn');
 		$('#add_ss').removeClass('submitFormBtnBlock');
 		$('#add_ss').attr('disabled', false);
-		
+
 		swal("Espere un momento", {
 			buttons: false,
 			timer: 1000,
 		});
-		
+
         $.ajax({
             type: 'get',
-            //url: "/web/index.php?r=mesocyclesmesocycle/getdatamodal",
             url: "/web/index.php?r=progressionsprogression/getdatamodal",
             data: {
                 "id": sesion.val(),
@@ -1709,14 +1297,12 @@ $(document).ready(function() {
 				}else{
 					$('#btnPrevisualizar').show();
 				}
-				
-                
+
             },
             error: function(data) {},
         });
 	}
-	
-	
+
 	$('#progresion_select').change(function() {
 		$("#btnMover").hide();
 		$('#divSemanaDia').show();
@@ -1724,7 +1310,7 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModalProgresion();
     });
-	
+
 	$('#btnPrevisualizarP').click(function() {
 		$("#btnMover").hide();
 		$('#divSemanaDia').show();
@@ -1732,20 +1318,13 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModalProgresion();
 	});
-	
+
 	function getModalProgresion(){
 		contador_weeks = 1;
         $('#weeks_select').empty();
-        /*$(".week").each(function() {
-            $('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-                Number(contador_weeks + 1) + '</option>');
-            contador_weeks = Number(contador_weeks + 1);
-        });*/
-		$(".week_item").each(function() {	
+		$(".week_item").each(function() {
 			cont_item = $(this).data('cont');
 			cont_item_text = $(this).data('textcont');
-			console.log('hh-'+cont_item);
-
 			if(cont_item_text==='?'){
 				$('#weeks_select').append('<option value="' + cont_item + '">Semana ' +
 				cont_item_text + '</option>');
@@ -1753,18 +1332,13 @@ $(document).ready(function() {
 				$('#weeks_select').append('<option value="' + cont_item + '">Semana ' +
 				contador_weeks + '</option>');
 				contador_weeks = Number(contador_weeks + 1);
-			}	
+			}
 		});
-		/*for(var iC=0; iC<=cont; iC++){
-			$('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-                Number(contador_weeks + 1) + '</option>');
-            contador_weeks = Number(contador_weeks + 1);
-		}*/
         sesion = $('#progresion_select');
 		if(sesion.val().trim()=="" || sesion.val()=="" || sesion.val()=="null"){
 			swal("Campos requeridos!", "Seleccione una sesión para poder visualizar.", {
 				icon : "warning",
-				buttons: {        			
+				buttons: {
 					confirm: {
 						className : 'btn btn-warning'
 					}
@@ -1772,19 +1346,18 @@ $(document).ready(function() {
 			});
 			return false;
 		}
-		$('#add_ss').html('Agregar'); 
+		$('#add_ss').html('Agregar');
 		$('#add_ss').addClass('submitFormBtn');
 		$('#add_ss').removeClass('submitFormBtnBlock');
 		$('#add_ss').attr('disabled', false);
-		
+
 		swal("Espere un momento", {
 			buttons: false,
 			timer: 1000,
 		});
-		
+
         $.ajax({
             type: 'get',
-            //url: "/web/index.php?r=mesocyclesmesocycle/getdatamodal",
             url: "/web/index.php?r=progressionsprogression/getdatamodal",
             data: {
                 "id": sesion.val(),
@@ -1795,14 +1368,12 @@ $(document).ready(function() {
                 $('#modal_body_s').append(data);
                 $('#exampleModal').modal('show');
 				$('#btnPrevisualizarP').show();
-                
+
             },
             error: function(data) {},
         });
 	}
-	
-	
-	
+
 	$('#microciclo_select').change(function() {
 		$("#btnMover").hide();
 		$('#divSemanaDia').show();
@@ -1817,7 +1388,7 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModalMicrociclo(1);
     });
-	
+
 	$('#btnPrevisualizarM').click(function() {
 		$("#btnMover").hide();
 		$('#divSemanaDia').show();
@@ -1832,13 +1403,13 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModalMicrociclo(1);
 	});
-	
+
 	function getModalMicrociclo(es_personal){
 		perfilID= $("#mesocyclesmesocycle-profile_id").val();
 		if(perfilID==""){
 			swal("Campos requeridos!", "Debe seleccionar un perfil", {
 				icon : "warning",
-				buttons: {        			
+				buttons: {
 					confirm: {
 						className : 'btn btn-warning'
 					}
@@ -1848,19 +1419,9 @@ $(document).ready(function() {
 			contador_weeks = 1;
 			$('#weeks_select').empty();
 			$('#weeks_selectMacro').empty();
-			/*$(".week").each(function() {
-				$('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-					Number(contador_weeks + 1) + '</option>');
-				contador_weeks = Number(contador_weeks + 1);
-			});*/
-			$(".week_item").each(function() {	
+			$(".week_item").each(function() {
 				cont_item = $(this).data('cont');
 				cont_item_text = $(this).data('textcont');
-
-				console.log('hh-'+cont_item);
-				
-				
-				
 				if(cont_item_text==='?'){
 					$('#weeks_select').append('<option value="' + cont_item + '">Semana ' +
 					cont_item_text + '</option>');
@@ -1872,15 +1433,8 @@ $(document).ready(function() {
 					$('#weeks_selectMacro').append('<option value="' + cont_item + '">Semana ' +
 					contador_weeks + '</option>');
 					contador_weeks = Number(contador_weeks + 1);
-				}	
+				}
 			});
-			/*for(var iC=0; iC<=cont; iC++){
-				$('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-					Number(contador_weeks + 1) + '</option>');
-				$('#weeks_selectMacro').append('<option value="' + contador_weeks + '">Semana ' +
-					Number(contador_weeks + 1) + '</option>');
-				contador_weeks = Number(contador_weeks + 1);
-			}*/
 			if(es_personal){
 				sesion = $('#microciclo_select_personal');
 			}else{
@@ -1889,7 +1443,7 @@ $(document).ready(function() {
 			if(sesion.val().trim()=="" || sesion.val()=="" || sesion.val()=="null"){
 				swal("Campos requeridos!", "Seleccione una sesión para poder visualizar.", {
 					icon : "warning",
-					buttons: {        			
+					buttons: {
 						confirm: {
 							className : 'btn btn-warning'
 						}
@@ -1897,24 +1451,20 @@ $(document).ready(function() {
 				});
 				return false;
 			}
-			$('#add_ss').html('Agregar'); 
+			$('#add_ss').html('Agregar');
 			$('#add_ss').addClass('submitFormBtn');
 			$('#add_ss').removeClass('submitFormBtnBlock');
 			$('#add_ss').attr('disabled', false);
-			
+
 			swal("Espere un momento", {
 				buttons: false,
 				timer: 1000,
 			});
-			
+
 			load_frame(sesion.val(), 1);
 		}
-		
+
 	}
-	
-	
-	
-	//buscar mesociclo
 	$('#mesociclo_select').change(function() {
 		$("#btnMover").hide();
 		$('#divSemanaDia').show();
@@ -1929,7 +1479,7 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModalMesociclo(1);
     });
-	
+
 	$('#btnPrevisualizarMeso').click(function() {
 		$("#btnMover").hide();
 		$('#divSemanaDia').show();
@@ -1944,13 +1494,13 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModalMesociclo(1);
 	});
-	
+
 	function getModalMesociclo(es_personal){
 		perfilID= $("#mesocyclesmesocycle-profile_id").val();
 		if(perfilID==""){
 			swal("Campos requeridos!", "Debe seleccionar un perfil", {
 				icon : "warning",
-				buttons: {        			
+				buttons: {
 					confirm: {
 						className : 'btn btn-warning'
 					}
@@ -1960,24 +1510,9 @@ $(document).ready(function() {
 			contador_weeks = 1;
 			$('#weeks_select').empty();
 			$('#weeks_selectMacro').empty();
-			/*$(".week").each(function() {
-				$('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-					Number(contador_weeks + 1) + '</option>');
-				contador_weeks = Number(contador_weeks + 1);
-			});*/
-			/*for(var iC=0; iC<=cont; iC++){
-				$('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-					Number(contador_weeks + 1) + '</option>');
-				$('#weeks_selectMacro').append('<option value="' + contador_weeks + '">Semana ' +
-					Number(contador_weeks + 1) + '</option>');
-				contador_weeks = Number(contador_weeks + 1);
-			}*/
-			$(".week_item").each(function() {	
+			$(".week_item").each(function() {
 				cont_item = $(this).data('cont');
 				cont_item_text = $(this).data('textcont');
-
-				console.log('hh-'+cont_item);
-				
 				if(cont_item_text==='?'){
 					$('#weeks_select').append('<option value="' + cont_item + '">Semana ' +
 					cont_item_text + '</option>');
@@ -1989,18 +1524,18 @@ $(document).ready(function() {
 					$('#weeks_selectMacro').append('<option value="' + cont_item + '">Semana ' +
 					contador_weeks + '</option>');
 					contador_weeks = Number(contador_weeks + 1);
-				}	
+				}
 			});
 			if(es_personal){
 				sesion = $('#mesociclo_select_personal');
 			}else{
 				sesion = $('#mesociclo_select');
 			}
-			
+
 			if(sesion.val().trim()=="" || sesion.val()=="" || sesion.val()=="null"){
 				swal("Campos requeridos!", "Seleccione una sesión para poder visualizar.", {
 					icon : "warning",
-					buttons: {        			
+					buttons: {
 						confirm: {
 							className : 'btn btn-warning'
 						}
@@ -2008,30 +1543,28 @@ $(document).ready(function() {
 				});
 				return false;
 			}
-			$('#add_ss').html('Agregar'); 
+			$('#add_ss').html('Agregar');
 			$('#add_ss').addClass('submitFormBtn');
 			$('#add_ss').removeClass('submitFormBtnBlock');
 			$('#add_ss').attr('disabled', false);
-			
+
 			swal("Espere un momento", {
 				buttons: false,
 				timer: 1000,
 			});
-			
+
 			load_frame(sesion.val(), 2);
 		}
-		
+
 	}
-	
-	
-    
+
 	$('#searchMesociclo').click(function() {
         $('#btnPrevisualizarMeso').hide();
         let sel = $('#search_mesociclo').val();
 		if(sel.trim()==""){
 			swal("Campos requeridos!", "Debe escribir al menos 3 carácteres para buscar", {
 				icon : "warning",
-				buttons: {        			
+				buttons: {
 					confirm: {
 						className : 'btn btn-warning'
 					}
@@ -2039,7 +1572,6 @@ $(document).ready(function() {
 			});
 		}
 		else{
-
 
 			swal("Espere un momento. Cargando...", {
 				buttons: false,
@@ -2058,53 +1590,45 @@ $(document).ready(function() {
 						width: '100%'
 					});
 					var $select2 = $('#mesociclo_select').data('select2');
-					// Abre el select2 programáticamente
 					$select2.open();
 				},
 				error: function(data) {},
 			});
 		}
     });
-	
-	
+
 	function load_frame(id, type) {
 		$('#modalOptions').modal('hide');
 		$('#previewModal').modal('show');
-		//$('#btnPrevisualizar').show();
-		
+
 		$('#btnAgregarMicroMeso').data('micromeso',id);
 		$('#btnAgregarMicroMeso').data('option',type);
 
 		switch (type) {
 			case 1:
 				url = 'index.php?r=mesocyclesmesocycle/microciclo&mrc=tr&id=' + id + '&cp=0&preview=true&orgn=dash&displaytbl=false';
-				//&preview=true
 				break;
 			case 2:
 				ss = id.split('_');
 				url = 'index.php?r=mesocyclesmesocycle/update&id=' + ss[0] + '&cp=' + ss[1] + '&preview=true&orgn=dash&displaytbl=false';
-				//&preview=true
 				$('#btnAgregarMicroMeso').data('micromeso',ss[0]);
 				break;
 			case 3:
-				//&preview=true
 				url = 'index.php?r=mesocyclesmesocycle/update&mac=tr&id=' + id + '&cp=0&preview=true&orgn=dash&displaytbl=false';
 				break;
 
 			default:
 				break;
 		}
-		
+
 		console.log($('#btnAgregarMicroMeso').data('micromeso'));
-		console.log(url);
 		$('#iframe').attr('src', url);
 		$('#iframe').reload();
 
 	}
-	//fin buscar mesociclo
 
 	$('#btnAgregarMicroMeso').click(function() {
-		
+
 		$('#btnAgregarMicroMeso').attr('disabled', 'disabled');
 		swal("Espere un momento...", {
 			buttons: false,
@@ -2115,23 +1639,19 @@ $(document).ready(function() {
 		if(option==1){
 			$.ajax({
 				type: 'get',
-				//async: false,
 				url: "/web/index.php?r=progressionsprogression/getdays",
 				data: {
 					"id": id_micro_meso,
 				},
 				success: function(data) {
-					//console.log(data);
 					data=JSON.parse(data);
 					$.each(data, function(i, item) {
-						console.log(item.session_id,item.day);
 						if(option==1){
 							week = $('#weeks_selectMacro').val();
 						}else{
 							week = 0;
 						}
-						
-						
+
 						day = item.day;
 						string_type = 'Lunes';
 						switch (day) {
@@ -2157,10 +1677,7 @@ $(document).ready(function() {
 								string_type = 'domingo';
 								break;
 						}
-						console.log(string_type);
-						//MI1C21KB2COM
 						setTimeout(() => {
-						console.log("Delayed for 1 second.");
 						}, "10000");
 						perfilID= $("#mesocyclesmesocycle-profile_id").val();
 							if(perfilID=="") perfilID=0;
@@ -2181,32 +1698,27 @@ $(document).ready(function() {
 									"perfilSelectedactivo": 'NO',
 								},
 								success: function(data) {
-									//console.log(data);
-									//document.getElementById('distance_select').innerHTML = data;
-									console.log('dia','#' + string_type + week);
 									$('#' + string_type + week).append(data);
-									//$('#exampleModal').modal('hide');
 
 									totales = 0;
 									$(".sum_e" + week).each(function() {
 										totales = totales + Number($(this).val());
 									});
-									//alert(week);
 									$('#ecos_tot' + week).empty();
 									$('#ecos_tot' + week).append(totales);
 									$('#tot_ecos_week' + week).val(totales);
 									$('#hddValida').val(Number($('#hddValida').val())+1);
 
-									$('#add_ss').html('Agregar'); 
+									$('#add_ss').html('Agregar');
 									$('#add_ss').addClass('submitFormBtn');
 									$('#add_ss').removeClass('submitFormBtnBlock');
 									$('#add_ss').attr('disabled', false);
-									
+
 								},
 								error: function(data) {
 									swal("Error al guardar!", "" + data, {
 										icon : "error",
-										buttons: {        			
+										buttons: {
 											confirm: {
 												className : 'btn btn-danger'
 											}
@@ -2214,41 +1726,34 @@ $(document).ready(function() {
 									});
 								},
 							});
-						
+
 					});
 				},
 				error: function(data) {
 					swal("Error al guardar!", "" + data, {
 						icon : "error",
-						buttons: {        			
+						buttons: {
 							confirm: {
 								className : 'btn btn-danger'
 							}
 						},
 					});
 				},
-			
+
 			})
 		}else{
 
 			$.ajax({
 				type: 'get',
-				//async: false,
 				url: "/web/index.php?r=progressionsprogression/getweeks",
 				data: {
 					"id": id_micro_meso,
 				},
 				success: function(data) {
 					data=JSON.parse(data);
-					
-					//alert(size);
 					week = $('#weeks_selectMacro').val();
 					size=Number(data.length)+Number(week);
-					console.log('size',size);
-
 					$.each(data, function(i, item2) {
-						console.log('semanaID',item2.semanaID);
-
 						$.ajax({
 							type: 'get',
 							async: false,
@@ -2257,10 +1762,8 @@ $(document).ready(function() {
 								"id": item2.semanaID,
 							},
 							success: function(data) {
-								//console.log(data);
 								data=JSON.parse(data);
 								$.each(data, function(i, item) {
-									console.log(item.session_id,item.day);
 									day = item.day;
 									string_type = 'Lunes';
 									switch (day) {
@@ -2286,10 +1789,7 @@ $(document).ready(function() {
 											string_type = 'domingo';
 											break;
 									}
-									console.log(string_type);
-									//MI1C21KB2COM
 									setTimeout(() => {
-									console.log("Delayed for 1 second.");
 									}, "10000");
 									perfilID= $("#mesocyclesmesocycle-profile_id").val();
 										if(perfilID=="") perfilID=0;
@@ -2310,32 +1810,27 @@ $(document).ready(function() {
 												"perfilSelectedactivo": 'NO',
 											},
 											success: function(data) {
-												//console.log(data);
-												//document.getElementById('distance_select').innerHTML = data;
-												console.log('dia','#' + string_type + week);
 												$('#' + string_type + week).append(data);
-												//$('#exampleModal').modal('hide');
 
 												totales = 0;
 												$(".sum_e" + week).each(function() {
 													totales = totales + Number($(this).val());
 												});
-												//alert(week);
 												$('#ecos_tot' + week).empty();
 												$('#ecos_tot' + week).append(totales);
 												$('#tot_ecos_week' + week).val(totales);
 												$('#hddValida').val(Number($('#hddValida').val())+1);
 
-												$('#add_ss').html('Agregar'); 
+												$('#add_ss').html('Agregar');
 												$('#add_ss').addClass('submitFormBtn');
 												$('#add_ss').removeClass('submitFormBtnBlock');
 												$('#add_ss').attr('disabled', false);
-												
+
 											},
 											error: function(data) {
 												swal("Error al guardar!", "" + data, {
 													icon : "error",
-													buttons: {        			
+													buttons: {
 														confirm: {
 															className : 'btn btn-danger'
 														}
@@ -2343,36 +1838,35 @@ $(document).ready(function() {
 												});
 											},
 										});
-									
+
 								});
 							},
 							error: function(data) {
 								swal("Error al guardar!", "" + data, {
 									icon : "error",
-									buttons: {        			
+									buttons: {
 										confirm: {
 											className : 'btn btn-danger'
 										}
 									},
 								});
 							},
-							
+
 						})
 						week++;
 						if(week>cont){
 							if(week<size){
 								$("#add_line").click();
 							}
-							
+
 						}
-						
-						
+
 					})
 				},
 				error: function(data) {
 					swal("Error al guardar!", "" + data, {
 						icon : "error",
-						buttons: {        			
+						buttons: {
 							confirm: {
 								className : 'btn btn-danger'
 							}
@@ -2381,14 +1875,12 @@ $(document).ready(function() {
 				},
 			})
 
-			
 		}
-		
+
 		$('#previewModal').modal('hide');
 		$('#btnAgregarMicroMeso').attr('disabled', false);
 	})
-	
-	
+
 	$('#cmbAtletaACopiar').change(function() {
 		var validaSeleccionado= false;
 		$('#divError').html("");
@@ -2397,7 +1889,7 @@ $(document).ready(function() {
              validaSeleccionado= true;
 			}
         });
-		
+
 		if(validaSeleccionado==false) {
 			var _atletaID = this.value;
 			var _atletaName= $('#cmbAtletaACopiar option:selected').html();
@@ -2421,18 +1913,15 @@ $(document).ready(function() {
 			$('#divError').html("Atleta previamente seleccionado");
 		}
     });
-	
+
 	$('.iconRemoveListaAtleta').click(function() {
 		alert(1);
 		$(this).closest('.clsListaAtleta').remove();
 		alert(2);
 	});
-	
-    /*'098'
-    'mexico'*/
 	temp1=0;
     $('#add_ss').click(function() {
-		
+
 		var validaSeleccion= false;
 		$("input:checkbox:checked").each(function() {
              validaSeleccion= true;
@@ -2440,7 +1929,7 @@ $(document).ready(function() {
 		if(validaSeleccion==false){
 			swal("Campos requeridos!", "Debe seleccionar una sesión para poder agregar", {
 				icon : "warning",
-				buttons: {        			
+				buttons: {
 					confirm: {
 						className : 'btn btn-warning'
 					}
@@ -2448,15 +1937,13 @@ $(document).ready(function() {
 			});
 		}
 		else{
-			//if($('#hddMoverA').val()=="moverA" || (esduplicar==true && is_variasVeces==false)){// && esduplicar==false
 			if($('#hddMoverA').val()=="moverA" || (esduplicar==true)){
 				var esMover = true;
 				el($("#hddMoviendoID").val(), esMover);
 				$('#sesion_select').empty();
-				//alert($('#sesion_select').val());
 			}
-			
-			$('#add_ss').html('Espere un momento...'); 
+
+			$('#add_ss').html('Espere un momento...');
 			$('#add_ss').addClass('submitFormBtnBlock');
 			$('#add_ss').removeClass('submitFormBtn');
 			$('#add_ss').attr('disabled', 'disabled');
@@ -2466,7 +1953,6 @@ $(document).ready(function() {
 			week = $('#weeks_select').val();
 			day = $('#days_select').val();
 			string_type = 'Lunes';
-			//alert($('#weeks_select').val() + " -- " + week);
 			switch (day) {
 				case '1':
 					string_type = 'lunes';
@@ -2494,11 +1980,8 @@ $(document).ready(function() {
 			perfilID= $("#mesocyclesmesocycle-profile_id").val();
 			if(perfilID=="") perfilID=0;
 			$("input:checkbox:checked").each(function() {
-				//alert($(this).val());
-				//alert('');
 				 $.ajax({
 					type: 'get',
-					/*async: false,*/
 					url: "/web/index.php?r=progressionsprogression/getdata",
 					data: {
 						"id": $(this).val(),
@@ -2514,22 +1997,18 @@ $(document).ready(function() {
 						"perfilSelectedactivo": 'NO',
 					},
 					success: function(data) {
-						//console.log(data);
-						//document.getElementById('distance_select').innerHTML = data;
 						$('#' + string_type + week).append(data);
-						//$('#exampleModal').modal('hide');
 
 						totales = 0;
 						$(".sum_e" + week).each(function() {
 							totales = totales + Number($(this).val());
 						});
-						//alert(week);
 						$('#ecos_tot' + week).empty();
 						$('#ecos_tot' + week).append(totales);
 						$('#tot_ecos_week' + week).val(totales);
 						$('#hddValida').val(Number($('#hddValida').val())+1);
 
-						$('#add_ss').html('Agregar'); 
+						$('#add_ss').html('Agregar');
 						$('#add_ss').addClass('submitFormBtn');
 						$('#add_ss').removeClass('submitFormBtnBlock');
 						$('#add_ss').attr('disabled', false);
@@ -2537,7 +2016,7 @@ $(document).ready(function() {
 					error: function(data) {
 						swal("Error al guardar!", "" + data, {
 							icon : "error",
-							buttons: {        			
+							buttons: {
 								confirm: {
 									className : 'btn btn-danger'
 								}
@@ -2546,43 +2025,26 @@ $(document).ready(function() {
 					},
 				});
 			});
-			
+
 		}
 		$('#exampleModal').modal('hide');
 		$("#hddMoviendoID").val("")
 		$("#add_ss").html("Agregar");
 		$("#add_ss").show();
 		$("#btnMover").hide();
-		//$("#btnPrevisualizar").hide();
-		
+
 		if($('#hddMoverA').val()=="moverA"){
 			if (mensajeLanzado==0) {
-				
+
 				notificacionToast("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla");
 			}
 			else{
 				mensajeLanzado=0;
 			}
-			/*
-			swalDEL("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla", "", {
-				icon : "warning",
-				buttons: {        			
-					confirm: {
-						className : 'btn btn-warning'
-					}
-				},
-			});
-			/*swal("Espere un momento", {
-				buttons: false,
-				timer: 20000,
-			});
-			$('.submitFormBtn').click();
-			/**/
 		}
 		$('#hddMoverA').val("");
-		//alert(212);
     });
-	
+
 	let totalEcoZ1=0;
 					dayID='1419812';
 				agregarSesion(846460,0,1, 605);
@@ -2646,39 +2108,37 @@ $(document).ready(function() {
 				agregarSesion(846486,4,5, 605);
 								dayID='1419840';
 				agregarSesion(846487,4,7, 605);
-							//readlines();
 						totalesMinZ1 = 0;
 			$(".sum_minutosZ1").each(function() {
 				totalesMinZ1 = totalesMinZ1 + Number($(this).val());
 			});
 			$('#hddMinZona1').val(totalesMinZ1);
-	
+
 			totalesMinZ2 = 0;
 			$(".sum_minutosZ2").each(function() {
 				totalesMinZ2 = totalesMinZ2 + Number($(this).val());
 			});
 			$('#hddMinZona2').val(totalesMinZ2);
-	
+
 			totalesMinZ3 = 0;
 			$(".sum_minutosZ3").each(function() {
 				totalesMinZ3 = totalesMinZ3 + Number($(this).val());
 			});
 			$('#hddMinZona3').val(totalesMinZ3);
-	
+
 			totalesMinZ4 = 0;
 			$(".sum_minutosZ4").each(function() {
 				totalesMinZ4 = totalesMinZ4 + Number($(this).val());
 			});
 			$('#hddMinZona4').val(totalesMinZ4);
-				
+
 			totalMinGlobales = 0;
 			$(".sum_mintosTotalesGlobal").each(function() {
 				totalMinGlobales = totalMinGlobales + Number($(this).val());
 			});
-	
+
 			let horas= (totalesMinZ1+totalesMinZ2+totalesMinZ3+totalesMinZ4)/60;
 			horas= totalMinGlobales/60;
-			//let horas= totalMinGlobales/60;
 			$('#divHoras').empty();
 			$('#divHoras').append(horas.toFixed(1));
 			let Fase1 = totalesMinZ1 + (0.5 * totalesMinZ2)
@@ -2694,97 +2154,77 @@ $(document).ready(function() {
 			$('#tdTiempo2').append(porcentajeTiempoF2.toFixed(0));
 			$('#tdTiempo3').empty();
 			$('#tdTiempo3').append(porcentajeTiempoF3.toFixed(0));
-			//alert(totalFases);
-			//let porcentajeCargaF1 = (sumaEcosFase*100)/$sumaEcosTotal
-			//var 
 			totalesEcosZ1 = 0;
 			$(".sum_ecosZ1").each(function() {
-				//alert(Number($(this).val()));
 				totalesEcosZ1 = Number(totalesEcosZ1) + Number($(this).val());
-				//alert(totalEcoZ1);
 			});
-			//alert(80);
 			$('#hddEcosZona1').val(totalesEcosZ1);
-	
-			//alert(81);
 			totalesEcosZ2 = 0;
 			$(".sum_ecosZ2").each(function() {
 				totalesEcosZ2 = totalesEcosZ2 + Number($(this).val());
 			});
 			$('#hddEcosZona2').val(totalesEcosZ2);
-	
+
 			totalesEcosZ3 = 0;
 			$(".sum_ecosZ3").each(function() {
 				totalesEcosZ3 = totalesEcosZ3 + Number($(this).val());
 			});
 			$('#hddEcosZona3').val(totalesEcosZ3);
-	
+
 			totalesEcosZ4 = 0;
 			$(".sum_ecosZ4").each(function() {
 				totalesEcosZ4 = totalesEcosZ4 + Number($(this).val());
-				//alert(7);
 			});
 			$('#hddEcosZona4').val(totalesEcosZ4);
-	
+
 			totalesEcosFuerza = 0;
 			$(".sum_ecosFuerza").each(function() {
 				totalesEcosFuerza = totalesEcosFuerza + Number($(this).val());
-				//alert(7);
 			});
 			$('#hddEcosFuerza').val(totalesEcosFuerza);
 			$('#divEcosFuerza').html(totalesEcosFuerza);
-			
+
 			totalesEcosGlobal = 0;
 			$(".sum_ecosTotales").each(function() {
 				totalesEcosGlobal = totalesEcosGlobal + Number($(this).val());
-				//alert(7);
 			});
 			$('#divtotalEcos').html(Math.round(totalesEcosGlobal+totalesEcosFuerza));
 			$('#hddtotalEcos').val(Math.round(totalesEcosGlobal));
-			
-			//carrera
 			mintosTotales = 0;
 			$(".sum_mintosTotalesCarrera").each(function() {
 				mintosTotales = mintosTotales + Number($(this).val());
 			});
-			//alert(mintosTotales);
 			$('#totaKm_carrera').html(parseFloat(mintosTotales).toFixed(1));
 			$('#hddMinutosTotales').val(mintosTotales);
-			
-			//ciclismo
 			mintosTotales = 0;
 			$(".sum_mintosTotalesCiclismo").each(function() {
 				mintosTotales = mintosTotales + Number($(this).val());
 			});
 			$('#totaKm_ciclismo').html(mintosTotales);
-			
-			//natacion
 			mintosTotales = 0;
 			$(".sum_mintosTotalesNatacion").each(function() {
 				mintosTotales = mintosTotales + Number($(this).val());
 			});
 			$('#totaKm_natacion').html(Number(mintosTotales).toFixed(1));
-		
-	
+
 			ecosTotalesN = 0;
 			$(".sum_ecosTotalesNatacion").each(function() {
 				ecosTotalesN = ecosTotalesN + Number($(this).val());
 			});
 			$('#divEcosTotalesN').html(ecosTotalesN);
-	
+
 			ecosTotalesB = 0;
 			$(".sum_ecosTotalesCiclismo").each(function() {
 				ecosTotalesB = ecosTotalesB + Number($(this).val());
 			});
 			$('#divEcosTotalesB').html(ecosTotalesB);
-	
+
 			ecosTotalesC = 0;
 			$(".sum_ecosTotalesCarrera").each(function() {
 				ecosTotalesC = ecosTotalesC + Number($(this).val());
 			});
 			$('#divEcosTotalesC').html(ecosTotalesC);
-			
-	
+
 			let ecosFase1 = totalesEcosZ1 + (0.5 * totalesEcosZ2)
 			let ecosFase2 = (0.5 * totalesEcosZ2) + totalesEcosZ3
 			let ecosFase3 = totalesEcosZ4;
@@ -2798,24 +2238,12 @@ $(document).ready(function() {
 			$('#tdCarga2').append(porcentajeCargaF2.toFixed(0));
 			$('#tdCarga3').empty();
 			porcentajeCargaF3 = 100-(Math.round(porcentajeCargaF1) + Math.round(porcentajeCargaF2));
-			//alert(Math.round(porcentajeCargaF1) + ' ' + porcentajeCargaF2.toFixed(0));
 			$('#tdCarga3').append(porcentajeCargaF3.toFixed(0));
-			
-			//alert("total 3 fases= "+totalecosFases);
 			let ecosFuerza= totalesEcosFuerza;
 			totalecosFases = totalecosFases + ecosFuerza;
 			let porcentajeCargaTotalF1 = (ecosFase1*100)/totalecosFases;
 			let porcentajeCargaTotalF2 = (ecosFase2*100)/totalecosFases;
 			let porcentajeCargaTotalF3 = (ecosFase3*100)/totalecosFases;
-			
-			/*alert("total 3 fases + esfuerzo= "+totalecosFases);
-			alert("Ecos F1= " + ecosFase1 + ' - ' + "Ecos F2= " + ecosFase2 + ' - ' + "Ecos F3= " + ecosFase3);
-			alert(porcentajeCargaF1 + ' - ' + porcentajeCargaTotalF1);
-			alert(porcentajeCargaF2 + ' - ' + porcentajeCargaTotalF2);
-			alert(porcentajeCargaF3 + ' - ' + porcentajeCargaTotalF3);
-			*/
-			
-			
 			$('#tdCargaTotal1').empty();
 			$('#tdCargaTotal1').append(porcentajeCargaTotalF1.toFixed(0));
 			$('#tdCargaTotal2').empty();
@@ -2823,7 +2251,7 @@ $(document).ready(function() {
 			$('#tdCargaTotal3').empty();
 			porcentajeCargaTotalF3 = 100-(Math.round(porcentajeCargaTotalF1)+Math.round(porcentajeCargaTotalF2));
 			$('#tdCargaTotal3').append(porcentajeCargaTotalF3.toFixed(0));
-			
+
 			if(1==1){
 											week=0;
 							totalMinSemanaZ1 = 0;
@@ -2854,51 +2282,22 @@ $(document).ready(function() {
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-
-
-							//minutos por deporte
-							/*totalMinCarrera = 0;
-							$(".sum_minutosCarrera_week" + week).each(function() {
-								totalMinCarrera = totalMinCarrera + Number($(this).val());
-							});
-							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-
-							totalMinCiclismo = 0;
-							$(".sum_minutosCiclismo_week" + week).each(function() {
-								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
-							});
-							//$('#spanTimeCiclismoZ' + week).html(totalMinCiclismo);
-
-							totalMinNatacion = 0;
-							$(".sum_minutosNatacion_week" + week).each(function() {
-								totalMinNatacion = totalMinNatacion + Number($(this).val());
-							});
-							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
-							//fin minutos por deporte
-
 							if(1==1){
-								//carrera
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_carrera' + week).html(parseFloat(mintosTotales).toFixed(1));
-
-								//ciclismo
 								mintosTotales = 0;
 								$(".sum_mintosTotalesB_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_ciclismo' + week).html(mintosTotales);
-
-								//natacion
 								mintosTotales = 0;
 								$(".sum_mintosTotalesN_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_natacion' + week).html(Number(mintosTotales).toFixed(1));
-
-
 
 								ecosTotalesN = 0;
 								$(".sum_ecosTotalesN_week" + week).each(function() {
@@ -2912,13 +2311,11 @@ $(document).ready(function() {
 								});
 								$('#tdSumaEcosCiclismo' + week).append(ecosTotalesB);
 
-
 								ecosTotalesC = 0;
 								$(".sum_ecosTotalesC_week" + week).each(function() {
 									ecosTotalesC = ecosTotalesC + Number($(this).val());
 								});
 								$('#tdSumaEcosCarrera' + week).html(ecosTotalesC);
-
 
 								ecosTotalesE = 0;
 								$(".sum_ecos_Fuerza_week" + week).each(function() {
@@ -2928,7 +2325,6 @@ $(document).ready(function() {
 
 							}
 							horasCal= totalMinGlobales/60;
-							//totalMinSemanaZ4= totalMinGlobales-(totalMinSemanaZ1+totalMinSemanaZ2+totalMinSemanaZ3);
 
 							$('#divHoras' + week).empty();
 							$('#divHoras' + week).append(horasCal.toFixed(1));
@@ -2945,19 +2341,11 @@ $(document).ready(function() {
 							$('#tdTiempo2' + week).append(porcentajeTiempoF2.toFixed(0));
 							$('#tdTiempo3' + week).empty();
 							$('#tdTiempo3' + week).append(porcentajeTiempoF3.toFixed(0));
-							/*if(Fase1==260)
-								alert(porcentajeTiempoF1 + " - " + porcentajeTiempoF2 + " - " + porcentajeTiempoF3 + " - " + totalMinSemanaZ4 + " - " + totalFases + " - " + week + "||" + Fase1 + " - " + Fase2 + " - " + Fase3);
-								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
-								//alert(Number($(this).val()));
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
-								//alert(totalEcoZ1);
 							});
-							//alert(80);
 							$('#hddEcosZona1' + week).val(totalesEcosSemanalZ1);
-
-							//alert(81);
 							totalesEcosZ2 = 0;
 							$(".sum_ecos_weekZ2" + week).each(function() {
 								totalesEcosZ2 = totalesEcosZ2 + Number($(this).val());
@@ -2973,7 +2361,6 @@ $(document).ready(function() {
 							totalesEcosZ4 = 0;
 							$(".sum_ecos_weekZ4" + week).each(function() {
 								totalesEcosZ4 = totalesEcosZ4 + Number($(this).val());
-								//alert(7);
 							});
 							$('#hddEcosZona4' + week).val(totalesEcosZ4);
 
@@ -2982,10 +2369,6 @@ $(document).ready(function() {
 								totalesEcosFuerza = totalesEcosFuerza + Number($(this).val());
 							});
 							$('#hddEcosFuerza' + week).val(totalesEcosFuerza);
-
-
-
-							//alert(totalesEcosSemanalZ1+totalesEcosZ2+totalesEcosZ3+totalesEcosZ4);
 							ecosFase1 = totalesEcosSemanalZ1 + (0.5 * totalesEcosZ2)
 							ecosFase2 = (0.5 * totalesEcosZ2) + totalesEcosZ3
 							ecosFase3 = totalesEcosZ4;
@@ -3013,7 +2396,6 @@ $(document).ready(function() {
 							$('#tdCargaTotal3' + week).empty();
 							porcentajeCargaTotalF3 = 100-(Math.round(porcentajeCargaTotalF1)+Math.round(porcentajeCargaTotalF2));
 							$('#tdCargaTotal3' + week).append(porcentajeCargaTotalF3.toFixed(0));
-							//alert($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila1_' + week).html($('#divEstadisticaSemanal1_' + week).html());
 							$('#divSemanaFila2_' + week).html($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila3_' + week).html($('#divEstadisticaSemanal3_' + week).html());
@@ -3021,24 +2403,6 @@ $(document).ready(function() {
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
 
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-
-							///copia detalle
-							/*var totalesPorSemanna = 0;
-							$(".sum_e" + week).each(function() {
-								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
-							});
-							//alert(day + " - " + string_type + week);
-							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							//alert(totales + ' - ' + totalesEcosFuerza);
-							$('#ecos_tot' + week).empty();
-							$('#ecos_tot' + week).append(totalesPorSemanna);
-							$('#tot_ecos_week' + week).val(totalesPorSemanna);
-							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							//alert('divSumaEcosSemana'+ week + ' - ' + sumEcosPorDetporte);
-							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
-							///fin copia detalle
-
-
 														week=1;
 							totalMinSemanaZ1 = 0;
 							$(".sum_min_weekZ1" + week).each(function() {
@@ -3068,51 +2432,22 @@ $(document).ready(function() {
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-
-
-							//minutos por deporte
-							/*totalMinCarrera = 0;
-							$(".sum_minutosCarrera_week" + week).each(function() {
-								totalMinCarrera = totalMinCarrera + Number($(this).val());
-							});
-							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-
-							totalMinCiclismo = 0;
-							$(".sum_minutosCiclismo_week" + week).each(function() {
-								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
-							});
-							//$('#spanTimeCiclismoZ' + week).html(totalMinCiclismo);
-
-							totalMinNatacion = 0;
-							$(".sum_minutosNatacion_week" + week).each(function() {
-								totalMinNatacion = totalMinNatacion + Number($(this).val());
-							});
-							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
-							//fin minutos por deporte
-
 							if(1==1){
-								//carrera
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_carrera' + week).html(parseFloat(mintosTotales).toFixed(1));
-
-								//ciclismo
 								mintosTotales = 0;
 								$(".sum_mintosTotalesB_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_ciclismo' + week).html(mintosTotales);
-
-								//natacion
 								mintosTotales = 0;
 								$(".sum_mintosTotalesN_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_natacion' + week).html(Number(mintosTotales).toFixed(1));
-
-
 
 								ecosTotalesN = 0;
 								$(".sum_ecosTotalesN_week" + week).each(function() {
@@ -3126,13 +2461,11 @@ $(document).ready(function() {
 								});
 								$('#tdSumaEcosCiclismo' + week).append(ecosTotalesB);
 
-
 								ecosTotalesC = 0;
 								$(".sum_ecosTotalesC_week" + week).each(function() {
 									ecosTotalesC = ecosTotalesC + Number($(this).val());
 								});
 								$('#tdSumaEcosCarrera' + week).html(ecosTotalesC);
-
 
 								ecosTotalesE = 0;
 								$(".sum_ecos_Fuerza_week" + week).each(function() {
@@ -3142,7 +2475,6 @@ $(document).ready(function() {
 
 							}
 							horasCal= totalMinGlobales/60;
-							//totalMinSemanaZ4= totalMinGlobales-(totalMinSemanaZ1+totalMinSemanaZ2+totalMinSemanaZ3);
 
 							$('#divHoras' + week).empty();
 							$('#divHoras' + week).append(horasCal.toFixed(1));
@@ -3159,19 +2491,11 @@ $(document).ready(function() {
 							$('#tdTiempo2' + week).append(porcentajeTiempoF2.toFixed(0));
 							$('#tdTiempo3' + week).empty();
 							$('#tdTiempo3' + week).append(porcentajeTiempoF3.toFixed(0));
-							/*if(Fase1==260)
-								alert(porcentajeTiempoF1 + " - " + porcentajeTiempoF2 + " - " + porcentajeTiempoF3 + " - " + totalMinSemanaZ4 + " - " + totalFases + " - " + week + "||" + Fase1 + " - " + Fase2 + " - " + Fase3);
-								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
-								//alert(Number($(this).val()));
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
-								//alert(totalEcoZ1);
 							});
-							//alert(80);
 							$('#hddEcosZona1' + week).val(totalesEcosSemanalZ1);
-
-							//alert(81);
 							totalesEcosZ2 = 0;
 							$(".sum_ecos_weekZ2" + week).each(function() {
 								totalesEcosZ2 = totalesEcosZ2 + Number($(this).val());
@@ -3187,7 +2511,6 @@ $(document).ready(function() {
 							totalesEcosZ4 = 0;
 							$(".sum_ecos_weekZ4" + week).each(function() {
 								totalesEcosZ4 = totalesEcosZ4 + Number($(this).val());
-								//alert(7);
 							});
 							$('#hddEcosZona4' + week).val(totalesEcosZ4);
 
@@ -3196,10 +2519,6 @@ $(document).ready(function() {
 								totalesEcosFuerza = totalesEcosFuerza + Number($(this).val());
 							});
 							$('#hddEcosFuerza' + week).val(totalesEcosFuerza);
-
-
-
-							//alert(totalesEcosSemanalZ1+totalesEcosZ2+totalesEcosZ3+totalesEcosZ4);
 							ecosFase1 = totalesEcosSemanalZ1 + (0.5 * totalesEcosZ2)
 							ecosFase2 = (0.5 * totalesEcosZ2) + totalesEcosZ3
 							ecosFase3 = totalesEcosZ4;
@@ -3227,7 +2546,6 @@ $(document).ready(function() {
 							$('#tdCargaTotal3' + week).empty();
 							porcentajeCargaTotalF3 = 100-(Math.round(porcentajeCargaTotalF1)+Math.round(porcentajeCargaTotalF2));
 							$('#tdCargaTotal3' + week).append(porcentajeCargaTotalF3.toFixed(0));
-							//alert($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila1_' + week).html($('#divEstadisticaSemanal1_' + week).html());
 							$('#divSemanaFila2_' + week).html($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila3_' + week).html($('#divEstadisticaSemanal3_' + week).html());
@@ -3235,24 +2553,6 @@ $(document).ready(function() {
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
 
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-
-							///copia detalle
-							/*var totalesPorSemanna = 0;
-							$(".sum_e" + week).each(function() {
-								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
-							});
-							//alert(day + " - " + string_type + week);
-							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							//alert(totales + ' - ' + totalesEcosFuerza);
-							$('#ecos_tot' + week).empty();
-							$('#ecos_tot' + week).append(totalesPorSemanna);
-							$('#tot_ecos_week' + week).val(totalesPorSemanna);
-							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							//alert('divSumaEcosSemana'+ week + ' - ' + sumEcosPorDetporte);
-							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
-							///fin copia detalle
-
-
 														week=2;
 							totalMinSemanaZ1 = 0;
 							$(".sum_min_weekZ1" + week).each(function() {
@@ -3282,51 +2582,22 @@ $(document).ready(function() {
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-
-
-							//minutos por deporte
-							/*totalMinCarrera = 0;
-							$(".sum_minutosCarrera_week" + week).each(function() {
-								totalMinCarrera = totalMinCarrera + Number($(this).val());
-							});
-							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-
-							totalMinCiclismo = 0;
-							$(".sum_minutosCiclismo_week" + week).each(function() {
-								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
-							});
-							//$('#spanTimeCiclismoZ' + week).html(totalMinCiclismo);
-
-							totalMinNatacion = 0;
-							$(".sum_minutosNatacion_week" + week).each(function() {
-								totalMinNatacion = totalMinNatacion + Number($(this).val());
-							});
-							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
-							//fin minutos por deporte
-
 							if(1==1){
-								//carrera
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_carrera' + week).html(parseFloat(mintosTotales).toFixed(1));
-
-								//ciclismo
 								mintosTotales = 0;
 								$(".sum_mintosTotalesB_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_ciclismo' + week).html(mintosTotales);
-
-								//natacion
 								mintosTotales = 0;
 								$(".sum_mintosTotalesN_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_natacion' + week).html(Number(mintosTotales).toFixed(1));
-
-
 
 								ecosTotalesN = 0;
 								$(".sum_ecosTotalesN_week" + week).each(function() {
@@ -3340,13 +2611,11 @@ $(document).ready(function() {
 								});
 								$('#tdSumaEcosCiclismo' + week).append(ecosTotalesB);
 
-
 								ecosTotalesC = 0;
 								$(".sum_ecosTotalesC_week" + week).each(function() {
 									ecosTotalesC = ecosTotalesC + Number($(this).val());
 								});
 								$('#tdSumaEcosCarrera' + week).html(ecosTotalesC);
-
 
 								ecosTotalesE = 0;
 								$(".sum_ecos_Fuerza_week" + week).each(function() {
@@ -3356,7 +2625,6 @@ $(document).ready(function() {
 
 							}
 							horasCal= totalMinGlobales/60;
-							//totalMinSemanaZ4= totalMinGlobales-(totalMinSemanaZ1+totalMinSemanaZ2+totalMinSemanaZ3);
 
 							$('#divHoras' + week).empty();
 							$('#divHoras' + week).append(horasCal.toFixed(1));
@@ -3373,19 +2641,11 @@ $(document).ready(function() {
 							$('#tdTiempo2' + week).append(porcentajeTiempoF2.toFixed(0));
 							$('#tdTiempo3' + week).empty();
 							$('#tdTiempo3' + week).append(porcentajeTiempoF3.toFixed(0));
-							/*if(Fase1==260)
-								alert(porcentajeTiempoF1 + " - " + porcentajeTiempoF2 + " - " + porcentajeTiempoF3 + " - " + totalMinSemanaZ4 + " - " + totalFases + " - " + week + "||" + Fase1 + " - " + Fase2 + " - " + Fase3);
-								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
-								//alert(Number($(this).val()));
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
-								//alert(totalEcoZ1);
 							});
-							//alert(80);
 							$('#hddEcosZona1' + week).val(totalesEcosSemanalZ1);
-
-							//alert(81);
 							totalesEcosZ2 = 0;
 							$(".sum_ecos_weekZ2" + week).each(function() {
 								totalesEcosZ2 = totalesEcosZ2 + Number($(this).val());
@@ -3401,7 +2661,6 @@ $(document).ready(function() {
 							totalesEcosZ4 = 0;
 							$(".sum_ecos_weekZ4" + week).each(function() {
 								totalesEcosZ4 = totalesEcosZ4 + Number($(this).val());
-								//alert(7);
 							});
 							$('#hddEcosZona4' + week).val(totalesEcosZ4);
 
@@ -3410,10 +2669,6 @@ $(document).ready(function() {
 								totalesEcosFuerza = totalesEcosFuerza + Number($(this).val());
 							});
 							$('#hddEcosFuerza' + week).val(totalesEcosFuerza);
-
-
-
-							//alert(totalesEcosSemanalZ1+totalesEcosZ2+totalesEcosZ3+totalesEcosZ4);
 							ecosFase1 = totalesEcosSemanalZ1 + (0.5 * totalesEcosZ2)
 							ecosFase2 = (0.5 * totalesEcosZ2) + totalesEcosZ3
 							ecosFase3 = totalesEcosZ4;
@@ -3441,7 +2696,6 @@ $(document).ready(function() {
 							$('#tdCargaTotal3' + week).empty();
 							porcentajeCargaTotalF3 = 100-(Math.round(porcentajeCargaTotalF1)+Math.round(porcentajeCargaTotalF2));
 							$('#tdCargaTotal3' + week).append(porcentajeCargaTotalF3.toFixed(0));
-							//alert($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila1_' + week).html($('#divEstadisticaSemanal1_' + week).html());
 							$('#divSemanaFila2_' + week).html($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila3_' + week).html($('#divEstadisticaSemanal3_' + week).html());
@@ -3449,24 +2703,6 @@ $(document).ready(function() {
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
 
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-
-							///copia detalle
-							/*var totalesPorSemanna = 0;
-							$(".sum_e" + week).each(function() {
-								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
-							});
-							//alert(day + " - " + string_type + week);
-							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							//alert(totales + ' - ' + totalesEcosFuerza);
-							$('#ecos_tot' + week).empty();
-							$('#ecos_tot' + week).append(totalesPorSemanna);
-							$('#tot_ecos_week' + week).val(totalesPorSemanna);
-							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							//alert('divSumaEcosSemana'+ week + ' - ' + sumEcosPorDetporte);
-							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
-							///fin copia detalle
-
-
 														week=3;
 							totalMinSemanaZ1 = 0;
 							$(".sum_min_weekZ1" + week).each(function() {
@@ -3496,51 +2732,22 @@ $(document).ready(function() {
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-
-
-							//minutos por deporte
-							/*totalMinCarrera = 0;
-							$(".sum_minutosCarrera_week" + week).each(function() {
-								totalMinCarrera = totalMinCarrera + Number($(this).val());
-							});
-							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-
-							totalMinCiclismo = 0;
-							$(".sum_minutosCiclismo_week" + week).each(function() {
-								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
-							});
-							//$('#spanTimeCiclismoZ' + week).html(totalMinCiclismo);
-
-							totalMinNatacion = 0;
-							$(".sum_minutosNatacion_week" + week).each(function() {
-								totalMinNatacion = totalMinNatacion + Number($(this).val());
-							});
-							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
-							//fin minutos por deporte
-
 							if(1==1){
-								//carrera
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_carrera' + week).html(parseFloat(mintosTotales).toFixed(1));
-
-								//ciclismo
 								mintosTotales = 0;
 								$(".sum_mintosTotalesB_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_ciclismo' + week).html(mintosTotales);
-
-								//natacion
 								mintosTotales = 0;
 								$(".sum_mintosTotalesN_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_natacion' + week).html(Number(mintosTotales).toFixed(1));
-
-
 
 								ecosTotalesN = 0;
 								$(".sum_ecosTotalesN_week" + week).each(function() {
@@ -3554,13 +2761,11 @@ $(document).ready(function() {
 								});
 								$('#tdSumaEcosCiclismo' + week).append(ecosTotalesB);
 
-
 								ecosTotalesC = 0;
 								$(".sum_ecosTotalesC_week" + week).each(function() {
 									ecosTotalesC = ecosTotalesC + Number($(this).val());
 								});
 								$('#tdSumaEcosCarrera' + week).html(ecosTotalesC);
-
 
 								ecosTotalesE = 0;
 								$(".sum_ecos_Fuerza_week" + week).each(function() {
@@ -3570,7 +2775,6 @@ $(document).ready(function() {
 
 							}
 							horasCal= totalMinGlobales/60;
-							//totalMinSemanaZ4= totalMinGlobales-(totalMinSemanaZ1+totalMinSemanaZ2+totalMinSemanaZ3);
 
 							$('#divHoras' + week).empty();
 							$('#divHoras' + week).append(horasCal.toFixed(1));
@@ -3587,19 +2791,11 @@ $(document).ready(function() {
 							$('#tdTiempo2' + week).append(porcentajeTiempoF2.toFixed(0));
 							$('#tdTiempo3' + week).empty();
 							$('#tdTiempo3' + week).append(porcentajeTiempoF3.toFixed(0));
-							/*if(Fase1==260)
-								alert(porcentajeTiempoF1 + " - " + porcentajeTiempoF2 + " - " + porcentajeTiempoF3 + " - " + totalMinSemanaZ4 + " - " + totalFases + " - " + week + "||" + Fase1 + " - " + Fase2 + " - " + Fase3);
-								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
-								//alert(Number($(this).val()));
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
-								//alert(totalEcoZ1);
 							});
-							//alert(80);
 							$('#hddEcosZona1' + week).val(totalesEcosSemanalZ1);
-
-							//alert(81);
 							totalesEcosZ2 = 0;
 							$(".sum_ecos_weekZ2" + week).each(function() {
 								totalesEcosZ2 = totalesEcosZ2 + Number($(this).val());
@@ -3615,7 +2811,6 @@ $(document).ready(function() {
 							totalesEcosZ4 = 0;
 							$(".sum_ecos_weekZ4" + week).each(function() {
 								totalesEcosZ4 = totalesEcosZ4 + Number($(this).val());
-								//alert(7);
 							});
 							$('#hddEcosZona4' + week).val(totalesEcosZ4);
 
@@ -3624,10 +2819,6 @@ $(document).ready(function() {
 								totalesEcosFuerza = totalesEcosFuerza + Number($(this).val());
 							});
 							$('#hddEcosFuerza' + week).val(totalesEcosFuerza);
-
-
-
-							//alert(totalesEcosSemanalZ1+totalesEcosZ2+totalesEcosZ3+totalesEcosZ4);
 							ecosFase1 = totalesEcosSemanalZ1 + (0.5 * totalesEcosZ2)
 							ecosFase2 = (0.5 * totalesEcosZ2) + totalesEcosZ3
 							ecosFase3 = totalesEcosZ4;
@@ -3655,7 +2846,6 @@ $(document).ready(function() {
 							$('#tdCargaTotal3' + week).empty();
 							porcentajeCargaTotalF3 = 100-(Math.round(porcentajeCargaTotalF1)+Math.round(porcentajeCargaTotalF2));
 							$('#tdCargaTotal3' + week).append(porcentajeCargaTotalF3.toFixed(0));
-							//alert($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila1_' + week).html($('#divEstadisticaSemanal1_' + week).html());
 							$('#divSemanaFila2_' + week).html($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila3_' + week).html($('#divEstadisticaSemanal3_' + week).html());
@@ -3663,24 +2853,6 @@ $(document).ready(function() {
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
 
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-
-							///copia detalle
-							/*var totalesPorSemanna = 0;
-							$(".sum_e" + week).each(function() {
-								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
-							});
-							//alert(day + " - " + string_type + week);
-							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							//alert(totales + ' - ' + totalesEcosFuerza);
-							$('#ecos_tot' + week).empty();
-							$('#ecos_tot' + week).append(totalesPorSemanna);
-							$('#tot_ecos_week' + week).val(totalesPorSemanna);
-							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							//alert('divSumaEcosSemana'+ week + ' - ' + sumEcosPorDetporte);
-							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
-							///fin copia detalle
-
-
 														week=4;
 							totalMinSemanaZ1 = 0;
 							$(".sum_min_weekZ1" + week).each(function() {
@@ -3710,51 +2882,22 @@ $(document).ready(function() {
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-
-
-							//minutos por deporte
-							/*totalMinCarrera = 0;
-							$(".sum_minutosCarrera_week" + week).each(function() {
-								totalMinCarrera = totalMinCarrera + Number($(this).val());
-							});
-							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-
-							totalMinCiclismo = 0;
-							$(".sum_minutosCiclismo_week" + week).each(function() {
-								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
-							});
-							//$('#spanTimeCiclismoZ' + week).html(totalMinCiclismo);
-
-							totalMinNatacion = 0;
-							$(".sum_minutosNatacion_week" + week).each(function() {
-								totalMinNatacion = totalMinNatacion + Number($(this).val());
-							});
-							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
-							//fin minutos por deporte
-
 							if(1==1){
-								//carrera
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_carrera' + week).html(parseFloat(mintosTotales).toFixed(1));
-
-								//ciclismo
 								mintosTotales = 0;
 								$(".sum_mintosTotalesB_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_ciclismo' + week).html(mintosTotales);
-
-								//natacion
 								mintosTotales = 0;
 								$(".sum_mintosTotalesN_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_natacion' + week).html(Number(mintosTotales).toFixed(1));
-
-
 
 								ecosTotalesN = 0;
 								$(".sum_ecosTotalesN_week" + week).each(function() {
@@ -3768,13 +2911,11 @@ $(document).ready(function() {
 								});
 								$('#tdSumaEcosCiclismo' + week).append(ecosTotalesB);
 
-
 								ecosTotalesC = 0;
 								$(".sum_ecosTotalesC_week" + week).each(function() {
 									ecosTotalesC = ecosTotalesC + Number($(this).val());
 								});
 								$('#tdSumaEcosCarrera' + week).html(ecosTotalesC);
-
 
 								ecosTotalesE = 0;
 								$(".sum_ecos_Fuerza_week" + week).each(function() {
@@ -3784,7 +2925,6 @@ $(document).ready(function() {
 
 							}
 							horasCal= totalMinGlobales/60;
-							//totalMinSemanaZ4= totalMinGlobales-(totalMinSemanaZ1+totalMinSemanaZ2+totalMinSemanaZ3);
 
 							$('#divHoras' + week).empty();
 							$('#divHoras' + week).append(horasCal.toFixed(1));
@@ -3801,19 +2941,11 @@ $(document).ready(function() {
 							$('#tdTiempo2' + week).append(porcentajeTiempoF2.toFixed(0));
 							$('#tdTiempo3' + week).empty();
 							$('#tdTiempo3' + week).append(porcentajeTiempoF3.toFixed(0));
-							/*if(Fase1==260)
-								alert(porcentajeTiempoF1 + " - " + porcentajeTiempoF2 + " - " + porcentajeTiempoF3 + " - " + totalMinSemanaZ4 + " - " + totalFases + " - " + week + "||" + Fase1 + " - " + Fase2 + " - " + Fase3);
-								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
-								//alert(Number($(this).val()));
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
-								//alert(totalEcoZ1);
 							});
-							//alert(80);
 							$('#hddEcosZona1' + week).val(totalesEcosSemanalZ1);
-
-							//alert(81);
 							totalesEcosZ2 = 0;
 							$(".sum_ecos_weekZ2" + week).each(function() {
 								totalesEcosZ2 = totalesEcosZ2 + Number($(this).val());
@@ -3829,7 +2961,6 @@ $(document).ready(function() {
 							totalesEcosZ4 = 0;
 							$(".sum_ecos_weekZ4" + week).each(function() {
 								totalesEcosZ4 = totalesEcosZ4 + Number($(this).val());
-								//alert(7);
 							});
 							$('#hddEcosZona4' + week).val(totalesEcosZ4);
 
@@ -3838,10 +2969,6 @@ $(document).ready(function() {
 								totalesEcosFuerza = totalesEcosFuerza + Number($(this).val());
 							});
 							$('#hddEcosFuerza' + week).val(totalesEcosFuerza);
-
-
-
-							//alert(totalesEcosSemanalZ1+totalesEcosZ2+totalesEcosZ3+totalesEcosZ4);
 							ecosFase1 = totalesEcosSemanalZ1 + (0.5 * totalesEcosZ2)
 							ecosFase2 = (0.5 * totalesEcosZ2) + totalesEcosZ3
 							ecosFase3 = totalesEcosZ4;
@@ -3869,7 +2996,6 @@ $(document).ready(function() {
 							$('#tdCargaTotal3' + week).empty();
 							porcentajeCargaTotalF3 = 100-(Math.round(porcentajeCargaTotalF1)+Math.round(porcentajeCargaTotalF2));
 							$('#tdCargaTotal3' + week).append(porcentajeCargaTotalF3.toFixed(0));
-							//alert($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila1_' + week).html($('#divEstadisticaSemanal1_' + week).html());
 							$('#divSemanaFila2_' + week).html($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila3_' + week).html($('#divEstadisticaSemanal3_' + week).html());
@@ -3877,30 +3003,10 @@ $(document).ready(function() {
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
 
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-
-							///copia detalle
-							/*var totalesPorSemanna = 0;
-							$(".sum_e" + week).each(function() {
-								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
-							});
-							//alert(day + " - " + string_type + week);
-							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							//alert(totales + ' - ' + totalesEcosFuerza);
-							$('#ecos_tot' + week).empty();
-							$('#ecos_tot' + week).append(totalesPorSemanna);
-							$('#tot_ecos_week' + week).val(totalesPorSemanna);
-							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							//alert('divSumaEcosSemana'+ week + ' - ' + sumEcosPorDetporte);
-							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
-							///fin copia detalle
-
-
-											//week=1;
-				
 			}
 			function agregarSesion(sesion, week, day, perfilID){
 		string_type = 'Lunes';
-		
+
 		$.ajax({
 			type: 'get',
 			async: false,/**/
@@ -3921,7 +3027,6 @@ $(document).ready(function() {
 				"displayTblestadistica": ""
 			},
 			success: function(data) {
-				//console.log(data);
 				switch (day) {
 					case 1:
 						string_type = 'lunes';
@@ -3946,75 +3051,61 @@ $(document).ready(function() {
 						break;
 				}
 				$('#' + string_type + week).append(data);
-				//$('#exampleModal').modal('hide');
 
-				
 				totalesEcosFuerza2 = 0;
 				$(".sum_ecos_Fuerza_week" + week).each(function() {
 					totalesEcosFuerza2 = totalesEcosFuerza2 + Number($(this).val());
 				});
-				
+
 				totales = 0;
-				//console.log("START" + week);
 				$(".sum_e" + week).each(function() {
-					//console.log("tot: ", totales + " + " + $(this).val());
 					totales = totales + Number($(this).val());
 				});
-				/*console.log("totalesEcosFuerza2: ", totalesEcosFuerza2);
-				console.log("END " + week);*/
 				totales += totalesEcosFuerza2;
-				//alert(day + " - " + string_type + week);
-				//pinta ecos semana color verde
 				$('#ecos_tot' + week).empty();
 				$('#ecos_tot' + week).append(totales);
-				//alert(totales);
 				$('#tot_ecos_week' + week).val(totales);
 				$('#divSumaEcosSemana' + week).html(totales);
-				/**/
 				$('#hddValida').val(Number($('#hddValida').val())+1);
-				
+
 				totalMinSemanaZ1 = 0;
 				$(".sum_min_weekZ1" + week).each(function() {
 					totalMinSemanaZ1 = totalMinSemanaZ1 + Number($(this).val());
 				});
 				$('#hddMinZona1' + week).val(totalMinSemanaZ1);
-				
+
 				totalMinSemanaZ2 = 0;
 				$(".sum_min_weekZ2" + week).each(function() {
 					totalMinSemanaZ2 = totalMinSemanaZ2 + Number($(this).val());
 				});
 				$('#hddMinZona2' + week).val(totalMinSemanaZ2);
-				
+
 				totalMinSemanaZ3 = 0;
 				$(".sum_min_weekZ3" + week).each(function() {
 					totalMinSemanaZ3 = totalMinSemanaZ3 + Number($(this).val());
 				});
 				$('#hddMinZona3' + week).val(totalMinSemanaZ3);
-				
+
 				totalMinSemanaZ4 = 0;
 				$(".sum_min_weekZ4" + week).each(function() {
 					totalMinSemanaZ4 = totalMinSemanaZ4 + Number($(this).val());
 				});
 				$('#hddMinZona4' + week).val(totalMinSemanaZ4);
-				
+
 				totalMinGlobales = 0;
 				$(".sum_mintosTotalesGlobal" + week).each(function() {
 					totalMinGlobales = totalMinGlobales + Number($(this).val());
 				});
-				
+
 				horasCal= (totalMinSemanaZ1+totalMinSemanaZ2+totalMinSemanaZ3+totalMinSemanaZ4)/60;
-				//let horas= totalMinGlobales;
-				//console.log(horasCal);
-				
+
 			},
-			
+
 			error: function(data) {
-				//alert(sesion+" -- "+week+" -- "+day+" -- "+perfilID);
 				listaErrores += "semana: " + (week+1) + " | dia: " + day + " | sesion:" + sesion +"\n";
-				console.log("data: ", data);
 				swal("Error al leer los items!", listaErrores + data, {
 					icon : "error",
-					buttons: {        			
+					buttons: {
 						confirm: {
 							className : 'btn btn-danger'
 						}
@@ -4023,7 +3114,7 @@ $(document).ready(function() {
 			},
 		});
 	}
-	
+
     $('.dup').click(function() {
         index = $(this).data('index');
         week = $(this).data('week');
@@ -4031,7 +3122,7 @@ $(document).ready(function() {
 		return;
 		perfilID= $("#mesocyclesmesocycle-profile_id").val();
 		if(perfilID=="") perfilID=0;
-		
+
         $.ajax({
             type: 'get',
             url: "/web/index.php?r=progressionsprogression/getdata",
@@ -4048,10 +3139,7 @@ $(document).ready(function() {
 				"perfilSelectedactivo": 'NO',
             },
             success: function(data) {
-                //console.log(data);
-                //document.getElementById('distance_select').innerHTML = data;
                 $('#progresiones').append(data);
-                //document.getElementById('progresiones').innerHTML = data;
                 totales = 0;
                 $(".sum_e" + week).each(function() {
                     totales = totales + Number($(this).val());
@@ -4065,15 +3153,14 @@ $(document).ready(function() {
     });
 });
 function agregarLineaIntermedia(cont_line,first){
-		
+
 		var $divs = $(".clsSemana").toArray().length;
-		console.log("Hay " + $divs + " elementos");
 		if($divs==0){
 			cont=-1;
 		}
 
 		cont = cont + 1;
-		
+
 		let fechaRealizaL="";
 		let fechaRealizaM="";
 		let fechaRealizaMi="";
@@ -4083,7 +3170,7 @@ function agregarLineaIntermedia(cont_line,first){
 		let fechaRealizaD="";
 		var fecha_inicio = new Date();
 		var dias = cont * 7; // Número de días a agregar
-		
+
 				let btn_add='';
 		if(!is_preview){
 			btn_add='<div  style="position: absolute; bottom: 8%;margin-left:2px">'+
@@ -4167,21 +3254,14 @@ function agregarLineaIntermedia(cont_line,first){
             '<div class="cuadroInfo" id="domingo' + cont + '"></div>' +
             '</div>' +
             '</div>';
-			console.log(html_intermedia);
-			//readlines(html_intermedia,cont_line)
-			// Selecciona el div al que deseas agregar otro div después
 			var divExistente = $('#week'+cont_line);
-
-			// Crea un nuevo div
 			var nuevoDiv = html_intermedia;
 			if(first){
-				// Agrega el nuevo div antes del div existente
 				divExistente.before(nuevoDiv);
 			}else{
-				// Agrega el nuevo div después del div existente
 				divExistente.after(nuevoDiv);
 			}
-			
+
 	}
 	function verGrafica(){
 		let _idPerfil = $('#mesocyclesmesocycle-profile_id').val();
@@ -4189,27 +3269,19 @@ function agregarLineaIntermedia(cont_line,first){
 			document.location.href = 'index.php?r=mesocyclesfolder/grafica&id=30901&cp=';
 		else
 			document.location.href = 'index.php?r=mesocyclesfolder/grafica&id=30901&cp=&perfilSelectedID=' +  _idPerfil;
-		//$('.submitFormBtn').click();
 		swal("Espere un momento. Cargando...", {
 			buttons: false,
 			timer: 20000,
 		});
 	}
-
-/*function dup(divID, valID) {
-	
-	getMoverA(divID, valID);
-	
-	return true;/**/
 function dup(index, week, day, divID, valID) {
 	$("#hddIndex").val(index);
 	$("#hddWeek").val(week);
 	$("#hddDay").val(day);
 	$("#hddDivID").val(divID);
 	$("#hddValID1").val(valID);
-	/*CODIGO OBSOLETO*/
 		tiempoToast=2000;
-		
+
 		notificacionToast("Espere un momento. Cargando...");
 		let string_type = 'Lunes';
 		switch (day) {
@@ -4255,9 +3327,7 @@ function dup(index, week, day, divID, valID) {
 				"perfilSelectedactivo": 'NO',
 			},
 			success: function(data) {
-				console.log(data);
 				idn=data;
-					//segundo ajax, se cambio index por idn
 					$.ajax({
 						type: 'get',
 						url: "/web/index.php?r=progressionsprogression/getdata",
@@ -4275,8 +3345,6 @@ function dup(index, week, day, divID, valID) {
 							"esduplicado": "SI"
 						},
 						success: function(data) {
-							//console.log(data);
-							//document.getElementById('distance_select').innerHTML = data;
 							$('#' + string_type + week).append(data);
 							totales = 0;
 							$(".sum_e" + week).each(function() {
@@ -4285,33 +3353,19 @@ function dup(index, week, day, divID, valID) {
 							$('#ecos_tot' + week).empty();
 							$('#ecos_tot' + week).append(totales);
 							$('#tot_ecos_week' + week).val(totales);
-							//document.getElementById('progresiones').innerHTML = data;
-							
+
 							notificacionToast("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla");
-							/*swal("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla", "", {
-								icon : "warning",
-								buttons: {        			
-									confirm: {
-										className : 'btn btn-warning'
-									}
-								},
-							});*/
-							//alert("en dup()");
 							if(is_variasVeces) {
 								if(is_variasVeces_count>0) {
-									//alert(divID+"---"+valID+"---"+idn)
 									divID= idn;
 								}
 								else {
-									//alert("else-"+divID+"---"+valID+"---"+idn)
 									divID= $(".duplicado-" + idn).data("duplicado");
 									$("#hddMoviendoID").val(divID);
-									//alert("else" + divID);
 								}
 								valID= idn;
 								is_variasVeces_count++;
 							}
-							//alert(divID+"---"+valID);
 							getMoverA(divID, valID);
 						},
 						error: function(data) {},
@@ -4319,9 +3373,6 @@ function dup(index, week, day, divID, valID) {
 			},
 			error: function(data) {},
 		});
-		
-	/*fin CODIGO OBSOLETO*/
-	
 }
 
 function validaEdit(_url){
@@ -4331,19 +3382,15 @@ function validaEdit(_url){
 	}
 	else {
 					document.location.href="index.php?r=" + _url;
-					
-		//document.location.href="index.php?r=" + _url;
 	}
 }
-	
+
 function el(index, esMover=false) {
 	if(esMover==false){
 		alertify.confirm(
 		'Confirmación',
 		'Seguro que desea eliminar el registro?',
 		function() {
-			//alert(index);
-			//console.log('#' + index);
 			llamarElininar(index);
 		},
 		function() {});
@@ -4351,11 +3398,10 @@ function el(index, esMover=false) {
 	else{
 		llamarElininar(index);
 	}
-		
+
 }
-	
+
 function llamarElininar(index){
-	//alert("Eliminado: "+index);
 	$('#' + index + '').remove();
 		totales = 0;
 		$(".sum_e" + week).each(function() {
@@ -4365,23 +3411,11 @@ function llamarElininar(index){
 		$('#ecos_tot' + week).append(totales);
 		$('#tot_ecos_week' + week).val(totales);
 		$('#hddValida').val(Number($('#hddValida').val())-1);
-	//if(mensajeLanzado==0) {
-		
+
 		notificacionToast("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla");
-	//}
-	//else{
 		mensajeLanzado=1;
-	//}
-		/*swal("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla", "", {
-			icon : "warning",
-			buttons: {        			
-				confirm: {
-					className : 'btn btn-warning'
-				}
-			},
-		});*/
 }
-	
+
 function eliminarFila(index){
 	$("#week" + index).remove();
 }
@@ -4393,8 +3427,6 @@ function addLibrary() {
             "id": 30901,
 			"option":2        },
         success: function(data) {
-            console.log('duplicando');
-            console.log(data);
             idn=data;
             $.ajax({
                 type: 'get',
@@ -4407,13 +3439,11 @@ function addLibrary() {
 
                 },
                 success: function(data) {
-                    console.log('agregando a libreria');
-                    console.log(data);
                     $('#libraryModal').modal('hide');
 
                     swal({
                         title: "Mesociclo agregado correctamente a la librería!",
-                        
+
                         text: 'Éxito',
                         icon: "success",
                         buttons: false,
@@ -4422,37 +3452,33 @@ function addLibrary() {
                 },
                 error: function(data) {},
             });
-            //segundo ajax, se cambio index por idn
         },
         error: function(data) {},
     });
 
 }
-//title: " agregado correctamente a la librería!",
 
 function confirmDelete(){
-		var key = "NVhjL2dYM2p5eXg4Y2swWGNOTktBQT09"; 
+		var key = "NVhjL2dYM2p5eXg4Y2swWGNOTktBQT09";
 		var token = "";
-		
-        alertify.confirm('Confirmación', '¿Seguro que desea eliminar el registro?', 
+
+        alertify.confirm('Confirmación', '¿Seguro que desea eliminar el registro?',
             function(){
                 $.ajax({
                      type: 'POST',
                      url: "index.php?r=mesocyclesmesocycle/delete",
                      data:{key:key, token:token},
                      success:function(bool){
-						 //console.log('success '+bool);
                         if (bool == true){
                             alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado<br> espere un momento ...</span>', 2 , function (){
-								window.location.href = "index.php?r=mesocyclesmesocycle/index&del=true"; 
-							}); 
+								window.location.href = "index.php?r=mesocyclesmesocycle/index&del=true";
+							});
                         }else{
-							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
 						}
                      },
-                     error: function(data){ 
-                        // console.log('error '+data);
-						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+                     error: function(data){
+						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
                      },
                 });
             },
@@ -4469,7 +3495,6 @@ jQuery('#w0').yiiActiveForm([{"id":"mesocyclesmesocycle-profile_id","name":"prof
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",
