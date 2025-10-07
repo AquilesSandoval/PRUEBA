@@ -1,16 +1,25 @@
 var s2options_d6851687 = {"themeCss":".select2-container--krajee","sizeCss":"","doReset":true,"doToggle":false,"doOrder":false};
 window.select2_e6279efa = {"allowClear":true,"minimumInputLength":3,"language":{"errorLoading":function () { return 'No se encontraron datos'; }},"ajax":{"url":"\/web\/index.php?r=sessionsssession\/getcitylist","dataType":"json","data":function(params) { return {q:params.term}; }},"escapeMarkup":function (markup) { return markup; },"templateResult":function(city) { return city.text; },"templateSelection":function (city) { return city.text; },"theme":"krajee","width":"100%","placeholder":"Escribe almenos 3 caracteres para buscar..."};
+
+/*var x=0;
+	do{console.log("->"+x)}while(x>0);
+	if(1 == "1") alert(1);
+	else alert(12);*/
+
 $( function() {
     $( "#divComponentes" ).sortable();
     $( "#divComponentes" ).disableSelection();
   } );
 
 function removeBloqueDelBloque(val){
+	//alert(val);
 	$(".divBloquesTitle_"+val).remove();
 }
 
 function addBloqueDelBloque(){
 	var i= (typeof Number($('#hddNumBloqueDelBloque').val()) == 'number' ? Number($("#hddNumBloqueDelBloque").val()) : 0);
+
+	//for(var i=_i; i<=_i; i++){
 		var htmlBloque='<span class="divBloquesTitle_'+(i+1)+'"><div id="divBloquesTitle" style="font-weight:bold; border-bottom: solid 2px #D4D4D4; margin-bottom: 5px; margin-top:-10px;">Bloque '+(i+1)+'</div>';
 		htmlBloque +='<div class="input-group input-group-sm mb-3 exercise_input2" style="width:60%; float: left">';
             htmlBloque +='<input type="number" class="form-control clsInputBloques" placeholder="Numérico" aria-label="min/seg/mts" aria-describedby="basic-addon1" min="1" id="select_quantity_large'+(i+1)+'" name="select_quantity_large'+(i+1)+'" style="height:38px;">';
@@ -44,6 +53,7 @@ function addBloqueDelBloque(){
 		$("#spanBloques2").append(htmlBloque);
 		i += 1;
 		$('#hddNumBloqueDelBloque').val(i);
+	//}
 
 }
 function reinicia(){
@@ -59,6 +69,8 @@ $(document).ready(function() {
 
 	$("#select_exercise").val(10);
 	$("#cmbIcono").val(3);
+	//console.log('jskhsjh');
+	//console.log($("#select_exercise").val())
 $("#save").click(function() {
 
     let ECSs = $("#sessionssession-ECSs").val();
@@ -93,6 +105,7 @@ $("#save").click(function() {
 			errores += "\n > Contenido";
 			dtClear++;
 		}
+		//alert(contentID);
 
     if (dtClear > 0) {
 
@@ -114,9 +127,14 @@ $("#save").click(function() {
         $('#w0').submit();
     }
 
+
+
+
+
 	return;
 
 });
+
 
 $.ajax({
     type: 'get',
@@ -159,6 +177,9 @@ $.ajax({
     },
     error: function(data) {},
 });
+//$('.plan_level').hide();
+//$('.blocks_level').hide();
+
 
 $(".show_sports").click(function() {
     $(".sports_level").show();
@@ -175,6 +196,7 @@ $(".hide_sports").click(function() {
 	$(".show_sports").show();
 });
 $('#search_circuit').click(function() {
+    //document.getElementById('select_circuit').innerHTML='<option value="">Hola</option>'
     let name_circuit = $('#circuit').val();
     $.ajax({
 		async: false,
@@ -191,6 +213,7 @@ $('#search_circuit').click(function() {
     });
 });
 $('#search_drills').click(function() {
+    //document.getElementById('select_circuit').innerHTML='<option value="">Hola</option>'
     let name_drill = $('#drills').val();
     $.ajax({
 		async: false,
@@ -207,6 +230,7 @@ $('#search_drills').click(function() {
     });
 });
 $('#search_exercise').click(function() {
+    //document.getElementById('select_circuit').innerHTML='<option value="">Hola</option>'
     let name_exercise = $('#exercise').val();
     $.ajax({
 		 async: false,
@@ -223,6 +247,7 @@ $('#search_exercise').click(function() {
     });
 });
 $('#search_circuit_edit').click(function() {
+    //document.getElementById('select_circuit').innerHTML='<option value="">Hola</option>'
     let name_circuit = $('#circuit_edit').val();
     $.ajax({
         type: 'get',
@@ -238,6 +263,7 @@ $('#search_circuit_edit').click(function() {
     });
 });
 $('#search_exercise_edit').click(function() {
+    //document.getElementById('select_circuit').innerHTML='<option value="">Hola</option>'
     let name_exercise = $('#exercise_edit').val();
     $.ajax({
         type: 'get',
@@ -254,11 +280,18 @@ $('#search_exercise_edit').click(function() {
 });
 
 $(".sports").click(function() {
+    //alert(1);
+	/*if($("#hide_sports").hasClass("hide") == true ){
+		$("#cmbIcono").val("");
+	}*/
+
+	//$("#spanSeleccionado").html("");
 	$("#spanSeleccionadoFuerza").html("");
 	$(".hide_sports").click();
 
     $("#spanEcosTotales").html("0");
     $('#first_level').val($(this).val());
+    //$('#second_level').val($(this).val()); //agregado
     $('#plan_level').empty();
     $('.plan_level').show();
     $('.blocks_level').show();
@@ -268,7 +301,10 @@ $(".sports").click(function() {
     $(".sports_level").hide();
 
     let arr = $(this).val();
+	//let arr = $("#hddItemSelected").val();
+	//alert(arr);
     let split_arr = arr.split("_");
+    //console.log(split_arr.length);
     let arr_colors = ['bg-light', 'bg-light', 'bg-light'];
 	if($("#hddItemSelected").val()==""){
 
@@ -276,6 +312,9 @@ $(".sports").click(function() {
     $.each(split_arr, function(index, item) {
         let r = (Math.random() + 1).toString(36).substring(7);
         r = item + '_' + index + '_' + r;
+        //console.log("random", r);
+        //width:' + (90 / split_arr.length).toFixed() +'%
+		//alert(r);
         $('#plan_level').append(
             '<input type="hidden" class="form-control" id="titulo_' + r +
             '" name="titulo_' + r +
@@ -292,6 +331,7 @@ $(".sports").click(function() {
             '" name="' +
             r + '" data-info="' + r + '"></div></div><br>');
         if (index !== split_arr.length - 1) {
+            //'<div class="bg-info" style="opacity:60%;writing-mode: vertical-lr;transform: rotate(180deg);color:white;" align="center">TRANSICION</div>'
             $('#plan_level').append(
                 '<div onclick="call_trans(trans_' + r +
                 ');" class="transicion bg-info col-md-12" style="opacity:60%;color:white;" align="center" data-sport="' +
@@ -300,6 +340,8 @@ $(".sports").click(function() {
                 r + '" id="trans_' + r + '">TRANSICION</div>'
             );
         }
+		//alert((r + " || " + item.toUpperCase()));
+		//$("#spanSeleccionado").html(item.toUpperCase());
     });
 
     $('input[type="checkbox"]').each(function(index, item) {
@@ -314,6 +356,7 @@ $(".sports").click(function() {
 
 					let arr_info = $(this).data('info').split('_');
 					if (info === $(this).data('info')) {
+						//console.log('verd')
 						$('#select_blocks').append('<option value="' + $(this).data(
 								'info') + '" selected>' +
 							arr_info[0].toUpperCase() + '</option>');
@@ -322,6 +365,7 @@ $(".sports").click(function() {
 								'info') + '">' +
 							arr_info[0].toUpperCase() + '</option>');
 					}
+					//alert($("#hide_sports").hasClass("hide"));
 					if(deporte_item=="" || $("#hide_sports").hasClass("hide") == false || $("#hddItemSelected").val()==""){
 						deporte_item=arr_info[0].toUpperCase();
 					}
@@ -335,15 +379,34 @@ $(".sports").click(function() {
 					   arrdeporteTransicion.push(deporte_item.toUpperCase());
 					}
 					$("#spanSeleccionado").html("" + deporte_item.toUpperCase());
+					//$("#spanSeleccionadoFuerza").html("" + deporte_item.toUpperCase());
 					valorBandera= arr_info[0];
+					//alert("1-"+valorBandera+arr_info[0].toUpperCase()+" "+deporte_item);
+					/*if(arr_info[0].toUpperCase()=="CARRERA") $("#imgCarrera").show();
+					if(arr_info[0].toUpperCase()=="CICLISMO") $("#imgCiclismo").show();
+					if(arr_info[0].toUpperCase()=="NATACION") $("#imgNatacion").show();
+					if(arr_info[0].toUpperCase()=="FUERZA") $("#imgFuerza").show();*/
 					try{
+						//alert(deporte_item);
 						valorAnterior= deporte_item.toUpperCase();
 						if(deporte_item.toUpperCase()=="CARRERA") $("#imgCarrera").show();
 						if(deporte_item.toUpperCase()=="CICLISMO") $("#imgCiclismo").show();
 						if(deporte_item.toUpperCase()=="NATACION") $("#imgNatacion").show();
 						if(deporte_item.toUpperCase()=="FUERZA") $("#imgFuerza").show();
+
+						/*
+						if(deporte_item.toUpperCase()=="3") $("#imgCarrera").show();
+						if(deporte_item.toUpperCase()=="1") $("#imgCiclismo").show();
+						if(deporte_item.toUpperCase()=="2") $("#imgNatacion").show();
+						if(deporte_item.toUpperCase()=="4") {$("#imgFuerza").show(); alert(2);}
+						*/
 					}
 					catch (err) {
+						//alert(err);
+						/*if(arr_info[0].toUpperCase()=="CARRERA") $("#imgCarrera").show();
+						if(arr_info[0].toUpperCase()=="CICLISMO") $("#imgCiclismo").show();
+						if(arr_info[0].toUpperCase()=="NATACION") $("#imgNatacion").show();
+						if(arr_info[0].toUpperCase()=="FUERZA") $("#imgFuerza").show();*/
 					}
 				});
 			}
@@ -352,11 +415,15 @@ $(".sports").click(function() {
 					let arr_info = $(this).data('info').split('_');
 					if(deporte_item != arr_info[0]){
 
+
 					}
+					//alert("2-"+valorBandera+arr_info[0]+"--"+deporte_item);
 					if(valorBandera != arr_info[0]){
+					//alert("2-" + valorBandera + " - " + arr_info[0] + '-' + deporte_item);
 						valorBandera = arr_info[0];
 
 						if (info === $(this).data('info')) {
+							//console.log('verd')
 							$('#select_blocks').append('<option value="' + $(this).data(
 									'info') + '" selected>' +
 								arr_info[0].toUpperCase() + '</option>');
@@ -373,6 +440,8 @@ $(".sports").click(function() {
 							$('#blockSelected').val(deporte_item.toLowerCase());
 						}
 						else{
+							//debe ser solo al cargar la pagina
+
 							let validaExiste = false;
 							arrdeporteTransicion.forEach(function(val) {
 								if(val==deporte_item.toUpperCase()){
@@ -387,12 +456,18 @@ $(".sports").click(function() {
 							   arrdeporteTransicion.push(deporte_item.toUpperCase());
 								$("#spanSeleccionado").html($("#spanSeleccionado").html() + " + " + deporte_item.toUpperCase());
 							}
+							//fin debe ser solo al cargar la pagina
 						}
+						//alert(deporte_item.toUpperCase());
+						//alert("2-"+valorBandera+arr_info[0]);
+						//se quito aca
 					}
+					//se puso aca
 						if(arr_info[0].toUpperCase()=="CARRERA") $("#imgCarrera").show();
 						if(arr_info[0].toUpperCase()=="CICLISMO") $("#imgCiclismo").show();
 						if(arr_info[0].toUpperCase()=="NATACION") $("#imgNatacion").show();
 						if(arr_info[0].toUpperCase()=="FUERZA") $("#imgFuerza").show();
+					//alert(valorAnterior);
 					if(valorAnterior=="FUERZA"){
 						valorAnterior= deporte_item.toUpperCase();
 						if(deporte_item.toUpperCase()=="CARRERA") $("#imgCarrera").show();
@@ -408,12 +483,14 @@ $(".sports").click(function() {
 });
 
 $(".depFuerza").click(function() {
+	//lo mismo que:  $(".sports").click(function() {
 	$("#spanSeleccionado").html("");
 	$("#spanSeleccionadoFuerza").html("");
 	$(".hide_sports").click();
 
     $("#spanEcosTotales").html("0");
     $('#first_level').val($(this).val());
+    //$('#second_level').val($(this).val()); //agregado
     $('#plan_level').empty();
     $('.plan_level').show();
     $('.blocks_level').show();
@@ -424,10 +501,13 @@ $(".depFuerza").click(function() {
 
     let arr = $(this).val();
     let split_arr = arr.split("_");
+    //console.log(split_arr.length);
     let arr_colors = ['bg-light', 'bg-light', 'bg-light']
     $.each(split_arr, function(index, item) {
         let r = (Math.random() + 1).toString(36).substring(7);
         r = item + '_' + index + '_' + r;
+        //console.log("random", r);
+        //width:' + (90 / split_arr.length).toFixed() +'%
         $('#plan_level').append(
             '<input type="hidden" class="form-control" id="titulo_' + r +
             '" name="titulo_' + r +
@@ -444,6 +524,7 @@ $(".depFuerza").click(function() {
             '" name="' +
             r + '" data-info="' + r + '"></div></div><br>');
         if (index !== split_arr.length - 1) {
+            //'<div class="bg-info" style="opacity:60%;writing-mode: vertical-lr;transform: rotate(180deg);color:white;" align="center">TRANSICION</div>'
             $('#plan_level').append(
                 '<div onclick="call_trans(trans_' + r +
                 ');" class="transicion bg-info col-md-12" style="opacity:60%;color:white;" align="center" data-sport="' +
@@ -466,6 +547,7 @@ $(".depFuerza").click(function() {
 
 					let arr_info = $(this).data('info').split('_');
 					if (info === $(this).data('info')) {
+						//console.log('verd')
 						$('#select_blocks').append('<option value="' + $(this).data(
 								'info') + '" selected>' +
 							arr_info[0].toUpperCase() + '</option>');
@@ -474,19 +556,39 @@ $(".depFuerza").click(function() {
 								'info') + '">' +
 							arr_info[0].toUpperCase() + '</option>');
 					}
+					//alert($("#hide_sports").hasClass("hide"));
 					if(deporte_item=="" || $("#hide_sports").hasClass("hide") == false ){
 						deporte_item=arr_info[0].toUpperCase();
 					}
 					$("#spanSeleccionado").html("" + deporte_item.toUpperCase());
+					//$("#spanSeleccionadoFuerza").html("" + deporte_item.toUpperCase());
 					valorBandera= arr_info[0];
+					//alert("1-"+valorBandera+arr_info[0].toUpperCase()+" "+deporte_item);
+					/*if(arr_info[0].toUpperCase()=="CARRERA") $("#imgCarrera").show();
+					if(arr_info[0].toUpperCase()=="CICLISMO") $("#imgCiclismo").show();
+					if(arr_info[0].toUpperCase()=="NATACION") $("#imgNatacion").show();
+					if(arr_info[0].toUpperCase()=="FUERZA") $("#imgFuerza").show();*/
 					try{
+						//alert(deporte_item);
 						valorAnterior= deporte_item.toUpperCase();
 						if(deporte_item.toUpperCase()=="CARRERA") $("#imgCarrera").show();
 						if(deporte_item.toUpperCase()=="CICLISMO") $("#imgCiclismo").show();
 						if(deporte_item.toUpperCase()=="NATACION") $("#imgNatacion").show();
 						if(deporte_item.toUpperCase()=="FUERZA") $("#imgFuerza").show();
+
+						/*
+						if(deporte_item.toUpperCase()=="3") $("#imgCarrera").show();
+						if(deporte_item.toUpperCase()=="1") $("#imgCiclismo").show();
+						if(deporte_item.toUpperCase()=="2") $("#imgNatacion").show();
+						if(deporte_item.toUpperCase()=="4") {$("#imgFuerza").show(); alert(2);}
+						*/
 					}
 					catch (err) {
+						//alert(err);
+						/*if(arr_info[0].toUpperCase()=="CARRERA") $("#imgCarrera").show();
+						if(arr_info[0].toUpperCase()=="CICLISMO") $("#imgCiclismo").show();
+						if(arr_info[0].toUpperCase()=="NATACION") $("#imgNatacion").show();
+						if(arr_info[0].toUpperCase()=="FUERZA") $("#imgFuerza").show();*/
 					}
 				});
 			}
@@ -495,11 +597,14 @@ $(".depFuerza").click(function() {
 					let arr_info = $(this).data('info').split('_');
 					if(deporte_item != arr_info[0]){
 
+
 					}
+					//alert("2-"+valorBandera+arr_info[0]+"--"+deporte_item);
 					if(deporte_item != arr_info[0]){
 						valorBandera = arr_info[0];
 
 						if (info === $(this).data('info')) {
+							//console.log('verd')
 							$('#select_blocks').append('<option value="' + $(this).data(
 									'info') + '" selected>' +
 								arr_info[0].toUpperCase() + '</option>');
@@ -516,11 +621,14 @@ $(".depFuerza").click(function() {
 							$("#spanSeleccionado").html($("#spanSeleccionado").html() + " + " + deporte_item.toUpperCase());
 						}
 
+						//alert("2-"+valorBandera+arr_info[0]);
+
 						if(arr_info[0].toUpperCase()=="CARRERA") $("#imgCarrera").show();
 						if(arr_info[0].toUpperCase()=="CICLISMO") $("#imgCiclismo").show();
 						if(arr_info[0].toUpperCase()=="NATACION") $("#imgNatacion").show();
 						if(arr_info[0].toUpperCase()=="FUERZA") $("#imgFuerza").show();
 					}
+					//alert(valorAnterior);
 					if(valorAnterior=="FUERZA"){
 						valorAnterior= deporte_item.toUpperCase();
 						if(deporte_item.toUpperCase()=="CARRERA") $("#imgCarrera").show();
@@ -532,6 +640,7 @@ $(".depFuerza").click(function() {
         }
 
     });
+    //agregamos la fuerza
 	$("#cmbIcono").val(4);
 	if(deporte_item.toUpperCase() != "FUERZA"){
 		$("#spanSeleccionadoFuerza").html(" + &nbsp; FUERZA");
@@ -544,6 +653,7 @@ $("#select_blocks").change(function() {
 	setCampos(opcionCombo);
 });
 $(".trans").click(function() {
+    //alert(222);
 	$(".hide_sports").click();
 	$("#spanSeleccionadoFuerza").html("");
 
@@ -561,10 +671,13 @@ $(".trans").click(function() {
 
     let arr = $(this).val();
     let split_arr = arr.split("_");
+    //console.log(split_arr.length);
     let arr_colors = ['bg-light', 'bg-light', 'bg-light']
     $.each(split_arr, function(index, item) {
         let r = (Math.random() + 1).toString(36).substring(7);
         r = item + '_' + index + '_' + r;
+        //console.log("random", r);
+        //width:' + (90 / split_arr.length).toFixed() +'%
         $('#plan_level').append(
             '<!--<input class="form-control" id="titulo_' + r + '" name="titulo_' + r +
             '" align="center" value="Titulo">-->'
@@ -593,6 +706,7 @@ $(".trans").click(function() {
 		if(item.toUpperCase()=="FUERZA") $("#imgFuerza").show();
 
         if (index !== split_arr.length - 1) {
+            //'<div class="bg-info" style="opacity:60%;writing-mode: vertical-lr;transform: rotate(180deg);color:white;" align="center">TRANSICION</div>'
             $('#plan_level').append(
                 '<div onclick="call_trans(trans_' + r +
                 ');" class="transicion bg-info col-md-12" style="opacity:60%;color:white;" align="center" data-sport="' +
@@ -612,6 +726,7 @@ $(".trans").click(function() {
             $(".block_items").each(function() {
                 let arr_info = $(this).data('info').split('_');
                 if (info === $(this).data('info')) {
+
                     $('#select_blocks').append('<option value="' + $(this).data(
                             'info') + '" selected>' +
                         arr_info[0].toUpperCase() + '</option>');
@@ -633,7 +748,9 @@ $(".blocks").click(function() {
 	$("#hddPosicionSelected").val("");
 
     $('#modal_title_block').empty();
+    //$('#select_blocks').empty();
 	var nombre= $(this).val().toUpperCase();
+	//nombreBloque= $(this).val().toUpperCase();
 	$('#hddNombreBloque').val(nombre);
 	if(nombre=="VUELTA")
 		nombre="VUELTA A LA CALMA";
@@ -651,17 +768,21 @@ $(".blocks").click(function() {
 	nombreBloque= nombre;
 	$('#modal_title_block').append(nombre);
     $('#button_make_div').val($(this).val());
+    //drills y circuito consulta a la base de datos, tiempo/distancia , zona , texto, tipo deporte
 	setCampos($(this).val());
+
 
 });
 $('.ckTransicion').change(function() {
 	$('#comment_input').val(this.value);
 });
 function setCampos(opcion){
+	//alert(opcion);
 	$('.ckTransicion').prop("checked", false);
 	$("#divBloquesTitle").hide();
 	$("#spanBloques").html("");
 	$("#divBtnAddBloqueDelBloque").hide();
+	//$('#pauseRecuperacion').attr("placeholder","Recuperación entre series");
 	$('#pause').attr("placeholder","Pausa entre repeticiones");
 	let blockSelectedSplit = "";
 	try{
@@ -672,6 +793,7 @@ function setCampos(opcion){
     }
 
 	let blockSelected= blockSelectedSplit[0];
+	//alert(blockSelected);
 	$('#select_blocks').show();
 	$('#pauseRecuperacion').hide();
 	$('#type_pauseRecuperacion').hide();
@@ -705,6 +827,7 @@ function setCampos(opcion){
 	$('#spanPorcentajesTrans').hide();
 
 	if(opcion=="pausa"){
+			//defecto
 			$('.default_input').show();
             $('.exercise_input2').show();
             $('.exercise_input').hide();
@@ -712,6 +835,8 @@ function setCampos(opcion){
             $('.drills_input').hide();
             $('#set_defaults').show();
             $('.comment_input').hide();
+
+			//ocultamos
 			$('#pause').show();
 			$('#select_type_pause').show();
 			$('#series').hide();
@@ -741,11 +866,14 @@ function setCampos(opcion){
             $('.comment_input').hide();
 			$('#select_quantity_large').show();
 			$('#select_type_large').show();
+			///
 			$('#times').val("1");
 			$('#pause').val("0");
 			$('#series').val("");
 			$('#series').hide();
 			$('#divTextSerie').hide();
+			//select_blocks
+            //$('#set_defaults').hide();//solo al editar
             $('.comment_input').hide();
 			if(blockSelected == "natacion"){
 				$('#select_type_large').val("4");
@@ -776,6 +904,7 @@ function setCampos(opcion){
             $('.drills_input').hide();
             $('#set_defaults').show();
             $('.comment_input').hide();
+			///
             $('.default_input').hide();
             $('#set_defaults').hide();
             $('.comment_input').hide();
@@ -801,6 +930,7 @@ function setCampos(opcion){
 		$('#select_blocks').hide();
 	}
 	else if(opcion=="drills"){
+        //alert('drills')
         $('.drills_input').show();
         $('.circuit_input').hide();
 		$('.exercise_input').hide();
@@ -810,6 +940,25 @@ function setCampos(opcion){
 		$('.comment_input').hide();
 		$('#select_zone').hide();
 		$('#select_blocks').hide();
+        /*
+		$('.exercise_input').show();
+		$('.exercise_input2').show();
+		$('.circuit_input').hide();
+		$('.comment_input').hide();
+
+		$('#pause').show();
+		$('#select_type_pause').show();
+		$('#series').hide();
+		$('#times').show();
+		$('#divTextRepeticiones').show();
+		$('#select_quantity_large').hide();
+		$('#select_type_large').show();
+		$('#select_quantity_large').show();
+		$('#select_zone').show();
+		$('#divTextSerie').hide();
+		$('#select_type_large').val("4");
+		$('#select_type_pause').val("2");
+		$('#select_zone').val("2");*/
 	}
 	else if(opcion=="comentario"){
 		$('.circuit_input').hide();
@@ -833,6 +982,7 @@ function setCampos(opcion){
 		$('#select_blocks').hide();
 		$('#spanPorcentajesTrans').show();
 		$('.comment_input').hide();
+		//$('.comment_input').show();
 	}
 	else if(opcion=="intervalos" || opcion=="intermitente" || opcion=="repeticiones" || opcion=="sprints"){
 		$('.default_input').show();
@@ -890,6 +1040,7 @@ function setCampos(opcion){
 			}
 		}
 		else{//intervalos
+			//$('#pauseRecuperacion').attr("placeholder","Recuperación entre repeticiones");
 			$('#type_pauseRecuperacion').val("1");
 			if(blockSelected == "natacion"){
 				$('#select_type_large').val("4");
@@ -1008,17 +1159,22 @@ function addBloques(cantidad, _i){
             htmlBloque +='</select>';
             htmlBloque +='</div></span>';
 		$("#spanBloques").html($("#spanBloques").html() + htmlBloque);
+		//$("#select_type_large"+(i+1)).val($("#select_type_large").val());
+		//$("#select_type_large"+(i+1)+"").val(4);
 	}
 
 }
 
+
 function validaBloque(_block){
+
 	if(_block=="progresivo" || _block=="farlek" || _block=="secuencia"){
 		let valorSerie = $("#series").val();
 		if(valorSerie != "")
 			valorSerie = 1;
 		if($("#pauseRecuperacion").val()=="" && valorSerie>1){
 			if(contBloqueDelbloque==0){//solo es un bloque para farlek, progresivo y secuencia
+				//alert($("#series").val());
 				swal(" " , "Debe establecer la recuperación entre series", {
 					icon : "warning",
 					buttons: {
@@ -1027,6 +1183,7 @@ function validaBloque(_block){
 						}
 					},
 				});
+				//alert("Debe establecer la recuperación entre series");
 			}
 			return false;
 		}
@@ -1034,12 +1191,19 @@ function validaBloque(_block){
 	return true;
 }
 
+
 function createComponentesCarga(){
 	contComponentes +=1;
 	if(bloqueAnterior != block){
 		grupoID++;
 	}
+	/*if(grupoID==0 && contComponentes>1){
+		grupoID= contComponentes;
+	}*/
+	//alert(contBloqueDelbloque);
 	var urlBusqueda= 'index.php?r=exercisesexercise/getexercise';
+
+	/////////////////////////////////////////////////////////////////
     let case_type = $('#select_type_large').val();
 	if(contBloqueDelbloque==1){//para el bloque 2 ... aplica para farlek, progresivo y secuencia
 		case_type = $('#select_type_large2').val();
@@ -1095,6 +1259,7 @@ function createComponentesCarga(){
 		return false;
 	}
 
+
     times = Number(times);
 	if(contBloqueDelbloque==0){//para el bloque 1 ... aplica para farlek, progresivo y secuencia
     	quantity_large = Number($('#select_quantity_large').val());
@@ -1139,6 +1304,12 @@ function createComponentesCarga(){
 
 	$('#hddUltimoBloqueAgregado').val(block);
     $('#exampleModal').modal('hide');
+	/////////////////////////////////////////////////////////////////
+
+
+	////////////////////////////////////////////
+	//////////////// getFormulas ///////////////
+	////////////////////////////////////////////
 	let _ecosTotales = 0;
 	let _duracionEjercicio=0;
 	let _average=0;
@@ -1159,6 +1330,14 @@ function createComponentesCarga(){
 	let deporteSportID= 0;
 	let nombreEx="";
 	let imagenEx="";
+	/*if(block=="circuito"){
+		blockSelected = $('#blockSelected').val();
+		str = $('#hddNombreBloque').val();
+		str2 = str.charAt(0).toUpperCase() + str.slice(1);
+		nombreBloque = str2;
+	}
+	else{
+	}*/
 	try {
 		var zona = zone;
 		var iconoFE = "C";
@@ -1173,17 +1352,32 @@ function createComponentesCarga(){
 		var distTiempoMetrica = tipoMetricaBloque;
 		var perfilID = $('#sessionsssession-profile_id').val();
 		if (perfilID == "") perfilID = 0;
+
+		//let nombreBloque= $('#hddNombreBloque').val().toLowerCase();
 		nombreBloque= nombreBloque.toLowerCase();
 		nombreBloque= nombreBloque.charAt(0).toUpperCase() + nombreBloque.slice(1);
 		let blockSelectedSplit = $('#select_blocks').val().split('_');
 		blockSelected= blockSelectedSplit[0];
+		//alert($('#select_blocks').val()+" -" + blockSelected);
+		//alert(blockSelected);
+		//blockSelected = "carrera";
 						if($('#blockSelected').val()!="" && $("#hddItemSelected").val()!=""){
 					blockSelected = $('#blockSelected').val();
+			 	 	//alert(blockSelected);
 				}
 				str = $('#hddNombreBloque').val();
 				str2 = str.charAt(0).toUpperCase() + str.slice(1);
 				nombreBloque = str2;
 				perfilID=0;
+				//alert(perfilID);
+						/*var temp = $("#select_blocks").val().split("_");
+		if(blockSelected != temp[0]){
+			blockSelected = temp[0];
+			alert(12);
+		}*/
+		/*alert(blockSelectedSplit);
+		alert(blockSelected);*/
+
 		if(blockSelected=="ciclismo"){
 			imgDeporte= "Icon_Ciclismo";
 			iconoFE = "B";
@@ -1216,6 +1410,7 @@ function createComponentesCarga(){
 				"ultimoBloqueAgregado": $('#hddUltimoBloqueAgregado').val(),
 				"perfilID": perfilID
 			};
+
 		if(block!="circuito" && block!="pausa" && block!='drills'){//agregue drills 130524
 			if(pause_type=="2"){//para segundos
 				minutosPausa = minutosPausa/60;
@@ -1235,6 +1430,7 @@ function createComponentesCarga(){
 				minutosPausa = 0;
 				minutosRecuperacion = 0;
 			}
+			//alert(perfilID);
 			$.ajax({
 				type: 'get',
 				async: false,
@@ -1255,10 +1451,15 @@ function createComponentesCarga(){
 					"perfilID": perfilID
 				},
 				success: function(data) {
+					//console.log(data);
+					//alert(series);
 					rows = JSON.parse(data);
+
 					if(series=="2"){
+						//alert(rows[i]['ECOsTotal']+"Z:"+zona+"iconoFE:"+iconoFE+" rep:"+repeticiones+" M:"+minutosRepeticion+" P:"+minutosPausa+" R:"+minutosRecuperacion);
 					}
 					var cantTemp = 0;
+					//alert(12);
 					if(rows[i]['errorDato']!=""){
 						swal(" Bloque: " + block, "" + rows[i]['errorDato'], {
 							icon : "warning",
@@ -1285,6 +1486,18 @@ function createComponentesCarga(){
 					_average= rows[i]['average'];
 					_totalMinutosPausa= rows[i]['totalMinutosPausa'];
 					_minutosEjercicio= rows[i]['minutosEjercicio'];
+
+												/*_ppm = $('#heart_rate').val();
+							_minKm= $('#min_km').val();
+							_watts= $('#watts').val();
+							_min100= $('#min_100').val();
+							_min400= $('#min_400').val();
+							_minDist= $('#min_dist').val();
+							_factorEjer= $('#exercise_fe').val();
+							_factorInten= $('#intensity_factor').val();*/
+
+							//_ecosTotales= rows[i]['ECOsTotal'];
+
 				},
 				error: function(data) {
 					alert("error "+block+" ->>" + data);
@@ -1302,6 +1515,8 @@ function createComponentesCarga(){
 					"perfilID": perfilID
 				},
 				success: function(data) {
+					//console.log(data);
+					//alert(data);
 					_average= data;
 
 				},
@@ -1314,6 +1529,9 @@ function createComponentesCarga(){
 	} catch (err) {
 		alert(err.message);
 	}
+	////////////////////////////////////////////
+	////////////// fin getFormulas /////////////
+	////////////////////////////////////////////
 
 	if(porcTransicionAdicional != 0){
 		var tempEcos = _ecosTotales * (porcTransicionAdicional/100);
@@ -1330,6 +1548,8 @@ function createComponentesCarga(){
 		times= "";
 		pause= "";
 		string_type_pause= "";
+		//recup= "";
+		//string_recup_type= "";
 	}
 	else if(block=="calentamiento" && blockSelected=="natacion"){
 		series= " ";
@@ -1339,6 +1559,7 @@ function createComponentesCarga(){
 	else if(block=="drills" || block=="circuito"){
 		if(block=="drills") {
             idBusqueda= $("#select_drills").val();
+			//alert(idBusqueda + " - "+ block + urlBusqueda );
 			urlBusqueda= 'index.php?r=sessionsssession/getdrillbyid';
 						var strComent="Comentario:";
 			if($("#text_drills").val()=="")
@@ -1351,21 +1572,54 @@ function createComponentesCarga(){
 			string_type_pause= " ";
 			recup= " ";
 			string_recup_type= " ";
+			/*idBusqueda= $("#select_exercise").val();
+			urlBusqueda= 'index.php?r=exercisesexercise/getexercise';
+						//alert(idBusqueda);*/
+		}
+		if(block=="circuito"){
+			idBusqueda= $("#select_circuit").val();
+			//alert(idBusqueda + " - "+ block + urlBusqueda );
+			urlBusqueda= 'index.php?r=sessionsssession/getcircuitbyid';
+								if(exercise_id==0 || $("#hddValidaNuevaBusqueda").val()!="")
+						idBusqueda = $("#select_circuit").val();
+					else if(Number.isInteger($("#select_circuit").val())==false)
+						idBusqueda = exercise_id;//$('#idBusquedaC').val();
+								var strComent="Comentario:";
+			if($("#text_circuit").val()=="")
+				strComent="";
+			coment= '<tr><td colspan="15"><b>'+strComent+'</b><br />'+$("#text_circuit").val()+'</td></tr>';
+			series= " ";
+			times= " ";
+			pause= " ";
+			string_type_pause= " ";
+			recup= " ";
+			string_recup_type= " ";
+		}
+		//alert("ex: " + exercise_id);
+		/*alert(idBusqueda+ ' -' + $("#select_exercise").val() + '-');
+		if(!Number.isInteger($("#select_exercise").val()))
+			alert(Number.isInteger($("#select_exercise").val()));
+		else
+			alert(2);/**/
+
 		$.ajax({
 			type: 'get',
 			async: false,
 			url: urlBusqueda,
 			data: {"id":idBusqueda, "limit":140},
 			success: function(data) {
+
 				var separarEx = data.split("||");
 				htmlEx = '';
 				var comentCircuito= "<br />" + coment;
+
 				if(block!="circuito" && block!='drills'){//circuito No se crea al tr// agregue drills 130524
 					htmlEx += '<tr>';
 					comentCircuito= "";
 				}
 				nombreEx= separarEx[1];
 				imagenEx= separarEx[4];
+				//alert(idBusqueda +"-" + nombreEx + " - " + imagenEx);
 				htmlEx += '<td height="60" width="17px" style="background-color:#2BE47F;">';
 				htmlEx += '<td style="vertical-align:middle;"><img id="imgEx'+contComponentes+'" width="40" src="../../media/'+separarEx[4]+'" style="fill:white; border-radius: 50%; min-width: 50.5px;max-width: 50.5px; height: 50.5px;"></td>';
 				htmlEx += '<td colspan="4" style="vertical-align:middle;"><span id="spanNameEx'+contComponentes+'" class="spanNameEx'+contComponentes+'" >'+separarEx[1]+comentCircuito+'</span></td>';
@@ -1401,6 +1655,7 @@ function createComponentesCarga(){
 	else{
 		if(series=="" || series==0) series=1;
 	}
+	//quitar etiqueta repeticiones
 	var _times= times;
 	var _series= series;
 	var strSerieIgualA1="";
@@ -1411,34 +1666,48 @@ function createComponentesCarga(){
 		if(block=="intervalos" || block=="repeticiones" || block=="secuencia") strSerieIgualA1="";
 	}
 	let total_calories = $('#total_calories').val();
+	//alert(block);
 
 	var htmlC= '';
 	var strComentario="";
 	var fondo="";
 	var dirBlanco="blanco/";
+
+	//alert(block+"-"+contBloquesEditando);
 	if(block=="secuencia" || block=="progresivo" || block=="farlek"){
 		if(bloqueAnterior!=block && contBloquesEditando>0)
 			idBloqueDelbloque++;
+		//htmlC = '<span class="spanComponente_'+idBloqueDelbloque+'">';
 		if(initGrupoDiv==1){
+			//htmlC += '<div class="tblGrupo'+grupoID+'">';
 		}
 	}
     if(block=="secuencia" || block=="progresivo" || block=="farlek"){
+        // && bloqueAnterior!=block => mblanco 2023
         if(contBloqueDelbloque==0 && bloqueAnterior!=block){//solo es un bloque para farlek, progresivo y secuencia
 
             contBloquesEditando=0;
             htmlC += '<span class="clsComponente" id="spanComponente_'+contComponentes+'" data-id="1" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false"><span class="label">'+nombreBloque+'</span>';
+            //alert(1);
         }
     }else{
+        // && bloqueAnterior!=block => mblanco 2023
         if(contBloqueDelbloque==0){//solo es un bloque para farlek, progresivo y secuencia
 
             contBloquesEditando=0;
             htmlC += '<span class="clsComponente" id="spanComponente_'+contComponentes+'" data-id="1" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false"><span class="label">'+nombreBloque+'</span>';
+            //alert(1);
         }
     }
+
+
+	//para editar
 	var validaSeriesRepeticiones= true;
+	//alert(contBloqueDelbloque);
 	if($("#hddAccion").val()=="Editando" && contBloquesEditando>0 && (block == 'secuencia' || block == 'progresivo' || block == 'farlek')){
 		validaSeriesRepeticiones= false;
 	}
+	//fin para editar
 
 	var tablaSerie= false;
 	var tablaReps= false;
@@ -1449,12 +1718,66 @@ function createComponentesCarga(){
 		var _limiteBloque=0;
 		if (block == 'secuencia') {
 			_limiteBloque= 1;//un ciclo de dos vueltas
+			/*try{
+				limiteBloque= (Number($("#hddNumBloqueDelBloque").val()) - 1);
+			}
+			catch (err){
+				limiteBloque= 1;//un ciclo de dos vueltas
+			}
+			if(contBloqueDelbloque==0 && validaSeriesRepeticiones){
+				bordeBajo= "border-bottom: solid 0px;";
+			}
+			else{
+				bordeBajo= "border-top: solid 0px;";
+			}*/
 		}
 		else if(block == 'farlek'){
 			_limiteBloque= 2;//un ciclo de 3 vueltas
+			/*try{
+				limiteBloque= (Number($("#hddNumBloqueDelBloque").val()) - 1);
+			}
+			catch (err){
+				limiteBloque= 2;//un ciclo de 3 vueltas
+			}
+			if(contBloqueDelbloque==0 && validaSeriesRepeticiones){
+				bordeBajo= "border-bottom: solid 0px;";
+			}
+			else if(contBloqueDelbloque<2){
+				bordeBajo= "border-bottom: solid 0px; border-top: solid 0px;";
+			}
+			else{
+				bordeBajo= "border-top: solid 0px;";
+			}*/
 		}
 		else if (block == 'progresivo') {
 			_limiteBloque= 3;//un ciclo de 4 vueltas
+			/*try{
+				limiteBloque= (Number($("#hddNumBloqueDelBloque").val()) - 1);
+			}
+			catch (err){
+				limiteBloque= 3;//un ciclo de 4 vueltas
+			}
+			if(contBloqueDelbloque==0 && validaSeriesRepeticiones){
+				bordeBajo= "border-bottom: solid 0px;";
+			}
+			else if($("#hddAccion").val()=="Editando"){
+				if(contBloquesEditando<limiteBloque){
+					//alert(191);
+					bordeBajo= "border-bottom: solid 0px; border-top: solid 0px;";
+				}
+				else{
+					//alert(190);
+					bordeBajo= "border-top: solid 0px;";
+				}
+			}
+			else if(contBloqueDelbloque<3){
+				//alert(091);
+				bordeBajo= "border-bottom: solid 0px; border-top: solid 0px;";
+			}
+			else{
+				//alert(090);
+				bordeBajo= "border-top: solid 0px;";
+			}*/
 		}
 
 		if (block == 'secuencia' || block == 'progresivo' || block == 'farlek') {
@@ -1469,16 +1792,20 @@ function createComponentesCarga(){
 			}
 			else if($("#hddAccion").val()=="Editando"){
 				if(contBloquesEditando<limiteBloque){
+					//alert(191);
 					bordeBajo= "border-bottom: solid 0px; border-top: solid 0px;";
 				}
 				else{
+					//alert(190);
 					bordeBajo= "border-top: solid 0px;";
 				}
 			}
 			else if(contBloqueDelbloque<Number($("#hddNumBloqueDelBloque").val())){
+				//alert(091);
 				bordeBajo= "border-bottom: solid 0px; border-top: solid 0px;";
 			}
 			else{
+				//alert(090);
 				bordeBajo= "border-top: solid 0px;";
 			}
 		}
@@ -1492,6 +1819,7 @@ function createComponentesCarga(){
 		htmlC += '<table class="test1" width="100%"><tr><td style="border:solid '+bordeSerie+' #d4d4d4; '+paddingSerie+'; '+bordeBajo+'">';
 		if(contBloqueDelbloque==0 && validaSeriesRepeticiones){
 			if(series!=1 && series!="")
+				//htmlC += '' + series + 'x';
                 htmlC += '<span class=" lblSerieD'+contComponentes+'" id="lblSerieD'+contComponentes+'">' + series + 'x</span>';//david230223
 		}
 
@@ -1518,7 +1846,9 @@ function createComponentesCarga(){
 	if(block=="pausa"){
 		htmlC += '<td style="background-color:#C3DBE7; color:#003A5D; font-weight:600; font-size:13px; vertical-align:middle; text-align:left !important; padding-left:20px !important;" align="left">r ^ n Pausa ';
 		htmlC += '<span class="labelPausa" id="lblPausa'+contComponentes+'">'+(pause=='0' ? '' : pause + ' ' + string_type_pause)+'</span>';
+		//para evitar marcar errores al guardar
 		htmlC += metricaRecPausaComentCircuito;
+		//fin para evitar marcar errores al guardar
 		htmlC += '</td>';
 		if(pause_type==1){//minutos
 			_totalMinutosPausa= pause;
@@ -1543,12 +1873,15 @@ function createComponentesCarga(){
 	else if(block=="transicion"){
 		var porcTransicion="";
 		if($('#rbTransicion10').is(':checked')) {
+			//porcTransicion= "<br />Porcentaje adicional: + 10%";
 			porcTransicionAdicional=10;
 		}
 		else if($('#rbTransicion10_v2').is(':checked')) {
+			//porcTransicion= "<br />Porcentaje adicional: + 10%";
 			porcTransicionAdicional=10;
 		}
 		else if($('#rbTransicion15').is(':checked')) {
+			//porcTransicion= "<br />Porcentaje adicional: + 15%";
 			porcTransicionAdicional=15;
 		}
 		fondo= "background-color:#41BC72;";
@@ -1564,14 +1897,18 @@ function createComponentesCarga(){
         let imgdisplay='';
         if(block=='drills'){
             text=$("#text_drills").val().trim();
+            //imgdisplay='display:none';
         }
 		htmlC += '<td width="17px" style="background-color:#2BE47F;">';
 		htmlC += '</td>';
 		htmlC += '<td width="60"><img id="imgEx'+contComponentes+'" src="../../media/' + imagenEx + '" style="fill:white; border-radius: 50%; min-width: 50.5px;max-width: 50.5px; height: 50.5px; '+imgdisplay+'" /></td><td>';
+		//strComentario= $("#text_circuit").val().trim();
 		strComentario= text;
+		//htmlC += '<span style="font-size:14px;" id="spanNameEx'+contComponentes+'" class="spanNameEx'+contComponentes+'">'+nombreEx+'<br />'+ $("#text_circuit").val() +'</span>';
 		htmlC += '<span style="font-size:14px;" id="spanNameEx'+contComponentes+'" class="spanNameEx'+contComponentes+'">'+nombreEx+'<br />'+ text +'</span>';
 		htmlC += metricaRecPausaComentCircuito;
 		htmlC += '</td>';
+		//Calculo de tiempo Totales PARA CIRCUITO
 		try{
 			let horasAMin= Number($("#spanHrsTotales").html())*60;
 			let minutosTotales= Number($("#spanMinTotales").html()) + horasAMin;
@@ -1581,16 +1918,20 @@ function createComponentesCarga(){
 			var min = Math.floor(totalMinutosSesion % 60);
 			$("#spanHrsTotales").html(hrs);
 			$("#spanMinTotales").html(min);
+			//alert("circuito: h"+ hrs + " m" +min + totalMinutosSesion);
 		}
 		catch (err) {
 			alert("error calculo tiempo en circuito. " + err.message);
 		}
 	}
 	else{
+		/*background-color: #fff;*/
+		//alert(imgDeporte);
 		htmlC += '<td height="60" width="17px" style="background-color:#2BE47F;">';
 		htmlC += '</td>';
 		htmlC += '<td width="30" style="">';
 		htmlC += '<img id="_imgDeporte'+contComponentes+'" src="require/imgv2/blanco/'+imgDeporte+'.svg" height="40" style="fill:white;" />';
+		//htmlC += '<svg role="img" title="icon3" style="color:#FFFFFF;"><use href="require/imgv2/blanco/'+imgDeporte+'.svg"/></svg>';
 		htmlC += '</td>';
 		htmlC += '<td width="70">';
 		htmlC += 'Ss <br />';
@@ -1682,16 +2023,45 @@ function createComponentesCarga(){
 		htmlC += '<img src="require/img/ecos70.png" width="55" /><div class="spanEcos">'+_ecosTotales+'</div>';
 
 		htmlC += '</td>';
+		//alert(_duracionEjercicio);
 		if(pause_type==1){//minutos
 			_totalMinutosPausa= pause * repeticiones * series;
 		}
 		else if(pause_type==2){//segundos
 			_totalMinutosPausa = ((pause * repeticiones * series) / 60);
 		}
+		//_totalMinutosPausa += minutosRecuperacion * repeticiones * series
 		minutosRecuperacion= minutosRecuperacion * _times;
+		//alert(minutosRecuperacion);
+		//nuevoooo
+		//alert(_times + "-"+_minutosEjercicio+ " - " + _totalMinutosPausa+ " - " + minutosRecuperacion+ "("+recup_type+") - " + (_minutosEjercicio+ _totalMinutosPausa + minutosRecuperacion));
+		/*if(blockSelected=="natacion"){//natacion
+			if(case_type==4){//mts
+				_duracionEjercicio= (((quantity_large/100)*(100/_average))/60);
+			}
+			else if(case_type==5){//km
+				_duracionEjercicio= ((quantity_large*10)*(100/_average))/60;
+			}
+			_duracionEjercicio = _duracionEjercicio * series * _times;
+		}
+		else{
+			if(case_type==4){//mts
+				_duracionEjercicio=((quantity_large/1000) * 60)/_average;
+			}
+			else if(case_type==5){//km
+				_duracionEjercicio= (quantity_large * 60) / _average;
+			}
+			_duracionEjercicio = (_duracionEjercicio + _totalMinutosPausa + minutosRecuperacion) * series * _times;
+		}*/
+		//alert("2-"+_duracionEjercicio);
+		//fin nuevoooo
 		getSumaEcos(_ecosTotales, quantity_large, case_type, _minutosEjercicio, times, blockSelected, _average, pause_type, _totalMinutosPausa, minutosRecuperacion);
 	}
+	//background-color:#fff;
 	htmlC += '<td width="20" style="'+fondo+'">';
+	//*****************************
+	//*****************************
+	//se movieron los hdd*********************************
 	var _elemtPorBloque= 0;
 	try{
 		_elemtPorBloque= Number($("#hddNumBloqueDelBloque").val());
@@ -1722,6 +2092,9 @@ function createComponentesCarga(){
 	htmlC += '<input type="hidden" name="hddEcos[]" id="hddEcos'+contComponentes+'" value="'+_ecosTotales+'" />';
 	htmlC += '<input type="hidden" name="hddFE[]" id="hddFE'+contComponentes+'" value="'+_factorEjer+'" />';
 	htmlC += '<input type="hidden" name="hddFI[]" id="hddFI'+contComponentes+'" value="'+_factorInten+'" />';
+	//fin se movieron los hdd*****************************
+	//*****************************
+	//*****************************
 	if(contBloqueDelbloque==0 && validaSeriesRepeticiones){//solo es un bloque para farlek, progresivo y secuencia
 		htmlC += '<img src="require/imgv2/' + dirBlanco + 'Generales/Icon_Editar.svg" height="12" class="imgEditar'+contComponentes+'" onclick="getEditar(\''+$('#select_blocks').val()+'\', \''+block.toLowerCase()+'\', '+contComponentes+', '+_elemtPorBloque+');" />';
 		htmlC += '<img src="require/imgv2/' + dirBlanco + 'Generales/Icon_Eliminar.svg" height="12" class="imgEliminar'+contComponentes+'" onclick="getEliminar('+contComponentes+', \''+block+'\', '+idBloqueDelbloque+');" />';
@@ -1731,6 +2104,7 @@ function createComponentesCarga(){
 		else{
 			htmlC += '<br /> &nbsp;';
 		}
+		//htmlC += '<span style="font-size:13px; color:#000;" onclick=""><i class="flaticon-file-1" style="color:white;"></i></span>';
 	}
 
 	if(block=="comentario" || block=="transicion"){
@@ -1756,9 +2130,13 @@ function createComponentesCarga(){
 	let pausa_entre_bloques_text="";
 	if(block=="secuencia"){
 		pausa_entre_bloques_text=" entre bloques";
+		/*htmlC += '<tr><td>Pause';
+		htmlC += '</td></tr>';/**/
 	}
+	//alert(contBloqueDelbloque + ' .. ' + tablaSerie);
 
 	var muestraPausa=false;
+	//alert(contBloquesEditando+"-"+limiteBloque);
 	if(limiteBloque==contBloqueDelbloque || limiteBloque==contBloquesEditando){
 	   muestraPausa= true;
 	}
@@ -1775,6 +2153,8 @@ function createComponentesCarga(){
 			}
 		}
 		if(contComponentes>1 && $("#hddAccion").val()=="Editando"){
+			//htmlC += '</td></tr></table>';
+			//alert("recup");
 		}
 
 	}
@@ -1783,17 +2163,24 @@ function createComponentesCarga(){
 			if(recup>0){
 				htmlC += '</table><table style="width:100%; margin: 4px 0 10px 0;"><td style="background-color:#C3DBE7; color:#003A5D; font-weight:600; font-size:13px; vertical-align:middle; text-align:left !important; padding:15px 20px !important;" align="left">';
 				htmlC += 'Recuperación <span style="font-size:17px;" class="label" id="lblRecup'+contComponentes+'">'+(recup=='0' ? '' : recup+' '+string_recup_type) + '</span>';
+				//htmlC += htmlHddRecup;// david202332302 comentado
 				htmlC += '</td></table>';
 			}
 		}
 		if(contComponentes>1 && $("#hddAccion").val()=="Editando"){
+			//htmlC += '</td></tr></table>';
+			//alert("serie");
 		}
 	}
+	//if((contComponentes>1 || bloqueAnterior!=block) && $("#hddAccion").val()=="Editando");
 	htmlC += '</span>';
 	if(block!="secuencia"){
+		//htmlC += '</span>';
 	}
 	else{
 		if(contBloqueDelbloque==1){
+			//htmlC += '</span>';
+			//alert(1234);
 		}
 	}
 
@@ -1810,8 +2197,15 @@ function createComponentesCargaSecuencia(limit){
     contComponentes +=1;
     var htmlC= '';
     htmlC += '<span class="clsComponente" id="spanComponente_'+contComponentes+'" data-id="1" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false">';
+    //for(i=0; i<limit; i++){
                 contBloqueDelbloque=0;
+      //          if(i==0 || (i==1 && $("#select_quantity_large2").val()!="") || (i==2 && $("#select_quantity_large3").val()!="") || (i==3 && $("#select_quantity_large4").val()!="")){
+
+
+                    //alert(contBloqueDelbloque);
                     var urlBusqueda= 'index.php?r=exercisesexercise/getexercise';
+
+                    /////////////////////////////////////////////////////////////////
                     let case_type = $('#select_type_large').val();
                     if(contBloqueDelbloque==1){//para el bloque 2 ... aplica para farlek, progresivo y secuencia
                         case_type = $('#select_type_large2').val();
@@ -1867,6 +2261,7 @@ function createComponentesCargaSecuencia(limit){
                         return false;
                     }
 
+
                     times = Number(times);
                     if(contBloqueDelbloque==0){//para el bloque 1 ... aplica para farlek, progresivo y secuencia
                         quantity_large = Number($('#select_quantity_large').val());
@@ -1911,6 +2306,12 @@ function createComponentesCargaSecuencia(limit){
 
                     $('#hddUltimoBloqueAgregado').val(block);
                     $('#exampleModal').modal('hide');
+                    /////////////////////////////////////////////////////////////////
+
+
+                    ////////////////////////////////////////////
+                    //////////////// getFormulas ///////////////
+                    ////////////////////////////////////////////
                     let _ecosTotales = 0;
                     let _duracionEjercicio=0;
                     let _average=0;
@@ -1931,6 +2332,14 @@ function createComponentesCargaSecuencia(limit){
                     let deporteSportID= 0;
                     let nombreEx="";
                     let imagenEx="";
+                    /*if(block=="circuito"){
+                        blockSelected = $('#blockSelected').val();
+                        str = $('#hddNombreBloque').val();
+                        str2 = str.charAt(0).toUpperCase() + str.slice(1);
+                        nombreBloque = str2;
+                    }
+                    else{
+                    }*/
                     try {
                         var zona = zone;
                         var iconoFE = "C";
@@ -1945,18 +2354,25 @@ function createComponentesCargaSecuencia(limit){
                         var distTiempoMetrica = tipoMetricaBloque;
                         var perfilID = $('#sessionsssession-profile_id').val();
                         if (perfilID == "") perfilID = 0;
+
+                        //let nombreBloque= $('#hddNombreBloque').val().toLowerCase();
                         nombreBloque= nombreBloque.toLowerCase();
                         nombreBloque= nombreBloque.charAt(0).toUpperCase() + nombreBloque.slice(1);
                         let blockSelectedSplit = $('#select_blocks').val().split('_');
                         blockSelected= blockSelectedSplit[0];
+                        //alert($('#select_blocks').val()+" -" + blockSelected);
+                        //alert(blockSelected);
+                        //blockSelected = "carrera";
 
                                                         if($('#blockSelected').val()!=""){
                                     blockSelected = $('#blockSelected').val();
                                 }
+                        //alert(blockSelected);
                                 str = $('#hddNombreBloque').val();
                                 str2 = str.charAt(0).toUpperCase() + str.slice(1);
                                 nombreBloque = str2;
                                 perfilID=0;
+
 
                         if(blockSelected=="ciclismo"){
                             imgDeporte= "Icon_Ciclismo";
@@ -1989,6 +2405,7 @@ function createComponentesCargaSecuencia(limit){
                                 "ultimoBloqueAgregado": $('#hddUltimoBloqueAgregado').val(),
                                 "perfilID": perfilID
                             };
+
                         if(block!="circuito" && block!="pausa"){
                             if(pause_type=="2"){//para segundos
                                 minutosPausa = minutosPausa/60;
@@ -2008,6 +2425,7 @@ function createComponentesCargaSecuencia(limit){
                                 minutosPausa = 0;
                                 minutosRecuperacion = 0;
                             }
+                            //alert(perfilID);
                             $.ajax({
                                 type: 'get',
                                 async: false,
@@ -2028,10 +2446,15 @@ function createComponentesCargaSecuencia(limit){
                                     "perfilID": perfilID
                                 },
                                 success: function(data) {
+                                    //console.log(data);
+                                    //alert(series);
                                     rows = JSON.parse(data);
+
                                     if(series=="2"){
+                                        //alert(rows[i]['ECOsTotal']+"Z:"+zona+"iconoFE:"+iconoFE+" rep:"+repeticiones+" M:"+minutosRepeticion+" P:"+minutosPausa+" R:"+minutosRecuperacion);
                                     }
                                     var cantTemp = 0;
+                                    //alert(12);
                                     if(rows[i]['errorDato']!=""){
                                         swal(" Bloque: " + block, "" + rows[i]['errorDato'], {
                                             icon : "warning",
@@ -2058,6 +2481,18 @@ function createComponentesCargaSecuencia(limit){
                                     _average= rows[i]['average'];
                                     _totalMinutosPausa= rows[i]['totalMinutosPausa'];
                                     _minutosEjercicio= rows[i]['minutosEjercicio'];
+
+                                                                                /*_ppm = $('#heart_rate').val();
+                                            _minKm= $('#min_km').val();
+                                            _watts= $('#watts').val();
+                                            _min100= $('#min_100').val();
+                                            _min400= $('#min_400').val();
+                                            _minDist= $('#min_dist').val();
+                                            _factorEjer= $('#exercise_fe').val();
+                                            _factorInten= $('#intensity_factor').val();*/
+
+                                            //_ecosTotales= rows[i]['ECOsTotal'];
+
                                 },
                                 error: function(data) {
                                     alert("error "+block+" ->>" + data);
@@ -2068,11 +2503,15 @@ function createComponentesCargaSecuencia(limit){
                     } catch (err) {
                         alert(err.message);
                     }
+                    ////////////////////////////////////////////
+                    ////////////// fin getFormulas /////////////
+                    ////////////////////////////////////////////
 
                     var htmlEx="";
                     var coment="";
                     var idBusqueda= '';
                     var exercise_name="";
+
 
                     if (block == 'secuencia' || block == 'progresivo' || block == 'farlek' || block == 'continuo') {
                         pause= "";
@@ -2084,6 +2523,7 @@ function createComponentesCargaSecuencia(limit){
                             series="";
                         }
                     }
+                    //quitar etiqueta repeticiones
                     var _times= times;
                     var _series= series;
                     var strSerieIgualA1="";
@@ -2094,25 +2534,38 @@ function createComponentesCargaSecuencia(limit){
                         if(block=="intervalos" || block=="repeticiones" || block=="secuencia") strSerieIgualA1="";
                     }
                     let total_calories = $('#total_calories').val();
+                    //alert(block);
+
 
                     var strComentario="";
                     var fondo="";
                     var dirBlanco="blanco/";
+
+                    //alert(block+"-"+contBloquesEditando);
                     if(block=="secuencia" || block=="progresivo" || block=="farlek"){
                         if(bloqueAnterior!=block && contBloquesEditando>0)
                             idBloqueDelbloque++;
+                        //htmlC = '<span class="spanComponente_'+idBloqueDelbloque+'">';
                     }
                     if(block=="secuencia"){
+                        // && bloqueAnterior!=block => mblanco 2023
                         if(contBloqueDelbloque==0 && bloqueAnterior!=block){//solo es un bloque para farlek, progresivo y secuencia
 
                             contBloquesEditando=0;
+                            //htmlC += '<span class="clsComponente" id="spanComponente_'+contComponentes+'" data-id="1" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false"><span class="label">'+nombreBloque+'</span>';
                             htmlC += '<span class="label">'+nombreBloque+'</span>';
+                            //alert(1);
                         }
                     }
+
+
+                    //para editar
                     var validaSeriesRepeticiones= true;
+                    //alert(contBloqueDelbloque);
                     if($("#hddAccion").val()=="Editando" && contBloquesEditando>0 && (block == 'secuencia' || block == 'progresivo' || block == 'farlek')){
                         validaSeriesRepeticiones= false;
                     }
+                    //fin para editar
 
                     var tablaSerie= false;
                     var tablaReps= false;
@@ -2123,6 +2576,18 @@ function createComponentesCargaSecuencia(limit){
                         var _limiteBloque=0;
                         if (block == 'secuencia') {
                             _limiteBloque= 1;//un ciclo de dos vueltas
+                            /*try{
+                                limiteBloque= (Number($("#hddNumBloqueDelBloque").val()) - 1);
+                            }
+                            catch (err){
+                                limiteBloque= 1;//un ciclo de dos vueltas
+                            }
+                            if(contBloqueDelbloque==0 && validaSeriesRepeticiones){
+                                bordeBajo= "border-bottom: solid 0px;";
+                            }
+                            else{
+                                bordeBajo= "border-top: solid 0px;";
+                            }*/
                         }
 
                         if (block == 'secuencia' || block == 'progresivo' || block == 'farlek') {
@@ -2137,16 +2602,20 @@ function createComponentesCargaSecuencia(limit){
                             }
                             else if($("#hddAccion").val()=="Editando"){
                                 if(contBloquesEditando<limiteBloque){
+                                    //alert(191);
                                     bordeBajo= "border-bottom: solid 0px; border-top: solid 0px;";
                                 }
                                 else{
+                                    //alert(190);
                                     bordeBajo= "border-top: solid 0px;";
                                 }
                             }
                             else if(contBloqueDelbloque<Number($("#hddNumBloqueDelBloque").val())){
+                                //alert(091);
                                 bordeBajo= "border-bottom: solid 0px; border-top: solid 0px;";
                             }
                             else{
+                                //alert(090);
                                 bordeBajo= "border-top: solid 0px;";
                             }
                         }
@@ -2160,6 +2629,7 @@ function createComponentesCargaSecuencia(limit){
                         htmlC += '<table width="100%"><tr><td style="border:solid '+bordeSerie+' #d4d4d4; '+paddingSerie+'; '+bordeBajo+'">';
                         if(contBloqueDelbloque==0 && validaSeriesRepeticiones){
                             if(series!=1 && series!="")
+                                //htmlC += '' + series + 'x';
                                 htmlC += '<span class=" lblSerieD'+contComponentes+'" id="lblSerieD'+contComponentes+'">' + series + 'x</span>';//david230223
                         }
 
@@ -2171,6 +2641,7 @@ function createComponentesCargaSecuencia(limit){
                             tablaReps= true;
                         }
                     }
+                    //agregar aca el for david 2023
                     for(i=0; i<limit; i++){
                 contBloqueDelbloque=i;
                 if(i==0 || (i==1 && $("#select_quantity_large2").val()!="") || (i==2 && $("#select_quantity_large3").val()!="") || (i==3 && $("#select_quantity_large4").val()!="")){
@@ -2186,10 +2657,15 @@ function createComponentesCargaSecuencia(limit){
                     htmlC += '<tr>';
 
                     var metricaRecPausaComentCircuito= '<input type="hidden" name="hddRecup[]" id="hddRecup'+contComponentes+'" value="'+recup+'" class="hddRecup'+contComponentes+'" /><input type="hidden" name="hddMetricaRecup[]" id="hddMetricaRecup'+contComponentes+'" value="'+recup_type+'" class="hddMetricaRecup'+contComponentes+'" />';
+
+
+                        /*background-color: #fff;*/
+                        //alert(imgDeporte);
                         htmlC += '<td height="60" width="17px" style="background-color:#2BE47F;">';
                         htmlC += '</td>';
                         htmlC += '<td width="30" style="">';
                         htmlC += '<img src="require/imgv2/blanco/'+imgDeporte+'.svg" height="40" style="fill:white;" />';
+                        //htmlC += '<svg role="img" title="icon3" style="color:#FFFFFF;"><use href="require/imgv2/blanco/'+imgDeporte+'.svg"/></svg>';
                         htmlC += '</td>';
                         htmlC += '<td width="70">';
                         htmlC += 'Ss <br />';
@@ -2281,15 +2757,25 @@ function createComponentesCargaSecuencia(limit){
                         htmlC += '<img src="require/img/ecos70.png" width="55" /><div class="spanEcos">'+_ecosTotales+'</div>';
 
                         htmlC += '</td>';
+                        //alert(_duracionEjercicio);
                         if(pause_type==1){//minutos
                             _totalMinutosPausa= pause * repeticiones * series;
                         }
                         else if(pause_type==2){//segundos
                             _totalMinutosPausa = ((pause * repeticiones * series) / 60);
                         }
+                        //_totalMinutosPausa += minutosRecuperacion * repeticiones * series
                         minutosRecuperacion= minutosRecuperacion * _times;
+                        //alert(minutosRecuperacion);
+                        //nuevoooo
+                        //fin nuevoooo
                         getSumaEcos(_ecosTotales, quantity_large, case_type, _minutosEjercicio, times, blockSelected, _average, pause_type, _totalMinutosPausa, minutosRecuperacion);
+
+                    //background-color:#fff;
                     htmlC += '<td width="20" style="'+fondo+'">';
+                    //*****************************
+                    //*****************************
+                    //se movieron los hdd*********************************
                     var _elemtPorBloque= 0;
                     try{
                         _elemtPorBloque= Number($("#hddNumBloqueDelBloque").val());
@@ -2320,6 +2806,9 @@ function createComponentesCargaSecuencia(limit){
                     htmlC += '<input type="hidden" name="hddEcos[]" id="hddEcos'+(contComponentes+i)+'" value="'+_ecosTotales+'" />';
                     htmlC += '<input type="hidden" name="hddFE[]" id="hddFE'+(contComponentes+i)+'" value="'+_factorEjer+'" />';
                     htmlC += '<input type="hidden" name="hddFI[]" id="hddFI'+(contComponentes+i)+'" value="'+_factorInten+'" />';
+                    //fin se movieron los hdd*****************************
+                    //*****************************
+                    //*****************************
                     if(contBloqueDelbloque==0 && validaSeriesRepeticiones){//solo es un bloque para farlek, progresivo y secuencia
                         htmlC += '<img src="require/imgv2/' + dirBlanco + 'Generales/Icon_Editar.svg" height="12" class="imgEditar'+(contComponentes+i)+'" onclick="getEditar(\''+$('#select_blocks').val()+'\', \''+block.toLowerCase()+'\', '+(contComponentes+i)+', '+_elemtPorBloque+');" />';
                         htmlC += '<img src="require/imgv2/' + dirBlanco + 'Generales/Icon_Eliminar.svg" height="12" class="imgEliminar'+(contComponentes+i)+'" onclick="getEliminar('+(contComponentes+i)+', \''+block+'\', '+idBloqueDelbloque+');" />';
@@ -2329,9 +2818,12 @@ function createComponentesCargaSecuencia(limit){
                         else{
                             htmlC += '<br /> &nbsp;';
                         }
+                        //htmlC += '<span style="font-size:13px; color:#000;" onclick=""><i class="flaticon-file-1" style="color:white;"></i></span>';
                     }
 
+
                         htmlC += '<input type="hidden" name="hddComent[]" id="hddComent'+(contComponentes+i)+'" value="'+ strComentario +'" class="hddComent'+(contComponentes+i)+'" />';
+
 
                     htmlC += '<input type="hidden" name="hddCalories[]" id="hddCalories'+(contComponentes+i)+'" value="'+total_calories+'" class="hddCalories'+(contComponentes+i)+'" />';
                     htmlC += '<input type="hidden" name="hddPausa[]" id="hddPausa'+(contComponentes+i)+'" value="'+pause+'" class="hddPausa'+(contComponentes+i)+'" />';
@@ -2344,10 +2836,16 @@ function createComponentesCargaSecuencia(limit){
                         htmlC += htmlEx;
                     }
                     htmlC += '</table><br>';
+
+
+                    //fin de for david 2023
                 }
             }
 
+                    //alert(contBloqueDelbloque + ' .. ' + tablaSerie);
+
                     var muestraPausa=false;
+                    //alert(contBloquesEditando+"-"+limiteBloque);
                     if(limiteBloque==contBloqueDelbloque || limiteBloque==contBloquesEditando){
                     muestraPausa= true;
                     }
@@ -2364,6 +2862,8 @@ function createComponentesCargaSecuencia(limit){
                             }
                         }
                         if(contComponentes>1 && $("#hddAccion").val()=="Editando"){
+                            //htmlC += '</td></tr></table>';
+                            //alert("recup");
                         }
 
                     }
@@ -2372,22 +2872,32 @@ function createComponentesCargaSecuencia(limit){
                             if(recup>0){
                                 htmlC += '</table><table style="width:100%; margin: 4px 0 10px 0;"><td style="background-color:#C3DBE7; color:#003A5D; font-weight:600; font-size:13px; vertical-align:middle; text-align:left !important; padding:15px 20px !important;" align="left">';
                                 htmlC += 'Recuperación <span style="font-size:17px;" class="label" id="lblRecup'+contComponentes+'">'+(recup=='0' ? '' : recup+' '+string_recup_type) + '</span>';
+                                //htmlC += htmlHddRecup;// david202332302 comentado
                                 htmlC += '</td></table>';
                             }
                         }
                         if(contComponentes>1 && $("#hddAccion").val()=="Editando"){
+                            //htmlC += '</td></tr></table>';
+                            //alert("serie");
                         }
                     }
+                    //if((contComponentes>1 || bloqueAnterior!=block) && $("#hddAccion").val()=="Editando");
+                    //htmlC += '</span>';
                     if(block!="secuencia"){
+                        //htmlC += '</span>';
                     }
                     else{
                         if(contBloqueDelbloque==1){
+                            //htmlC += '</span>';
+                            //alert(1234);
                         }
                     }
 
                     if(bloqueAnterior!=block){
                         bloqueAnterior=block;
                     }
+
+
 
 	htmlC += '</span>';
 	$("#divComponentes").html($("#divComponentes").html()+htmlC);
@@ -2398,6 +2908,7 @@ function createComponentesCarga2(limit){
 	if(bloqueAnterior != block){
 		grupoID=0;
 	}
+	//alert(bloqueAnterior + " -- " + block);
     for(i=0; i<limit; i++){
         contBloqueDelbloque=i;
 
@@ -2406,7 +2917,10 @@ function createComponentesCarga2(limit){
 				if(grupoID==0){
 					grupoID= contComponentes;
 				}
+                //alert(contBloqueDelbloque);
                 var urlBusqueda= 'index.php?r=exercisesexercise/getexercise';
+
+                /////////////////////////////////////////////////////////////////
                 let case_type = $('#select_type_large').val();
                 if(contBloqueDelbloque==1){//para el bloque 2 ... aplica para farlek, progresivo y secuencia
                     case_type = $('#select_type_large2').val();
@@ -2462,6 +2976,7 @@ function createComponentesCarga2(limit){
                     return false;
                 }
 
+
                 times = Number(times);
                 if(contBloqueDelbloque==0){//para el bloque 1 ... aplica para farlek, progresivo y secuencia
                     quantity_large = Number($('#select_quantity_large').val());
@@ -2506,6 +3021,12 @@ function createComponentesCarga2(limit){
 
                 $('#hddUltimoBloqueAgregado').val(block);
                 $('#exampleModal').modal('hide');
+                /////////////////////////////////////////////////////////////////
+
+
+                ////////////////////////////////////////////
+                //////////////// getFormulas ///////////////
+                ////////////////////////////////////////////
                 let _ecosTotales = 0;
                 let _duracionEjercicio=0;
                 let _average=0;
@@ -2526,6 +3047,14 @@ function createComponentesCarga2(limit){
                 let deporteSportID= 0;
                 let nombreEx="";
                 let imagenEx="";
+                /*if(block=="circuito"){
+                    blockSelected = $('#blockSelected').val();
+                    str = $('#hddNombreBloque').val();
+                    str2 = str.charAt(0).toUpperCase() + str.slice(1);
+                    nombreBloque = str2;
+                }
+                else{
+                }*/
                 try {
                     var zona = zone;
                     var iconoFE = "C";
@@ -2540,18 +3069,25 @@ function createComponentesCarga2(limit){
                     var distTiempoMetrica = tipoMetricaBloque;
                     var perfilID = $('#sessionsssession-profile_id').val();
                     if (perfilID == "") perfilID = 0;
+
+                    //let nombreBloque= $('#hddNombreBloque').val().toLowerCase();
                     nombreBloque= nombreBloque.toLowerCase();
                     nombreBloque= nombreBloque.charAt(0).toUpperCase() + nombreBloque.slice(1);
                     let blockSelectedSplit = $('#select_blocks').val().split('_');
                     blockSelected= blockSelectedSplit[0];
+                    //alert($('#select_blocks').val()+" -" + blockSelected);
+                    //alert(blockSelected);
+                    //blockSelected = "carrera";
 
                                                 if($('#blockSelected').val()!=""){
                                 blockSelected = $('#blockSelected').val();
                             }
+                    //alert(blockSelected);
                             str = $('#hddNombreBloque').val();
                             str2 = str.charAt(0).toUpperCase() + str.slice(1);
                             nombreBloque = str2;
                             perfilID=0;
+
 
                     if(blockSelected=="ciclismo"){
                         imgDeporte= "Icon_Ciclismo";
@@ -2584,6 +3120,7 @@ function createComponentesCarga2(limit){
                             "ultimoBloqueAgregado": $('#hddUltimoBloqueAgregado').val(),
                             "perfilID": perfilID
                         };
+
                     if(block!="circuito" && block!="pausa"){
                         if(pause_type=="2"){//para segundos
                             minutosPausa = minutosPausa/60;
@@ -2603,6 +3140,7 @@ function createComponentesCarga2(limit){
                             minutosPausa = 0;
                             minutosRecuperacion = 0;
                         }
+                        //alert(perfilID);
                         $.ajax({
                             type: 'get',
                             async: false,
@@ -2623,10 +3161,15 @@ function createComponentesCarga2(limit){
                                 "perfilID": perfilID
                             },
                             success: function(data) {
+                                //console.log(data);
+                                //alert(series);
                                 rows = JSON.parse(data);
+
                                 if(series=="2"){
+                                    //alert(rows[i]['ECOsTotal']+"Z:"+zona+"iconoFE:"+iconoFE+" rep:"+repeticiones+" M:"+minutosRepeticion+" P:"+minutosPausa+" R:"+minutosRecuperacion);
                                 }
                                 var cantTemp = 0;
+                                //alert(12);
                                 if(rows[i]['errorDato']!=""){
                                     swal(" Bloque: " + block, "" + rows[i]['errorDato'], {
                                         icon : "warning",
@@ -2653,6 +3196,18 @@ function createComponentesCarga2(limit){
                                 _average= rows[i]['average'];
                                 _totalMinutosPausa= rows[i]['totalMinutosPausa'];
                                 _minutosEjercicio= rows[i]['minutosEjercicio'];
+
+                                                                        /*_ppm = $('#heart_rate').val();
+                                        _minKm= $('#min_km').val();
+                                        _watts= $('#watts').val();
+                                        _min100= $('#min_100').val();
+                                        _min400= $('#min_400').val();
+                                        _minDist= $('#min_dist').val();
+                                        _factorEjer= $('#exercise_fe').val();
+                                        _factorInten= $('#intensity_factor').val();*/
+
+                                        //_ecosTotales= rows[i]['ECOsTotal'];
+
                             },
                             error: function(data) {
                                 alert("error "+block+" ->>" + data);
@@ -2670,6 +3225,8 @@ function createComponentesCarga2(limit){
                                 "perfilID": perfilID
                             },
                             success: function(data) {
+                                //console.log(data);
+                                //alert(data);
                                 _average= data;
 
                             },
@@ -2682,6 +3239,9 @@ function createComponentesCarga2(limit){
                 } catch (err) {
                     alert(err.message);
                 }
+                ////////////////////////////////////////////
+                ////////////// fin getFormulas /////////////
+                ////////////////////////////////////////////
 
                 var htmlEx="";
                 var coment="";
@@ -2693,6 +3253,8 @@ function createComponentesCarga2(limit){
                     times= "";
                     pause= "";
                     string_type_pause= "";
+                    //recup= "";
+                    //string_recup_type= "";
                 }
                 else if(block=="calentamiento" && blockSelected=="natacion"){
                     series= " ";
@@ -2709,9 +3271,11 @@ function createComponentesCarga2(limit){
                                     idBusqueda = exercise_id;//$('#idBusquedaD').val();
                                 else
                                     ;//alert("SI");
+                                                        //alert(idBusqueda);
                     }
                     if(block=="circuito"){
                         idBusqueda= $("#select_circuit").val();
+                        //alert(idBusqueda + " - "+ block + urlBusqueda );
                         urlBusqueda= 'index.php?r=sessionsssession/getcircuitbyid';
                                                         if(exercise_id==0)
                                     idBusqueda = $("#select_circuit").val();
@@ -2728,6 +3292,14 @@ function createComponentesCarga2(limit){
                         recup= " ";
                         string_recup_type= " ";
                     }
+                    //alert("ex: " + exercise_id);
+                    /*alert(idBusqueda+ ' -' + $("#select_exercise").val() + '-');
+                    if(!Number.isInteger($("#select_exercise").val()))
+                        alert(Number.isInteger($("#select_exercise").val()));
+                    else
+                        alert(2);/**/
+
+
                     $.ajax({
                         type: 'get',
                         async: false,
@@ -2743,6 +3315,7 @@ function createComponentesCarga2(limit){
                             }
                             nombreEx= separarEx[1];
                             imagenEx= separarEx[4];
+                            //alert(idBusqueda +"-" + nombreEx + " - " + imagenEx);
                             htmlEx += '<td height="60" width="17px" style="background-color:#2BE47F;">';
                             htmlEx += '<td style="vertical-align:middle;"><img id="imgEx'+contComponentes+'" width="40" src="../../media/'+separarEx[4]+'" style="fill:white; border-radius: 50%; min-width: 50.5px;max-width: 50.5px; height: 50.5px;"></td>';
                             htmlEx += '<td colspan="4" style="vertical-align:middle;"><span id="spanNameEx'+contComponentes+'" class="spanNameEx'+contComponentes+'" >'+separarEx[1]+comentCircuito+'</span></td>';
@@ -2777,6 +3350,7 @@ function createComponentesCarga2(limit){
                 else{
                     if(series=="" || series==0) series=1;
                 }
+                //quitar etiqueta repeticiones
                 var _times= times;
                 var _series= series;
                 var strSerieIgualA1="";
@@ -2787,30 +3361,46 @@ function createComponentesCarga2(limit){
                     if(block=="intervalos" || block=="repeticiones" || block=="secuencia") strSerieIgualA1="";
                 }
                 let total_calories = $('#total_calories').val();
+                //alert(block);
+
+                //var htmlC= '';
                 var strComentario="";
                 var fondo="";
                 var dirBlanco="blanco/";
+
+                //alert(block+"-"+contBloquesEditando);
                 if(block=="secuencia" || block=="progresivo" || block=="farlek"){
                     if(bloqueAnterior!=block && contBloquesEditando>0)
                         idBloqueDelbloque++;
+                    //htmlC = '<span class="spanComponente_'+idBloqueDelbloque+'">';
                 }
                 if(block=="secuencia"){
+                    // && bloqueAnterior!=block => mblanco 2023
                     if(contBloqueDelbloque==0 && bloqueAnterior!=block){//solo es un bloque para farlek, progresivo y secuencia
 
                         contBloquesEditando=0;
+                        //htmlC += '<span class="clsComponente" id="spanComponente_'+contComponentes+'" data-id="1" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false"><span class="label">'+nombreBloque+'</span>';
                         htmlC += '<span class="clsComponente" id="spanComponente_'+contComponentes+'" data-id="1" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false"><span class="label">'+nombreBloque+'</span>';
+                        //alert(1);
                     }
                 }else{
+                    // && bloqueAnterior!=block => mblanco 2023
                     if(contBloqueDelbloque==0){//solo es un bloque para farlek, progresivo y secuencia
 
                         contBloquesEditando=0;
                         htmlC += '<span class="clsComponente" id="spanComponente_'+contComponentes+'" data-id="1" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false"><span class="label">'+nombreBloque+'</span>';
+                        //alert(1);
                     }
                 }
+
+
+                //para editar
                 var validaSeriesRepeticiones= true;
+                //alert(contBloqueDelbloque);
                 if($("#hddAccion").val()=="Editando" && contBloquesEditando>0 && (block == 'secuencia' || block == 'progresivo' || block == 'farlek')){
                     validaSeriesRepeticiones= false;
                 }
+                //fin para editar
 
                 var tablaSerie= false;
                 var tablaReps= false;
@@ -2821,12 +3411,66 @@ function createComponentesCarga2(limit){
                     var _limiteBloque=0;
                     if (block == 'secuencia') {
                         _limiteBloque= 1;//un ciclo de dos vueltas
+                        /*try{
+                            limiteBloque= (Number($("#hddNumBloqueDelBloque").val()) - 1);
+                        }
+                        catch (err){
+                            limiteBloque= 1;//un ciclo de dos vueltas
+                        }
+                        if(contBloqueDelbloque==0 && validaSeriesRepeticiones){
+                            bordeBajo= "border-bottom: solid 0px;";
+                        }
+                        else{
+                            bordeBajo= "border-top: solid 0px;";
+                        }*/
                     }
                     else if(block == 'farlek'){
                         _limiteBloque= 2;//un ciclo de 3 vueltas
+                        /*try{
+                            limiteBloque= (Number($("#hddNumBloqueDelBloque").val()) - 1);
+                        }
+                        catch (err){
+                            limiteBloque= 2;//un ciclo de 3 vueltas
+                        }
+                        if(contBloqueDelbloque==0 && validaSeriesRepeticiones){
+                            bordeBajo= "border-bottom: solid 0px;";
+                        }
+                        else if(contBloqueDelbloque<2){
+                            bordeBajo= "border-bottom: solid 0px; border-top: solid 0px;";
+                        }
+                        else{
+                            bordeBajo= "border-top: solid 0px;";
+                        }*/
                     }
                     else if (block == 'progresivo') {
                         _limiteBloque= 3;//un ciclo de 4 vueltas
+                        /*try{
+                            limiteBloque= (Number($("#hddNumBloqueDelBloque").val()) - 1);
+                        }
+                        catch (err){
+                            limiteBloque= 3;//un ciclo de 4 vueltas
+                        }
+                        if(contBloqueDelbloque==0 && validaSeriesRepeticiones){
+                            bordeBajo= "border-bottom: solid 0px;";
+                        }
+                        else if($("#hddAccion").val()=="Editando"){
+                            if(contBloquesEditando<limiteBloque){
+                                //alert(191);
+                                bordeBajo= "border-bottom: solid 0px; border-top: solid 0px;";
+                            }
+                            else{
+                                //alert(190);
+                                bordeBajo= "border-top: solid 0px;";
+                            }
+                        }
+                        else if(contBloqueDelbloque<3){
+                            //alert(091);
+                            bordeBajo= "border-bottom: solid 0px; border-top: solid 0px;";
+                        }
+                        else{
+                            //alert(090);
+                            bordeBajo= "border-top: solid 0px;";
+                        }*/
                     }
 
                     if (block == 'secuencia' || block == 'progresivo' || block == 'farlek') {
@@ -2838,19 +3482,25 @@ function createComponentesCarga2(limit){
                         }
                         if(contBloqueDelbloque==0 && validaSeriesRepeticiones){
                             bordeBajo= "border-bottom: solid 0px;";
+							//alert(765);
                         }
                         else if($("#hddAccion").val()=="Editando"){
                             if(contBloquesEditando<limiteBloque){
+                                //alert(191);
                                 bordeBajo= "border-bottom: solid 0px; border-top: solid 0px;";
                             }
                             else{
+                                //alert(190);
                                 bordeBajo= "border-top: solid 0px;";
                             }
                         }
                         else if(contBloqueDelbloque<Number($("#hddNumBloqueDelBloque").val())){
+                            //alert(091);
+                            //bordeBajo= "border-bottom: solid 0px; border-top: solid 0px;";
 							bordeBajo= "border-top: solid 0px; padding:10px;";
                         }
                         else{
+                            //alert(090);
                             bordeBajo= "border-top: solid 0px;";
                         }
                     }
@@ -2862,10 +3512,12 @@ function createComponentesCarga2(limit){
                         paddingSerie= "padding:0";
                     }
 					if($("#hddAccion").val()==""){
+						//bordeSerie= "0";
 					}
                     htmlC += '<table class="tblGrupo'+grupoID+'" width="100%"><tr><td style="border:solid '+bordeSerie+' #d4d4d4; '+paddingSerie+'; '+bordeBajo+'">';
                     if(contBloqueDelbloque==0 && validaSeriesRepeticiones){
                         if(series!=1 && series!="")
+                            //htmlC += '' + series + 'x';
                             htmlC += '<span class=" lblSerieD'+contComponentes+'" id="lblSerieD'+contComponentes+'">' + series + 'x</span>';//david230223
                     }
 
@@ -2896,7 +3548,9 @@ function createComponentesCarga2(limit){
                 if(block=="pausa"){
                     htmlC += '<td style="background-color:#C3DBE7; color:#003A5D; font-weight:600; font-size:13px; vertical-align:middle; text-align:left !important; padding-left:20px !important;" align="left">r ^ n Pausa ';
                     htmlC += '<span class="labelPausa" id="lblPausa'+contComponentes+'">'+(pause=='0' ? '' : pause + ' ' + string_type_pause)+'</span>';
+                    //para evitar marcar errores al guardar
                     htmlC += metricaRecPausaComentCircuito;
+                    //fin para evitar marcar errores al guardar
                     htmlC += '</td>';
                     if(pause_type==1){//minutos
                         _totalMinutosPausa= pause;
@@ -2926,6 +3580,7 @@ function createComponentesCarga2(limit){
                     htmlC += '<span style="font-size:14px;" id="spanNameEx'+contComponentes+'" class="spanNameEx'+contComponentes+'">'+nombreEx+'<br />'+ $("#text_circuit").val() +'</span>';
                     htmlC += metricaRecPausaComentCircuito;
                     htmlC += '</td>';
+                    //Calculo de tiempo Totales PARA CIRCUITO
                     try{
                         let horasAMin= Number($("#spanHrsTotales").html())*60;
                         let minutosTotales= Number($("#spanMinTotales").html()) + horasAMin;
@@ -2935,16 +3590,20 @@ function createComponentesCarga2(limit){
                         var min = Math.floor(totalMinutosSesion % 60);
                         $("#spanHrsTotales").html(hrs);
                         $("#spanMinTotales").html(min);
+                        //alert("circuito: h"+ hrs + " m" +min + totalMinutosSesion);
                     }
                     catch (err) {
                         alert("error calculo tiempo en circuito. " + err.message);
                     }
                 }
                 else{
+                    /*background-color: #fff;*/
+                    //alert(imgDeporte);
                     htmlC += '<td height="60" width="17px" style="background-color:#2BE47F;">';
                     htmlC += '</td>';
                     htmlC += '<td width="30" style="">';
                     htmlC += '<img src="require/imgv2/blanco/'+imgDeporte+'.svg" height="40" style="fill:white;" />';
+                    //htmlC += '<svg role="img" title="icon3" style="color:#FFFFFF;"><use href="require/imgv2/blanco/'+imgDeporte+'.svg"/></svg>';
                     htmlC += '</td>';
                     htmlC += '<td width="70">';
                     htmlC += 'Ss <br />';
@@ -3036,16 +3695,45 @@ function createComponentesCarga2(limit){
                     htmlC += '<img src="require/img/ecos70.png" width="55" /><div class="spanEcos">'+_ecosTotales+'</div>';
 
                     htmlC += '</td>';
+                    //alert(_duracionEjercicio);
                     if(pause_type==1){//minutos
                         _totalMinutosPausa= pause * repeticiones * series;
                     }
                     else if(pause_type==2){//segundos
                         _totalMinutosPausa = ((pause * repeticiones * series) / 60);
                     }
+                    //_totalMinutosPausa += minutosRecuperacion * repeticiones * series
                     minutosRecuperacion= minutosRecuperacion * _times;
+                    //alert(minutosRecuperacion);
+                    //nuevoooo
+                    //alert(_times + "-"+_minutosEjercicio+ " - " + _totalMinutosPausa+ " - " + minutosRecuperacion+ "("+recup_type+") - " + (_minutosEjercicio+ _totalMinutosPausa + minutosRecuperacion));
+                    /*if(blockSelected=="natacion"){//natacion
+                        if(case_type==4){//mts
+                            _duracionEjercicio= (((quantity_large/100)*(100/_average))/60);
+                        }
+                        else if(case_type==5){//km
+                            _duracionEjercicio= ((quantity_large*10)*(100/_average))/60;
+                        }
+                        _duracionEjercicio = _duracionEjercicio * series * _times;
+                    }
+                    else{
+                        if(case_type==4){//mts
+                            _duracionEjercicio=((quantity_large/1000) * 60)/_average;
+                        }
+                        else if(case_type==5){//km
+                            _duracionEjercicio= (quantity_large * 60) / _average;
+                        }
+                        _duracionEjercicio = (_duracionEjercicio + _totalMinutosPausa + minutosRecuperacion) * series * _times;
+                    }*/
+                    //alert("2-"+_duracionEjercicio);
+                    //fin nuevoooo
                     getSumaEcos(_ecosTotales, quantity_large, case_type, _minutosEjercicio, times, blockSelected, _average, pause_type, _totalMinutosPausa, minutosRecuperacion);
                 }
+                //background-color:#fff;
                 htmlC += '<td width="20" style="'+fondo+'">';
+                //*****************************
+                //*****************************
+                //se movieron los hdd*********************************
                 var _elemtPorBloque= 0;
                 try{
                     _elemtPorBloque= Number($("#hddNumBloqueDelBloque").val());
@@ -3076,6 +3764,9 @@ function createComponentesCarga2(limit){
                 htmlC += '<input type="hidden" name="hddEcos[]" id="hddEcos'+contComponentes+'" value="'+_ecosTotales+'" />';
                 htmlC += '<input type="hidden" name="hddFE[]" id="hddFE'+contComponentes+'" value="'+_factorEjer+'" />';
                 htmlC += '<input type="hidden" name="hddFI[]" id="hddFI'+contComponentes+'" value="'+_factorInten+'" />';
+                //fin se movieron los hdd*****************************
+                //*****************************
+                //*****************************
                 if(contBloqueDelbloque==0 && validaSeriesRepeticiones){//solo es un bloque para farlek, progresivo y secuencia
                     htmlC += '<img src="require/imgv2/' + dirBlanco + 'Generales/Icon_Editar.svg" height="12" class="imgEditar'+contComponentes+'" onclick="getEditar(\''+$('#select_blocks').val()+'\', \''+block.toLowerCase()+'\', '+contComponentes+', '+_elemtPorBloque+');" />';
                     htmlC += '<img src="require/imgv2/' + dirBlanco + 'Generales/Icon_Eliminar.svg" height="12" class="imgEliminar'+contComponentes+'" onclick="getEliminar('+contComponentes+', \''+block+'\', '+idBloqueDelbloque+');" />';
@@ -3085,6 +3776,7 @@ function createComponentesCarga2(limit){
                     else{
                         htmlC += '<br /> &nbsp;';
                     }
+                    //htmlC += '<span style="font-size:13px; color:#000;" onclick=""><i class="flaticon-file-1" style="color:white;"></i></span>';
                 }
 
                 if(block=="comentario"){
@@ -3105,8 +3797,10 @@ function createComponentesCarga2(limit){
                     htmlC += htmlEx;
                 }
                 htmlC += '</table>';
+                //alert(contBloqueDelbloque + ' .. ' + tablaSerie);
 
                 var muestraPausa=false;
+                //alert(contBloquesEditando+"-"+limiteBloque);
                 if(limiteBloque==contBloqueDelbloque || limiteBloque==contBloquesEditando){
                 muestraPausa= true;
                 }
@@ -3125,6 +3819,8 @@ function createComponentesCarga2(limit){
                         }
                     }
                     if(contComponentes>1 && $("#hddAccion").val()=="Editando"){
+                        //htmlC += '</td></tr></table>';
+                        //alert("recup");
                     }
 
                 }
@@ -3133,17 +3829,25 @@ function createComponentesCarga2(limit){
                         if(recup>0){
                             htmlC += '</table><table style="width:100%; margin: 4px 0 10px 0;"><td style="background-color:#C3DBE7; color:#003A5D; font-weight:600; font-size:13px; vertical-align:middle; text-align:left !important; padding:15px 20px !important;" align="left">';
                             htmlC += 'Recuperación <span style="font-size:17px;" class="label" id="lblRecup'+contComponentes+'">'+(recup=='0' ? '' : recup+' '+string_recup_type) + '</span>';
+                            //htmlC += htmlHddRecup;// david202332302 comentado
                             htmlC += '</td></table>';
                         }
                     }
                     if(contComponentes>1 && $("#hddAccion").val()=="Editando"){
+                        //htmlC += '</td></tr></table>';
+                        //alert("serie");
                     }
                 }
+                //if((contComponentes>1 || bloqueAnterior!=block) && $("#hddAccion").val()=="Editando");
+                //htmlC += '</span>';
                 if(block!="secuencia"){
                     htmlC += '</span>';
                 }
                 else{
+					//alert(contComponentes);
                     if(contComponentes==2){
+                        //htmlC += '</span>';
+                        //alert(1234);
                     }
                 }
 
@@ -3152,24 +3856,42 @@ function createComponentesCarga2(limit){
                 }
         }
     }
+    //htmlC += '</span>';
 	$("#divComponentes").html($("#divComponentes").html()+htmlC);
 }
 
 function getSumaEcos(valorEcos, valorDistTiempo, metrica, duracionEjercicio, repeticiones, deporteSelected, average, metricaPausa, totalMinutosPausa, minutosRecuperacion){
+	//alert(duracionEjercicio);
 	totalMinutosSesion += duracionEjercicio + totalMinutosPausa + minutosRecuperacion;
+	//alert(totalMinutosSesion);
 	let total= Number($("#divEcosTotales").html());
 	total += Number(valorEcos);
 	$("#divEcosTotales").html(total);
+
+	//Calculo de distancia y tiempo Totales
 	let horasAMin= Number($("#spanHrsTotales").html())*60;
 	let minutosTotales= Number($("#spanMinTotales").html()) + duracionEjercicio + horasAMin + totalMinutosPausa + minutosRecuperacion;
+	//alert((minutosTotales));
 	let metrosTotales= Number($("#spanMtsTotales").html());
 	let calculoTiempo= false;
 	$("#spanMtsKm").html("mts");
 
+	//calculo tiempo
+	//var hrsTemp= Math.floor(duracionEjercicio / 60);
+	//var minTemp = Math.floor(duracionEjercicio % 60);
+	//horasAMin = hrsTemp * 60;
+	//minutosTotales +=  minTemp + horasAMin;
+
 	var hrs = Math.floor((totalMinutosSesion) / 60);
 	var min = Math.floor((totalMinutosSesion) % 60);
+	//alert((min));
+	//alert(deporteSelected + hrs + "||" + min);
 	$("#spanHrsTotales").html(hrs);
+	//alert(hrs);
 	$("#spanMinTotales").html(min);
+
+
+	//calculo de la distancia
 	if(Number.isInteger(repeticiones)){
 		if(repeticiones>0){
 			valorDistTiempo= Number(valorDistTiempo)*Number(repeticiones);
@@ -3226,6 +3948,7 @@ function getSumaEcos(valorEcos, valorDistTiempo, metrica, duracionEjercicio, rep
 		}
 		else if(metrica==2){//minutos
 			distanciaMetros= (valorDistTiempo/60) * average;
+			//alert(valorDistTiempo + "---" + average);
 		}
 		else if(metrica==3){//horas
 			distanciaMetros= (valorDistTiempo * average);
@@ -3241,10 +3964,45 @@ function getSumaEcos(valorEcos, valorDistTiempo, metrica, duracionEjercicio, rep
 		if(average_Z1 != 0){
 			kmPausa= (totalMinutosPausa/60) * average_Z1;
 		}
+		/*if(metricaPausa==1){//minutos
+			kmPausa= (totalMinutosPausa/60) * average_Z1;
+		}
+		else if(metricaPausa==2){//segundos
+			kmPausa= (totalMinutosPausa/3600) * average;
+			alert(totalMinutosPausa + " - " + kmPausa + " - "+average);
+		}/**/
+		//kmPausa= (totalMinutosPausa/60) * average;
+		//alert(totalMinutosPausa + "-" + average);
+
+		//sumamos las pausas
+		/*$(".clsContDistTiempo").each(function() {
+			let targetPosicion = $(this).val();
+			//alert(targetPosicion);
+			var metricaPausaTemp= Number($('#hddMetricaPausa'+targetPosicion).val());
+			var pausaTemp= Number($('#hddPausa'+targetPosicion).val());
+			var RepsTemp= Number($('#hddReps'+targetPosicion).val());
+			var minTemp=0;
+			if(metricaPausaTemp==2)
+				minTemp = pausaTemp/60;
+			else
+				minTemp = pausaTemp;
+
+			if(RepsTemp>2)
+
+			sumaPausa = sumaPausa + minTemp;
+		});*/
 	}
+	//alert(metrosTotales + " - " + distanciaMetros + " - " + kmPausa);
 	metrosTotales = metrosTotales + Number(distanciaMetros) + kmPausa;
+	//alert(metrosTotales);
+
+	//clsPausaMetricaFor//clsPausaFor
 	if(isNaN(metrosTotales)) metrosTotales=0;
+	//alert(metrosTotales);
 	if(deporteSelected=="ciclismo" || deporteSelected=="carrera"){
+		/*var _km= Number(metrosTotales)/1000;
+		*/
+		//alert(deporteSelected + "---"+metrica);
 		$("#spanMtsTotales").html(metrosTotales.toFixed(1));
 		$("#spanMtsKm").html("km");
 	}
@@ -3252,22 +4010,59 @@ function getSumaEcos(valorEcos, valorDistTiempo, metrica, duracionEjercicio, rep
 		$("#spanMtsTotales").html(Math.round(metrosTotales));
 	}
 
+
+
+
 	if(metrica==1 || metrica==2 || metrica==3){
 		calculoTiempo= true;
 
 	}
+	/*if(metrica==1){//minutos
+		minutosTotales += valorDistTiempo;
+		calculoTiempo= true;
+	}
+	else if(metrica==2){//segundos
+		minutosTotales += Math.floor((valorDistTiempo / 60) % 60);
+		calculoTiempo= true;
+	}
+	else if(metrica==3){//horas
+		minutosTotales += (valorDistTiempo * 60);
+		calculoTiempo= true;
+	}*/
 	else if(metrica==4){//metros
 		metrosTotales += valorDistTiempo;
 	}
 	else if(metrica>4){//kilómetros
 		metrosTotales += (valorDistTiempo * 1000);
 	}
+	/*if(calculoTiempo==true){//mostramos calculos de tiempo
+		//alert(minutosTotales);
+		/* //var hrs= Math.floor(duracionEjercicio / 60);
+		//var min = minutosTotales % 60;* /
+		var hrs= Math.floor(duracionEjercicio / 60);
+		var min = Math.floor(duracionEjercicio % 60);
+		$("#spanHrsTotales").html(hrs);
+		$("#spanMinTotales").html(min);
+	}
+	else{//mostramos calculos de distancia
+	}
+	*/
 }
 
 $("#button_actualizar").click(function() {
 	var limit=1;
 	var _posicion= $("#hddPosicionSelected").val();
+    /*if ($("#hddBloque" + _posicion).val() == 'secuencia') {
+		limit= Number($("#hddElemtPorBloque" + _posicion).val());
+	}
+	else if ($("#hddBloque" + _posicion).val() == 'progresivo') {
+		limit= Number($("#hddElemtPorBloque" + _posicion).val());
+	}
+	else if ($("#hddBloque" + _posicion).val() == 'farlek') {
+		limit= Number($("#hddElemtPorBloque" + _posicion).val());
+	}*/
 	limit= $(".clsInputBloques").length;
+	//alert(limit);
 	var campObliga= false;
 	if(block == 'farlek' || block == 'secuencia' || block == 'progresivo'){
 		$(".clsInputBloques").each(function(){
@@ -3291,19 +4086,24 @@ $("#button_actualizar").click(function() {
 	}
 
 	block= $("#hddBloque" + _posicion).val();
+	//alert("1 : " + _posicion);
 
 	if(block=="comentario" || block=="transicion"){
+		//alert($("#comment_input").val() + ' ' + "#spanComent" + _posicion);
 		$("#hddComent" + _posicion).val($("#comment_input").val());
 
 		var porcTransicion="";
 		if(block=="transicion"){
 			if($('#rbTransicion10').is(':checked')) {
+				//porcTransicion= "<br />Porcentaje adicional: + 10%";
 				porcTransicionAdicional=10;
 			}
 			else if($('#rbTransicion10_v2').is(':checked')) {
+				//porcTransicion= "<br />Porcentaje adicional: + 10%";
 				porcTransicionAdicional=10;
 			}
 			else if($('#rbTransicion15').is(':checked')) {
+				//porcTransicion= "<br />Porcentaje adicional: + 15%";
 				porcTransicionAdicional=15;
 			}
 			$("#hddPorcentajeTransicion" + _posicion).val(porcTransicionAdicional);
@@ -3320,20 +4120,26 @@ $("#button_actualizar").click(function() {
 		var posicionForm="";
 		var _elemtPorBloque= Number($("#hddElemtPorBloque"+_posicion).val());
 		var diferencia= limit-_elemtPorBloque;
+		//alert(limit+ "-" + _elemtPorBloque);
 		var htmlBloquesAdicionales="";
 
 		for(i=0; i<limit; i++){
 			if(diferencia>0){
+				//alert("mayor");
 				if((i+1) > _elemtPorBloque){
 					htmlBloquesAdicionales += "<div class='clstblBloques"+$("#hddNombreClase"+_posicion).val()+" style='border:solid 0px'>-|-</div>";
+					//agregamos bloques adicionales
 					$(".clstblBloques"+$("#hddNombreClase"+_posicion).val()+":last").attr("style", "border-bottom: solid 2px #FFF;");
                     if(i!=0){//david condicion agregada 2023
                         $(".clstblBloques"+$("#hddNombreClase"+_posicion).val()+":last").append("<div class='clstblBloques"+$("#hddNombreClase"+_posicion).val()+" style='border:solid 0px'> "+i+"</div>");
                     }
+
+					//fin agregamos bloques adicionales
 				}
 			}
 
 			_posicion= Number(posicionOrinal) + Number(i);
+			//alert(_posicion + " - " + i);
 			if(i==0) posicionForm= "";
 			else if(i==1) posicionForm= 2;
 			else if(i==2) posicionForm= 3;
@@ -3353,6 +4159,11 @@ $("#button_actualizar").click(function() {
 			$('#hddMetricaRecup'+_posicion).val($('#type_pauseRecuperacion').val());
 			$('#hddNameEx'+_posicion).val($('#exercise').val());
 			$('#hddNameEx'+_posicion).val($('#circuit').val());
+
+
+			////////////////////////////////////////////
+			//////////////// getFormulas ///////////////
+			////////////////////////////////////////////
 			let j = 0;
 			var rows;
 			var temp;
@@ -3384,6 +4195,7 @@ $("#button_actualizar").click(function() {
 				if (perfilID == "") perfilID = 0;
 
 				blockSelected=$('#hddCarrera' + _posicion).val();
+				//alert(_posicion+"--"+blockSelected);
 				if(blockSelected=="ciclismo"){
 					imgDeporte= "Icon_Ciclismo";
 					iconoFE = "B";
@@ -3407,6 +4219,9 @@ $("#button_actualizar").click(function() {
 					if($('#type_pauseRecuperacion').val()=="2"){//para segundos
 						minutosRecuperacion = minutosRecuperacion/60;
 					}
+					//alert(zona + " - " + iconoFE + " - " + series + " - " + repeticiones + " - " + minutosRepeticion);
+					//alert(minutosPausa + " - " + minutosRecuperacion + " - " + kmPorHr + " - " + distancia + " - " + opcionVelocidadRitmo);
+					//alert(minutosPausa + " - " + $('#select_type_large').val() + " - " + $('#hddUltimoBloqueAgregado').val());
 					if(minutosPausa=="") minutosPausa=0;
 
 					$.ajax({
@@ -3429,8 +4244,12 @@ $("#button_actualizar").click(function() {
 							"perfilID": perfilID
 						},
 						success: function(data) {
+							//console.log(data);
+							//alert("data->"+data);
 							rows = JSON.parse(data);
+							//console.log(rows);
 							var cantTemp = 0;
+							//alert(12);
 							_ppm = rows[j]['ppm'];
 							_minKm= rows[j]['min_km'];
 							_watts= rows[j]['potencia'];
@@ -3443,9 +4262,12 @@ $("#button_actualizar").click(function() {
 							_duracionEjercicio= rows[j]['duracionEjercicio'];
 							_average= rows[j]['average'];
 							_totalMinutosPausa= rows[j]['totalMinutosPausa'];
+							//alert(_ecosTotales);
 							$("#hddEcos"+_posicion).val(_ecosTotales);
 						},
 						error: function(data) {
+
+							//alert("error formulas actualizar 11: " + data);
 						},
 
 					});
@@ -3453,6 +4275,9 @@ $("#button_actualizar").click(function() {
 			} catch (err) {
 				alert("error formulas actualizar: "+err.message);
 			}
+			////////////////////////////////////////////
+			////////////// fin getFormulas /////////////
+			////////////////////////////////////////////
 
 			if(porcTransicionAdicional != 0){
 				var tempEcos = _ecosTotales * (porcTransicionAdicional/100);
@@ -3460,9 +4285,13 @@ $("#button_actualizar").click(function() {
 			}
 
 			$('#lblSerie'+_posicion).html("");
+			//alert(block);
+			//alert($("#hddBloque" + _posicion).val());
 			if(block!="drills"){
+				//$('#lblSerie'+_posicion).html($('#series').val());//comentado david 2023
                 $('#lblSerieD'+_posicion).html($('#series').val()+'x');//david 2023
 			}
+			//$('#lblReps'+_posicion).html($('#times').val());//comentado david 2023
             $('#lblRepsD'+_posicion).html($('#times').val()+'x');//david 2023
             console.log('reps de david',$('#times').val())
 			if($('#select_quantity_large' + posicionForm).val() != ""){
@@ -3480,6 +4309,7 @@ $("#button_actualizar").click(function() {
 				if($('#pauseRecuperacion').val().trim() != ""){
 					var strMetricaRecup= getMetrica($('#type_pauseRecuperacion').val(), 'pause');
 					$('#lblRecup'+_posicion).html($('#pauseRecuperacion').val() + " " + strMetricaRecup);
+                    //$('#hddRecup'+_posicion).val($('#pauseRecuperacion').val() + " " + strMetricaRecup);//linea entera agregada david 230223
 				}
 			}
 			else{
@@ -3503,11 +4333,16 @@ $("#button_actualizar").click(function() {
 					url: urlBusqueda,
 					data: {"id":id_, "limit":140},
 					success: function(data) {
+
+						//alert(data);
+						//let coment= $("#text_circuit");
                         let comentCircuito='';
                         if($("#hddBloque" + _posicion).val()=="circuito"){
+
                             comentCircuito= $("#text_circuit").val();
                         }else{
                             comentCircuito= $("#text_drills").val();
+
                         }
 						console.log($("#hddBloque" + _posicion).val());
 						let strSalto= "<br />";
@@ -3523,6 +4358,8 @@ $("#button_actualizar").click(function() {
 						$("#spanDescipEx" + _posicion).html(separarEx[2]);
 						$("#imgEx" + _posicion).attr("src", "../../media/"+separarEx[4]);
 						$("#hddComent" + _posicion).val(comentCircuito);
+
+						//alert(separarEx[4]);
 					},
 					error: function(data) {alert("Error al buscar datos del ejercicio"+data);},
 				});
@@ -3537,6 +4374,7 @@ $("#button_actualizar").click(function() {
 			totalMinutosSesion=0;
 			$(".clsContDistTiempo").each(function() {
 				let targetPosicion = $(this).val();
+				//alert(targetPosicion);
 				var ecosActualiza= Number($('#hddEcos'+targetPosicion).val());
 				var distTiempoActualiza= Number($('#hddDist'+targetPosicion).val());
 				var metricaActualiza= Number($('#hddMetricaDist'+targetPosicion).val());
@@ -3545,7 +4383,10 @@ $("#button_actualizar").click(function() {
 
 				var bloqueActualiza= blockSelected=$('#hddCarrera' + targetPosicion).val();
 				var duracionEx= blockSelected=$('#hddDuracionEx' + targetPosicion).val();
+
+				//alert("-"+_ecosTotales+"-"+distTiempoActualiza+"-"+metricaActualiza+"-"+_duracionEjercicio+"-"+seriesActualiza+"-"+bloqueActualiza+"-"+_average+"-"+metricaPausaActualiza+"-"+_totalMinutosPausa);}
 				if ($("#hddBloque" + targetPosicion).val() != 'comentario' && $("#hddBloque" + targetPosicion).val() != 'circuito' && $("#hddBloque" + targetPosicion).val() != 'transicion') {
+					//alert(_ecosTotales+"||"+distTiempoActualiza+"||"+metricaActualiza+"||"+duracionEx+"||"+seriesActualiza+"||"+bloqueActualiza+"||"+_average+"||"+metricaPausaActualiza+"||"+_totalMinutosPausa);
 					minutosRecuperacion=0;
 					try{
 						minutosRecuperacion= Number($("#pauseRecuperacion").val());
@@ -3557,6 +4398,7 @@ $("#button_actualizar").click(function() {
 					catch (err) {
 						minutosRecuperacion=0;
 					}
+					//alert(duracionEx + " --- " + _totalMinutosPausa + " --- " +  minutosRecuperacion);
 					getSumaEcos(_ecosTotales, distTiempoActualiza, metricaActualiza, parseFloat(duracionEx), seriesActualiza, bloqueActualiza, _average, metricaPausaActualiza, parseFloat(_totalMinutosPausa), parseFloat(minutosRecuperacion));
 				}
 			});
@@ -3566,8 +4408,11 @@ $("#button_actualizar").click(function() {
 		catch (err) {
 			alert("Error: Actualiza suma totales" + err.message);
 		}
+
+		//agregamos bloques adicionales
 		$(".clstblBloques"+$("#hddNombreClase"+_posicion).val()+":last").attr("style", "border-bottom: solid 2px #FFF;");
 		$(".clstblBloques"+$("#hddNombreClase"+_posicion).val()+":last").append("");
+		//fin agregamos bloques adicionales
 
 	}
 	catch (err) {
@@ -3602,9 +4447,17 @@ function getMetrica(valor_tipo, tipo){
 
 $("#button_make_div").click(function() {
 	block = $(this).val();
+
+
+	/*if(!validaBloque(block)){
+		return false;
+	}*/
+
+
 	var limit=1;
     var validaEdicion= false;
 	if (block == 'secuencia') {
+		//limit= Number($("#hddNumBloqueDelBloque").val());// originalmente limit=2
 		limit= Number($("#hddNumBloqueDelBloque").val())+1;// originalmente limit=2
 							validaEdicion= true;
 						}
@@ -3651,18 +4504,22 @@ $("#button_make_div").click(function() {
 	if(block=="secuencia" && $("#hddAccion").val()=="Editando"){//agregado david 2023
 
 				createComponentesCarga2(limit);
+				//createComponentesCargaSecuencia(limit);
 
 	}else{
 
 		initGrupoDiv=0;
+        ///alert(limit);
 		for(i=0; i<limit; i++){
 			contBloqueDelbloque=i;
 			if(i==0 || (i==1 && $("#select_quantity_large2").val()!="") || (i==2 && $("#select_quantity_large3").val()!="") || (i==3 && $("#select_quantity_large4").val()!="")){
+				//alert(i);
 			}
 			initGrupoDiv++;
 			if(limit>1 && initGrupoDiv==limit) {
 				initGrupoDiv=9999;
 			}
+
             switch (block) {
                 case "secuencia":
                     if(i!=2){
@@ -3688,6 +4545,8 @@ $("#button_make_div").click(function() {
 		}
 
 	}
+
+	//$("#divComponentes").append("</span>");
 
 	return;
 
@@ -3735,6 +4594,7 @@ $("#button_make_div").click(function() {
 		return false;
 	}
 
+
     times = Number(times);
     quantity_large = Number($('#select_quantity_large').val());
     if (string_type == 'min') {
@@ -3742,6 +4602,7 @@ $("#button_make_div").click(function() {
     }
     zone = $('#select_zone').val();
     series = Number($('#series').val());
+	//alert(times);
     if (block == 'comentario') {
         link = (Math.random() + 1).toString(36).substring(7);
         let comment = $('#comment_input').val();
@@ -3751,6 +4612,7 @@ $("#button_make_div").click(function() {
             '" data-link="' + link + '" value="' + comment + '">');
     }
 	else {
+        //circuit
         switch (block) {
             case 'circuito':
                 link = (Math.random() + 1).toString(36).substring(7);
@@ -3759,13 +4621,27 @@ $("#button_make_div").click(function() {
 				zone=10;
                 make_bar_circuit(1, $('#select_blocks').val(), block, 1, 12, 'min',
                     zone, 0, 'min', circuit_id, text);
+                //create sessions_content
+                /*$('#' + $('#select_blocks').val()).append(
+                    '<div style="display:none" class="sessions_content" data-block="' + block +
+                    '" data-times="' + times + '" data-series="' + series + '" data-circuit="' +
+                    circuit_id + '" data-text="' + text + '" data-link="'+link+'">' + block + '</div>');*/
+                //
                 break;
             case 'drills':
                 link = (Math.random() + 1).toString(36).substring(7);
                 exercise_id = $('#select_exercise').val();
+                /*make_bar_exercise(series, $('#select_blocks').val(), block, times, quantity_large, string_type,
+                zone, pause, string_type_pause,exercise_id);*/
                 make_bar_exercise(1, $('#select_blocks').val(), block, 1, quantity_large,
                     string_type,
                     zone, 0, 'min', exercise_id);
+                //create sessions_content
+                /*$('#' + $('#select_blocks').val()).append(
+                    '<div style="display:none" class="sessions_content" data-block="' + block +
+                    '" data-times="' + times + '" data-series="' + series +
+                    '" data-exercise="' + exercise_id + '" data-link="'+link+'">' + block + '</div>');*/
+                //
                 break;
             default:
 				times=1;//prueba, QUITAR
@@ -3773,6 +4649,12 @@ $("#button_make_div").click(function() {
                 make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                     string_type,
                     zone, pause, string_type_pause);
+                //create sessions_content
+                /*$('#' + $('#select_blocks').val()).append(
+                    '<div style="display:none" class="sessions_content" data-block="' + block +
+                    '" data-times="' + times + '" data-series="' + series +
+                    '" data-circuit="0" data-link="'+link+'">' + block + '</div>');*/
+                //
                 break;
         }
     }
@@ -3782,6 +4664,8 @@ $("#button_make_div").click(function() {
     $('#exampleModal').modal('hide');
 })
 $("#set_defaults").click(function() {
+    //set defaults
+    //alert("set defaults");
     let sport_split = $('#select_blocks').val().split('_');
     let sport = sport_split[0];
     let block = $('#button_make_div').val();
@@ -3795,6 +4679,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3807,6 +4692,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3819,6 +4705,7 @@ $("#set_defaults").click(function() {
                     pause = 10;
                     string_type = 'mts';
                     pause_type = 'seg';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3838,6 +4725,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3850,6 +4738,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3862,6 +4751,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'mts';
                     pause_type = 'seg';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3878,6 +4768,7 @@ $("#set_defaults").click(function() {
                     pause = 1;
                     string_type = 'min';
                     pause_type = 'min';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3890,6 +4781,7 @@ $("#set_defaults").click(function() {
                     pause = 1;
                     string_type = 'min';
                     pause_type = 'min';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3902,6 +4794,7 @@ $("#set_defaults").click(function() {
                     pause = 1;
                     string_type = 'min';
                     pause_type = 'min';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3921,6 +4814,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3933,6 +4827,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3945,6 +4840,7 @@ $("#set_defaults").click(function() {
                     pause = 10;
                     string_type = 'mts';
                     pause_type = 'seg';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3964,6 +4860,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3974,6 +4871,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3984,6 +4882,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -3996,6 +4895,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4006,6 +4906,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4016,6 +4917,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4028,6 +4930,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'mts';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4038,6 +4941,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'mts';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4048,6 +4952,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'mts';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4064,6 +4969,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4074,6 +4980,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4084,6 +4991,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4094,6 +5002,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4107,6 +5016,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4117,6 +5027,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4127,6 +5038,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4137,6 +5049,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'min';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4150,6 +5063,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'mts';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4160,6 +5074,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'mts';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4170,6 +5085,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'mts';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4180,6 +5096,7 @@ $("#set_defaults").click(function() {
                     pause = 0;
                     string_type = 'mts';
                     pause_type = '';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4196,6 +5113,7 @@ $("#set_defaults").click(function() {
                     pause = 1;
                     string_type = 'min';
                     pause_type = 'min';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4206,6 +5124,7 @@ $("#set_defaults").click(function() {
                     pause = 1;
                     string_type = 'mts';
                     pause_type = 'min';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4218,6 +5137,7 @@ $("#set_defaults").click(function() {
                     pause = 1;
                     string_type = 'min';
                     pause_type = 'min';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4228,6 +5148,7 @@ $("#set_defaults").click(function() {
                     pause = 1;
                     string_type = 'min';
                     pause_type = 'min';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4240,6 +5161,7 @@ $("#set_defaults").click(function() {
                     pause = 20;
                     string_type = 'mts';
                     pause_type = 'seg';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4250,6 +5172,7 @@ $("#set_defaults").click(function() {
                     pause = 40;
                     string_type = 'mts';
                     pause_type = 'seg';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4266,6 +5189,7 @@ $("#set_defaults").click(function() {
                     pause = 1;
                     string_type = 'min';
                     pause_type = 'min';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4278,6 +5202,7 @@ $("#set_defaults").click(function() {
                     pause = 1;
                     string_type = 'min';
                     pause_type = 'min';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4290,6 +5215,7 @@ $("#set_defaults").click(function() {
                     pause = 20;
                     string_type = 'mts';
                     pause_type = 'seg';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4306,6 +5232,7 @@ $("#set_defaults").click(function() {
                     pause = 30;
                     string_type = 'seg';
                     pause_type = 'seg';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4318,6 +5245,7 @@ $("#set_defaults").click(function() {
                     pause = 30;
                     string_type = 'seg';
                     pause_type = 'seg';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4330,6 +5258,7 @@ $("#set_defaults").click(function() {
                     pause = 25;
                     string_type = 'mts';
                     pause_type = 'mts';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4346,6 +5275,7 @@ $("#set_defaults").click(function() {
                     pause = 2;
                     string_type = 'mts';
                     pause_type = 'min';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4358,6 +5288,7 @@ $("#set_defaults").click(function() {
                     pause = (1.5);
                     string_type = 'min';
                     pause_type = 'min';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4370,6 +5301,7 @@ $("#set_defaults").click(function() {
                     pause = 1;
                     string_type = 'mts';
                     pause_type = 'min';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4386,6 +5318,7 @@ $("#set_defaults").click(function() {
                     pause = 30;
                     string_type = 'mts';
                     pause_type = 'seg';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4398,6 +5331,7 @@ $("#set_defaults").click(function() {
                     pause = 30;
                     string_type = 'seg';
                     pause_type = 'seg';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4410,6 +5344,7 @@ $("#set_defaults").click(function() {
                     pause = 30;
                     string_type = 'mts';
                     pause_type = 'seg';
+
                     series = 1;
                     make_bar(series, $('#select_blocks').val(), block, times, quantity_large,
                         string_type,
@@ -4424,6 +5359,7 @@ $("#set_defaults").click(function() {
 });
 
 function make_bar(series, sport, block, times, quantity_large, string_type, zone, pause, pause_type) {
+    //alert(series + '-' + sport + '-' + block + '-' + times + '-' + quantity_large + '-' + string_type + '-' + zone + '-' + pause + '-' + pause_type);
     let ecosTotales = 0;
     let i = 0;
     var rows;
@@ -4473,8 +5409,11 @@ function make_bar(series, sport, block, times, quantity_large, string_type, zone
                 "perfilID": perfilID
             },
             success: function(data) {
+                //console.log(data);
+                //alert(data);
                 rows = JSON.parse(data);
                 var cantTemp = 0;
+                //alert(12);
                 temp = rows[i]['ppm'] + '|' + rows[i]['min_km'] + '|' + rows[i]['min_100'] +
                     '|' + rows[i]['min_400'] + '|' + rows[i]['min_dist'] + '|' + rows[i][
                         'FactorEjerccion'
@@ -4489,7 +5428,10 @@ function make_bar(series, sport, block, times, quantity_large, string_type, zone
     } catch (err) {
         alert(err.message);
     }
+    //console.log('ESte es el resultado'+rows);
+    //alert(times);
     for (let j = 0; j < times; j++) {
+        //alert(zona+" -" + iconoFE+" -" + series+" -" + repeticiones+" -" + minutosRepeticion+" -" + 0 +" -" + kmPorHr+" -" + opcionVelocidadRitmo);
 
         let r_id = (Math.random() + 1).toString(36).substring(7);
         r_id = sport + '_' + block + '_' + r_id;
@@ -4546,6 +5488,122 @@ function make_bar(series, sport, block, times, quantity_large, string_type, zone
                     '"></div>');
                 break;
         }
+
+        /*if (string_type == 'min') {
+            if (pause_type == 'min') {
+                $('#' + sport).append('<div id="' + r_id + '" data-identifier="' + r_id + '" name="' +
+                    r_id + '" data-series="' + series +
+                    '" data-pauset="' +
+                    pause_type + '" data-string="' + string_type + '" data-sport="' + sport +
+                    '" data-block="' + block +
+                    '" data-zone="' + zone + '" data-quantity="' + quantity_large +
+                    '" data-ecos="' + rows[i]['ECOsTotal'] + '" data-ppm="' + rows[i]['ppm'] +
+                    '" data-x100="' + rows[i]['min_100'] + '" data-x400="' + rows[i]['min_400'] +
+                    '" data-dist="' + rows[i]['min_dist'] + '" data-fe="' + rows[i]['FactorEjerccion'] +
+                    '" data-fi="' + rows[i]['FactorIntensidad'] + '" data-minkm="' + rows[i]['min_km'] +
+                    '" data-repeticiones="' + repeticiones + '" data-timerepeticiones="' +
+                    minutosRepeticion + '"  data-minutos="' + minutosRecuperacion + '" data-pause="' +
+                    pause + '" onclick="console.log(' + pause +
+                    ');call(' + r_id + ', \'' + sport + '\', \'' + temp +
+                    '\');" class="bar" style="margin-bottom:' + pause +
+                    'px;--bar-value:' +
+                    Number(zone) * 10 + '%;--bar-thickness: ' +
+                    quantity_large + 'px" data-name="' + quantity_large + ' ' +
+                    string_type +
+                    '" title="' + block.toUpperCase() + '&#013; Zona:' + zone + '; &#013; ' +
+                    quantity_large + ' ' + string_type + '; &#013; Pausa: ' + pause +
+                    ' ' + pause_type + '&#013; ppm: ' + rows[i]['ppm'] + '&#013; min/km: ' + rows[i][
+                        'min_km'
+                    ] + '&#013; x100: ' + rows[i]['min_100'] + '&#013; x400: ' + rows[i]['min_400'] +
+                    '&#013; dist: ' + rows[i]['min_dist'] + '&#013; Ecos: ' + rows[i]['ECOsTotal'] +
+                    '"></div>');
+            } else {
+                $('#' + sport).append('<div id="' + r_id + '" data-identifier="' + r_id + '" name="' +
+                    r_id + '" data-series="' + series +
+                    '" data-pauset="' +
+                    pause_type + '" data-string="' + string_type + '" data-sport="' + sport +
+                    '" data-block="' + block +
+                    '" data-zone="' + zone + '" data-quantity="' + quantity_large +
+                    '" data-ecos="' + rows[i]['ECOsTotal'] + '" data-ppm="' + rows[i]['ppm'] +
+                    '" data-x100="' + rows[i]['min_100'] + '" data-x400="' + rows[i]['min_400'] +
+                    '" data-dist="' + rows[i]['min_dist'] + '" data-fe="' + rows[i]['FactorEjerccion'] +
+                    '" data-fi="' + rows[i]['FactorIntensidad'] + '" data-minkm="' + rows[i]['min_km'] +
+                    '" data-repeticiones="' + repeticiones + '" data-timerepeticiones="' +
+                    minutosRepeticion + '" data-minutos="' + minutosRecuperacion + '" data-pause="' +
+                    pause + '" onclick="console.log(' + pause +
+                    ');call(' + r_id + ', \'' + sport + '\', \'' + temp +
+                    '\');" class="bar" style="margin-bottom:' + pause +
+                    'px;--bar-value:' +
+                    Number(zone) * 10 + '%;--bar-thickness: ' +
+                    quantity_large + 'px" data-name="' + quantity_large + ' ' +
+                    string_type +
+                    '" title="' + block.toUpperCase() + '&#013; Zona:' + zone + '; &#013; ' +
+                    quantity_large + ' ' + string_type + '; &#013; Pausa: ' + pause +
+                    ' ' + pause_type + '&#013; ppm: ' + rows[i]['ppm'] + '&#013; min/km: ' + rows[i][
+                        'min_km'
+                    ] + '&#013; x100: ' + rows[i]['min_100'] + '&#013; x400: ' + rows[i]['min_400'] +
+                    '&#013; dist: ' + rows[i]['min_dist'] + '&#013; Ecos: ' + rows[i]['ECOsTotal'] +
+                    '"></div>');
+            }
+        } else {
+            if (pause_type == 'min') {
+                //alert(7);
+                $('#' + sport).append('<div id="' + r_id + '" data-identifier="' + r_id + '" name="' +
+                    r_id + '" data-series="' + series +
+                    '" data-pauset="' +
+                    pause_type + '" data-string="' + string_type + '" data-sport="' + sport +
+                    '" data-block="' + block +
+                    '" data-zone="' + zone + '" data-quantity="' + quantity_large +
+                    '" data-ecos="' + rows[i]['ECOsTotal'] + '" data-ppm="' + rows[i]['ppm'] +
+                    '" data-x100="' + rows[i]['min_100'] + '" data-x400="' + rows[i]['min_400'] +
+                    '" data-dist="' + rows[i]['min_dist'] + '" data-fe="' + rows[i]['FactorEjerccion'] +
+                    '" data-fi="' + rows[i]['FactorIntensidad'] + '" data-minkm="' + rows[i]['min_km'] +
+                    '" data-repeticiones="' + repeticiones + '" data-timerepeticiones="' +
+                    minutosRepeticion + '" data-minutos="' + minutosRecuperacion + '" data-pause="' +
+                    pause + '" onclick="console.log(' + pause +
+                    ');call(' + r_id + ', \'' + sport + '\', \'' + temp +
+                    '\');" class="bar" style="margin-bottom:' + pause +
+                    'px;--bar-value:' +
+                    Number(zone) * 10 + '%;--bar-thickness: ' +
+                    quantity_large + 'px" data-name="' + quantity_large + ' ' +
+                    string_type +
+                    '" title="' + block.toUpperCase() + '&#013; Zona:' + zone + '; &#013; ' +
+                    quantity_large + ' ' + string_type + '; &#013; Pausa: ' + pause +
+                    ' ' + pause_type + '&#013; ppm: ' + rows[i]['ppm'] + '&#013; min/km: ' + rows[i][
+                        'min_km'
+                    ] + '&#013; x100: ' + rows[i]['min_100'] + '&#013; x400: ' + rows[i]['min_400'] +
+                    '&#013; dist: ' + rows[i]['min_dist'] + '&#013; Ecos: ' + rows[i]['ECOsTotal'] +
+                    '"></div>');
+            } else {
+                //alert(sport);
+                $('#' + sport).append('<div id="' + r_id + '" data-identifier="' + r_id + '" name="' +
+                    r_id + '" data-series="' + series +
+                    '" data-pauset="' +
+                    pause_type + '" data-string="' + string_type + '" data-sport="' + sport +
+                    '" data-block="' + block +
+                    '" data-zone="' + zone + '" data-quantity="' + quantity_large +
+                    '" data-ecos="' + rows[i]['ECOsTotal'] + '" data-ppm="' + rows[i]['ppm'] +
+                    '" data-x100="' + rows[i]['min_100'] + '" data-x400="' + rows[i]['min_400'] +
+                    '" data-dist="' + rows[i]['min_dist'] + '" data-fe="' + rows[i]['FactorEjerccion'] +
+                    '" data-fi="' + rows[i]['FactorIntensidad'] + '" data-minkm="' + rows[i]['min_km'] +
+                    '" data-repeticiones="' + repeticiones + '" data-timerepeticiones="' +
+                    minutosRepeticion + '" data-minutos="' + minutosRecuperacion + '" data-pause="' +
+                    pause + '" onclick="console.log(' + pause +
+                    ');call(' + r_id + ', \'' + sport + '\', \'' + temp +
+                    '\');" class="bar" style="margin-bottom:' + pause +
+                    'px;--bar-value:' +
+                    Number(zone) * 10 + '%;--bar-thickness: ' +
+                    quantity_large + 'px" data-name="' + quantity_large + ' ' +
+                    string_type +
+                    '" title="' + block.toUpperCase() + '&#013; Zona:' + zone + '; &#013; ' +
+                    quantity_large + ' ' + string_type + '; &#013; Pausa: ' + pause +
+                    ' ' + pause_type + '&#013; ppm: ' + rows[i]['ppm'] + '&#013; min/km: ' + rows[i][
+                        'min_km'
+                    ] + '&#013; x100: ' + rows[i]['min_100'] + '&#013; x400: ' + rows[i]['min_400'] +
+                    '&#013; dist: ' + rows[i]['min_dist'] + '&#013; Ecos: ' + rows[i]['ECOsTotal'] +
+                    '"></div>');
+            }
+        }*/
         let tempEcos = parseFloat($("#spanEcosTotales").html());
         $("#spanEcosTotales").html(tempEcos + parseFloat(rows[i]['ECOsTotal']));
         $("#total_ecos").val(tempEcos + parseFloat(rows[i]['ECOsTotal']));
@@ -4558,12 +5616,14 @@ function make_bar(series, sport, block, times, quantity_large, string_type, zone
 
 function make_bar_circuit(series, sport, block, times, quantity_large, string_type, zone, pause, pause_type,
     circuit_id, text) {
+    //alert(series + '-' + sport + '-' + block + '-' + times + '-' + quantity_large + '-' + string_type + '-' + zone + '-' + pause + '-' + pause_type);
     let ecosTotales = 0;
     let i = 0;
     var rows;
     var temp;
 
     try {
+		//alert(zone);
         var zona = zone;
         var iconoFE = "C";
         series = series;
@@ -4606,8 +5666,11 @@ function make_bar_circuit(series, sport, block, times, quantity_large, string_ty
                 "perfilID": perfilID
             },
             success: function(data) {
+                //console.log(data);
+                //alert(data);
                 rows = JSON.parse(data);
                 var cantTemp = 0;
+                //alert(12);
                 temp = rows[i]['ppm'] + '|' + rows[i]['min_km'] + '|' + rows[i]['min_100'] +
                     '|' + rows[i]['min_400'] + '|' + rows[i]['min_dist'] + '|' + rows[i][
                         'FactorEjerccion'
@@ -4622,7 +5685,10 @@ function make_bar_circuit(series, sport, block, times, quantity_large, string_ty
     } catch (err) {
         alert(err.message);
     }
+    //console.log('ESte es el resultado'+rows);
+    //alert(times);
     for (let j = 0; j < times; j++) {
+        //alert(zona+" -" + iconoFE+" -" + series+" -" + repeticiones+" -" + minutosRepeticion+" -" + 0 +" -" + kmPorHr+" -" + opcionVelocidadRitmo);
 
         let r_id = (Math.random() + 1).toString(36).substring(7);
         r_id = sport + '_' + block + '_' + r_id;
@@ -4672,6 +5738,7 @@ function make_bar_circuit(series, sport, block, times, quantity_large, string_ty
             }
         } else {
             if (pause_type == 'min') {
+                //alert(7);
                 $('#' + sport).append('<div id="' + r_id + '" data-identifier="' + r_id + '" name="' +
                     r_id + '" data-circuit="' +
                     circuit_id + '" data-text="' +
@@ -4693,6 +5760,7 @@ function make_bar_circuit(series, sport, block, times, quantity_large, string_ty
                     Number(zone) * 10 + '%;--bar-thickness: ' +
                     quantity_large + 'px" data-name="" title="' + block.toUpperCase() + '"></div>');
             } else {
+                //alert(sport);
                 $('#' + sport).append('<div id="' + r_id + '" data-identifier="' + r_id + '" name="' +
                     r_id + '" data-circuit="' +
                     circuit_id + '" data-text="' +
@@ -4727,6 +5795,7 @@ function make_bar_circuit(series, sport, block, times, quantity_large, string_ty
 
 function make_bar_exercise(series, sport, block, times, quantity_large, string_type, zone, pause,
     pause_type, exercise_id) {
+    //alert(series + '-' + sport + '-' + block + '-' + times + '-' + quantity_large + '-' + string_type + '-' + zone + '-' + pause + '-' + pause_type);
     let ecosTotales = 0;
     let i = 0;
     var rows;
@@ -4775,8 +5844,11 @@ function make_bar_exercise(series, sport, block, times, quantity_large, string_t
                 "perfilID": perfilID
             },
             success: function(data) {
+                //console.log(data);
+                //alert(data);
                 rows = JSON.parse(data);
                 var cantTemp = 0;
+                //alert(12);
                 temp = rows[i]['ppm'] + '|' + rows[i]['min_km'] + '|' + rows[i]['min_100'] +
                     '|' + rows[i]['min_400'] + '|' + rows[i]['min_dist'] + '|' + rows[i][
                         'FactorEjerccion'
@@ -4791,7 +5863,10 @@ function make_bar_exercise(series, sport, block, times, quantity_large, string_t
     } catch (err) {
         alert(err.message);
     }
+    //console.log('ESte es el resultado'+rows);
+    //alert(times);
     for (let j = 0; j < times; j++) {
+        //alert(zona+" -" + iconoFE+" -" + series+" -" + repeticiones+" -" + minutosRepeticion+" -" + 0 +" -" + kmPorHr+" -" + opcionVelocidadRitmo);
 
         let r_id = (Math.random() + 1).toString(36).substring(7);
         r_id = sport + '_' + block + '_' + r_id;
@@ -4855,6 +5930,7 @@ function make_bar_exercise(series, sport, block, times, quantity_large, string_t
             }
         } else {
             if (pause_type == 'min') {
+                //alert(7);
                 $('#' + sport).append('<div id="' + r_id + '" data-identifier="' + r_id + '" name="' +
                     r_id + '" data-exercise="' +
                     exercise_id + '" data-series="' + series +
@@ -4883,6 +5959,7 @@ function make_bar_exercise(series, sport, block, times, quantity_large, string_t
                     '&#013; dist: ' + rows[i]['min_dist'] + '&#013; Ecos: ' + rows[i]['ECOsTotal'] +
                     '"></div>');
             } else {
+                //alert(sport);
                 $('#' + sport).append('<div id="' + r_id + '" data-identifier="' + r_id + '" name="' +
                     r_id + '" data-exercise="' +
                     exercise_id + '" data-series="' + series +
@@ -4922,6 +5999,7 @@ function make_bar_exercise(series, sport, block, times, quantity_large, string_t
 }
 
 function edit_bar(series, id, sport, block, times, quantity_large, string_type, zone, pause, pause_type) {
+
     let r_id = id;
     let string_to_put = '';
     let ecosTotales = 0;
@@ -4947,6 +6025,29 @@ function edit_bar(series, id, sport, block, times, quantity_large, string_type, 
         } else if (separar[0] == "ciclismo") {
             iconoFE = "B";
         }
+        /*var zona = zone;
+        var iconoFE = "C";
+        series = series;
+        var repeticiones = times;
+        var minutosRepeticion = quantity_large;
+        var minutosPausa = pause;
+        var minutosRecuperacion = 0;
+        var kmPorHr = 16.4;
+        var distancia = 2000;
+        var opcionVelocidadRitmo = "CARRERA";
+        var perfilID = $('#sessionsssession-profile_id').val();
+
+
+        var separar = sport.split("_");
+        if (separar[0] == "natacion") {
+            opcionVelocidadRitmo = "NATACION";
+            iconoFE = "N";
+        } else if (separar[0] == "ciclismo") {
+            iconoFE = "B";
+        }*/
+
+        //obtenemos el cálculos de los ECOS Totales
+        //alert(minutosRepeticion);
         $.ajax({
             type: 'get',
             url: "/web/index.php?r=sessionsssession/getformulas",
@@ -5051,10 +6152,170 @@ function edit_bar(series, id, sport, block, times, quantity_large, string_type, 
                             ['min_dist'] + '&#013; Ecos: ' + rows[i]['ECOsTotal'] + '"></div>';
                         break;
                 }
+
+                /*if (string_type == 'min') {
+                    if (pause_type == 'min') {
+
+                        string_to_put += '<div id="' + r_id + '" data-identifier="' + r_id +
+                            '" name="' + r_id +
+                            '" data-series="' + series +
+                            '" data-pauset="' +
+                            pause_type + '" data-string="' + string_type + '" data-sport="' +
+                            sport +
+                            '" data-block="' + block +
+                            '" data-zone="' + zone + '" data-quantity="' + quantity_large +
+                            '" data-ecos="' + rows[i]['ECOsTotal'] + '" data-ppm="' + rows[i][
+                                'ppm'
+                            ] +
+                            '" data-x100="' + rows[i]['min_100'] + '" data-x400="' + rows[i][
+                                'min_400'
+                            ] +
+                            '" data-dist="' + rows[i]['min_dist'] + '" data-fe="' + rows[i][
+                                'FactorEjerccion'
+                            ] +
+                            '" data-fi="' + rows[i]['FactorIntensidad'] + '" data-minkm="' +
+                            rows[i]['min_km'] + '" data-repeticiones="' + repeticiones +
+                            '" data-timerepeticiones="' + minutosRepeticion +
+                            '" data-minutos="' + minutosRecuperacion + '" data-pause="' +
+                            pause + '" onclick="console.log(' + pause +
+                            ');call(' + r_id + ', \'' + sport + '\', \'' + temp +
+                            '\');" class="bar" style="margin-bottom:' + pause +
+                            'px;--bar-value:' +
+                            Number(zone) * 10 + '%;--bar-thickness: ' +
+                            quantity_large + 'px" data-name="' + quantity_large + ' ' +
+                            string_type +
+                            '" title="' + block.toUpperCase() + '&#013; Zona:' + zone +
+                            '; &#013; ' +
+                            quantity_large + ' ' + string_type + '; &#013; Pausa: ' +
+                            pause +
+                            ' ' + pause_type + '&#013; ppm: ' + rows[i]['ppm'] +
+                            '&#013; min/km: ' + rows[i]['min_km'] + '&#013; x100: ' + rows[i][
+                                'min_100'
+                            ] + '&#013; x400: ' + rows[i]['min_400'] + '&#013; dist: ' + rows[i]
+                            ['min_dist'] + '&#013; Ecos: ' + rows[i]['ECOsTotal'] + '"></div>';
+                    } else {
+                        string_to_put += '<div id="' + r_id + '" data-identifier="' + r_id +
+                            '" name="' + r_id +
+                            '" data-series="' + series +
+                            '" data-pauset="' +
+                            pause_type + '" data-string="' + string_type + '" data-sport="' +
+                            sport +
+                            '" data-block="' + block +
+                            '" data-zone="' + zone + '" data-quantity="' + quantity_large +
+                            '" data-ecos="' + rows[i]['ECOsTotal'] + '" data-ppm="' + rows[i][
+                                'ppm'
+                            ] +
+                            '" data-x100="' + rows[i]['min_100'] + '" data-x400="' + rows[i][
+                                'min_400'
+                            ] +
+                            '" data-dist="' + rows[i]['min_dist'] + '" data-fe="' + rows[i][
+                                'FactorEjerccion'
+                            ] +
+                            '" data-fi="' + rows[i]['FactorIntensidad'] + '" data-minkm="' +
+                            rows[i]['min_km'] + '" data-repeticiones="' + repeticiones +
+                            '" data-timerepeticiones="' + minutosRepeticion +
+                            '" data-minutos="' + minutosRecuperacion + '" data-pause="' +
+                            pause + '" onclick="console.log(' + pause +
+                            ');call(' + r_id + ', \'' + sport + '\', \'' + temp +
+                            '\');" class="bar" style="margin-bottom:' + pause +
+                            'px;--bar-value:' +
+                            Number(zone) * 10 + '%;--bar-thickness: ' +
+                            quantity_large + 'px" data-name="' + quantity_large + ' ' +
+                            string_type +
+                            '" title="' + block.toUpperCase() + '&#013; Zona:' + zone +
+                            '; &#013; ' +
+                            quantity_large + ' ' + string_type + '; &#013; Pausa: ' +
+                            pause +
+                            ' ' + pause_type + '&#013; ppm: ' + rows[i]['ppm'] +
+                            '&#013; min/km: ' + rows[i]['min_km'] + '&#013; x100: ' + rows[i][
+                                'min_100'
+                            ] + '&#013; x400: ' + rows[i]['min_400'] + '&#013; dist: ' + rows[i]
+                            ['min_dist'] + '&#013; Ecos: ' + rows[i]['ECOsTotal'] + '"></div>';
+                    }
+                } else {
+                    if (pause_type == 'min') {
+                        string_to_put += '<div id="' + r_id + '" data-identifier="' + r_id +
+                            '" name="' + r_id +
+                            '" data-series="' + series +
+                            '" data-pauset="' +
+                            pause_type + '" data-string="' + string_type + '" data-sport="' +
+                            sport +
+                            '" data-block="' + block +
+                            '" data-zone="' + zone + '" data-quantity="' + quantity_large +
+                            '" data-ecos="' + rows[i]['ECOsTotal'] + '" data-ppm="' + rows[i][
+                                'ppm'
+                            ] +
+                            '" data-x100="' + rows[i]['min_100'] + '" data-x400="' + rows[i][
+                                'min_400'
+                            ] +
+                            '" data-dist="' + rows[i]['min_dist'] + '" data-fe="' + rows[i][
+                                'FactorEjerccion'
+                            ] +
+                            '" data-fi="' + rows[i]['FactorIntensidad'] + '" data-minkm="' +
+                            rows[i]['min_km'] + '" data-repeticiones="' + repeticiones +
+                            '" data-timerepeticiones="' + minutosRepeticion +
+                            '" data-minutos="' + minutosRecuperacion + '" data-pause="' +
+                            pause + '" onclick="console.log(' + pause +
+                            ');call(' + r_id + ', \'' + sport + '\', \'' + temp +
+                            '\');" class="bar" style="margin-bottom:' + pause +
+                            'px;--bar-value:' +
+                            Number(zone) * 10 + '%;--bar-thickness: ' +
+                            quantity_large + 'px" data-name="' + quantity_large + ' ' +
+                            string_type +
+                            '" title="' + block.toUpperCase() + '&#013; Zona:' + zone +
+                            '; &#013; ' +
+                            quantity_large + ' ' + string_type + '; &#013; Pausa: ' + pause /
+                            6 +
+                            ' ' + pause_type + '&#013; ppm: ' + rows[i]['ppm'] +
+                            '&#013; min/km: ' + rows[i]['min_km'] + '&#013; x100: ' + rows[i][
+                                'min_100'
+                            ] + '&#013; x400: ' + rows[i]['min_400'] + '&#013; dist: ' + rows[i]
+                            ['min_dist'] + '&#013; Ecos: ' + rows[i]['ECOsTotal'] + '"></div>';
+                    } else {
+                        string_to_put += '<div id="' + r_id + '" data-identifier="' + r_id +
+                            '" name="' + r_id +
+                            '" data-series="' + series +
+                            '" data-pauset="' +
+                            pause_type + '" data-string="' + string_type + '" data-sport="' +
+                            sport +
+                            '" data-block="' + block +
+                            '" data-zone="' + zone + '" data-quantity="' + quantity_large +
+                            '" data-ecos="' + rows[i]['ECOsTotal'] + '" data-ppm="' + rows[i][
+                                'ppm'
+                            ] +
+                            '" data-x100="' + rows[i]['min_100'] + '" data-x400="' + rows[i][
+                                'min_400'
+                            ] +
+                            '" data-dist="' + rows[i]['min_dist'] + '" data-fe="' + rows[i][
+                                'FactorEjerccion'
+                            ] +
+                            '" data-fi="' + rows[i]['FactorIntensidad'] + '" data-minkm="' +
+                            rows[i]['min_km'] + '" data-repeticiones="' + repeticiones +
+                            '" data-timerepeticiones="' + minutosRepeticion +
+                            '" data-minutos="' + minutosRecuperacion + '" data-pause="' +
+                            pause + '" onclick="console.log(' + pause +
+                            ');call(' + r_id + ', \'' + sport + '\', \'' + temp +
+                            '\');" class="bar" style="margin-bottom:' + pause +
+                            'px;--bar-value:' +
+                            Number(zone) * 10 + '%;--bar-thickness: ' +
+                            quantity_large + 'px" data-name="' + quantity_large + ' ' +
+                            string_type +
+                            '" title="' + block.toUpperCase() + '&#013; Zona:' + zone +
+                            '; &#013; ' +
+                            quantity_large + ' ' + string_type + '; &#013; Pausa: ' + pause +
+                            ' ' + pause_type + '&#013; ppm: ' + rows[i]['ppm'] +
+                            '&#013; min/km: ' + rows[i]['min_km'] + '&#013; x100: ' + rows[i][
+                                'min_100'
+                            ] + '&#013; x400: ' + rows[i]['min_400'] + '&#013; dist: ' + rows[i]
+                            ['min_dist'] + '&#013; Ecos: ' + rows[i]['ECOsTotal'] + '"></div>';
+                    }
+                }*/
+
                 let tempEcos = parseFloat($("#spanEcosTotales").html());
                 $("#spanEcosTotales").html(tempEcos + parseFloat(rows[i]['ECOsTotal']));
                 $("#total_ecos").val(tempEcos + parseFloat(rows[i]['ECOsTotal']));
                 ecosTotales += rows[i]['ECOsTotal'];
+                //alert(string_to_put);
                 $('#' + id).replaceWith(string_to_put);
             },
             error: function(data) {
@@ -5069,6 +6330,8 @@ function edit_bar(series, id, sport, block, times, quantity_large, string_type, 
 
 function edit_bar_circuit(series, id, sport, block, times, quantity_large, string_type, zone, pause,
     pause_type, circuit_id, text) {
+
+
     let r_id = id;
     let string_to_put = '';
     let ecosTotales = 0;
@@ -5094,6 +6357,29 @@ function edit_bar_circuit(series, id, sport, block, times, quantity_large, strin
         } else if (separar[0] == "ciclismo") {
             iconoFE = "B";
         }
+        /*var zona = zone;
+        var iconoFE = "C";
+        series = series;
+        var repeticiones = times;
+        var minutosRepeticion = quantity_large;
+        var minutosPausa = pause;
+        var minutosRecuperacion = 0;
+        var kmPorHr = 16.4;
+        var distancia = 2000;
+        var opcionVelocidadRitmo = "CARRERA";
+        var perfilID = $('#sessionsssession-profile_id').val();
+
+
+        var separar = sport.split("_");
+        if (separar[0] == "natacion") {
+            opcionVelocidadRitmo = "NATACION";
+            iconoFE = "N";
+        } else if (separar[0] == "ciclismo") {
+            iconoFE = "B";
+        }*/
+
+        //obtenemos el cálculos de los ECOS Totales
+        //alert(minutosRepeticion);
         $.ajax({
             type: 'get',
             url: "/web/index.php?r=sessionsssession/getformulas",
@@ -5127,6 +6413,12 @@ function edit_bar_circuit(series, id, sport, block, times, quantity_large, strin
                     ];
                 if (string_type == 'min') {
                     if (pause_type == 'min') {
+
+                        /*alert("series:" + series +
+                            '" data-pauset="' +
+                            pause_type + '" data-string="' + string_type + '" data-sport="' + sport +
+                            '" data-block="' + block + '" data-zone="' + zone + '" data-quantity="' + quantity_large + '" data-pause="'+pause);*/
+
                         string_to_put += '<div id="' + r_id + '" data-identifier="' + r_id +
                             '" data-circuit="' +
                             circuit_id + '" data-text="' +
@@ -5259,6 +6551,7 @@ function edit_bar_circuit(series, id, sport, block, times, quantity_large, strin
                 $("#spanEcosTotales").html(tempEcos + parseFloat(rows[i]['ECOsTotal']));
                 $("#total_ecos").val(tempEcos + parseFloat(rows[i]['ECOsTotal']));
                 ecosTotales += rows[i]['ECOsTotal'];
+                //alert(string_to_put);
                 $('#' + id).replaceWith(string_to_put);
             },
             error: function(data) {
@@ -5273,6 +6566,7 @@ function edit_bar_circuit(series, id, sport, block, times, quantity_large, strin
 
 function edit_bar_exercise(series, id, sport, block, times, quantity_large, string_type, zone, pause,
     pause_type, exercise_id) {
+
     let r_id = id;
     let string_to_put = '';
     let ecosTotales = 0;
@@ -5298,6 +6592,29 @@ function edit_bar_exercise(series, id, sport, block, times, quantity_large, stri
         } else if (separar[0] == "ciclismo") {
             iconoFE = "B";
         }
+        /*var zona = zone;
+        var iconoFE = "C";
+        series = series;
+        var repeticiones = times;
+        var minutosRepeticion = quantity_large;
+        var minutosPausa = pause;
+        var minutosRecuperacion = 0;
+        var kmPorHr = 16.4;
+        var distancia = 2000;
+        var opcionVelocidadRitmo = "CARRERA";
+        var perfilID = $('#sessionsssession-profile_id').val();
+
+
+        var separar = sport.split("_");
+        if (separar[0] == "natacion") {
+            opcionVelocidadRitmo = "NATACION";
+            iconoFE = "N";
+        } else if (separar[0] == "ciclismo") {
+            iconoFE = "B";
+        }*/
+
+        //obtenemos el cálculos de los ECOS Totales
+        //alert(minutosRepeticion);
         $.ajax({
             type: 'get',
             url: "/web/index.php?r=sessionsssession/getformulas",
@@ -5331,6 +6648,12 @@ function edit_bar_exercise(series, id, sport, block, times, quantity_large, stri
                     ];
                 if (string_type == 'min') {
                     if (pause_type == 'min') {
+
+                        /*alert("series:" + series +
+                            '" data-pauset="' +
+                            pause_type + '" data-string="' + string_type + '" data-sport="' + sport +
+                            '" data-block="' + block + '" data-zone="' + zone + '" data-quantity="' + quantity_large + '" data-pause="'+pause);*/
+
                         string_to_put += '<div id="' + r_id + '" data-identifier="' + r_id +
                             '" data-exercise="' +
                             exercise_id + '" name="' + r_id +
@@ -5494,6 +6817,7 @@ function edit_bar_exercise(series, id, sport, block, times, quantity_large, stri
                 $("#spanEcosTotales").html(tempEcos + parseFloat(rows[i]['ECOsTotal']));
                 $("#total_ecos").val(tempEcos + parseFloat(rows[i]['ECOsTotal']));
                 ecosTotales += rows[i]['ECOsTotal'];
+                //alert(string_to_put);
                 $('#' + id).replaceWith(string_to_put);
             },
             error: function(data) {
@@ -5507,6 +6831,7 @@ function edit_bar_exercise(series, id, sport, block, times, quantity_large, stri
 }
 
 function edit_trans(id, pause, pause_type) {
+
     let r_id = id;
     let string_to_put = '';
     string_to_put = '<div onclick="call_trans(trans_' + r_id +
@@ -5521,6 +6846,7 @@ $('#button_delete_div').click(function() {
     $('#exampleModal2').modal('hide');
 });
 $('#button_edit_div').click(function() {
+    //$('#'+$(this).val()).remove();
     let case_type = $('#select_type_large_edit').val();
     let string_type = 'default';
     switch (case_type) {
@@ -5556,18 +6882,23 @@ $('#button_edit_div').click(function() {
     if (times == '') {
         times = 1;
     }
+    //block = $(this).val();
     times = Number(times);
     quantity_large = Number($('#select_quantity_large_edit').val());
     if (string_type == 'min') {
         quantity_large = quantity_large;
     }
     zone = $('#select_zone_edit').val();
+    //pause = Number($('#pause_edit').val());
     series = $('#series_edit').val();
 
     block = $('#' + $(this).val()).data('block');
+
+
     switch (block) {
         case 'circuito':
             circuit_id = $('#select_circuit_edit').val();
+
             text = $('#text_circuit_edit').val();
             edit_bar_circuit(1, $(this).val(), $('#' + $(this).val()).data('sport'), $('#' + $(this)
                     .val()).data('block'), 1, 12,
@@ -5608,6 +6939,7 @@ $('#button_edit_trans').click(function() {
     $('#exampleModal3').modal('hide');
 });
 $('#sport_select').change(function() {
+    //console.log('select')
     let sel = $(this).val();
     getDistancia(sel);
 });
@@ -5616,11 +6948,14 @@ $('#sport_select').change(function() {
 function getEditar(_deporte, _bloque, _posicion, _elemtPorBloque){
 	$("#select_blocks").val(_deporte);
 	$("#btnTemporalBlock").val(_bloque);
+	//alert(_bloque);
 	$("#btnTemporalBlock").click();
 	$("#button_make_div").hide();
 	$("#button_actualizar").show();
 	$("#hddPosicionSelected").val(_posicion);
 	try{
+		//alert(_bloque);
+		//alert($('#hddDist'+_posicion).val());
 		$('#series').val($('#hddSerie'+_posicion).val());
 		$('#times').val($('#hddReps'+_posicion).val());
 		$('#select_quantity_large').val($('#hddDist'+_posicion).val());
@@ -5653,10 +6988,13 @@ function getEditar(_deporte, _bloque, _posicion, _elemtPorBloque){
 				inicioCiclos= 4;
 			}
 			cantidadCiclos= _elemtPorBloque-inicioCiclos;
+
+			//alert(cantidadCiclos + ' - ' + _elemtPorBloque);
 			if(cantidadCiclos>0){
 				var _positionI= inicioCiclos+1;
 				$("#hddNumBloqueDelBloque").val(inicioCiclos);
 				for(p=1; p<=cantidadCiclos; p++){
+					//alert(cantidadCiclos);
 					addBloqueDelBloque();
 					$('#select_quantity_large'+_positionI).val($('#hddDist'+(_posicion+(p+1))).val());
 					$('#select_type_large'+_positionI).val($('#hddMetricaDist'+(_posicion+(p+1))).val());
@@ -5677,9 +7015,16 @@ function getEditar(_deporte, _bloque, _posicion, _elemtPorBloque){
 		}
 
 		if($("#hddBloque" + _posicion).val()=="drills"){
+			/*$('#search_exercise').click();
+			$("#select_exercise").val($("#circuitoEjexID" + _posicion).val());*/
             $('#search_drills').click();
 			$("#select_drills").val($("#circuitoEjexID" + _posicion).val());
             $("#text_drills").val($("#hddComent" + _posicion).val());
+
+
+			//$("#select_exercise").trigger("change");
+			//alert($("#select_exercise").val());
+			//$('#select_exercise').prop('selectedIndex', 0).trigger('change');;
 		}
 		else if($("#hddBloque" + _posicion).val()=="circuito"){
 			$('#search_circuit').click();
@@ -5695,20 +7040,30 @@ function getEditar(_deporte, _bloque, _posicion, _elemtPorBloque){
 		else if ($('#hddComent'+_posicion).val() == "Transición a Carrera") {
 			$('#rbTransicion15').prop('checked', true);
 		}
+		//alert($("#hddBloque" + _posicion).val() + '||' + $("#circuitoEjexID" + _posicion).val());
+		/*$('#select_exercise').html();
+		$('#select_exercise').append('<option value="' + $(this).data('info') + '" selected>' +
+            arr_info[0].toUpperCase() + '</option>');*/
 	}catch (err) {
         alert(err.message);
     }
+	//alert(_deporte+_bloque+_posicion);
 }
 
 function getEliminar(_posicion, _bloque, _idBloqueDelbloque){
+	//$("#spanComponente_"+_posicion).remove();
+	//$(".clsComponente").parent().remove();
+	//$("#tblComponente_"+_posicion).parent().parent().remove();
 
 	alertify.confirm(
         'Confirmación',
         'Seguro que desea eliminar el registro?',
         function() {
+				//alert(".spanComponente_"+_posicion + " -- " + ".tblGrupo"+_posicion);
 			if(_bloque=="secuencia" || _bloque=="progresivo" || _bloque=="farlek"){
 				$("#spanComponente_"+_posicion).remove();
 				$(".tblGrupo"+_posicion).remove();
+				//test
 			}
 			else{
 				$("#tblComponente_"+_posicion).remove();
@@ -5720,20 +7075,27 @@ function getEliminar(_posicion, _bloque, _idBloqueDelbloque){
 }
 
 function getDuplicar(_posicion){
+	//$("div[id^='spanComponente']:last").clone().appendTo('#divComponentes');
+	//$("#divComponentes").html($("#divComponentes").html()+$("#spanComponente_"+_posicion).html());
+	//alert($("#spanComponente_"+_posicion).html());
 
 	contComponentes += 1;
 	var htmlDuplicar= '<span class="clsComponente" id="spanComponente_'+contComponentes+'">';
 	htmlDuplicar += $("#spanComponente_"+_posicion).html();
 	htmlDuplicar += '</span>';
 	$("#spanComponente_"+_posicion).after(htmlDuplicar);
+	//alert("imgDuplicar"+_posicion);
 	var imgTemp = document.getElementsByClassName("imgDuplicar"+_posicion);
 	var contImg=1;
+	//alert(imgTemp.length);
 	$(".imgDuplicar"+_posicion).each(function() {
 		if(contImg==imgTemp.length){
 			var _onclick= $(this).attr("onclick");
 			$(this).attr("onclick", "getDuplicar("+contComponentes+");");
 			$(this).removeClass("imgDuplicar"+_posicion);
 			$(this).addClass("imgDuplicar"+contComponentes);
+			/*alert(_onclick);
+			alert($(this).attr("onclick"));/**/
 		}
 		contImg++;
 	});
@@ -5743,12 +7105,15 @@ function getDuplicar(_posicion){
 	$(".imgEliminar"+_posicion).each(function() {
 		if(contImg==imgTemp.length){
 			var _onclick= $(this).attr("onclick");
+			//getEliminar(2, 'drills', 0);
 			var aOnclick= _onclick.split(", ");
 			var bl= aOnclick[1].replace("'", "");
 			var blID= aOnclick[2].replace(");", "");
 			$(this).attr("onclick", 'getEliminar('+contComponentes+', '+aOnclick[1]+', '+blID+');');
 			$(this).removeClass("imgEliminar"+_posicion);
 			$(this).addClass("imgEliminar"+contComponentes);
+			/*alert(_onclick);
+			alert($(this).attr("onclick"));/**/
 		}
 		contImg++;
 	});
@@ -5758,13 +7123,19 @@ function getDuplicar(_posicion){
 	$(".imgEditar"+_posicion).each(function() {
 		if(contImg==imgTemp.length){
 			var _onclick= $(this).attr("onclick");
+			//getEditar('carrera_0_h11qq', 'drills', 2);
 			var aOnclick= _onclick.split(", ");
 			$(this).attr("onclick", ''+aOnclick[0]+', '+aOnclick[1]+', '+contComponentes+');');
 			$(this).removeClass("imgEditar"+_posicion);
 			$(this).addClass("imgEditar"+contComponentes);
+			/*alert(_onclick);
+			alert($(this).attr("onclick"));/**/
 		}
 		contImg++;
 	});
+	/*
+	FALTA ACTUALIZAR LOS id DE TODAS LAS ETIQUETAS APRA PODER EDITAR
+	*/
 	contImg=1;
 	$(".lblReps"+_posicion+":last").attr("id", "lblReps"+contComponentes);
 	$(".lblReps"+_posicion+":last").removeClass("lblReps"+_posicion);
@@ -5790,6 +7161,7 @@ function getDuplicar(_posicion){
 	$(".lblRecup"+_posicion+":last").removeClass("lblRecup"+_posicion).addClass("lblRecup"+contComponentes);
 	$(".spanNameEx"+_posicion+":last").attr("id", "spanNameEx"+contComponentes);
 	$(".spanNameEx"+_posicion+":last").removeClass("spanNameEx"+_posicion).addClass("spanNameEx"+contComponentes);
+
 
 	try{
 		$('.hddSerie'+_posicion+":last").attr("id", "hddSerie"+contComponentes);
@@ -5819,6 +7191,7 @@ function getDuplicar(_posicion){
 		$(".hddNameEx"+_posicion+":last").removeClass("hddNameEx"+_posicion).addClass("hddNameEx" + contComponentes);
 		$('.hddNameEx'+_posicion+":last").attr("id", "hddNameEx"+contComponentes);
 		$(".hddNameEx"+_posicion+":last").removeClass("hddNameEx"+_posicion).addClass("hddNameEx" + contComponentes);
+
 
 		$('.hddDuracionEx'+_posicion+":last").attr("id", "hddDuracionEx"+contComponentes);
 		$(".hddDuracionEx"+_posicion+":last").removeClass("hddDuracionEx"+_posicion).addClass("hddDuracionEx" + contComponentes);
@@ -5865,6 +7238,27 @@ function getDuplicar(_posicion){
 		$(".tblComponente_"+_posicion+":last").removeClass("tblComponente_" + _posicion).addClass("tblComponente_" + contComponentes);
 		$('.hddCarrera'+_posicion+":last").attr("id", "hddCarrera"+contComponentes);
 		$(".hddCarrera"+_posicion+":last").removeClass("hddCarrera" + _posicion).addClass("hddCarrera" + contComponentes);
+
+		/*$('.hddZona'+(_posicion+1)+":last").attr("id", "hddZona"+(contComponentes+1));
+		$(".hddZona"+(_posicion+1)+":last").removeClass("hddZona"+(_posicion+1)).addClass("hddZona" + contComponentes+1);
+		$('.hddZona'+(_posicion+2)+":last").attr("id", "hddZona"+(contComponentes+2));
+		$(".hddZona"+(_posicion+2)+":last").removeClass("hddZona"+(_posicion+2)).addClass("hddZona" + contComponentes+2);
+		$('.hddZona'+(_posicion+3)+":last").attr("id", "hddZona"+(contComponentes+3));
+		$(".hddZona"+(_posicion+3)+":last").removeClass("hddZona"+(_posicion+3)).addClass("hddZona" + contComponentes+3);
+
+		$('.hddDist'+(_posicion+1)+":last").attr("id", "hddDist"+(contComponentes+1));
+		$(".hddDist"+(_posicion+1)+":last").removeClass("hddDist"+(_posicion+1)).addClass("hddDist"+(contComponentes+1));
+		$('.hddDist'+(_posicion+2)+":last").attr("id", "hddDist"+(contComponentes+2));
+		$(".hddDist"+(_posicion+2)+":last").removeClass("hddDist"+(_posicion+2)).addClass("hddDist"+(contComponentes+2));
+		$('.hddDist'+(_posicion+3)+":last").attr("id", "hddDist"+(contComponentes+3));
+		$(".hddDist"+(_posicion+3)+":last").removeClass("hddDist"+(_posicion+3)).addClass("hddDist"+(contComponentes+3));
+
+		$('.hddMetricaDist'+(_posicion+1)+":last").attr("id", "hddMetricaDist"+(contComponentes+1));
+		$(".hddMetricaDist"+(_posicion+1)+":last").removeClass("hddMetricaDist"+(_posicion+1)).addClass("hddMetricaDist" + (contComponentes+1));
+		$('.hddMetricaDist'+(_posicion+2)+":last").attr("id", "hddMetricaDist"+(contComponentes+2));
+		$(".hddMetricaDist"+(_posicion+2)+":last").removeClass("hddMetricaDist"+(_posicion+2)).addClass("hddMetricaDist" + (contComponentes+2));
+		$('.hddMetricaDist'+(_posicion+3)+":last").attr("id", "hddMetricaDist"+(contComponentes+3));
+		$(".hddMetricaDist"+(_posicion+3)+":last").removeClass("hddMetricaDist"+(_posicion+3)).addClass("hddMetricaDist" + (contComponentes+3));*/
 	}catch (err) {
         alert(err.message);
     }
@@ -5902,6 +7296,7 @@ alertify.confirm(
                 token: token
             },
             success: function(bool) {
+                //console.log('success '+bool);
                 if (bool == true) {
                     alertify.success(
                         '<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado espere un momento ...</span>',
@@ -5919,6 +7314,7 @@ alertify.confirm(
                 }
             },
             error: function(data) {
+                // console.log('error '+data);
                 alertify.error(
                     '<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>',
                     2,
@@ -5932,6 +7328,7 @@ alertify.confirm(
 }
 
 function radios(r) {
+//console.log(r['id']);
 
 $('input[type="checkbox"]').each(function() {
 
@@ -5940,10 +7337,14 @@ $('input[type="checkbox"]').each(function() {
 $('#' + r['id']).prop('checked', true);
 
 let info = r['value'];
+//alert("info: "+info + ' r: '+r + ' r: '+r["id"]);
+//console.log(info);
 $('#select_blocks').empty();
 $(".block_items").each(function() {
     let arr_info = $(this).data('info').split('_');
+    //alert($(this).data('info'));
     if (info === $(this).data('info')) {
+
         $('#select_blocks').append('<option value="' + $(this).data('info') + '" selected>' +
             arr_info[0].toUpperCase() + '</option>');
     } else {
@@ -5984,6 +7385,12 @@ switch (block) {
         $('.default_input').hide();
         $('#set_defaults').hide();
         $('.comment_input').hide();
+        /*$('.exercise_input').show();
+        $('.exercise_input2').show();
+        $('.circuit_input').hide();
+        $('.default_input').hide();
+        $('#set_defaults').hide();
+        $('.comment_input').hide();*/
         break;
     case 'comentario':
         $('.circuit_input').hide();
@@ -6019,6 +7426,7 @@ switch (string_type) {
         string_type = '4';
         break;
 }
+//alert(deporte);
 
 $('#spanMinKmTexto').html("min/km:");
 $('#spanPPM').html(valores_split[0]);
@@ -6049,6 +7457,8 @@ if (sport == "carrera") {
     $('#divDist').hide();
     $('#spanWatts').html(valores_split[5]);
 }
+
+
 if (string_type == '1') {
     quantity_large = Number($('#' + id).data('quantity')); //;
 }
@@ -6099,6 +7509,7 @@ swal("Campos requeridos!", "> ", {
     },
 });
 });
+//== Class Initialization
 jQuery(document).ready(function() {
 	initGrupoDiv=0;
 	grupoID=0;
@@ -6124,8 +7535,10 @@ var tiempoEjercicio = 0;
 var zonaEjercicio = 0;
 var seriesejercicio = 0;
 		$(".hide_sports").click();
+		//alert(18);
 		$("#hddAccion").val("Editando");
 
+
 			metricaEjercicio = 0;
 			pausaEjercicio = 0;
 			vecesEjercicio = 1;
@@ -6141,6 +7554,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(0);
 			$("#select_type_pause").val(0); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -6150,6 +7575,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=2;
 			 bloque_selected='';
@@ -6229,17 +7656,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 0;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -6263,18 +7697,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -6291,6 +7741,8 @@ var seriesejercicio = 0;
 			deporte = "carrera";
 			block = "intervalos";
 
+
+
 			metricaEjercicio = 0;
 			pausaEjercicio = 0;
 			vecesEjercicio = 1;
@@ -6306,6 +7758,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(0);
 			$("#select_type_pause").val(0); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -6315,6 +7779,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=2;
 			 bloque_selected='';
@@ -6394,17 +7860,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 0;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -6428,18 +7901,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -6456,6 +7945,8 @@ var seriesejercicio = 0;
 			deporte = "carrera";
 			block = "intervalos";
 
+
+
 			metricaEjercicio = 0;
 			pausaEjercicio = 0;
 			vecesEjercicio = 1;
@@ -6471,6 +7962,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(0);
 			$("#select_type_pause").val(0); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -6480,6 +7983,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=2;
 			 bloque_selected='';
@@ -6559,17 +8064,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 0;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -6593,18 +8105,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -6621,6 +8149,8 @@ var seriesejercicio = 0;
 			deporte = "carrera";
 			block = "intervalos";
 
+
+
 			metricaEjercicio = 2;
 			pausaEjercicio = 0;
 			vecesEjercicio = 1;
@@ -6636,6 +8166,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(2);
 			$("#select_type_pause").val(1); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -6645,6 +8187,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=6;
 			 bloque_selected='';
@@ -6724,17 +8268,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 1;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -6758,18 +8309,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -6786,6 +8353,8 @@ var seriesejercicio = 0;
 			deporte = "carrera";
 			block = "intervalos";
 
+
+
 			metricaEjercicio = 2;
 			pausaEjercicio = 0;
 			vecesEjercicio = 1;
@@ -6801,6 +8370,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(2);
 			$("#select_type_pause").val(1); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -6810,6 +8391,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=6;
 			 bloque_selected='';
@@ -6889,17 +8472,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 1;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -6923,18 +8513,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -6951,6 +8557,8 @@ var seriesejercicio = 0;
 			deporte = "carrera";
 			block = "intervalos";
 
+
+
 			metricaEjercicio = 2;
 			pausaEjercicio = 0;
 			vecesEjercicio = 1;
@@ -6966,6 +8574,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(2);
 			$("#select_type_pause").val(1); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -6975,6 +8595,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=6;
 			 bloque_selected='';
@@ -7054,17 +8676,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 1;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -7088,18 +8717,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -7115,6 +8760,8 @@ var seriesejercicio = 0;
 			times = 1;
 			deporte = "carrera";
 			block = "intervalos";
+
+
 
 			metricaEjercicio = 2;
 			pausaEjercicio = 0;
@@ -7131,6 +8778,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(2);
 			$("#select_type_pause").val(1); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -7140,6 +8799,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=1;
 			 bloque_selected='';
@@ -7219,17 +8880,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 3;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -7253,18 +8921,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -7280,6 +8964,8 @@ var seriesejercicio = 0;
 			times = 1;
 			deporte = "carrera";
 			block = "intervalos";
+
+
 
 			metricaEjercicio = 2;
 			pausaEjercicio = 0;
@@ -7296,6 +8982,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(2);
 			$("#select_type_pause").val(1); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -7305,6 +9003,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=1;
 			 bloque_selected='';
@@ -7384,17 +9084,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 3;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -7418,18 +9125,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -7445,6 +9168,8 @@ var seriesejercicio = 0;
 			times = 1;
 			deporte = "carrera";
 			block = "intervalos";
+
+
 
 			metricaEjercicio = 2;
 			pausaEjercicio = 0;
@@ -7461,6 +9186,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(2);
 			$("#select_type_pause").val(1); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -7471,6 +9208,8 @@ var seriesejercicio = 0;
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
 
+			//alert(metricaEjercicio);
+
 		 	type1=1;
 			 bloque_selected='';
 
@@ -7549,17 +9288,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 3;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -7583,18 +9329,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -7610,6 +9372,8 @@ var seriesejercicio = 0;
 			times = 1;
 			deporte = "carrera";
 			block = "intervalos";
+
+
 
 			metricaEjercicio = 2;
 			pausaEjercicio = 0;
@@ -7626,6 +9390,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(2);
 			$("#select_type_pause").val(1); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -7635,6 +9411,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=1;
 			 bloque_selected='';
@@ -7714,17 +9492,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 3;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -7748,18 +9533,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -7775,6 +9576,8 @@ var seriesejercicio = 0;
 			times = 1;
 			deporte = "carrera";
 			block = "intervalos";
+
+
 
 			metricaEjercicio = 2;
 			pausaEjercicio = 0;
@@ -7791,6 +9594,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(2);
 			$("#select_type_pause").val(1); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -7800,6 +9615,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=1;
 			 bloque_selected='';
@@ -7879,17 +9696,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 3;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -7913,18 +9737,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -7940,6 +9780,8 @@ var seriesejercicio = 0;
 			times = 1;
 			deporte = "carrera";
 			block = "intervalos";
+
+
 
 			metricaEjercicio = 2;
 			pausaEjercicio = 0;
@@ -7956,6 +9798,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(2);
 			$("#select_type_pause").val(1); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -7965,6 +9819,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=1;
 			 bloque_selected='';
@@ -8044,17 +9900,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 3;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -8078,18 +9941,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -8105,6 +9984,8 @@ var seriesejercicio = 0;
 			times = 1;
 			deporte = "carrera";
 			block = "intervalos";
+
+
 
 			metricaEjercicio = 2;
 			pausaEjercicio = 0;
@@ -8121,6 +10002,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(2);
 			$("#select_type_pause").val(1); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -8130,6 +10023,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=1;
 			 bloque_selected='';
@@ -8209,17 +10104,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 3;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -8243,18 +10145,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -8270,6 +10188,8 @@ var seriesejercicio = 0;
 			times = 1;
 			deporte = "carrera";
 			block = "intervalos";
+
+
 
 			metricaEjercicio = 2;
 			pausaEjercicio = 0;
@@ -8286,6 +10206,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(2);
 			$("#select_type_pause").val(1); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -8295,6 +10227,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=1;
 			 bloque_selected='';
@@ -8374,17 +10308,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 3;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -8408,18 +10349,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -8435,6 +10392,8 @@ var seriesejercicio = 0;
 			times = 1;
 			deporte = "carrera";
 			block = "intervalos";
+
+
 
 			metricaEjercicio = 2;
 			pausaEjercicio = 0;
@@ -8451,6 +10410,18 @@ var seriesejercicio = 0;
 			exercise_id = 0;
 			ecosFuerza += 0;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(2);
 			$("#select_type_pause").val(1); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -8460,6 +10431,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=1;
 			 bloque_selected='';
@@ -8539,17 +10512,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 3;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -8573,18 +10553,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -8600,6 +10596,8 @@ var seriesejercicio = 0;
 			times = 1;
 			deporte = "carrera";
 			block = "intervalos";
+
+
 
 			metricaEjercicio = 0;
 			pausaEjercicio = 0;
@@ -8616,6 +10614,18 @@ var seriesejercicio = 0;
 			exercise_id = 145;
 			ecosFuerza += 82;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(0);
 			$("#select_type_pause").val(0); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -8625,6 +10635,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=5;
 			 bloque_selected='';
@@ -8704,17 +10716,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 0;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -8738,18 +10757,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -8766,6 +10801,8 @@ var seriesejercicio = 0;
 			deporte = "carrera";
 			block = "intervalos";
 
+
+
 			metricaEjercicio = 0;
 			pausaEjercicio = 0;
 			vecesEjercicio = 1;
@@ -8781,6 +10818,18 @@ var seriesejercicio = 0;
 			exercise_id = 145;
 			ecosFuerza += 82;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(0);
 			$("#select_type_pause").val(0); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -8790,6 +10839,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=5;
 			 bloque_selected='';
@@ -8869,17 +10920,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 0;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -8903,18 +10961,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -8931,6 +11005,8 @@ var seriesejercicio = 0;
 			deporte = "carrera";
 			block = "intervalos";
 
+
+
 			metricaEjercicio = 0;
 			pausaEjercicio = 0;
 			vecesEjercicio = 1;
@@ -8946,6 +11022,18 @@ var seriesejercicio = 0;
 			exercise_id = 145;
 			ecosFuerza += 82;
 			_porcentajeTransicionSelected = "";
+			//alert(ecosFuerza);
+			/*heart_rate = "<php?=//$heart_rate?>";
+			min_km = "<php?=//$min_km?>";
+			watts = "<php?=//$watts?>";
+			min_100 = "<php?=//$min_100?>";
+			min_400 = "<php?=//$min_400?>";
+			min_dist = "<php?=//$min_dist?>";
+			exercise_fe = "<phph?=//$exercise_fe?>";
+			intensity_factor = "<php?=//$intensity_factor?>";*/
+
+			//$("#select_type_large").val(metricaEjercicio); //del 1 al 3 actualmente
+
 			$('#select_type_large').val(0);
 			$("#select_type_pause").val(0); //del 1 al 2 actualmente
 			$('#pause').val(0);
@@ -8955,6 +11043,8 @@ var seriesejercicio = 0;
 			$("#series").val(seriesejercicio);
 			$('#pauseRecuperacion').val(macro_pause);
 			$('#type_pauseRecuperacion').val(macro_pause_metric);
+
+			//alert(metricaEjercicio);
 
 		 	type1=5;
 			 bloque_selected='';
@@ -9034,17 +11124,24 @@ var seriesejercicio = 0;
 		    if(bloque_selected=='secuencia' || bloque_selected=='farlek' || bloque_selected=='progresivo'){
 				var tempCont= 0;
 				$("#hddNumBloqueDelBloque").val(tempCont);
+				//alert(tempCont);
 				if(bloqueAnteriorLoadInicio!=bloque_selected){
 					bloqueAnteriorLoadInicio= bloque_selected;
 					contBloqueDelbloqueLoadInicio= 0;
 				}
 				contBloqueDelbloqueLoadInicio++;
 				if(contBloqueDelbloqueLoadInicio>numBloquesOriginales){
+					//addBloqueDelBloque();
 
 				}
 			}
+			//var numBdB= Number($("#hddNumBloqueDelBloque").val()) + 1;
+
+
+			//alert(bloque_selected);
 			$('#button_make_div').val(bloque_selected);
 			$('#hddNombreBloque').val(bloque_selected)
+
 			switch (deporte_item) {
 				case 1:
 					deporte_item='ciclismo';
@@ -9068,18 +11165,34 @@ var seriesejercicio = 0;
 				default:
 					break;
 			}
+			//alert(deporte_item);
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'transicion' && bloque_selected != 'drills')//agregue drills 10 140524
 				$('#blockSelected').val(deporte_item);
 			$('#idBusquedaD').val(exercise_id);
 			$('#idBusquedaC').val(exercise_id);
+			//$('#select_blocks').append('<option value="' + deporte_item.toUpperCase() + '" selected>' + deporte_item.toUpperCase() + '</option>');
 			if(bloque_selected != 'pausa' && bloque_selected != 'comentario' && bloque_selected != 'circuito' && bloque_selected != 'drills'){//agregue drills 10 140524
+				//$('#spanSeleccionado').html(deporte_item.toUpperCase());
 			}
+			/*$('#heart_rate').val(heart_rate);
+			$('#min_km').val(min_km);
+			$('#watts').val(watts);
+			$('#min_100').val(min_100);
+			$('#min_400').val(min_400);
+			$('#min_dist').val(min_dist);
+			$('#exercise_fe').val(exercise_fe);
+			$('#intensity_factor').val(intensity_factor);*/
+			//$('#ecos').val(ecos);
+			//_ecosTotales= rows[i]['ECOsTotal'];
+
 			if(bloque_selected != 'pausa'){//&& bloque_selected != 'comentario'
+				//alert(deporte_item);
 				$(".sports").val(deporte_item);
 				$("#hddItemSelected").val(deporte_item);
 			}
 
 			$(".sports").click();
+	//alert(0);
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=sessionsssession/getatletas",
@@ -9105,6 +11218,8 @@ var seriesejercicio = 0;
 	catch (err) {
 		$("#divEcosTotales").html(totalFuerza);
 	}
+
+	//Regresamos los valores del sport correctos por cada deporte
 	$("#sportC").val("carrera");
 	$("#sportB").val("ciclismo");
 	$("#sportN").val("natacion");
@@ -9117,6 +11232,8 @@ function addLibrary() {
             "id": 1187,
         },
         success: function(data) {
+
+
             idn=data;
             $.ajax({
                 type: 'get',
@@ -9127,6 +11244,8 @@ function addLibrary() {
                     "descripcion": $('#descripcion_library').val(),
                 },
                 success: function(data) {
+
+
                     $('#libraryModal').modal('hide');
                     swal({
                         title: "Sesión agregada correctamente a la librería!",
@@ -9139,6 +11258,7 @@ function addLibrary() {
                 },
                 error: function(data) {},
             });
+            //segundo ajax, se cambio index por idn
         },
         error: function(data) {},
     });
@@ -9154,6 +11274,7 @@ jQuery('#w0').yiiActiveForm([{"id":"sessionsssession-profile_id","name":"profile
 });
 
 function changeIdioma(id, flag) {
+
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",
