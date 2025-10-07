@@ -11,7 +11,6 @@ function confirmDelete(key, token) {
                     token: token
                 },
                 success: function(bool) {
-                    //console.log('success '+bool);
                     if (bool == true) {
                         alertify.success(
                             '<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado espere un momento ...</span>',
@@ -29,7 +28,6 @@ function confirmDelete(key, token) {
                     }
                 },
                 error: function(data) {
-                    // console.log('error '+data);
                     alertify.error(
                         '<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>',
                         2,
@@ -141,9 +139,7 @@ function validaMover(_msg) {
     if (dtClear == 0) {
         valida = true;
     }
-    //alert(valida);
     if (valida) {
-        //$('#btnCopiar').removeClass("d-none");
         return true;
     } else {
         if (_msg) {
@@ -161,7 +157,6 @@ function validaMover(_msg) {
     }
 }
 
-
 function dup() {
     var valida = false;
     if ($('#folder_select').val() != "" && $('#hddprogresionID').val() != "") {
@@ -177,8 +172,6 @@ function dup() {
                 },
             });
     }
-
-    //valida = validaMover(true);
 
     if (valida) {
         alertify.confirm(
@@ -205,7 +198,6 @@ function dup() {
                         "name": _name,
                     },
                     success: function(data) {
-                        console.log(data);
                         if (data == "Exito") {
                             swal("Circuito copiado correctamente",
                                 "", {
@@ -238,7 +230,6 @@ function dup() {
             function() {});
     }
 }
-
 
 function move() {
     var valida = false;
@@ -278,7 +269,6 @@ function move() {
                         "folderDestinoID": folderDestinoID,
                     },
                     success: function(data) {
-                        console.log(data);
                         if (data == "Exito") {
                             swal("El circuito fué movido correctamente",
                                 "", {
@@ -317,7 +307,6 @@ jQuery('#w0').yiiGridView({"filterUrl":"\/web\/index.php?r=circuitscircuit\/inde
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

@@ -1,21 +1,19 @@
 function confirmDelete(key, token){
-        alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro', 
+        alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro',
             function(){
                 $.ajax({
                      type: 'POST',
                      url: "index.php?r=mesocyclesweek/delete",
                      data:{key:key, token:token},
                      success:function(bool){
-						 //console.log('success '+bool);
                         if (bool == true){
-                            alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado<br>Espere un momento...</span>', 2 , function (){location.reload(); }); 
+                            alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado<br>Espere un momento...</span>', 2 , function (){location.reload(); });
                         }else{
-							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
 						}
                      },
-                     error: function(data){ 
-                        // console.log('error '+data);
-						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+                     error: function(data){
+						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
                      },
                 });
             },
@@ -28,7 +26,6 @@ jQuery('#w0').yiiGridView({"filterUrl":"\/web\/index.php?r=mesocyclesweek\/index
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

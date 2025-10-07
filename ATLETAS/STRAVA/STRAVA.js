@@ -5,7 +5,6 @@ $(document).ready(function() {
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

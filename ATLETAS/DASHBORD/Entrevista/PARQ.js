@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log('h')
     let flag = false;
     $('input[type="checkbox"]').each(function(index) {
         console.log(index + ": " + $(this).text());
@@ -39,7 +38,6 @@ jQuery('#w0').yiiActiveForm([{"id":"athletesparq-has_heart_disease","name":"has_
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

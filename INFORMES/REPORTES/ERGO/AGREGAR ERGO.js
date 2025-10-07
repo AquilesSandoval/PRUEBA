@@ -4,7 +4,7 @@ window.select2_d1834d28 = {"allowClear":true,"theme":"krajee","width":"100%","pl
 $('.btn-reportecsv').hide();
 $('#btnAgregarReposo').click(function() {
     let id_reposo = $('#select_reposo').val();
-    
+
     $.ajax({
         url: "/web/index.php?r=reportes/getdatareposos", // URL del controlador
         type: 'GET',
@@ -13,13 +13,11 @@ $('#btnAgregarReposo').click(function() {
         },
         dataType: 'json',
         success: function(response) {
-            console.log(response);
             if (response) {
                 $('#reportsfolder-txtVo2Reposo').val(response.promedioVo2);
                 $('#reportsfolder-txtGastoDiarioReposo').val(response.CaloriasDias);
                 $('#reportsfolder-txtRQReposo').val(response.promedioRer);
                 $('#reportsfolder-txtFCReposo').val(response.promedioFC);
-                //$('#reportsfolder-txtComentarioGastoEnergeticoReposo').val(0);
                 $('#modalReposo').modal('hide');
             } else {
                 swal("No se encontraron datos",
@@ -38,7 +36,7 @@ $('#btnAgregarReposo').click(function() {
 });
 $('#btnAgregarConstante').click(function() {
     let id_constante = $('#select_constante').val();
-    
+
     $.ajax({
         url: "/web/index.php?r=reportes/getdataconstante", // URL del controlador
         type: 'GET',
@@ -47,13 +45,11 @@ $('#btnAgregarConstante').click(function() {
         },
         dataType: 'json',
         success: function(response) {
-            console.log(response);
             if (response) {
                 $('#reportsfolder-txtVCargaConstante').val('');
                 $('#reportsfolder-txtVo2CargaConstante').val(response.promedioVo2);
                 $('#reportsfolder-txtFCCargaConstante').val(response.promedioFC);
                 $('#reportsfolder-txtRQCargaConstante').val(response.promedioRer);
-                //$('#reportsfolder-txtPotenciaCarrera1').val(0);
                 $('#modalConstante').modal('hide');
             } else {
                 swal("No se encontraron datos",
@@ -83,7 +79,6 @@ $('#btnAgregarProgresivo').click(function() {
         },
         dataType: 'json',
         success: function(response) {
-            console.log(response);
             if (response && response.length > 0) {
                 response.forEach(item => {
                     if (!item || !item.name) return;
@@ -94,21 +89,18 @@ $('#btnAgregarProgresivo').click(function() {
                             $('#reportsfolder-txtVO2PicoVO2').val(item.vo2);
                             $('#reportsfolder-txtVO2PicoFC').val(item.fc);
                             $('#reportsfolder-txtVO2PicoRQ').val(item.rq);
-                            //$('#reportsfolder-txtPotenciaCarrera2VO2').val(0);
                             break;
                         case '2do umbral':
                             $('#reportsfolder-txtUmbral2Velocidad').val(item.v);
                             $('#reportsfolder-txtUmbral2VO2').val(item.vo2);
                             $('#reportsfolder-txtUmbral2FC').val(item.fc);
                             $('#reportsfolder-txtUmbral2RQ').val(item.rq);
-                            //$('#reportsfolder-txtPotenciaCarrera2Umbral2').val(0);
                             break;
                         case '1er umbral':
                             $('#reportsfolder-txtUmbral1Velocidad').val(item.v);
                             $('#reportsfolder-txtUmbral1VO2').val(item.vo2);
                             $('#reportsfolder-txtUmbral1FC').val(item.fc);
                             $('#reportsfolder-txtUmbral1RQ').val(item.rq);
-                            //$('#reportsfolder-txtPotenciaCarrera2Umbral1').val(0);
                             break;
                         case 'FAT MAX':
                             $('#reportsfolder-txtVelocidad').val(item.v);
@@ -137,12 +129,6 @@ $('#btnAgregarProgresivo').click(function() {
         }
     });
 
-
-
-
-
-
-
     $('#modalProgresivo').modal('hide');
 });
 $(document).ready(function() {
@@ -152,7 +138,6 @@ $(document).ready(function() {
     $(document).ready(function() {
 
         $("#w0").submit(function(event) {
-            //event.preventDefault();
             var valida = false;
             if ($("#reportsfolder-deporteID1").is(':checked')) {
                 if ($("#reportsfolder-txtVO2PicoVelocidad").val() == "" || $(
@@ -166,7 +151,6 @@ $(document).ready(function() {
                 if ($("#reportsfolder-txtVO2PicoPotencia").val() == "" || $(
                         "#reportsfolder-txtUmbral2Potencia").val() == "" || $(
                         "#reportsfolder-txtUmbral1Potencia").val() == "") {
-                    //alert("P2");
                     valida = false;
                 } else {
                     valida = true;
@@ -180,7 +164,6 @@ $(document).ready(function() {
         });
 
         $('.submitFormBtn').click(function() {
-
 
             var $this = $(this);
             var $next = $this.next();
@@ -198,16 +181,6 @@ $(document).ready(function() {
                 }
 
                 if (dtClear == 0) {
-                    /*$blockBtn = $this.clone();
-				$blockBtn.attr('type', 'button');
-				$blockBtn.html('Espere un momento ...'); 
-				$blockBtn.addClass('submitFormBtnBlock');
-				$blockBtn.removeClass('submitFormBtn');
-				$blockBtn.insertAfter($this);
-				$blockBtn.attr('disabled', 'disabled');
-				
-				$this.hide();
-		 		$blockBtn.show();*/
                 } else {
                     alert(
                         "Verifique los campos obligatorios (marcados en *)"
@@ -215,9 +188,7 @@ $(document).ready(function() {
                 }
             }
 
-
         });
-
 
         $('.submitFormBtn').parents('form').on('afterValidate', function(event, messages,
             errorAttributes) {
@@ -301,14 +272,7 @@ function validaChk() {
 
         $('.tdPotenciaCarrera').hide();
     }
-    /*else if($("#reportsfolder-deporteID3").is(':checked')){
-    	$('#divDeporte3').removeClass("btn-border");
-    	$('#divTexto3').removeClass("textoNegro");
-    	$('#divTexto3').addClass("textoBlanco");
-    }*/
 }
-
-//agregar registros a la lista
 $('#add_prod_button').click(function() {
 
     $("#error_agregar").hide();
@@ -323,8 +287,6 @@ $('#add_prod_button').click(function() {
 
     if (txtDistancia != '' || txtTiempo != '' || txtCiclo1 != '' || txtCiclo2 != '' || txtFC != '' || txtRPE !=
         '' || txtLA != '') {
-        //alert(91);
-        //var prod_nprod = $("#new_prod_producto option:selected").text();
         var row_id = $("#table-body tr").length + 1;
         var nameDistancia = "ProdRow[" + row_id + "][distancia]";
         var nameTiempo = "ProdRow[" + row_id + "][tiempo]";
@@ -355,8 +317,6 @@ $('#add_prod_button').click(function() {
             '"/></td><td><a href="javascript:void(0);" class="delete-button" title="Eliminar producto"><i style="color: #C82333" class="fa fa-minus-circle fa-2x"></i></a></td> </tr>';
 
         $(".items #table-body").append(markup);
-
-        //Limpiamos
         $('#txtDistancia').val("");
         $('#txtTiempo').val("");
         $('#txtCiclo1').val("");
@@ -365,7 +325,6 @@ $('#add_prod_button').click(function() {
         $('#txtRPE').val("");
         $('#txtLA').val("");
     } else {
-        //alert(92);
         $("#error_agregar").html(
             'Debe establecer por lo menos un parámetro para registrar'
         );
@@ -399,7 +358,6 @@ jQuery('#w0').yiiActiveForm([{"id":"reportsfolder-athlete_id","name":"athlete_id
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

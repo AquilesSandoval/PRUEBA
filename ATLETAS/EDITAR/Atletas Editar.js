@@ -2,9 +2,8 @@ var s2options_d6851687 = {"themeCss":".select2-container--krajee","sizeCss":"","
 window.select2_110cffd1 = {"allowClear":true,"theme":"krajee","width":"100%","placeholder":" --- Selecciona--- ","language":"es"};
 
 $(document).ready(function() {
-	
+
 	$("#athletesathlete-email").focus();
-	//$('.save_b').attr("disabled", true);
     $('.save_b').click(function() {
         let email = $("#athletesathlete-email").val();
 		let pass = $("#pass").val();
@@ -12,16 +11,13 @@ $(document).ready(function() {
         if (!isValidEmail(email)) {
             swal("Email invalido", {
                 icon: "error",
-                //buttons: false,
                 timer: 5000,
             });
-            //$('.save_b').attr("disabled", true);
 			$('#athletesathlete-email').val('');
         } else {
 			if(pass==""){
 				swal("Debe escribir una contraseña", {
 					icon: "error",
-					//buttons: false,
 					timer: 5000,
 				});
 			}
@@ -34,31 +30,20 @@ $(document).ready(function() {
 						"id":id,
                     },
                     success: function(data) {
-                        console.log(data);
                         if (data == 'Existe') {
                             swal("Correo registrado, intente con otro", {
                                 icon: "error",
-                                //buttons: false,
                                 timer: 5000,
                             });
                             $('#athletesathlete-email').val('');
-                            //$('.save_b').attr("disabled", true)
                         } else {
-                            /*swal("Email disponible", {
-                                icon: "success",
-                                buttons: false,
-                                timer: 2000,
-                            });*/
-                            //$('.save_b').attr("disabled", false)
 							$('#w0').submit();
                         }
-
 
                     },
                     error: function(data) {
                         swal("Ha ocurrido un error inesperado", {
                             icon: "error",
-                            //buttons: false,
                             timer: 5000,
                         });
                     },
@@ -66,10 +51,8 @@ $(document).ready(function() {
             }
         }
 
-
     });
-	//$('#athletesathlete-email').change()
-	
+
 });
 
 function isValidEmail(emailText) {
@@ -80,28 +63,26 @@ function isValidEmail(emailText) {
 };
 
 function confirmDelete(){
-		var key = "M2lua05hTTJSdVNTVnNwdnJOTG85UT09"; 
+		var key = "M2lua05hTTJSdVNTVnNwdnJOTG85UT09";
 		var token = "";
-		
-        alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro', 
+
+        alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro',
             function(){
                 $.ajax({
                      type: 'POST',
                      url: "index.php?r=athletesathlete/delete",
                      data:{key:key, token:token},
                      success:function(bool){
-						 //console.log('success '+bool);
                         if (bool == true){
                             alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado. Espere un momento...</span>', 2 , function (){
-								window.location.href = "index.php?r=athletesathlete/index&del=true"; 
-							}); 
+								window.location.href = "index.php?r=athletesathlete/index&del=true";
+							});
                         }else{
-							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
 						}
                      },
-                     error: function(data){ 
-                        // console.log('error '+data);
-						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
+                     error: function(data){
+						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); });
                      },
                 });
             },
@@ -121,7 +102,6 @@ jQuery('#w0').yiiActiveForm([{"id":"athletesathlete-first_name","name":"first_na
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

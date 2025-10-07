@@ -3,7 +3,6 @@ jQuery('#register-form').yiiActiveForm([], {"errorSummary":".alert.alert-danger"
 });
 
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",
