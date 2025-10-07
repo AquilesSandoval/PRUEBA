@@ -66,18 +66,7 @@ $(document).ready(function() {
 			 data:{key:$(this).data('key'), status:this.value},
 			 success:function(bool){
 				if (bool == true){
-					/*swal("Registro actualizado", "Espere un momento ...", {
-						icon: "success",
-						buttons: {
-							confirm: {
-								className: 'btn btn-success'
-							}
-						},
-						timer: 1500,
-					}).then((result) => {
-						location.reload();
-					});*/
-					alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro actualizado. Espere un momento...</span>', 2 , function (){/*location.reload();*/}); 
+					alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro actualizado. Espere un momento...</span>', 2 , function (){}); 
 				}else{
 					alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
 				}

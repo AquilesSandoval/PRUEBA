@@ -253,14 +253,6 @@ $('#sport_sostenibilidad').change(function() {
         success: function(data) {
             data = JSON.parse(data);
             if (data.result !== 'error') {
-                /*swal("Datos obtenidos!", {
-                    icon: "success",
-                    buttons: {
-                        confirm: {
-                            className: 'btn btn-warning'
-                        }
-                    },
-                });/** */
                 $("#d1").val(data.medias.d1);
                 $("#d2").val(data.medias.d2);
                 $("#d3").val(data.medias.d3);
@@ -279,11 +271,6 @@ $('#sport_sostenibilidad').change(function() {
                 $("#vam").val(data.settings.vp);
                 $("#z4").val(data.settings.z4);
             } else {
-                /*swal("No se encontraron resultados", {
-                    icon: "error",
-                    buttons: false,
-                    timer: 3000,
-                });*/
             }
         },
         error: function(data) {
@@ -701,12 +688,6 @@ function calculoMediasMaximas() {
     let t4 = $("#t4").val();
     let t5 = $("#t5").val();
     let t6 = $("#t6").val();
-    /*d1 == '' ? 0 : (d1);
-    d2 == '' ? 0 : (d2);
-    d3 == '' ? 0 : (d3);
-    d4 == '' ? 0 : (d4);
-    d5 == '' ? 0 : (d5);
-    d6 == '' ? 0 : (d6);*/
     let segt1 = t1 == '' ? 0 : getSegundos(t1);
     let segt2 = t2 == '' ? 0 : getSegundos(t2);
     let segt3 = t3 == '' ? 0 : getSegundos(t3);
@@ -851,63 +832,8 @@ function chartZonasDinamicas(x, y, xy, vc, d_prima, r2, vc_minkm, toFixed, depor
                 },
                 dashStyle: 'Solid'
             }
-            /*,
-                        {
-                            name: 'Tendencia (Logarítmica)',
-                            type: 'line',
-                            data: logarithmicTrendline,
-                            color: 'rgba(5, 141, 199, 0.8)',
-                            marker: {
-                                enabled: false
-                            },
-                            dashStyle: 'Dash'
-                        }/* */
         ]
     });
-    /*Highcharts.chart('containerzonasdinamicas', {
-        title: {
-            text: 'Distancia (m)',
-            style: {
-                fontSize: '12px' // Cambia el tamaño de la fuente del título
-            }
-        },
-        accessibility: {
-            point: {
-                valueDescriptionFormat: '{xDescription}{separator}{value} million(s)'
-            }
-        },
-        xAxis: {
-            title: {
-                text: 'Tiempo'
-            }
-        },
-        yAxis: {
-            type: 'logarithmic',
-            title: {
-                text: '',
-                style: {
-                    fontSize: '11px' // Cambia el tamaño de la fuente del título del eje Y
-                }
-            },
-        },
-        tooltip: {
-            headerFormat: '<b>{series.name}</b><br />',
-            pointFormat: '{point.y}',
-            style: {
-                fontSize: '10px' // Cambia el tamaño de la fuente del tooltip
-            }
-        },
-        series: [{
-            name: 'Tiempo',
-            data: xy
-                ,
-            dataLabels: {
-                style: {
-                    fontSize: '12px' // Cambia el tamaño de la fuente de las etiquetas de los puntos
-                }
-            }
-        }]
-    });/* */
 }
 function getZonasDinamicas(x, y, xy) {
     swal("Espere un momento. Cargando..", {
@@ -977,11 +903,6 @@ $(function() {
                                             }
                                         },
                                     });
-                                /*swal("Fecha cambiada correctamente", {
-                                	icon: "success",
-                                	buttons: false,
-                                	timer: 3000,
-                                });*/
                                 setTimeout(function() {
                                     location.reload();
                                 }, 3000);
@@ -1030,20 +951,11 @@ function llamaComentario(idfeedback) {
             $("#comentDato3").html(resp[2]);
             $("#comentDato4").html(resp[3]);
             $("#comentDato5").html(resp[4]);
-            /*swal("Registro guardado!", "Espere un momento.", 
-			{
-				icon: "success",
-			}).then((result) => {
-			});*/
         },
         error: function(data) {},
     }); //content
 }
 function filtrarCombinacion() {
-    /*alert($('#distance_select').val() + ' - ' + $('#sport_select').val() + ' - ' + $('#numero_select').val() + ' - ');
-    alert($('#blevel_select').val() + ' - ' + $('#nlevel_select').val() + ' - ' + $('#clevel_select').val() + ' - ');
-    alert($('#bcontain_select').val() + ' - ' + $('#ncontain_select').val() + ' - ' + $('#ccontain_select').val());
-    /*return;*/
     let codigoMesociclo = $('#distance_select').val();
     if ($('#distance_select').val().trim() == "" || $('#numero_select').val() == "") {
         swal("Campos requeridos!",
@@ -1376,18 +1288,6 @@ function doChart(data) {
                 lineWidth: 2,
                 tickInterval: 5
             }
-            /*, {
-            			title: {
-            				text: 'Diff'
-            			},
-            			minorGridLineWidth: 1,
-            			gridLineWidth: 1,
-            			alternateGridColor: null,
-            			labels: {
-            				format: '{value}'
-            			},
-            			opposite: true
-            		}/** */
         ],
         plotOptions: {
             spline: {
@@ -1403,23 +1303,6 @@ function doChart(data) {
             }
         },
         series: [
-            /*{
-            			name: 'Max - '+varATitle,
-            			data: varA,
-            			yAxis: 0,
-            			color: '#003A5D'
-            		}, {
-            			name: 'Record - '+varATitle,
-            			data: varARecord,
-            			yAxis: 1,
-            			color: '#25d366'
-            		},{
-            			name: 'Diff - '+varATitle,
-            			data: varDA,
-            			yAxis: 0,
-            			color: '#dc3545'
-            		},
-            		*/
             {
                 name: 'Max - ' + varBTitle,
                 data: varB,
@@ -1436,14 +1319,8 @@ function doChart(data) {
                 yAxis: 0,
                 color: '#bb2d3b'
             }
-            /*,{
-            			name:'Linea ajustada',
-            			data:lineaAjustada,
-            			yaxis:0,
-            			color: '#000',
-            		}*/
         ]
-    }); /**/
+    }); 
     if (data.sport == 'C') {
         Highcharts.chart('container2', {
             chart: {
@@ -1476,16 +1353,6 @@ function doChart(data) {
                     },
                     color: 'rgba(80, 180, 50, 0.8)'
                 },
-                /*{
-                    name: 'Tendencia - '+varATitle,
-                    type: 'line',
-                    data: lineaAjustada,
-                    color: 'rgba(237, 86, 27, 0.8)',
-                    marker: {
-                        enabled: false
-                    },
-                    dashStyle: 'Solid'
-                },*/
                 {
                     name: 'Línea de Tendencia (Logarítmica)',
                     type: 'line',
@@ -1531,16 +1398,6 @@ function doChart(data) {
                 },
                 color: 'rgba(80, 180, 50, 0.8)'
             },
-            /*{
-            	name: 'Tendencia - '+varATitle,
-            	type: 'line',
-            	data: lineaAjustada,
-            	color: 'rgba(237, 86, 27, 0.8)',
-            	marker: {
-            		enabled: false
-            	},
-            	dashStyle: 'Solid'
-            },*/
             {
                 name: 'Línea de Tendencia (Logarítmica)',
                 type: 'line',
@@ -1553,7 +1410,6 @@ function doChart(data) {
             }
         ]
     });
-    /* DISTANCIA */
     Highcharts.chart('container4', {
         chart: {
             type: 'scatter',
@@ -1607,16 +1463,6 @@ $('#btnPronostico').click(function() {
     const tiempo = $('#txtTiempoPronostico').val();
     const distancia = $('#txtDistanciaPronostico').val();
     const r2 = $('#r2Pronostico').val();
-    /*
-    	Si es km o mt, entonces tomar grafica de velocidad / distancia (grafica 4)
-    	Si es hr o min, entonces tomar grafica de velocidad / Tiempo (grafica 3)
-    */
-    /*const B_distancia = 31.099783710544287;
-    const A_distancia = -1.9665490881722816;
-    const R2_distancia = 0.9139556532956203;
-    const A_tiempo = -1.7815536957701041;
-    const B_tiempo = 27.052760783206512;
-    const R2_tiempo = 0.9362979388559064;*/
     let velocidad = 0;
     let marcaMinutos = 0;
     let hrs = 0;
@@ -1730,8 +1576,6 @@ $(document).ready(function() {
             document.getElementById('ncontain_select').innerHTML = data;
             document.getElementById('bcontain_select').innerHTML = data;
             document.getElementById('ccontain_select').innerHTML = data;
-            /*document.getElementById('contain_duatlon').innerHTML = data;
-            document.getElementById('contain_aquatlon').innerHTML = data;*/
         },
         error: function(data) {},
     }); //content
@@ -1747,8 +1591,6 @@ $(document).ready(function() {
             document.getElementById('nivelN').innerHTML = data;
             document.getElementById('nivelB').innerHTML = data;
             document.getElementById('nivelC').innerHTML = data;
-            /*document.getElementById('level_duatlon').innerHTML = data;
-            document.getElementById('level_aquatlon').innerHTML = data;*/
                         $("#nivelN").val();
             $("#nivelB").val();
             $("#nivelC").val(4);
@@ -1792,36 +1634,7 @@ $(document).ready(function() {
         });
     }
     $('#sport_select').change(function() {
-        /*$('#divLevel').hide();
-        $('#divbLevel').hide();
-        $('#divnLevel').hide();
-        $('#divcLevel').hide();
-        $('#divContent').hide();
-        $('#divbContent').hide();
-        $('#divnContent').hide();
-        $('#divcContent').hide();
-        if($('#sport_select').val()=="1"){
-        	$('#divbLevel').show();
-        	$('#divbContent').show();
-        }
-        else if($('#sport_select').val()=="2"){
-        	$('#divnLevel').show();
-        	$('#divnContent').show();
-        }
-        else if($('#sport_select').val()=="3"){
-        	$('#divcLevel').show();
-        	$('#divcContent').show();
-        }
-        else{
-        	$('#divLevel').show();
-        	$('#divContent').show();
-        }*/
     });
-    /*$('li').click(function() {
-        var url = $(this).attr('rel');
-        $('#iframe').attr('src', url);
-        $('#iframe').reload();
-    });*/
     $('#add_log').click(function() {
         let name = $("#name_logro").val();
         let date = $("#date_logro").val();
@@ -1874,451 +1687,6 @@ $(document).ready(function() {
         });
     });
     $("#save_form").click(function() {
-        /*let jsonObj = [];
-        $(".transicion").each(function() {
-            let created_at = $('#created_at').val();
-            let updated_at = $('#updated_at').val();
-            item = {}
-            item["created_at"] = created_at;
-            item["updated_at"] = updated_at;
-            jsonObj.push(item);
-        });
-        let consigna = $('#consigna').val();
-        $.ajax({
-            type: 'get',
-            url: "/web/index.php?r=athletesathlete/createfromdata",
-            data: {
-                "consigna": consigna,
-                "id": 146,
-            },
-            success: function(data) {
-                swal(data, {
-                    icon: "success",
-                    buttons: false,
-                    timer: 2000,
-                });
-            },
-            error: function(data) {},
-        });
-    });
-    $('#values2').empty();
-    $('#values2').append($('#consigna').val().length +
-        ' Caracteres');
-    $('#values1').empty();
-    $('#values1').append($('#inicio').val().length +
-        ' Caracteres');
-    $('.contenedor2').scrollLeft(3315);
-    $('#seguimiento').click(function() {
-        $('#exampleModal').modal('show');
-    });
-    $('.mensaje').click(function() {
-        let id = $(this).data('id');
-        if (id == 0) {
-            $('#texto_mensaje').prop("required", true);
-        } else {
-            $('#texto_mensaje').prop("required", false);
-        }
-        let tema = $(this).data('tema');
-        $('#tema_id').val(id);
-        $('#titulo_mensaje').val(tema);
-        $('#mensajeModal').modal('show');
-    });
-    $('.edit-tema').click(function() {
-        let id = $(this).data('id');
-        let tema = $(this).data('tema');
-        $('#tema_id_tema').val(id);
-        $('#titulo_mensaje_tema').val(tema);
-        $('#mensajeModalEditTema').modal('show');
-    });
-    $('.edit-mensaje').click(function() {
-        let id = $(this).data('id');
-        let mensaje = $(this).data('mensaje');
-        $('#mensaje_id').val(id);
-        $('#texto_mensaje_mensaje').text(mensaje);
-        $('#mensajeModalEditMensaje').modal('show');
-    });
-    $('.delete-mensaje').click(function() {
-        let id = $(this).data('id');
-        let mensaje = $(this).data('mensaje');
-        alertify.confirm(
-            'Confirmación',
-            '¿Seguro que desea eliminar el mensaje?',
-            function() {
-                $.ajax({
-                    type: 'get',
-                    url: "/web/index.php?r=athletesathlete/deletemensaje",
-                    data: {
-                        "id": id
-                    },
-                    success: function(data) {
-                        if (data == "Exito") {
-                            swal("Mensaje eliminado!",
-                                "", {
-                                    icon: "success",
-                                    buttons: {
-                                        confirm: {
-                                            className: 'btn btn-warning'
-                                        }
-                                    },
-                                });
-                            window.location.reload();
-                        } else {
-                            swal("Error al eliminar!",
-                                "", {
-                                    icon: "error",
-                                    buttons: {
-                                        confirm: {
-                                            className: 'btn btn-warning'
-                                        }
-                                    },
-                                });
-                        }
-                    },
-                    error: function(data) {},
-                });
-            },
-            function() {
-            });
-    })
-    $('.tab-link').click(function() {
-        $('.tab-link').removeClass('text-white bg-primary');
-        $('.tab-link').addClass('bg-white');
-        $(this).addClass('text-white bg-primary');
-    })
-    $('#logro').click(function() {
-        $('#exampleModal2').modal('show');
-    });
-    $(".contenedor2").on("scroll", function() {
-        $(".contenedor2").scrollLeft($(this).scrollLeft());
-    });
-    $('.show_events').click(function() {
-        start_date = $(this).data('startdate');
-        end_date = $(this).data('enddate');
-        $.ajax({
-            type: 'get',
-            url: "/web/index.php?r=athletesathlete/events",
-            data: {
-                "start_date": start_date,
-                "end_date": end_date
-            },
-            success: function(data) {
-                $('#modal_body_eventos').empty();
-                $('#modal_body_eventos').append(data);
-            },
-            error: function(data) {},
-        });
-        $('#exampleModal3').modal('show');
-    });
-    $('#add_event2').click(function() {
-        $('#exampleModal5').modal('show');
-    });
-    $('#add_event').click(function() {
-        let code = $('#code_event_new').val();
-        let color = $('#color_event_new').val();
-        let name = $('#name_event_new').val();
-        let location = $('#location_event_new').val();
-        let date = $('#date_event_new').val();
-        let hour = $('#hour_event_new').val();
-        let notes = $('#notes_event_new').val();
-        let is_default = $('#is_default_event_new').is(':checked');
-        if (code == "" || name == "" || date == "") {
-            swal("Campos requeridos!",
-                "Los campos marcados con asterisco son obligatorios", {
-                    icon: "warning",
-                    buttons: {
-                        confirm: {
-                            className: 'btn btn-warning'
-                        }
-                    },
-                });
-            return false;
-        }
-        $.ajax({
-            type: 'get',
-            url: "/web/index.php?r=athletesathlete/newevent",
-            data: {
-                "is_default": is_default,
-                "code": code,
-                "color": color,
-                "name": name,
-                "location": location,
-                "date": date,
-                "hour": hour,
-                "notes": notes,
-            },
-            success: function(data) {
-                $('#exampleModal5').modal('hide');
-                $('#exampleModal3').modal('hide');
-                swal("Registro guardado!",
-                    "Espere un momento.", {
-                        icon: "success",
-                        buttons: {
-                            confirm: {
-                                className: 'btn btn-warning'
-                            }
-                        },
-                    }).then((result) => {
-                    window.location.reload();
-                });
-            },
-            error: function(data) {},
-        });
-    });
-    $('#add_seg').click(function() {
-        let name = $("#name_seguimiento").val();
-        let date = $("#date_seguimiento").val();
-        $.ajax({
-            type: 'get',
-            url: "/web/index.php?r=athletesathlete/saveseguimiento",
-            data: {
-                "name": name,
-                "date": date,
-                "athlete_id": 146,
-            },
-            success: function(data) {
-                window.location.reload();
-                let string = '<div class="row"><div aign="left" class="col">' + name +
-                    ' - ' + date + '</div>' +
-                    '<div aign="right" class="col"><button class="btn btn-xs btn_edit_seguimiento" onclick="update_seguimiento(' +
-                    data + ')" type="button" data-identifier="' +
-                    data +
-                    '" id=""><i aria-hidden="" class="fas fa-check-circle"></i></button>' +
-                    '<button class="btn btn-xs btn_delete_seguimiento" onclick="delete_seguimiento(' +
-                    data + ')" id="" type="button" data-identifier="' +
-                    data +
-                    '"><i aria-hidden="" class="fas fa-trash-alt"></i></button></div></div>' +
-                    '<br>';
-                $("#seguimiento_table").append(string);
-                $('#exampleModal').modal('hide');
-            },
-            error: function(data) {},
-        });
-    });
-    $('.show_competition').click(function() {
-        start_date = $(this).data('startdate');
-        end_date = $(this).data('enddate');
-        var btnID = $(this).data("btn");
-        $('.fondoPermanece').css("background-color", "#FFF");
-        $(this).css("background-color", "#003B5C");
-        $(this).css("z-index", "999");
-        $.ajax({
-            type: 'get',
-            url: "/web/index.php?r=athletesathlete/competitions",
-            data: {
-                "start_date": start_date,
-                "end_date": end_date
-            },
-            success: function(data) {
-                $('#modal_body_competiciones').empty();
-                $('#modal_body_competiciones').append(data);
-            },
-            error: function(data) {},
-        });
-        $('#identifier_competitions').val($(this).data('identifier'));
-        $('#exampleModal4').modal('show');
-    });
-    $('.show_test').click(function() {
-        let start_date = $(this).data('startdate');
-        let end_date = $(this).data('enddate');
-        let athlete_id = 146;
-        var btnID = $(this).data("btn");
-        $('.fondoPermanece').css("background-color", "#FFF");
-        $(this).css("background-color", "#003B5C");
-        $(this).css("z-index", "999");
-        $('#identifier_tests').val($(this).data('identifier'));
-        $('#date_tests').val(start_date);
-        $('#testModal').modal('show');
-    });
-    $('#add_test').click(function() {
-        let siglas = $("#siglas_test").val();
-        let descripcion = $("#descripcion_test").val();
-        let date = $('#date_tests').val();
-        $.ajax({
-            type: 'get',
-            url: "/web/index.php?r=athletesathlete/savetest",
-            data: {
-                "siglas": siglas,
-                "descripcion": descripcion,
-                "date": date,
-                "athlete_id": 146,
-            },
-            success: function(data) {
-                window.location.reload();
-                $('#testModal').modal('hide');
-            },
-            error: function(data) {},
-        });
-    });
-    $('#edit_test').click(function() {
-        let siglas = $("#edit_siglas_test").val();
-        let descripcion = $("#edit_descripcion_test").val();
-        let date = $('#edit_date_tests').val();
-        let id = $('#edit_identifier_tests').val();
-        $.ajax({
-            type: 'get',
-            url: "/web/index.php?r=athletesathlete/edittest",
-            data: {
-                "siglas": siglas,
-                "descripcion": descripcion,
-                "date": date,
-                "id": id,
-                "athlete_id": 146,
-            },
-            success: function(data) {
-                window.location.reload();
-                $('#testModal').modal('hide');
-            },
-            error: function(data) {},
-        });
-    })
-    $('.menu').click(function() {
-        $('.fondoPermanece').css("background-color", "#FFF");
-        $(this).css("background-color", "#003B5C");
-        $(this).css("z-index", "999");
-        exist_w = $('#' + $(this).data('identifier') + '_comment').css('width');
-        exist_l = $('#' + $(this).data('identifier') + '_comment').css('left');
-        exist_affect = $(this).data("affect"); //agregado
-        if (!exist_w || exist_affect == "0") {
-            $('#identifier_options').val($(this).data('identifier'));
-            $('#identifier_options2').val($(this).data('identifier'));
-            if ($('#hddAccion').val() == 1)
-                $('#hddAccion').val(0);
-            else
-                $('#modalOptions').modal('show');
-        }
-        $('#hddFechaInicial').val($(this).data('startdate'));
-    });
-    $('.nums').keyup(function() {
-        id = $(this).data('identifier');
-        valor = $(this).val();
-        v_id = id.slice(1);
-        $(".nums").each(function(index, element) {
-            id2 = $(this).data('identifier');
-            v_id2 = id2.slice(1);
-            if (Number(v_id2) > Number(v_id)) {
-                valor = Number(valor) + 1;
-                $(this).val(valor);
-            }
-        });
-    });
-    $('#consigna').keyup(function() {
-        $('#values2').empty();
-        $('#values2').append($(this).val().length +
-            ' Caracteres'
-        );
-    });
-    $('#inicio').keyup(function() {
-        $('#values1').empty();
-        $('#values1').append($(this).val().length +
-            ' Caracteres'
-        );
-    });
-    $('#add_text_options').click(function() {
-        text = $('#text_options').val();
-        id = $('#identifier_options').val();
-        let comment = $('#text_options').val();
-        let weeks = $('#text_options_weeks').val();
-        let created_at = $('#athletesathlete-created_at').val();
-        let updated_at = $('#athletesathlete-updated_at').val();
-        let start_date = $('#' + id).data('startdate');
-        let end_date = $('#' + id).data('enddate');
-        let xn = $('#' + id).data('xn');
-        $.ajax({
-            type: 'get',
-            url: "/web/index.php?r=athletesathlete/savecomments",
-            data: {
-                "comment": comment,
-                "created_at": created_at,
-                "updated_at": updated_at,
-                "start_date": start_date,
-                "end_date": end_date,
-                "athlete_id": 146,
-                "width": (64 * weeks),
-                "xn": xn,
-                "weeks": weeks
-            },
-            success: function(data) {
-                window.location.reload();
-                $('#' + id).append('<div data-identifier="' + data + '" id="' + id +
-                    '_comment" style="background-color:white;align-items:center;position: absolute; left: 0px; top: 0px; z-index: 1;border:1px solid #003B5C;color:#003B5C;border-radius:25px;width:' +
-                    (64 * weeks) +
-                    'px;height:60px;"><div style="font-size:12px;padding-top:0px;padding-bottom:0px"><b> ' +
-                    text +
-                    '</b></div><button type="button" style="padding:1px" title="' +
-                    'Disminuir ancho' +
-                    '" class="btn btn-xs" onclick="menos(' +
-                    id +
-                    '_comment)" > <i class="fa fa-caret-left" aria-hidden="true"></i></button><button type="button" style="padding:1px" class="btn btn-xs" title="' +
-                    'Aumentar ancho' +
-                    '" onclick="mas(' +
-                    id +
-                    '_comment)" > <i class="fa fa-caret-right" aria-hidden="true"></i> </button><button type="button" style="padding:1px" title="' +
-                    'Eliminar comentario' +
-                    '" class="btn btn-xs" onclick="remove(' +
-                    id +
-                    '_comment)" > <i class="fa fa-trash" aria-hidden="true"></i> </button></div>'
-                );
-                $('#modalOptions').modal('hide');
-            },
-            error: function(data) {},
-        });
-    });
-    $('#search_mi').click(function() {
-        $('#btnCombinar').show();
-        $('#btnAddFiltro').show();
-        $('#btnPrevisualizarM').hide();
-        let sel = $('#search_microciclo').val();
-        if (sel.trim() == "") {
-            swal("Campos requeridos!",
-                "Debe escribir almenos 3 caráteres para buscar", {
-                    icon: "warning",
-                    buttons: {
-                        confirm: {
-                            className: 'btn btn-warning'
-                        }
-                    },
-                });
-        } else {
-            swal("Espere un momento. Cargando..", {
-                buttons: false,
-                timer: 2000,
-            });
-            $.ajax({
-                type: 'get',
-                url: "/web/index.php?r=progressionsprogression/getmicrociclo",
-                data: {
-                    "word": sel
-                },
-                success: function(data) {
-                    document.getElementById('microciclo_select').innerHTML = data;
-                },
-                error: function(data) {},
-            });
-        }
-    });
-    /*$('#microciclo_select').select2({
-    	placeholder: 'Buscar...',
-    	minimumInputLength: 3, // Número mínimo de caracteres para activar la búsqueda
-    	ajax: {
-    		url: '/web/index.php?r=progressionsprogression/getmicrociclo', // Ruta del script que procesa la búsqueda
-    		dataType: 'json',
-    		delay: 250, // Retraso en milisegundos antes de enviar la solicitud
-    		data: function (params) {
-    			return {
-    				word: params.term, // Término de búsqueda introducido por el usuario
-    				check:$('#checkmic').is(':checked')
-    			};
-    		},
-    		processResults: function (data) {
-    			$('#btnPrevisualizarM').show();
-    			return {
-    				results: data
-    			};
-    		},
-    		cache: true
-    	},
-    	width:'100%'
-    });*/
     $('#search_ma').click(function() {
         $('#btnPrevisualizarM').hide();
         let sel = $('#search_macrociclo').val();
@@ -2688,8 +2056,6 @@ $(document).ready(function() {
         var dist = $('#distance_select').val();
         var sport = $('#sport_select').val();
         sport = $('#hddCombinaMesoDeporteID').val();
-        /*alert($('#hddCombinaMesoDeporteID').val());
-        return;/**/
         var numM = $('#numero_select').val();
         var blevel = $('#blevel_select').val();
         var nlevel = $('#nlevel_select').val();
@@ -3064,10 +2430,6 @@ $(document).ready(function() {
         $('#modalConfiguracionSemanal').modal('hide');
     });
 });
-/*
-	$('#add_ss').data('option', '2');
-    getModalMesociclo();
-	*/
 function activarDistancia() {
     let sel = $('#hddCombinaMesoDeporteID').val();
     $.ajax({
@@ -3078,8 +2440,6 @@ function activarDistancia() {
         },
         success: function(data) {
             document.getElementById('distance_select').innerHTML = data;
-            /*document.getElementById('distance_duatlon').innerHTML = data;
-            document.getElementById('distance_aquatlon').innerHTML = data;*/
         },
         error: function(data) {},
     });
@@ -3123,13 +2483,6 @@ function validaChkCombinaMeso(valor) {
     $('#divTextoCombinaMeso2').addClass("textoNegro");
     $('#divTextoCombinaMeso3').addClass("textoNegro");
     $('#hddCombinaMesoDeporteID').val(0);
-    /*$("#divTriatlon").hide();
-	$("#divDuatlon").hide();
-	$("#divAquatlon").hide();
-    /*$('.spanVistaNatacion').hide();
-    $('.spanVistaCiclismo').hide();
-    $('.spanVistaCarrera').hide();
-	*/
     if (valor == 1) {
         $('#divDeporteCombinaMeso1').removeClass("btn-border");
         $('#divTextoCombinaMeso1').removeClass("textoNegro");
@@ -3172,11 +2525,6 @@ function validaChk(valor) {
     $('#divTexto2').addClass("textoNegro");
     $('#divTexto3').addClass("textoNegro");
     $('#athleteszonesathlete-deporteID').val(valor);
-    /*$('.claseOcultarRitmo').hide();
-    $('.claseOcultarPotencia').hide();
-    $('.claseOcultarVelocidad').hide();
-    $('.claseOcultarVelocidadCarrera').hide();
-    */
     $('.spanVistaNatacion').hide();
     $('.spanVistaCiclismo').hide();
     $('.spanVistaCarrera').hide();
@@ -3184,21 +2532,16 @@ function validaChk(valor) {
         $('#divDeporte1').removeClass("btn-border");
         $('#divTexto1').removeClass("textoNegro");
         $('#divTexto1').addClass("textoBlanco");
-        /*$('.claseOcultarVelocidad').show();
-        $('.claseOcultarVelocidadCarrera').show();*/
         $('.spanVistaCarrera').show();
     } else if (valor == 2) {
         $('#divDeporte2').removeClass("btn-border");
         $('#divTexto2').removeClass("textoNegro");
         $('#divTexto2').addClass("textoBlanco");
-        /*$('.claseOcultarPotencia').show();
-        $('.claseOcultarVelocidad').show();*/
         $('.spanVistaCiclismo').show();
     } else if (valor == 3) {
         $('#divDeporte3').removeClass("btn-border");
         $('#divTexto3').removeClass("textoNegro");
         $('#divTexto3').addClass("textoBlanco");
-        /*$('.claseOcultarRitmo').show();*/
         $('.spanVistaNatacion').show();
     }
 }
@@ -3236,11 +2579,6 @@ function menos(id) {
     } else {
         width = width - 64;
     }
-    /*if (width == 62) {
-        width = 62;
-    } else {
-        width = width - 62;
-    }*/
     identifier = $('#' + id['id']).data('identifier');
     $.ajax({
         type: 'get',
@@ -3333,14 +2671,6 @@ function remove(id) {
                 buttons: false,
                 timer: 1000,
             });
-            /*type = id['id'].slice(0, 2);
-            num_id = id['id'].slice(2, -8);
-            num_id = Number(num_id);
-            num_id = num_id - 1;
-            type = id['id'].slice(0, 2);
-            num_id = id['id'].slice(2, -8);
-            num_id = Number(num_id);
-            num_id = num_id + 1;*/
             identifier = id;
             $.ajax({
                 type: 'get',
@@ -3510,8 +2840,6 @@ function copiarAAtleta(atletaBuscadoID, _atletaSelected) {
                 let start_date = $('#txtFechaInicialCopiar').val();
                 let end_date = $('#txtFechaFinalCopiar').val();
                 let codeDash = $('#txtCodeDashboard').val();
-                /*alert(option + ' -- ' + microMesoID + ' -- ' + start_date + ' -- ' + end_date + ' -- ' + codeDash + " -- " + _atletaSelected);
-                return false;/**/
                 $.ajax({
                     type: 'get',
                     url: "/web/index.php?r=mesocyclesmesocycle/clone",

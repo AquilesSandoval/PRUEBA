@@ -25,15 +25,6 @@ $(document).ready(function(){
 				swal("Espere un momento. Cargando...", {
 					buttons: false,
 				});
-				/*$blockBtn = $this.clone();
-				$blockBtn.attr('type', 'button');
-				$blockBtn.html('Espere un momento ...'); 
-				$blockBtn.addClass('submitFormBtnBlock');
-				$blockBtn.removeClass('submitFormBtn');
-				$blockBtn.insertAfter($this);
-				$blockBtn.attr('disabled', 'disabled');
-				$this.hide();
-		 		$blockBtn.show();*/
 			}
 			if(dtClear>0 || sesionesSelecionados==0){
 				if(sesionesSelecionados==0)
@@ -64,13 +55,6 @@ $("#reportsfolder-txtZona2V").keyup(function(){
 	}
 });
 $("#reportsfolder-txtZona4V").keyup(function(){
-	/*let result= 0;
-	var valor= $("#reportsfolder-txtZona4V").val();
-	if(valor!=""){
-		result= ((100/(valor*100/60)));
-	}
-	else result=0;
-	$("#spanZona4Tiempo").html(result.toFixed(2));*/
 	if($("#reportsfolder-deporteID1").is(':checked')){//SI ES carrera
 		calcula('4Tiempo',$("#reportsfolder-txtZona4V").val());
 	}
@@ -270,14 +254,6 @@ function validaChk(){
 			},
 		});
 	}
-	/*$(function () {
-		$('.add-modal-click').click(function () {
-			$('#add-modal')
-					.modal('show')
-					.find('#addModalContent')
-					.load($(this).attr('value'));
-		});
-	});*/
 function llenarTabla(){
 	$.ajax({
            type: 'get',

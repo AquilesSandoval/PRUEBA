@@ -35,11 +35,6 @@ $(document).ready(function() {
                             });
                             $('#athletesathlete-email').val('');
                         } else {
-                            /*swal("Email disponible", {
-                                icon: "success",
-                                buttons: false,
-                                timer: 2000,
-                            });*/
 							$('#w0').submit();
                         }
                     },

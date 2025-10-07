@@ -3,67 +3,42 @@ $(".filtro-competiciones").hide();
 $(".filtro-programadas").hide();
 $('#btn-clean').prop("disabled", true);;
 $(".filtro").show();
-banderaReporte = 1; //1 = ACTIVIDADES RECIBIDAS 	|| 	2 = ACTIVIDADES PROGRAMADAS
+banderaReporte = 1;
+function toggleElements(show, hide) {
+    show.forEach(sel => $(sel).show());
+    hide.forEach(sel => $(sel).hide());
+}
 function selecciona(_opt) {
     banderaReporte = _opt;
     if (_opt == 1) {
-        $('.btn-excelcompeticiones').hide();
-        $('.btn-pdfcompeticiones').hide();
-        $(".divDeporteText").show();
-        $(".divDeporte").hide();
-        $(".tblRecibidos").show();
-        $("#spanPaginacion").show();
-        $("#spanTotalRecords").show();
-        $("#spanPaginacionProgramadas").hide();
-        $("#spanPaginacionCompeticiones").hide();
-        $("#spanTotalRecordsCompeticiones").hide();
-        $("#spanTotalRecordsProgramadas").hide();
+        toggleElements(
+            [".divDeporteText", ".tblRecibidos", "#spanPaginacion", "#spanTotalRecords", ".filtro"],
+            [".btn-excelcompeticiones", ".btn-pdfcompeticiones", ".divDeporte", "#spanPaginacionProgramadas", 
+             "#spanPaginacionCompeticiones", "#spanTotalRecordsCompeticiones", "#spanTotalRecordsProgramadas", 
+             ".filtro-programadas", ".filtro-competiciones", "#print_btn", ".tblCompeticiones"]
+        );
         $('#text-fechaI').text('Fecha Inicial');
-        $(".filtro-programadas").hide();
-        $(".filtro-competiciones").hide();
-        $(".filtro").show();
-        $('#print_btn').hide();
-        $('.tblCompeticiones').hide();
     } else if (_opt == 3) {
         if($('#trResultsCompeticiones').html().length > 25) {
-            $('.btn-excelcompeticiones').show();
-            $('.btn-pdfcompeticiones').show();
+            $('.btn-excelcompeticiones, .btn-pdfcompeticiones').show();
         }else{
-            $('.btn-excelcompeticiones').hide();
-            $('.btn-pdfcompeticiones').hide();
+            $('.btn-excelcompeticiones, .btn-pdfcompeticiones').hide();
         }
-        $(".divDeporteText").hide();
-        $(".divDeporte").hide();
-        $(".tblRecibidos").hide();
-        $("#spanPaginacion").hide();
-        $("#spanTotalRecords").hide();
-        $("#spanPaginacionProgramadas").hide();
-        $("#spanTotalRecordsCompeticiones").show();
-        $("#spanPaginacionCompeticiones").show();
-        $("#spanTotalRecordsProgramadas").hide();
+        toggleElements(
+            ["#spanTotalRecordsCompeticiones", "#spanPaginacionCompeticiones", ".filtro-competiciones", ".tblCompeticiones"],
+            [".divDeporteText", ".divDeporte", ".tblRecibidos", "#spanPaginacion", "#spanTotalRecords", 
+             "#spanPaginacionProgramadas", "#spanTotalRecordsProgramadas", ".filtro-programadas", ".filtro"]
+        );
         $('#text-fechaI').text('Fecha Inicial');
-        $(".filtro-programadas").hide();
-        $(".filtro").hide();
-        $(".filtro-competiciones").show();
-        $('.tblCompeticiones').show();
     } else {
-        $('.btn-excelcompeticiones').hide();
-        $('.btn-pdfcompeticiones').hide();
-        $(".divDeporteText").hide();
-        $(".divDeporte").show();
-        $(".tblRecibidos").hide();
-        $("#spanPaginacion").hide();
-        $("#spanTotalRecords").hide();
-        $("#spanPaginacionProgramadas").show();
-        $("#spanTotalRecordsProgramadas").show();
+        toggleElements(
+            [".divDeporte", "#spanPaginacionProgramadas", "#spanTotalRecordsProgramadas", ".filtro-programadas"],
+            [".btn-excelcompeticiones", ".btn-pdfcompeticiones", ".divDeporteText", ".tblRecibidos", "#spanPaginacion", 
+             "#spanTotalRecords", "#spanPaginacionCompeticiones", "#spanTotalRecordsCompeticiones", ".filtro", 
+             ".filtro-competiciones", ".tblCompeticiones"]
+        );
         $('#spanTotalRecordsProgramadas').text(0);
-        $("#spanPaginacionCompeticiones").hide();
-        $("#spanTotalRecordsCompeticiones").hide();
         $('#text-fechaI').text('Fecha');
-        $(".filtro").hide();
-        $(".filtro-competiciones").hide();
-        $(".filtro-programadas").show();
-        $('.tblCompeticiones').hide();
     }
 }
 function eliminarActividad(actividadID) {
@@ -1766,11 +1741,6 @@ function filtro_buscar(limite, pg) {
                         if (temp_id_sesion !== 0) {
                             arr_atletas.push(item.atleta.id);
                         } else {
-                            /*swal("No se encontraron resultados", {
-                                buttons: false,
-                                timer: 3000,
-                                icon: 'info'
-                            });*/
                         }
                     } else {
                         if (data.length > 1) {} else {
@@ -1850,8 +1820,6 @@ function filtro_buscar(limite, pg) {
 function referencias(id, atletaId) {
     let date = $("#date_sesion_" + id).val();
     let zona = $("#zona_sesion_" + id).val();
-    /*let referencia1 = $("#referencia1_sesion_" + id).val();
-    let referencia2 = $("#referencia2_sesion_" + id).val();*/
     let referencia1 = $("#referencia1_sesion").val();
     let referencia2 = $("#referencia2_sesion").val();
     let ref_text1 = $("#referencia1_sesion option:selected").text();
@@ -1979,11 +1947,6 @@ function referencias(id, atletaId) {
         '<div class="row">' + ref_text2 + ': ' + value_referencia2 + '' + '</div>' +
         '<div class="row" style="color:red;text-align:justify">' + _mensaje + '</div>' +
         '</div>');
-    /*$('#tr_item_sesion_' + id).after('<div class="row tr_item_sesion_' + id + ' tr_item_sesion_referencia_' + id +
-        '"  align="right" style="padding:10px;"><div class="col-md-10"></div>' +
-        '<div class="col">' + id + ':--' + date + '--' + zona + '--' + referencia1 + '--' +
-        referencia2 + '</div>' +
-        '</div>')*/
 }
 function deleteRef(id, atletaId) {
     $('#tr_item_sesion_' + id).remove();

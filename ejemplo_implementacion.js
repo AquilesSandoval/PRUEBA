@@ -1,13 +1,3 @@
-/**
- * Ejemplo de Implementación para Poblar Plantillas Dinámicas
- * 
- * Este archivo muestra cómo cargar y mostrar datos en las plantillas HTML.
- * Puede ser usado como referencia para implementar el backend.
- */
-/**
- * Pobla la plantilla del informe ergoespirométrico con datos
- * @param {Object} data - Datos del informe según estructura en data_format.md
- */
 function poblarInformeErgo(data) {
     const nombreCompleto = `${data.informe.atleta.nombre} ${data.informe.atleta.apellido}`;
     setearTexto('athlete-name-metabolico', nombreCompleto);
@@ -50,9 +40,6 @@ function poblarInformeErgo(data) {
         actualizarGraficoPolar(data.grafica_prioridad.series);
     }
 }
-/**
- * Actualiza el gráfico polar de Highcharts
- */
 function actualizarGraficoPolar(series) {
     const chart = Highcharts.charts.find(c => c && c.renderTo.id === 'container');
     if (chart) {
@@ -67,10 +54,6 @@ function actualizarGraficoPolar(series) {
         });
     }
 }
-/**
- * Pobla la plantilla del informe de lactato con datos
- * @param {Object} data - Datos del informe según estructura en data_format.md
- */
 function poblarInformeLactato(data) {
     const nombreCompleto = `${data.informe.atleta.nombre} ${data.informe.atleta.apellido}`;
     setearTexto('athlete-name-lactato', nombreCompleto);
@@ -96,9 +79,6 @@ function poblarInformeLactato(data) {
         actualizarGraficoLactato(data.grafica);
     }
 }
-/**
- * Pobla un contenedor con datos de prueba
- */
 function poblarDatosPrueba(containerId, valores) {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -106,9 +86,6 @@ function poblarDatosPrueba(containerId, valores) {
         `<label class="datosDelTest">${v}</label>`
     ).join('');
 }
-/**
- * Actualiza el gráfico de lactato
- */
 function actualizarGraficoLactato(grafica) {
     const chart = Highcharts.charts.find(c => c && c.renderTo.id === 'container');
     if (chart && grafica.series) {
@@ -119,9 +96,6 @@ function actualizarGraficoLactato(grafica) {
         });
     }
 }
-/**
- * Pobla la plantilla de Macrociclo
- */
 function poblarMacrociclo(data) {
     setearTexto('macrociclo-atleta-nombre', data.macrociclo.atleta.nombre);
     setearTexto('macrociclo-codigo', data.macrociclo.codigo);
@@ -130,9 +104,6 @@ function poblarMacrociclo(data) {
         perfilSelect.value = data.macrociclo.perfil.id;
     }
 }
-/**
- * Pobla la plantilla de Mesociclo
- */
 function poblarMesociclo(data) {
     setearTexto('mesociclo-atleta-nombre', data.mesociclo.atleta.nombre);
     setearTexto('mesociclo-codigo', data.mesociclo.codigo);
@@ -141,16 +112,10 @@ function poblarMesociclo(data) {
         perfilSelect.value = data.mesociclo.perfil.id;
     }
 }
-/**
- * Pobla la plantilla de Microciclo
- */
 function poblarMicrociclo(data) {
     setearTexto('microciclo-atleta-nombre', data.microciclo.atleta.nombre);
     setearTexto('microciclo-codigo', data.microciclo.codigo);
 }
-/**
- * Establece el texto de un elemento por su ID
- */
 function setearTexto(id, valor, valorPorDefecto = '') {
     const elemento = document.getElementById(id);
     if (elemento) {
@@ -159,16 +124,10 @@ function setearTexto(id, valor, valorPorDefecto = '') {
             : valorPorDefecto;
     }
 }
-/**
- * Formatea un número decimal
- */
 function formatearDecimal(numero, decimales = 1) {
     if (numero === null || numero === undefined) return '';
     return Number(numero).toFixed(decimales);
 }
-/**
- * Formatea una fecha de ISO a formato legible en español
- */
 function formatearFecha(fechaISO) {
     if (!fechaISO) return '';
     const partes = fechaISO.split('-');
@@ -181,9 +140,6 @@ function formatearFecha(fechaISO) {
     const año = partes[0];
     return `${dia} de ${mes} del ${año}`;
 }
-/**
- * Carga un informe ergoespirométrico desde el backend
- */
 async function cargarInformeErgo(idInforme) {
     try {
         const response = await fetch(`/api/informes/ergo/${idInforme}`);
@@ -200,9 +156,6 @@ async function cargarInformeErgo(idInforme) {
         mostrarError('No se pudo cargar el informe');
     }
 }
-/**
- * Carga un informe de lactato desde el backend
- */
 async function cargarInformeLactato(idInforme) {
     try {
         const response = await fetch(`/api/informes/lactato/${idInforme}`);
@@ -216,9 +169,6 @@ async function cargarInformeLactato(idInforme) {
         mostrarError('No se pudo cargar el informe de lactato');
     }
 }
-/**
- * Valida la estructura de datos de un informe ergo
- */
 function validarInformeErgo(data) {
     if (!data.informe || !data.composicion_corporal || !data.gasto_energetico_reposo) {
         console.error('Faltan propiedades principales en los datos');
@@ -233,9 +183,6 @@ function validarInformeErgo(data) {
     }
     return true;
 }
-/**
- * Valida la estructura de datos de un informe de lactato
- */
 function validarInformeLactato(data) {
     if (!data.informe || !data.datos_prueba) {
         console.error('Faltan propiedades principales en los datos');
@@ -251,9 +198,6 @@ function validarInformeLactato(data) {
     }
     return true;
 }
-/**
- * Muestra un mensaje de error al usuario
- */
 function mostrarError(mensaje) {
     alert(mensaje);
 }

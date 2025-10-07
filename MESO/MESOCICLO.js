@@ -45,16 +45,8 @@ function notificacionToast(_mensaje) {
 		if(!is_variasVeces) {
 			$(".rbMoverAqui").hide();
 		}
-		/*window.setTimeout(function () {
-			$(".rbMoverAqui").prop("checked", false);
-			$(".rbMoverAqui").hide();
-		}, 15000);/**/
 	}
 $( function() {
-    /*$( ".divDragAndDrop" ).sortable();
-    $( ".divDragAndDrop" ).disableSelection();
-    $( ".divDragAndDrop1" ).sortable();
-    $( ".divDragAndDrop1" ).disableSelection();*/
   } ); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ0_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ0_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ0_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ0_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ0_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ0_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ0_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ0_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ0_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ0_10", 0); updateZoneValue("#spanTimeCarreraZ1", 15); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ0_1", 15); updateZoneValue("#spanTimeCarreraZ0_2", 0); updateZoneValue("#spanTimeCarreraZ0_3", 0); updateZoneValue("#spanTimeCarreraZ0_4", 0); updateZoneValue("#spanTimeCarreraZ0_5", 0); updateZoneValue("#spanTimeCarreraZ0_6", 0); updateZoneValue("#spanTimeCarreraZ0_7", 0); updateZoneValue("#spanTimeCarreraZ0_8", 0); updateZoneValue("#spanTimeCarreraZ0_9", 0); updateZoneValue("#spanTimeCarreraZ0_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ0_1", 0); updateZoneValue("#spanTimeNatacionZ0_2", 0); updateZoneValue("#spanTimeNatacionZ0_3", 0); updateZoneValue("#spanTimeNatacionZ0_4", 0); updateZoneValue("#spanTimeNatacionZ0_5", 0); updateZoneValue("#spanTimeNatacionZ0_6", 0); updateZoneValue("#spanTimeNatacionZ0_7", 0); updateZoneValue("#spanTimeNatacionZ0_8", 0); updateZoneValue("#spanTimeNatacionZ0_9", 0); updateZoneValue("#spanTimeNatacionZ0_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ0_1", 0); updateZoneValue("#spanDistanciaCiclismoZ0_2", 0); updateZoneValue("#spanDistanciaCiclismoZ0_3", 0); updateZoneValue("#spanDistanciaCiclismoZ0_4", 0); updateZoneValue("#spanDistanciaCiclismoZ0_5", 0); updateZoneValue("#spanDistanciaCiclismoZ0_6", 0); updateZoneValue("#spanDistanciaCiclismoZ0_7", 0); updateZoneValue("#spanDistanciaCiclismoZ0_8", 0); updateZoneValue("#spanDistanciaCiclismoZ0_9", 0); updateZoneValue("#spanDistanciaCiclismoZ0_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
@@ -4134,11 +4126,6 @@ $(document).ready(function() {
 						},
 						error: function(data) {},
 					});
-					/*let codigo= "ME" + $("#Mesocyclesmesocycle-name").val();
-					codigo += $('#sport_select option:selected').html();
-					codigo += $('#distance_select option:selected').html();
-					codigo += $('#level_select option:selected').html();
-					codigo += $('#contain_select option:selected').html();*/
 					if(flagExistecodigo){
 						swal("El mesociclo ya existe", "Puede cambiar uno o más valores seleccionados.\n Número | Deporte | Distancia | Nivel | Contenido", {
 						icon : "error",
@@ -4291,11 +4278,6 @@ $(document).ready(function() {
 	$("#add_line2").click(function() {
 		$("#add_line").click();
 		$('#weeks_selectMacro').empty();
-		/*for(var iC=0; iC<=cont; iC++){
-			$('#weeks_selectMacro').append('<option value="' + contador_weeks + '">Semana ' +
-				Number(contador_weeks + 1) + '</option>');
-			contador_weeks = Number(contador_weeks + 1);
-		}*/
 		contador_weeks = 1;
 		$(".week_item").each(function() {	
 			cont_item = $(this).data('cont');
@@ -4850,12 +4832,6 @@ $(document).ready(function() {
 	function getModal(es_personal){
 		contador_weeks = 1;
         $('#weeks_select').empty();
-        /*$(".week").each(function() {
-			alert(cont);
-            $('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-                Number(contador_weeks + 1) + '</option>');
-            contador_weeks = Number(contador_weeks + 1);
-        });*/
 		$(".week_item").each(function() {	
 			cont_item = $(this).data('cont');
 			cont_item_text = $(this).data('textcont');
@@ -4868,11 +4844,6 @@ $(document).ready(function() {
 				contador_weeks = Number(contador_weeks + 1);
 			}	
 		});
-		/*for(var iC=0; iC<=cont; iC++){
-			$('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-                Number(contador_weeks + 1) + '</option>');
-            contador_weeks = Number(contador_weeks + 1);
-		}*/
 		if(es_personal){
 			sesion = $('#sesion_select_personal');
 		}else{
@@ -4936,11 +4907,6 @@ $(document).ready(function() {
 	function getModalProgresion(){
 		contador_weeks = 1;
         $('#weeks_select').empty();
-        /*$(".week").each(function() {
-            $('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-                Number(contador_weeks + 1) + '</option>');
-            contador_weeks = Number(contador_weeks + 1);
-        });*/
 		$(".week_item").each(function() {	
 			cont_item = $(this).data('cont');
 			cont_item_text = $(this).data('textcont');
@@ -4953,11 +4919,6 @@ $(document).ready(function() {
 				contador_weeks = Number(contador_weeks + 1);
 			}	
 		});
-		/*for(var iC=0; iC<=cont; iC++){
-			$('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-                Number(contador_weeks + 1) + '</option>');
-            contador_weeks = Number(contador_weeks + 1);
-		}*/
         sesion = $('#progresion_select');
 		if(sesion.val().trim()=="" || sesion.val()=="" || sesion.val()=="null"){
 			swal("Campos requeridos!", "Seleccione una sesión para poder visualizar.", {
@@ -5037,11 +4998,6 @@ $(document).ready(function() {
 			contador_weeks = 1;
 			$('#weeks_select').empty();
 			$('#weeks_selectMacro').empty();
-			/*$(".week").each(function() {
-				$('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-					Number(contador_weeks + 1) + '</option>');
-				contador_weeks = Number(contador_weeks + 1);
-			});*/
 			$(".week_item").each(function() {	
 				cont_item = $(this).data('cont');
 				cont_item_text = $(this).data('textcont');
@@ -5058,13 +5014,6 @@ $(document).ready(function() {
 					contador_weeks = Number(contador_weeks + 1);
 				}	
 			});
-			/*for(var iC=0; iC<=cont; iC++){
-				$('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-					Number(contador_weeks + 1) + '</option>');
-				$('#weeks_selectMacro').append('<option value="' + contador_weeks + '">Semana ' +
-					Number(contador_weeks + 1) + '</option>');
-				contador_weeks = Number(contador_weeks + 1);
-			}*/
 			if(es_personal){
 				sesion = $('#microciclo_select_personal');
 			}else{
@@ -5135,18 +5084,6 @@ $(document).ready(function() {
 			contador_weeks = 1;
 			$('#weeks_select').empty();
 			$('#weeks_selectMacro').empty();
-			/*$(".week").each(function() {
-				$('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-					Number(contador_weeks + 1) + '</option>');
-				contador_weeks = Number(contador_weeks + 1);
-			});*/
-			/*for(var iC=0; iC<=cont; iC++){
-				$('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
-					Number(contador_weeks + 1) + '</option>');
-				$('#weeks_selectMacro').append('<option value="' + contador_weeks + '">Semana ' +
-					Number(contador_weeks + 1) + '</option>');
-				contador_weeks = Number(contador_weeks + 1);
-			}*/
 			$(".week_item").each(function() {	
 				cont_item = $(this).data('cont');
 				cont_item_text = $(this).data('textcont');
@@ -5520,8 +5457,6 @@ $(document).ready(function() {
 		$(this).closest('.clsListaAtleta').remove();
 		alert(2);
 	});
-    /*'098'
-    'mexico'*/
 	temp1=0;
     $('#add_ss').click(function() {
 		var validaSeleccion= false;
@@ -5581,7 +5516,6 @@ $(document).ready(function() {
 			$("input:checkbox:checked").each(function() {
 				 $.ajax({
 					type: 'get',
-					/*async: false,*/
 					url: "/web/index.php?r=progressionsprogression/getdata",
 					data: {
 						"id": $(this).val(),
@@ -5636,21 +5570,6 @@ $(document).ready(function() {
 			else{
 				mensajeLanzado=0;
 			}
-			/*
-			swalDEL("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla", "", {
-				icon : "warning",
-				buttons: {        			
-					confirm: {
-						className : 'btn btn-warning'
-					}
-				},
-			});
-			/*swal("Espere un momento", {
-				buttons: false,
-				timer: 20000,
-			});
-			$('.submitFormBtn').click();
-			/**/
 		}
 		$('#hddMoverA').val("");
     });
@@ -5840,12 +5759,6 @@ $(document).ready(function() {
 			let porcentajeCargaTotalF1 = (ecosFase1*100)/totalecosFases;
 			let porcentajeCargaTotalF2 = (ecosFase2*100)/totalecosFases;
 			let porcentajeCargaTotalF3 = (ecosFase3*100)/totalecosFases;
-			/*alert("total 3 fases + esfuerzo= "+totalecosFases);
-			alert("Ecos F1= " + ecosFase1 + ' - ' + "Ecos F2= " + ecosFase2 + ' - ' + "Ecos F3= " + ecosFase3);
-			alert(porcentajeCargaF1 + ' - ' + porcentajeCargaTotalF1);
-			alert(porcentajeCargaF2 + ' - ' + porcentajeCargaTotalF2);
-			alert(porcentajeCargaF3 + ' - ' + porcentajeCargaTotalF3);
-			*/
 			$('#tdCargaTotal1').empty();
 			$('#tdCargaTotal1').append(porcentajeCargaTotalF1.toFixed(0));
 			$('#tdCargaTotal2').empty();
@@ -5879,20 +5792,6 @@ $(document).ready(function() {
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-							/*totalMinCarrera = 0;
-							$(".sum_minutosCarrera_week" + week).each(function() {
-								totalMinCarrera = totalMinCarrera + Number($(this).val());
-							});
-							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-							totalMinCiclismo = 0;
-							$(".sum_minutosCiclismo_week" + week).each(function() {
-								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
-							});
-							totalMinNatacion = 0;
-							$(".sum_minutosNatacion_week" + week).each(function() {
-								totalMinNatacion = totalMinNatacion + Number($(this).val());
-							});
-							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
 							if(1==1){
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
@@ -5946,9 +5845,6 @@ $(document).ready(function() {
 							$('#tdTiempo2' + week).append(porcentajeTiempoF2.toFixed(0));
 							$('#tdTiempo3' + week).empty();
 							$('#tdTiempo3' + week).append(porcentajeTiempoF3.toFixed(0));
-							/*if(Fase1==260)
-								alert(porcentajeTiempoF1 + " - " + porcentajeTiempoF2 + " - " + porcentajeTiempoF3 + " - " + totalMinSemanaZ4 + " - " + totalFases + " - " + week + "||" + Fase1 + " - " + Fase2 + " - " + Fase3);
-								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
@@ -6006,16 +5902,6 @@ $(document).ready(function() {
 							$('#divSemanaFila4_' + week).html($('#divEstadisticaSemanal4_' + week).html());
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-							/*var totalesPorSemanna = 0;
-							$(".sum_e" + week).each(function() {
-								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
-							});
-							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							$('#ecos_tot' + week).empty();
-							$('#ecos_tot' + week).append(totalesPorSemanna);
-							$('#tot_ecos_week' + week).val(totalesPorSemanna);
-							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
 														week=1;
 							totalMinSemanaZ1 = 0;
 							$(".sum_min_weekZ1" + week).each(function() {
@@ -6041,20 +5927,6 @@ $(document).ready(function() {
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-							/*totalMinCarrera = 0;
-							$(".sum_minutosCarrera_week" + week).each(function() {
-								totalMinCarrera = totalMinCarrera + Number($(this).val());
-							});
-							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-							totalMinCiclismo = 0;
-							$(".sum_minutosCiclismo_week" + week).each(function() {
-								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
-							});
-							totalMinNatacion = 0;
-							$(".sum_minutosNatacion_week" + week).each(function() {
-								totalMinNatacion = totalMinNatacion + Number($(this).val());
-							});
-							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
 							if(1==1){
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
@@ -6108,9 +5980,6 @@ $(document).ready(function() {
 							$('#tdTiempo2' + week).append(porcentajeTiempoF2.toFixed(0));
 							$('#tdTiempo3' + week).empty();
 							$('#tdTiempo3' + week).append(porcentajeTiempoF3.toFixed(0));
-							/*if(Fase1==260)
-								alert(porcentajeTiempoF1 + " - " + porcentajeTiempoF2 + " - " + porcentajeTiempoF3 + " - " + totalMinSemanaZ4 + " - " + totalFases + " - " + week + "||" + Fase1 + " - " + Fase2 + " - " + Fase3);
-								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
@@ -6168,16 +6037,6 @@ $(document).ready(function() {
 							$('#divSemanaFila4_' + week).html($('#divEstadisticaSemanal4_' + week).html());
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-							/*var totalesPorSemanna = 0;
-							$(".sum_e" + week).each(function() {
-								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
-							});
-							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							$('#ecos_tot' + week).empty();
-							$('#ecos_tot' + week).append(totalesPorSemanna);
-							$('#tot_ecos_week' + week).val(totalesPorSemanna);
-							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
 														week=2;
 							totalMinSemanaZ1 = 0;
 							$(".sum_min_weekZ1" + week).each(function() {
@@ -6203,20 +6062,6 @@ $(document).ready(function() {
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-							/*totalMinCarrera = 0;
-							$(".sum_minutosCarrera_week" + week).each(function() {
-								totalMinCarrera = totalMinCarrera + Number($(this).val());
-							});
-							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-							totalMinCiclismo = 0;
-							$(".sum_minutosCiclismo_week" + week).each(function() {
-								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
-							});
-							totalMinNatacion = 0;
-							$(".sum_minutosNatacion_week" + week).each(function() {
-								totalMinNatacion = totalMinNatacion + Number($(this).val());
-							});
-							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
 							if(1==1){
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
@@ -6270,9 +6115,6 @@ $(document).ready(function() {
 							$('#tdTiempo2' + week).append(porcentajeTiempoF2.toFixed(0));
 							$('#tdTiempo3' + week).empty();
 							$('#tdTiempo3' + week).append(porcentajeTiempoF3.toFixed(0));
-							/*if(Fase1==260)
-								alert(porcentajeTiempoF1 + " - " + porcentajeTiempoF2 + " - " + porcentajeTiempoF3 + " - " + totalMinSemanaZ4 + " - " + totalFases + " - " + week + "||" + Fase1 + " - " + Fase2 + " - " + Fase3);
-								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
@@ -6330,16 +6172,6 @@ $(document).ready(function() {
 							$('#divSemanaFila4_' + week).html($('#divEstadisticaSemanal4_' + week).html());
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-							/*var totalesPorSemanna = 0;
-							$(".sum_e" + week).each(function() {
-								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
-							});
-							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							$('#ecos_tot' + week).empty();
-							$('#ecos_tot' + week).append(totalesPorSemanna);
-							$('#tot_ecos_week' + week).val(totalesPorSemanna);
-							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
 														week=3;
 							totalMinSemanaZ1 = 0;
 							$(".sum_min_weekZ1" + week).each(function() {
@@ -6365,20 +6197,6 @@ $(document).ready(function() {
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-							/*totalMinCarrera = 0;
-							$(".sum_minutosCarrera_week" + week).each(function() {
-								totalMinCarrera = totalMinCarrera + Number($(this).val());
-							});
-							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-							totalMinCiclismo = 0;
-							$(".sum_minutosCiclismo_week" + week).each(function() {
-								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
-							});
-							totalMinNatacion = 0;
-							$(".sum_minutosNatacion_week" + week).each(function() {
-								totalMinNatacion = totalMinNatacion + Number($(this).val());
-							});
-							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
 							if(1==1){
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
@@ -6432,9 +6250,6 @@ $(document).ready(function() {
 							$('#tdTiempo2' + week).append(porcentajeTiempoF2.toFixed(0));
 							$('#tdTiempo3' + week).empty();
 							$('#tdTiempo3' + week).append(porcentajeTiempoF3.toFixed(0));
-							/*if(Fase1==260)
-								alert(porcentajeTiempoF1 + " - " + porcentajeTiempoF2 + " - " + porcentajeTiempoF3 + " - " + totalMinSemanaZ4 + " - " + totalFases + " - " + week + "||" + Fase1 + " - " + Fase2 + " - " + Fase3);
-								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
@@ -6492,16 +6307,6 @@ $(document).ready(function() {
 							$('#divSemanaFila4_' + week).html($('#divEstadisticaSemanal4_' + week).html());
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-							/*var totalesPorSemanna = 0;
-							$(".sum_e" + week).each(function() {
-								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
-							});
-							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							$('#ecos_tot' + week).empty();
-							$('#ecos_tot' + week).append(totalesPorSemanna);
-							$('#tot_ecos_week' + week).val(totalesPorSemanna);
-							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
 														week=4;
 							totalMinSemanaZ1 = 0;
 							$(".sum_min_weekZ1" + week).each(function() {
@@ -6527,20 +6332,6 @@ $(document).ready(function() {
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-							/*totalMinCarrera = 0;
-							$(".sum_minutosCarrera_week" + week).each(function() {
-								totalMinCarrera = totalMinCarrera + Number($(this).val());
-							});
-							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-							totalMinCiclismo = 0;
-							$(".sum_minutosCiclismo_week" + week).each(function() {
-								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
-							});
-							totalMinNatacion = 0;
-							$(".sum_minutosNatacion_week" + week).each(function() {
-								totalMinNatacion = totalMinNatacion + Number($(this).val());
-							});
-							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
 							if(1==1){
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
@@ -6594,9 +6385,6 @@ $(document).ready(function() {
 							$('#tdTiempo2' + week).append(porcentajeTiempoF2.toFixed(0));
 							$('#tdTiempo3' + week).empty();
 							$('#tdTiempo3' + week).append(porcentajeTiempoF3.toFixed(0));
-							/*if(Fase1==260)
-								alert(porcentajeTiempoF1 + " - " + porcentajeTiempoF2 + " - " + porcentajeTiempoF3 + " - " + totalMinSemanaZ4 + " - " + totalFases + " - " + week + "||" + Fase1 + " - " + Fase2 + " - " + Fase3);
-								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
@@ -6654,22 +6442,12 @@ $(document).ready(function() {
 							$('#divSemanaFila4_' + week).html($('#divEstadisticaSemanal4_' + week).html());
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-							/*var totalesPorSemanna = 0;
-							$(".sum_e" + week).each(function() {
-								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
-							});
-							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							$('#ecos_tot' + week).empty();
-							$('#ecos_tot' + week).append(totalesPorSemanna);
-							$('#tot_ecos_week' + week).val(totalesPorSemanna);
-							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
 			}
 			function agregarSesion(sesion, week, day, perfilID){
 		string_type = 'Lunes';
 		$.ajax({
 			type: 'get',
-			async: false,/**/
+			async: false,
 			url: "/web/index.php?r=progressionsprogression/getdata",
 			data: {
 				"id": sesion,
@@ -6719,13 +6497,6 @@ $(document).ready(function() {
 				$(".sum_e" + week).each(function() {
 					totales = totales + Number($(this).val());
 				});
-				/*console.log("totalesEcosFuerza2: ", totalesEcosFuerza2);
-				totales += totalesEcosFuerza2;
-				$('#ecos_tot' + week).empty();
-				$('#ecos_tot' + week).append(totales);
-				$('#tot_ecos_week' + week).val(totales);
-				$('#divSumaEcosSemana' + week).html(totales);
-				/**/
 				$('#hddValida').val(Number($('#hddValida').val())+1);
 				totalMinSemanaZ1 = 0;
 				$(".sum_min_weekZ1" + week).each(function() {
@@ -6919,16 +6690,12 @@ function agregarLineaIntermedia(cont_line,first){
 			timer: 20000,
 		});
 	}
-/*function dup(divID, valID) {
-	getMoverA(divID, valID);
-	return true;/**/
 function dup(index, week, day, divID, valID) {
 	$("#hddIndex").val(index);
 	$("#hddWeek").val(week);
 	$("#hddDay").val(day);
 	$("#hddDivID").val(divID);
 	$("#hddValID1").val(valID);
-	/*CODIGO OBSOLETO*/
 		tiempoToast=2000;
 		notificacionToast("Espere un momento. Cargando...");
 		let string_type = 'Lunes';
@@ -7001,14 +6768,6 @@ function dup(index, week, day, divID, valID) {
 							$('#ecos_tot' + week).append(totales);
 							$('#tot_ecos_week' + week).val(totales);
 							notificacionToast("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla");
-							/*swal("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla", "", {
-								icon : "warning",
-								buttons: {        			
-									confirm: {
-										className : 'btn btn-warning'
-									}
-								},
-							});*/
 							if(is_variasVeces) {
 								if(is_variasVeces_count>0) {
 									divID= idn;
@@ -7027,7 +6786,6 @@ function dup(index, week, day, divID, valID) {
 			},
 			error: function(data) {},
 		});
-	/*fin CODIGO OBSOLETO*/
 }
 function validaEdit(_url){
 	if(banderaGuardarAntesDeEditar==1){
@@ -7064,14 +6822,6 @@ function llamarElininar(index){
 		$('#hddValida').val(Number($('#hddValida').val())-1);
 		notificacionToast("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla");
 		mensajeLanzado=1;
-		/*swal("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla", "", {
-			icon : "warning",
-			buttons: {        			
-				confirm: {
-					className : 'btn btn-warning'
-				}
-			},
-		});*/
 }
 function eliminarFila(index){
 	$("#week" + index).remove();

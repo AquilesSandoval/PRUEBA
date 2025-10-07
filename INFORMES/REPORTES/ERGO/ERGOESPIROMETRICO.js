@@ -10,7 +10,7 @@ Highcharts.chart('container', {
 						polar: true,
 						BorderColor: '#000000',
 						BorderWidth: 0,
-						 backgroundColor: 'transparent',/**/
+						 backgroundColor: 'transparent',
 						  lineColor: "rgba(138,221,45,0)",
 						lineWidth: 0,
 					  },
@@ -95,7 +95,6 @@ Highcharts.chart('container', {
 						  fillColor: "#ffffff",
 						},
 						  data: [],
-						/*data: [2.3, 4, 3.7, 4, 8.1]/*data: [46, 16, 13.9, 11.8, 0.9]*/
 					  }
 						]
 					});

@@ -165,15 +165,6 @@ $(document).ready(function() {
                     }
                 }
                 if (dtClear == 0) {
-                    /*$blockBtn = $this.clone();
-				$blockBtn.attr('type', 'button');
-				$blockBtn.html('Espere un momento ...'); 
-				$blockBtn.addClass('submitFormBtnBlock');
-				$blockBtn.removeClass('submitFormBtn');
-				$blockBtn.insertAfter($this);
-				$blockBtn.attr('disabled', 'disabled');
-				$this.hide();
-		 		$blockBtn.show();*/
                 } else {
                     alert(
                         "Verifique los campos obligatorios (marcados en *)"
@@ -255,11 +246,6 @@ function validaChk() {
         $('#reportsfolder-cmbDeporteCiclismo').show();
         $('.tdPotenciaCarrera').hide();
     }
-    /*else if($("#reportsfolder-deporteID3").is(':checked')){
-    	$('#divDeporte3').removeClass("btn-border");
-    	$('#divTexto3').removeClass("textoNegro");
-    	$('#divTexto3').addClass("textoBlanco");
-    }*/
 }
 $('#add_prod_button').click(function() {
     $("#error_agregar").hide();
