@@ -1,0 +1,15 @@
+# User uploaded images
+assets/*.jpg
+assets/*.jpeg
+assets/*.png
+!assets/logo_all.png
+
+# Build artifacts
+node_modules/
+dist/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store

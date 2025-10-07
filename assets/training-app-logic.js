@@ -7,16 +7,9 @@
  * - Macro -> Meso -> Micro hierarchy
  * - Performance report calculations
  */
-
 (function() {
     'use strict';
-
-    // ============================================================================
-    // DATA STORAGE - Simulated backend data
-    // ============================================================================
-    
     const TrainingData = {
-        // Predefined mesociclos (training plans)
         mesociclos: [
             {
                 id: 'ME1C10KTR',
@@ -81,8 +74,6 @@
                 ]
             }
         ],
-
-        // Athlete performance data (for calculations)
         athleteZones: {
             heartRate: {
                 zone1: {min: 120, max: 140},
@@ -99,8 +90,6 @@
                 zone5: '4:00'
             }
         },
-
-        // Session types configuration
         sessionTypes: {
             running: {name: 'Carrera', icon: 'race-blue-icon.png', color: '#4ACF74'},
             cycling: {name: 'Ciclismo', icon: 'cycling-blue-skype-icon.png', color: '#5DADE2'},
@@ -108,43 +97,26 @@
             strength: {name: 'Fuerza', icon: 'force-blue-icon.png', color: '#F39C12'}
         }
     };
-
-    // ============================================================================
-    // PLAN LOADING FUNCTIONALITY
-    // ============================================================================
-
     window.TrainingApp = window.TrainingApp || {};
-
     /**
      * Load a predefined mesociclo into the calendar
      */
     TrainingApp.loadMesociclo = function(mesocicloId, targetWeek) {
         const mesociclo = TrainingData.mesociclos.find(m => m.id === mesocicloId);
-        
         if (!mesociclo) {
             console.error('Mesociclo not found:', mesocicloId);
             return false;
         }
-
-        console.log('Loading mesociclo:', mesociclo.name);
-
-        // Clear existing sessions in target week if specified
         if (targetWeek !== undefined) {
             this.clearWeek(targetWeek);
         }
-
-        // Load sessions for all weeks
         mesociclo.sessions.forEach(session => {
             const weekNum = targetWeek !== undefined ? targetWeek : session.week - 1;
             this.addSessionToCalendar(weekNum, session);
         });
-
-        // Update statistics
         this.updateWeekStatistics(targetWeek);
-
         return true;
     };
-
     /**
      * Get available mesociclos
      */
@@ -152,42 +124,31 @@
         if (!searchTerm || searchTerm.length < 3) {
             return TrainingData.mesociclos;
         }
-        
         searchTerm = searchTerm.toLowerCase();
         return TrainingData.mesociclos.filter(m => 
             m.name.toLowerCase().includes(searchTerm) || 
             m.id.toLowerCase().includes(searchTerm)
         );
     };
-
     /**
      * Populate mesociclo selector
      */
     TrainingApp.populateMesocicloSelector = function(selectorId) {
         const selector = $(selectorId);
         if (!selector.length) return;
-
         selector.empty();
         selector.append('<option value="">Seleccione un plan...</option>');
-        
         TrainingData.mesociclos.forEach(mesociclo => {
             selector.append(
                 `<option value="${mesociclo.id}">${mesociclo.name} (${mesociclo.weeks} semanas)</option>`
             );
         });
     };
-
-    // ============================================================================
-    // DRAG & DROP FUNCTIONALITY
-    // ============================================================================
-
     /**
      * Initialize drag and drop for sessions
      */
     TrainingApp.initDragAndDrop = function() {
-        // Make sessions draggable
         $('.session-item').attr('draggable', 'true');
-        
         $('.session-item').on('dragstart', function(e) {
             const sessionData = {
                 id: $(this).attr('id'),
@@ -199,51 +160,34 @@
             e.originalEvent.dataTransfer.setData('text/plain', JSON.stringify(sessionData));
             $(this).addClass('dragging');
         });
-
         $('.session-item').on('dragend', function(e) {
             $(this).removeClass('dragging');
         });
-
-        // Make day containers droppable
         $('.day-container, .cuadroInfo').on('dragover', function(e) {
             e.preventDefault();
             $(this).addClass('drag-over');
         });
-
         $('.day-container, .cuadroInfo').on('dragleave', function(e) {
             $(this).removeClass('drag-over');
         });
-
         $('.day-container, .cuadroInfo').on('drop', function(e) {
             e.preventDefault();
             $(this).removeClass('drag-over');
-            
             const data = JSON.parse(e.originalEvent.dataTransfer.getData('text/plain'));
             const originalElement = $('#' + data.id);
-            
-            // Move the session
             if (originalElement.length) {
                 originalElement.detach().appendTo($(this));
-                
-                // Update week statistics
                 const weekNum = $(this).closest('.week_item').data('cont');
                 TrainingApp.updateWeekStatistics(weekNum);
             }
         });
     };
-
-    // ============================================================================
-    // SESSION CONTEXT MENU
-    // ============================================================================
-
     /**
      * Show context menu for session
      */
     TrainingApp.showSessionContextMenu = function(sessionElement, x, y) {
         const menu = $('#session-context-menu');
-        
         if (!menu.length) {
-            // Create context menu if it doesn't exist
             const menuHTML = `
                 <div id="session-context-menu" class="context-menu" style="display:none; position:absolute; z-index:9999;">
                     <ul class="list-unstyled">
@@ -258,67 +202,54 @@
             `;
             $('body').append(menuHTML);
         }
-
         const contextMenu = $('#session-context-menu');
         contextMenu.data('session-element', sessionElement);
         contextMenu.css({left: x + 'px', top: y + 'px'}).show();
     };
-
     /**
      * Initialize session context menu
      */
     TrainingApp.initSessionContextMenu = function() {
-        // Right-click on sessions
         $(document).on('contextmenu', '.session-item', function(e) {
             e.preventDefault();
             TrainingApp.showSessionContextMenu($(this), e.pageX, e.pageY);
             return false;
         });
-
-        // Click on sessions (alternative to right-click)
         $(document).on('click', '.session-item', function(e) {
             if (e.ctrlKey || e.metaKey) {
                 e.preventDefault();
                 TrainingApp.showSessionContextMenu($(this), e.pageX, e.pageY);
             }
         });
-
-        // Hide menu when clicking elsewhere
         $(document).on('click', function(e) {
             if (!$(e.target).closest('#session-context-menu').length) {
                 $('#session-context-menu').hide();
             }
         });
-
-        // Context menu actions
         $(document).on('click', '.context-edit', function(e) {
             e.preventDefault();
             const session = $('#session-context-menu').data('session-element');
             TrainingApp.editSession(session);
             $('#session-context-menu').hide();
         });
-
         $(document).on('click', '.context-duplicate', function(e) {
             e.preventDefault();
             const session = $('#session-context-menu').data('session-element');
             TrainingApp.duplicateSession(session);
             $('#session-context-menu').hide();
         });
-
         $(document).on('click', '.context-move', function(e) {
             e.preventDefault();
             const session = $('#session-context-menu').data('session-element');
             TrainingApp.moveSessionToDate(session);
             $('#session-context-menu').hide();
         });
-
         $(document).on('click', '.context-copy-athlete', function(e) {
             e.preventDefault();
             const session = $('#session-context-menu').data('session-element');
             TrainingApp.copyToAthlete(session);
             $('#session-context-menu').hide();
         });
-
         $(document).on('click', '.context-delete', function(e) {
             e.preventDefault();
             const session = $('#session-context-menu').data('session-element');
@@ -326,7 +257,6 @@
             $('#session-context-menu').hide();
         });
     };
-
     /**
      * Edit session
      */
@@ -338,8 +268,6 @@
             duration: sessionElement.data('duration'),
             distance: sessionElement.data('distance')
         };
-
-        // Show edit modal
         const modal = $('#editSessionModal');
         if (modal.length) {
             $('#edit-session-zone').val(sessionData.zone);
@@ -348,11 +276,9 @@
             modal.data('session-element', sessionElement);
             modal.modal('show');
         } else {
-            // Create edit modal if it doesn't exist
             this.createEditModal(sessionElement, sessionData);
         }
     };
-
     /**
      * Create edit session modal
      */
@@ -394,33 +320,23 @@
             </div>
         `;
         $('body').append(modalHTML);
-        
         const modal = $('#editSessionModal');
         modal.data('session-element', sessionElement);
         modal.modal('show');
-
-        // Save button handler
         $('#save-session-edit').off('click').on('click', function() {
             const zone = $('#edit-session-zone').val();
             const duration = $('#edit-session-duration').val();
             const distance = $('#edit-session-distance').val();
-            
             sessionElement.data('zone', zone);
             sessionElement.data('duration', duration);
             sessionElement.data('distance', distance);
-            
-            // Update visual representation
             sessionElement.find('.session-duration').text(duration + ' min');
             sessionElement.find('.session-distance').text(distance + ' km');
-            
-            // Update statistics
             const weekNum = sessionElement.closest('.week_item').data('cont');
             TrainingApp.updateWeekStatistics(weekNum);
-            
             modal.modal('hide');
         });
     };
-
     /**
      * Duplicate session
      */
@@ -429,15 +345,10 @@
         const newId = 'session_' + Date.now();
         clone.attr('id', newId);
         clone.insertAfter(sessionElement);
-        
-        // Re-initialize drag and drop for new element
         this.initDragAndDrop();
-        
-        // Update statistics
         const weekNum = sessionElement.closest('.week_item').data('cont');
         this.updateWeekStatistics(weekNum);
     };
-
     /**
      * Delete session
      */
@@ -448,7 +359,6 @@
             this.updateWeekStatistics(weekNum);
         }
     };
-
     /**
      * Move session to another date
      */
@@ -487,40 +397,30 @@
                 </div>
             </div>
         `;
-        
         $('#moveSessionModal').remove();
         $('body').append(modalHTML);
-        
-        // Populate week selector
         const weekSelect = $('#move-session-week');
         $('.week_item').each(function() {
             const cont = $(this).data('cont');
             const textCont = $(this).data('textcont');
             weekSelect.append(`<option value="${cont}">Semana ${textCont || cont + 1}</option>`);
         });
-        
         const modal = $('#moveSessionModal');
         modal.modal('show');
-
         $('#confirm-move-session').off('click').on('click', function() {
             const targetWeek = $('#move-session-week').val();
             const targetDay = $('#move-session-day').val();
-            
             const dayNames = ['', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
             const targetContainer = $('#' + dayNames[targetDay] + targetWeek);
-            
             if (targetContainer.length) {
                 const originalWeek = sessionElement.closest('.week_item').data('cont');
                 sessionElement.detach().appendTo(targetContainer);
-                
                 TrainingApp.updateWeekStatistics(originalWeek);
                 TrainingApp.updateWeekStatistics(targetWeek);
             }
-            
             modal.modal('hide');
         });
     };
-
     /**
      * Copy session to another athlete
      */
@@ -555,43 +455,29 @@
                 </div>
             </div>
         `;
-        
         $('#copyAthleteModal').remove();
         $('body').append(modalHTML);
-        
         const modal = $('#copyAthleteModal');
         modal.modal('show');
-
         $('#confirm-copy-athlete').off('click').on('click', function() {
             const athleteId = $('#copy-athlete-select').val();
             const date = $('#copy-athlete-date').val();
-            
-            console.log('Copying session to athlete:', athleteId, 'on date:', date);
             alert(`Sesión copiada al atleta ${athleteId} para la fecha ${date}`);
-            
             modal.modal('hide');
         });
     };
-
-    // ============================================================================
-    // CALENDAR AND SESSION MANAGEMENT
-    // ============================================================================
-
     /**
      * Add session to calendar
      */
     TrainingApp.addSessionToCalendar = function(weekNum, sessionData) {
         const dayNames = ['', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
         const dayContainer = $('#' + dayNames[sessionData.day] + weekNum);
-        
         if (!dayContainer.length) {
             console.warn('Day container not found for week', weekNum, 'day', sessionData.day);
             return;
         }
-
         const sessionType = TrainingData.sessionTypes[sessionData.type];
         const sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-        
         const sessionHTML = `
             <div id="${sessionId}" class="session-item" 
                  data-type="${sessionData.type}" 
@@ -608,11 +494,9 @@
                 </div>
             </div>
         `;
-        
         dayContainer.append(sessionHTML);
         this.initDragAndDrop();
     };
-
     /**
      * Clear all sessions in a week
      */
@@ -622,18 +506,15 @@
             $('#' + day + weekNum).find('.session-item').remove();
         });
     };
-
     /**
      * Update week statistics
      */
     TrainingApp.updateWeekStatistics = function(weekNum) {
         if (weekNum === undefined) return;
-
         const dayNames = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
         let totalTime = 0;
         let totalDistance = 0;
         let sessionCount = 0;
-
         dayNames.forEach(day => {
             $('#' + day + weekNum).find('.session-item').each(function() {
                 totalTime += parseInt($(this).data('duration')) || 0;
@@ -641,21 +522,12 @@
                 sessionCount++;
             });
         });
-
-        // Update totals display
         $('#ecos_tot' + weekNum).text(sessionCount);
         $('#tot_ecos_week' + weekNum).val(sessionCount);
-        
-        // Update other statistics if elements exist
         const hours = (totalTime / 60).toFixed(1);
         $(`#total-hours-week${weekNum}`).text(hours);
         $(`#total-distance-week${weekNum}`).text(totalDistance.toFixed(1));
     };
-
-    // ============================================================================
-    // PERFORMANCE CALCULATIONS
-    // ============================================================================
-
     /**
      * Calculate distance based on duration and zone
      */
@@ -665,11 +537,9 @@
             cycling: [25, 28, 31, 33, 35],
             swimming: [1.5, 1.8, 2.0, 2.2, 2.4]
         };
-
         const pace = paces[sport] ? paces[sport][zone - 1] : 10;
         return ((duration / 60) * pace).toFixed(2);
     };
-
     /**
      * Calculate calories based on session data
      */
@@ -680,61 +550,31 @@
             swimming: [6, 7, 8.5, 10, 11.5],
             strength: [3, 4, 5, 6, 7]
         };
-
         const met = metValues[sport] ? metValues[sport][zone - 1] : 5;
         const hours = duration / 60;
         return Math.round(met * athleteWeight * hours);
     };
-
-    // ============================================================================
-    // MACRO -> MESO -> MICRO HIERARCHY
-    // ============================================================================
-
     /**
      * Load macrociclo structure
      */
     TrainingApp.loadMacrociclo = function(macrocicloId) {
-        console.log('Loading macrociclo:', macrocicloId);
-        // Implement macrociclo loading logic
-        // This would typically load multiple mesociclos that make up the macrociclo
     };
-
     /**
      * Navigate hierarchy
      */
     TrainingApp.navigateToMicrociclo = function(mesocicloId, weekNumber) {
-        console.log('Navigating to microciclo - Meso:', mesocicloId, 'Week:', weekNumber);
-        // Implement navigation logic
     };
-
-    // ============================================================================
-    // INITIALIZATION
-    // ============================================================================
-
     /**
      * Initialize the application
      */
     TrainingApp.init = function() {
-        console.log('Initializing Training App...');
-        
-        // Initialize drag and drop
         this.initDragAndDrop();
-        
-        // Initialize context menu
         this.initSessionContextMenu();
-        
-        // Enhance existing menus
         this.enhanceExistingMenus();
-        
-        // Add plan loader button
         this.addPlanLoaderButton();
-        
-        // Populate mesociclo selectors if they exist
         if ($('#mesociclo_select').length) {
             this.populateMesocicloSelector('#mesociclo_select');
         }
-        
-        // Add mesociclo change handler
         $('#mesociclo_select').on('change', function() {
             const mesocicloId = $(this).val();
             if (mesocicloId) {
@@ -742,33 +582,21 @@
                 TrainingApp.loadMesociclo(mesocicloId, weekNum);
             }
         });
-
-        console.log('Training App initialized successfully');
     };
-
-    // Auto-initialize when DOM is ready
     $(document).ready(function() {
         if (typeof TrainingApp !== 'undefined') {
             TrainingApp.init();
         }
     });
-
     /**
      * Enhance existing dropdown menus to work with our context menu
      */
     TrainingApp.enhanceExistingMenus = function() {
-        // The existing menus already have edit, duplicate, delete, move, copy
-        // We just need to make them work better with drag & drop
-        console.log('Enhancing existing menus...');
-        
-        // Make existing session divs draggable
         $('[id^="lunes"], [id^="martes"], [id^="miercoles"], [id^="jueves"], [id^="viernes"], [id^="sabado"], [id^="domingo"]').each(function() {
             $(this).find('div[data-id]').attr('draggable', 'true').addClass('session-item');
         });
-        
         this.initDragAndDrop();
     };
-
     /**
      * Add quick plan loader to page
      */
@@ -780,16 +608,13 @@
                 </button>
             </div>
         `;
-        
         if (!$('#quick-plan-loader').length) {
             $('body').append(buttonHTML);
-            
             $('#btn-load-plan').on('click', function() {
                 TrainingApp.showPlanLoaderModal();
             });
         }
     };
-
     /**
      * Show plan loader modal
      */
@@ -823,27 +648,20 @@
                 </div>
             </div>
         `;
-        
         $('#planLoaderModal').remove();
         $('body').append(modalHTML);
-        
-        // Populate plan selector
         const planSelect = $('#plan-selector');
         TrainingData.mesociclos.forEach(plan => {
             planSelect.append(
                 `<option value="${plan.id}">${plan.name} (${plan.weeks} semanas)</option>`
             );
         });
-        
-        // Populate week selector
         const weekSelect = $('#plan-week-selector');
         $('.week_item').each(function(index) {
             const cont = $(this).data('cont');
             const textCont = $(this).data('textcont');
             weekSelect.append(`<option value="${cont}">Semana ${textCont || (index + 1)}</option>`);
         });
-        
-        // Show preview when plan is selected
         $('#plan-selector').on('change', function() {
             const planId = $(this).val();
             if (planId) {
@@ -874,21 +692,16 @@
                 $('#plan-preview-container').empty();
             }
         });
-        
-        // Load plan button
         $('#confirm-load-plan').on('click', function() {
             const planId = $('#plan-selector').val();
             const weekNum = parseInt($('#plan-week-selector').val());
-            
             if (!planId) {
                 alert('Por favor seleccione un plan');
                 return;
             }
-            
             if (confirm('¿Está seguro de cargar este plan? Se agregarán las sesiones a la semana seleccionada.')) {
                 TrainingApp.loadMesociclo(planId, weekNum);
                 $('#planLoaderModal').modal('hide');
-                
                 swal("Plan Cargado!", "El plan se ha cargado exitosamente en el calendario.", {
                     icon: "success",
                     buttons: {
@@ -899,8 +712,6 @@
                 });
             }
         });
-        
         $('#planLoaderModal').modal('show');
     };
-
 })();

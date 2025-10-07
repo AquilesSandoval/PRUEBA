@@ -10,11 +10,9 @@ function activarEmergencia(_id, _action, user) {
 						activarDesactivar: _action
                     },
                     success: function(bool) {
-                        //console.log('success '+bool);
                         if (bool == true) {
 							swal("Registro guardado correctamente", {
                                 icon: "success",
-                                //buttons: false,
                                 timer: 5000,
                             }).then((result) => {
 								location.reload();
@@ -22,13 +20,11 @@ function activarEmergencia(_id, _action, user) {
                         } else {
 							swal("Ocurrio un error, intenta de nuevo", {
 								icon: "error",
-								//buttons: false,
 								timer: 5000,
 							});
                         }
                     },
                     error: function(data) {
-                        // console.log('error '+data);
                         alertify.error(
                             '<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>',
                             2,
@@ -40,56 +36,30 @@ function activarEmergencia(_id, _action, user) {
             },
             function() {});
 	}
-
     function confirmDelete(key, token){
-
         alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro', 
-
             function(){
-
                 $.ajax({
-
                      type: 'get',
-
                      url: "index.php?r=athletesathlete/delete",
-
                      data:{key:key, token:token},
-
                      success:function(bool){
-
-						 //console.log('success '+bool);
-
                         if (bool == true){
-
                             alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado. Espere un momento...</span>', 2 , function (){location.reload(); }); 
-
                         }else{
 							alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
-
 						}
-
                      },
-
                      error: function(data){ 
-
-                        // console.log('error '+data);
-
 						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
-
                      },
-
                 });
-
             },
-
             function(){
-
             });
-
     }
 $(document).ready(function() {
 	$('.toggle-select').on('change', function() {
-		//alert(this.value);
 		$.ajax({
 			 type: 'GET',
 			 url: "index.php?r=athletesathlete/updatestatus",
@@ -105,7 +75,6 @@ $(document).ready(function() {
 						},
 						timer: 1500,
 					}).then((result) => {
-						//if (result.isConfirmed) {}
 						location.reload();
 					});*/
 					alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro actualizado. Espere un momento...</span>', 2 , function (){/*location.reload();*/}); 
@@ -114,19 +83,14 @@ $(document).ready(function() {
 				}
 			 },
 			 error: function(data){ 
-				// console.log('error '+data);
 				alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
 			 },
 		});
 	});
-	
     $('.toggle-label').on('click', function() {
         var checkboxId = $(this).attr('for');
         var checkbox = $('#' + checkboxId);
-		//alert(checkbox.prop('checked'));
         $("#option13").prop('checked', !checkbox.prop('checked'));
-        //alert(checkbox.prop('checked'));
-		//$("#option13").removeProp("checked");
         if (checkbox.prop('checked')) {
             $(this).addClass('active');
 			$('#label-' + checkboxId).html("Si");
@@ -140,13 +104,10 @@ $(document).ready(function() {
         }
     });
 });
-
 jQuery(function ($) {
 jQuery('#w0').yiiGridView({"filterUrl":"\/web\/index.php?r=athletesathlete\/index","filterSelector":"#w0-filters input, #w0-filters select","filterOnFocusOut":true});
 });
-
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

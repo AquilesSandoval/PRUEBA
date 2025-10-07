@@ -1,22 +1,21 @@
 var s2options_d6851687 = {"themeCss":".select2-container--krajee","sizeCss":"","doReset":true,"doToggle":false,"doOrder":false};
 window.select2_e6279efa = {"allowClear":true,"minimumInputLength":3,"language":{"errorLoading":function () { return 'No se encontraron datos'; }},"ajax":{"url":"\/web\/index.php?r=sessionsssession\/getcitylist","dataType":"json","data":function(params) { return {q:params.term}; }},"escapeMarkup":function (markup) { return markup; },"templateResult":function(city) { return city.text; },"templateSelection":function (city) { return city.text; },"theme":"krajee","width":"100%","placeholder":"Escribe almenos 3 caracteres para buscar..."};
-
+function updateZoneValue(selector, add=0) {
+	var val = Number($(selector).html()) + add;
+	$(selector).html(Math.round(val));
+}
 function notificacionToast(_mensaje) {
 		$(".alert").remove();
-
 		banderaGuardarAntesDeEditar=1;
 		var placementFrom = "top";
 		var placementAlign = "right";
 		var state = "warning";
 		var content = {};
-
 		content.message = "<div style='font-size:12px; text-align:center;'>"+_mensaje+"<div>";
 		content.title = "<span style='font-size:12px;'>Alerta AIYM</span>";
-
 		content.icon = 'fa fa-bell';//'none';
 		content.url = 'javascript:;';
 		content.target = '_self';
-
 		$.notify(content,{
 			type: state,
 			placement: {
@@ -35,9 +34,7 @@ function notificacionToast(_mensaje) {
 		});
 		tiempoToast = 1000
 	}
-	
 	function actionMoverRadiobuttom(numeroDia, fila){
-		//$('#sesion_select').val();
 		if(is_variasVeces) {
 			dup($("#hddIndex").val(), $("#hddWeek").val(), $("#hddDay").val(), $("#hddDivID").val(), $("#hddValID1").val());
 		}
@@ -45,7 +42,6 @@ function notificacionToast(_mensaje) {
 		$('#days_select').val(numeroDia);
         $("#add_ss").click();
 		$(".rbMoverAqui").prop("checked", false);
-		
 		if(!is_variasVeces) {
 			$(".rbMoverAqui").hide();
 		}
@@ -54,187 +50,12 @@ function notificacionToast(_mensaje) {
 			$(".rbMoverAqui").hide();
 		}, 15000);/**/
 	}
-
 $( function() {
     /*$( ".divDragAndDrop" ).sortable();
     $( ".divDragAndDrop" ).disableSelection();
     $( ".divDragAndDrop1" ).sortable();
     $( ".divDragAndDrop1" ).disableSelection();*/
-  } );
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ0_1").html()) + 0;
-				  $("#spanTimeCiclismoZ0_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ0_2").html()) + 0;
-				  $("#spanTimeCiclismoZ0_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ0_3").html()) + 0;
-				  $("#spanTimeCiclismoZ0_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ0_4").html()) + 0;
-				  $("#spanTimeCiclismoZ0_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ0_5").html()) + 0;
-				  $("#spanTimeCiclismoZ0_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ0_6").html()) + 0;
-				  $("#spanTimeCiclismoZ0_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ0_7").html()) + 0;
-				  $("#spanTimeCiclismoZ0_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ0_8").html()) + 0;
-				  $("#spanTimeCiclismoZ0_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ0_9").html()) + 0;
-				  $("#spanTimeCiclismoZ0_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ0_10").html()) + 0;
-				  $("#spanTimeCiclismoZ0_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 15;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ0_1").html()) + 15;
-				  $("#spanTimeCarreraZ0_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ0_2").html()) + 0;
-				  $("#spanTimeCarreraZ0_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ0_3").html()) + 0;
-				  $("#spanTimeCarreraZ0_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ0_4").html()) + 0;
-				  $("#spanTimeCarreraZ0_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ0_5").html()) + 0;
-				  $("#spanTimeCarreraZ0_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ0_6").html()) + 0;
-				  $("#spanTimeCarreraZ0_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ0_7").html()) + 0;
-				  $("#spanTimeCarreraZ0_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ0_8").html()) + 0;
-				  $("#spanTimeCarreraZ0_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ0_9").html()) + 0;
-				  $("#spanTimeCarreraZ0_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ0_10").html()) + 0;
-				  $("#spanTimeCarreraZ0_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ0_1").html()) + 0;
-				  $("#spanTimeNatacionZ0_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ0_2").html()) + 0;
-				  $("#spanTimeNatacionZ0_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ0_3").html()) + 0;
-				  $("#spanTimeNatacionZ0_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ0_4").html()) + 0;
-				  $("#spanTimeNatacionZ0_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ0_5").html()) + 0;
-				  $("#spanTimeNatacionZ0_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ0_6").html()) + 0;
-				  $("#spanTimeNatacionZ0_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ0_7").html()) + 0;
-				  $("#spanTimeNatacionZ0_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ0_8").html()) + 0;
-				  $("#spanTimeNatacionZ0_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ0_9").html()) + 0;
-				  $("#spanTimeNatacionZ0_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ0_10").html()) + 0;
-				  $("#spanTimeNatacionZ0_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ0_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ0_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ0_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ0_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ0_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ0_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ0_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ0_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ0_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ0_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+  } ); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ0_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ0_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ0_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ0_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ0_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ0_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ0_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ0_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ0_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ0_10", 0); updateZoneValue("#spanTimeCarreraZ1", 15); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ0_1", 15); updateZoneValue("#spanTimeCarreraZ0_2", 0); updateZoneValue("#spanTimeCarreraZ0_3", 0); updateZoneValue("#spanTimeCarreraZ0_4", 0); updateZoneValue("#spanTimeCarreraZ0_5", 0); updateZoneValue("#spanTimeCarreraZ0_6", 0); updateZoneValue("#spanTimeCarreraZ0_7", 0); updateZoneValue("#spanTimeCarreraZ0_8", 0); updateZoneValue("#spanTimeCarreraZ0_9", 0); updateZoneValue("#spanTimeCarreraZ0_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ0_1", 0); updateZoneValue("#spanTimeNatacionZ0_2", 0); updateZoneValue("#spanTimeNatacionZ0_3", 0); updateZoneValue("#spanTimeNatacionZ0_4", 0); updateZoneValue("#spanTimeNatacionZ0_5", 0); updateZoneValue("#spanTimeNatacionZ0_6", 0); updateZoneValue("#spanTimeNatacionZ0_7", 0); updateZoneValue("#spanTimeNatacionZ0_8", 0); updateZoneValue("#spanTimeNatacionZ0_9", 0); updateZoneValue("#spanTimeNatacionZ0_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ0_1", 0); updateZoneValue("#spanDistanciaCiclismoZ0_2", 0); updateZoneValue("#spanDistanciaCiclismoZ0_3", 0); updateZoneValue("#spanDistanciaCiclismoZ0_4", 0); updateZoneValue("#spanDistanciaCiclismoZ0_5", 0); updateZoneValue("#spanDistanciaCiclismoZ0_6", 0); updateZoneValue("#spanDistanciaCiclismoZ0_7", 0); updateZoneValue("#spanDistanciaCiclismoZ0_8", 0); updateZoneValue("#spanDistanciaCiclismoZ0_9", 0); updateZoneValue("#spanDistanciaCiclismoZ0_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -255,7 +76,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ0_1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ0_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ0_2").html()) + 0;
@@ -276,8 +96,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ0_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ0_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ0_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -298,8 +116,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ0_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ0_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ0_2").html()) + 0;
@@ -320,8 +136,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ0_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ0_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ0_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -331,7 +145,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo0").html()) + 0;
 				  $("#spanTotalSesionesCiclismo0").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion0").html()) + 0;
@@ -341,19 +154,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo0").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo0").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (15/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo0").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo0").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion0").html()) + (0/60);
@@ -363,19 +172,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo0").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo0").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (192.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo0").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo0").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion0").html()) + (0);
@@ -383,181 +187,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera0").html()) + (0);
 				  $("#spanTotalCaloriasCarrera0").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo0").html()) + (192.6);
-				  $("#spanTotalCaloriasEsfuerzo0").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ0_1").html()) + 0;
-				  $("#spanTimeCiclismoZ0_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ0_2").html()) + 0;
-				  $("#spanTimeCiclismoZ0_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ0_3").html()) + 0;
-				  $("#spanTimeCiclismoZ0_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ0_4").html()) + 0;
-				  $("#spanTimeCiclismoZ0_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ0_5").html()) + 0;
-				  $("#spanTimeCiclismoZ0_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ0_6").html()) + 0;
-				  $("#spanTimeCiclismoZ0_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ0_7").html()) + 0;
-				  $("#spanTimeCiclismoZ0_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ0_8").html()) + 0;
-				  $("#spanTimeCiclismoZ0_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ0_9").html()) + 0;
-				  $("#spanTimeCiclismoZ0_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ0_10").html()) + 0;
-				  $("#spanTimeCiclismoZ0_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 20;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 30;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ0_1").html()) + 20;
-				  $("#spanTimeCarreraZ0_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ0_2").html()) + 30;
-				  $("#spanTimeCarreraZ0_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ0_3").html()) + 0;
-				  $("#spanTimeCarreraZ0_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ0_4").html()) + 0;
-				  $("#spanTimeCarreraZ0_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ0_5").html()) + 0;
-				  $("#spanTimeCarreraZ0_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ0_6").html()) + 0;
-				  $("#spanTimeCarreraZ0_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ0_7").html()) + 0;
-				  $("#spanTimeCarreraZ0_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ0_8").html()) + 0;
-				  $("#spanTimeCarreraZ0_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ0_9").html()) + 0;
-				  $("#spanTimeCarreraZ0_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ0_10").html()) + 0;
-				  $("#spanTimeCarreraZ0_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ0_1").html()) + 0;
-				  $("#spanTimeNatacionZ0_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ0_2").html()) + 0;
-				  $("#spanTimeNatacionZ0_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ0_3").html()) + 0;
-				  $("#spanTimeNatacionZ0_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ0_4").html()) + 0;
-				  $("#spanTimeNatacionZ0_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ0_5").html()) + 0;
-				  $("#spanTimeNatacionZ0_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ0_6").html()) + 0;
-				  $("#spanTimeNatacionZ0_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ0_7").html()) + 0;
-				  $("#spanTimeNatacionZ0_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ0_8").html()) + 0;
-				  $("#spanTimeNatacionZ0_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ0_9").html()) + 0;
-				  $("#spanTimeNatacionZ0_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ0_10").html()) + 0;
-				  $("#spanTimeNatacionZ0_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ0_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ0_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ0_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ0_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ0_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ0_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ0_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ0_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ0_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ0_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo0").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ0_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ0_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ0_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ0_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ0_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ0_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ0_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ0_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ0_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ0_10", 0); updateZoneValue("#spanTimeCarreraZ1", 20); updateZoneValue("#spanTimeCarreraZ2", 30); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ0_1", 20); updateZoneValue("#spanTimeCarreraZ0_2", 30); updateZoneValue("#spanTimeCarreraZ0_3", 0); updateZoneValue("#spanTimeCarreraZ0_4", 0); updateZoneValue("#spanTimeCarreraZ0_5", 0); updateZoneValue("#spanTimeCarreraZ0_6", 0); updateZoneValue("#spanTimeCarreraZ0_7", 0); updateZoneValue("#spanTimeCarreraZ0_8", 0); updateZoneValue("#spanTimeCarreraZ0_9", 0); updateZoneValue("#spanTimeCarreraZ0_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ0_1", 0); updateZoneValue("#spanTimeNatacionZ0_2", 0); updateZoneValue("#spanTimeNatacionZ0_3", 0); updateZoneValue("#spanTimeNatacionZ0_4", 0); updateZoneValue("#spanTimeNatacionZ0_5", 0); updateZoneValue("#spanTimeNatacionZ0_6", 0); updateZoneValue("#spanTimeNatacionZ0_7", 0); updateZoneValue("#spanTimeNatacionZ0_8", 0); updateZoneValue("#spanTimeNatacionZ0_9", 0); updateZoneValue("#spanTimeNatacionZ0_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ0_1", 0); updateZoneValue("#spanDistanciaCiclismoZ0_2", 0); updateZoneValue("#spanDistanciaCiclismoZ0_3", 0); updateZoneValue("#spanDistanciaCiclismoZ0_4", 0); updateZoneValue("#spanDistanciaCiclismoZ0_5", 0); updateZoneValue("#spanDistanciaCiclismoZ0_6", 0); updateZoneValue("#spanDistanciaCiclismoZ0_7", 0); updateZoneValue("#spanDistanciaCiclismoZ0_8", 0); updateZoneValue("#spanDistanciaCiclismoZ0_9", 0); updateZoneValue("#spanDistanciaCiclismoZ0_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 6.85;
@@ -578,7 +208,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ0_1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ0_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ0_2").html()) + 6.85;
@@ -599,8 +228,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ0_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ0_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ0_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -621,8 +248,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ0_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ0_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ0_2").html()) + 0;
@@ -643,8 +268,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ0_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ0_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ0_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -654,7 +277,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo0").html()) + 0;
 				  $("#spanTotalSesionesCiclismo0").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion0").html()) + 0;
@@ -664,19 +286,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo0").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo0").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (50/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo0").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo0").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion0").html()) + (0/60);
@@ -686,19 +304,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo0").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo0").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (177.27);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo0").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo0").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion0").html()) + (0);
@@ -706,181 +319,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera0").html()) + (0);
 				  $("#spanTotalCaloriasCarrera0").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo0").html()) + (177.27);
-				  $("#spanTotalCaloriasEsfuerzo0").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ0_1").html()) + 0;
-				  $("#spanTimeCiclismoZ0_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ0_2").html()) + 0;
-				  $("#spanTimeCiclismoZ0_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ0_3").html()) + 0;
-				  $("#spanTimeCiclismoZ0_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ0_4").html()) + 0;
-				  $("#spanTimeCiclismoZ0_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ0_5").html()) + 0;
-				  $("#spanTimeCiclismoZ0_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ0_6").html()) + 0;
-				  $("#spanTimeCiclismoZ0_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ0_7").html()) + 0;
-				  $("#spanTimeCiclismoZ0_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ0_8").html()) + 0;
-				  $("#spanTimeCiclismoZ0_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ0_9").html()) + 0;
-				  $("#spanTimeCiclismoZ0_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ0_10").html()) + 0;
-				  $("#spanTimeCiclismoZ0_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 25;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ0_1").html()) + 25;
-				  $("#spanTimeCarreraZ0_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ0_2").html()) + 0;
-				  $("#spanTimeCarreraZ0_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ0_3").html()) + 0;
-				  $("#spanTimeCarreraZ0_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ0_4").html()) + 0;
-				  $("#spanTimeCarreraZ0_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ0_5").html()) + 0;
-				  $("#spanTimeCarreraZ0_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ0_6").html()) + 0;
-				  $("#spanTimeCarreraZ0_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ0_7").html()) + 0;
-				  $("#spanTimeCarreraZ0_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ0_8").html()) + 0;
-				  $("#spanTimeCarreraZ0_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ0_9").html()) + 0;
-				  $("#spanTimeCarreraZ0_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ0_10").html()) + 0;
-				  $("#spanTimeCarreraZ0_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ0_1").html()) + 0;
-				  $("#spanTimeNatacionZ0_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ0_2").html()) + 0;
-				  $("#spanTimeNatacionZ0_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ0_3").html()) + 0;
-				  $("#spanTimeNatacionZ0_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ0_4").html()) + 0;
-				  $("#spanTimeNatacionZ0_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ0_5").html()) + 0;
-				  $("#spanTimeNatacionZ0_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ0_6").html()) + 0;
-				  $("#spanTimeNatacionZ0_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ0_7").html()) + 0;
-				  $("#spanTimeNatacionZ0_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ0_8").html()) + 0;
-				  $("#spanTimeNatacionZ0_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ0_9").html()) + 0;
-				  $("#spanTimeNatacionZ0_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ0_10").html()) + 0;
-				  $("#spanTimeNatacionZ0_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ0_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ0_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ0_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ0_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ0_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ0_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ0_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ0_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ0_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ0_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo0").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ0_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ0_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ0_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ0_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ0_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ0_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ0_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ0_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ0_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ0_10", 0); updateZoneValue("#spanTimeCarreraZ1", 25); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ0_1", 25); updateZoneValue("#spanTimeCarreraZ0_2", 0); updateZoneValue("#spanTimeCarreraZ0_3", 0); updateZoneValue("#spanTimeCarreraZ0_4", 0); updateZoneValue("#spanTimeCarreraZ0_5", 0); updateZoneValue("#spanTimeCarreraZ0_6", 0); updateZoneValue("#spanTimeCarreraZ0_7", 0); updateZoneValue("#spanTimeCarreraZ0_8", 0); updateZoneValue("#spanTimeCarreraZ0_9", 0); updateZoneValue("#spanTimeCarreraZ0_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ0_1", 0); updateZoneValue("#spanTimeNatacionZ0_2", 0); updateZoneValue("#spanTimeNatacionZ0_3", 0); updateZoneValue("#spanTimeNatacionZ0_4", 0); updateZoneValue("#spanTimeNatacionZ0_5", 0); updateZoneValue("#spanTimeNatacionZ0_6", 0); updateZoneValue("#spanTimeNatacionZ0_7", 0); updateZoneValue("#spanTimeNatacionZ0_8", 0); updateZoneValue("#spanTimeNatacionZ0_9", 0); updateZoneValue("#spanTimeNatacionZ0_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ0_1", 0); updateZoneValue("#spanDistanciaCiclismoZ0_2", 0); updateZoneValue("#spanDistanciaCiclismoZ0_3", 0); updateZoneValue("#spanDistanciaCiclismoZ0_4", 0); updateZoneValue("#spanDistanciaCiclismoZ0_5", 0); updateZoneValue("#spanDistanciaCiclismoZ0_6", 0); updateZoneValue("#spanDistanciaCiclismoZ0_7", 0); updateZoneValue("#spanDistanciaCiclismoZ0_8", 0); updateZoneValue("#spanDistanciaCiclismoZ0_9", 0); updateZoneValue("#spanDistanciaCiclismoZ0_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 5.1791666666667;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -901,7 +340,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ0_1").html()) + 5.1791666666667;
 				  $("#spanDistanciaCarreraZ0_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ0_2").html()) + 0;
@@ -922,8 +360,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ0_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ0_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ0_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -944,8 +380,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ0_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ0_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ0_2").html()) + 0;
@@ -966,8 +400,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ0_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ0_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ0_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -977,7 +409,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo0").html()) + 0;
 				  $("#spanTotalSesionesCiclismo0").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion0").html()) + 0;
@@ -987,19 +418,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo0").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo0").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (25/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo0").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo0").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion0").html()) + (0/60);
@@ -1009,19 +436,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo0").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo0").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (247.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo0").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo0").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion0").html()) + (0);
@@ -1029,181 +451,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera0").html()) + (0);
 				  $("#spanTotalCaloriasCarrera0").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo0").html()) + (247.6);
-				  $("#spanTotalCaloriasEsfuerzo0").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ0_1").html()) + 0;
-				  $("#spanTimeCiclismoZ0_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ0_2").html()) + 0;
-				  $("#spanTimeCiclismoZ0_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ0_3").html()) + 0;
-				  $("#spanTimeCiclismoZ0_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ0_4").html()) + 0;
-				  $("#spanTimeCiclismoZ0_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ0_5").html()) + 0;
-				  $("#spanTimeCiclismoZ0_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ0_6").html()) + 0;
-				  $("#spanTimeCiclismoZ0_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ0_7").html()) + 0;
-				  $("#spanTimeCiclismoZ0_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ0_8").html()) + 0;
-				  $("#spanTimeCiclismoZ0_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ0_9").html()) + 0;
-				  $("#spanTimeCiclismoZ0_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ0_10").html()) + 0;
-				  $("#spanTimeCiclismoZ0_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 20;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ0_1").html()) + 20;
-				  $("#spanTimeCarreraZ0_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ0_2").html()) + 0;
-				  $("#spanTimeCarreraZ0_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ0_3").html()) + 0;
-				  $("#spanTimeCarreraZ0_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ0_4").html()) + 0;
-				  $("#spanTimeCarreraZ0_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ0_5").html()) + 0;
-				  $("#spanTimeCarreraZ0_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ0_6").html()) + 0;
-				  $("#spanTimeCarreraZ0_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ0_7").html()) + 0;
-				  $("#spanTimeCarreraZ0_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ0_8").html()) + 0;
-				  $("#spanTimeCarreraZ0_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ0_9").html()) + 0;
-				  $("#spanTimeCarreraZ0_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ0_10").html()) + 0;
-				  $("#spanTimeCarreraZ0_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ0_1").html()) + 0;
-				  $("#spanTimeNatacionZ0_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ0_2").html()) + 0;
-				  $("#spanTimeNatacionZ0_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ0_3").html()) + 0;
-				  $("#spanTimeNatacionZ0_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ0_4").html()) + 0;
-				  $("#spanTimeNatacionZ0_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ0_5").html()) + 0;
-				  $("#spanTimeNatacionZ0_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ0_6").html()) + 0;
-				  $("#spanTimeNatacionZ0_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ0_7").html()) + 0;
-				  $("#spanTimeNatacionZ0_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ0_8").html()) + 0;
-				  $("#spanTimeNatacionZ0_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ0_9").html()) + 0;
-				  $("#spanTimeNatacionZ0_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ0_10").html()) + 0;
-				  $("#spanTimeNatacionZ0_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ0_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ0_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ0_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ0_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ0_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ0_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ0_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ0_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ0_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ0_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo0").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ0_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ0_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ0_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ0_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ0_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ0_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ0_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ0_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ0_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ0_10", 0); updateZoneValue("#spanTimeCarreraZ1", 20); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ0_1", 20); updateZoneValue("#spanTimeCarreraZ0_2", 0); updateZoneValue("#spanTimeCarreraZ0_3", 0); updateZoneValue("#spanTimeCarreraZ0_4", 0); updateZoneValue("#spanTimeCarreraZ0_5", 0); updateZoneValue("#spanTimeCarreraZ0_6", 0); updateZoneValue("#spanTimeCarreraZ0_7", 0); updateZoneValue("#spanTimeCarreraZ0_8", 0); updateZoneValue("#spanTimeCarreraZ0_9", 0); updateZoneValue("#spanTimeCarreraZ0_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ0_1", 0); updateZoneValue("#spanTimeNatacionZ0_2", 0); updateZoneValue("#spanTimeNatacionZ0_3", 0); updateZoneValue("#spanTimeNatacionZ0_4", 0); updateZoneValue("#spanTimeNatacionZ0_5", 0); updateZoneValue("#spanTimeNatacionZ0_6", 0); updateZoneValue("#spanTimeNatacionZ0_7", 0); updateZoneValue("#spanTimeNatacionZ0_8", 0); updateZoneValue("#spanTimeNatacionZ0_9", 0); updateZoneValue("#spanTimeNatacionZ0_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ0_1", 0); updateZoneValue("#spanDistanciaCiclismoZ0_2", 0); updateZoneValue("#spanDistanciaCiclismoZ0_3", 0); updateZoneValue("#spanDistanciaCiclismoZ0_4", 0); updateZoneValue("#spanDistanciaCiclismoZ0_5", 0); updateZoneValue("#spanDistanciaCiclismoZ0_6", 0); updateZoneValue("#spanDistanciaCiclismoZ0_7", 0); updateZoneValue("#spanDistanciaCiclismoZ0_8", 0); updateZoneValue("#spanDistanciaCiclismoZ0_9", 0); updateZoneValue("#spanDistanciaCiclismoZ0_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -1224,7 +472,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ0_1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ0_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ0_2").html()) + 0;
@@ -1245,8 +492,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ0_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ0_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ0_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -1267,8 +512,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ0_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ0_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ0_2").html()) + 0;
@@ -1289,8 +532,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ0_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ0_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ0_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -1300,7 +541,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo0").html()) + 0;
 				  $("#spanTotalSesionesCiclismo0").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion0").html()) + 0;
@@ -1310,19 +550,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo0").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo0").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (20/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo0").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo0").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion0").html()) + (0/60);
@@ -1332,19 +568,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo0").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo0").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (217.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo0").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo0").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion0").html()) + (0);
@@ -1352,181 +583,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera0").html()) + (0);
 				  $("#spanTotalCaloriasCarrera0").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo0").html()) + (217.6);
-				  $("#spanTotalCaloriasEsfuerzo0").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ0_1").html()) + 0;
-				  $("#spanTimeCiclismoZ0_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ0_2").html()) + 0;
-				  $("#spanTimeCiclismoZ0_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ0_3").html()) + 0;
-				  $("#spanTimeCiclismoZ0_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ0_4").html()) + 0;
-				  $("#spanTimeCiclismoZ0_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ0_5").html()) + 0;
-				  $("#spanTimeCiclismoZ0_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ0_6").html()) + 0;
-				  $("#spanTimeCiclismoZ0_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ0_7").html()) + 0;
-				  $("#spanTimeCiclismoZ0_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ0_8").html()) + 0;
-				  $("#spanTimeCiclismoZ0_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ0_9").html()) + 0;
-				  $("#spanTimeCiclismoZ0_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ0_10").html()) + 0;
-				  $("#spanTimeCiclismoZ0_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 15;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 20;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 8;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ0_1").html()) + 15;
-				  $("#spanTimeCarreraZ0_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ0_2").html()) + 20;
-				  $("#spanTimeCarreraZ0_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ0_3").html()) + 8;
-				  $("#spanTimeCarreraZ0_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ0_4").html()) + 0;
-				  $("#spanTimeCarreraZ0_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ0_5").html()) + 0;
-				  $("#spanTimeCarreraZ0_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ0_6").html()) + 0;
-				  $("#spanTimeCarreraZ0_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ0_7").html()) + 0;
-				  $("#spanTimeCarreraZ0_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ0_8").html()) + 0;
-				  $("#spanTimeCarreraZ0_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ0_9").html()) + 0;
-				  $("#spanTimeCarreraZ0_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ0_10").html()) + 0;
-				  $("#spanTimeCarreraZ0_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ0_1").html()) + 0;
-				  $("#spanTimeNatacionZ0_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ0_2").html()) + 0;
-				  $("#spanTimeNatacionZ0_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ0_3").html()) + 0;
-				  $("#spanTimeNatacionZ0_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ0_4").html()) + 0;
-				  $("#spanTimeNatacionZ0_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ0_5").html()) + 0;
-				  $("#spanTimeNatacionZ0_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ0_6").html()) + 0;
-				  $("#spanTimeNatacionZ0_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ0_7").html()) + 0;
-				  $("#spanTimeNatacionZ0_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ0_8").html()) + 0;
-				  $("#spanTimeNatacionZ0_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ0_9").html()) + 0;
-				  $("#spanTimeNatacionZ0_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ0_10").html()) + 0;
-				  $("#spanTimeNatacionZ0_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ0_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ0_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ0_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ0_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ0_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ0_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ0_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ0_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ0_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ0_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo0").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ0_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ0_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ0_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ0_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ0_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ0_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ0_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ0_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ0_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ0_10", 0); updateZoneValue("#spanTimeCarreraZ1", 15); updateZoneValue("#spanTimeCarreraZ2", 20); updateZoneValue("#spanTimeCarreraZ3", 8); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ0_1", 15); updateZoneValue("#spanTimeCarreraZ0_2", 20); updateZoneValue("#spanTimeCarreraZ0_3", 8); updateZoneValue("#spanTimeCarreraZ0_4", 0); updateZoneValue("#spanTimeCarreraZ0_5", 0); updateZoneValue("#spanTimeCarreraZ0_6", 0); updateZoneValue("#spanTimeCarreraZ0_7", 0); updateZoneValue("#spanTimeCarreraZ0_8", 0); updateZoneValue("#spanTimeCarreraZ0_9", 0); updateZoneValue("#spanTimeCarreraZ0_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ0_1", 0); updateZoneValue("#spanTimeNatacionZ0_2", 0); updateZoneValue("#spanTimeNatacionZ0_3", 0); updateZoneValue("#spanTimeNatacionZ0_4", 0); updateZoneValue("#spanTimeNatacionZ0_5", 0); updateZoneValue("#spanTimeNatacionZ0_6", 0); updateZoneValue("#spanTimeNatacionZ0_7", 0); updateZoneValue("#spanTimeNatacionZ0_8", 0); updateZoneValue("#spanTimeNatacionZ0_9", 0); updateZoneValue("#spanTimeNatacionZ0_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ0_1", 0); updateZoneValue("#spanDistanciaCiclismoZ0_2", 0); updateZoneValue("#spanDistanciaCiclismoZ0_3", 0); updateZoneValue("#spanDistanciaCiclismoZ0_4", 0); updateZoneValue("#spanDistanciaCiclismoZ0_5", 0); updateZoneValue("#spanDistanciaCiclismoZ0_6", 0); updateZoneValue("#spanDistanciaCiclismoZ0_7", 0); updateZoneValue("#spanDistanciaCiclismoZ0_8", 0); updateZoneValue("#spanDistanciaCiclismoZ0_9", 0); updateZoneValue("#spanDistanciaCiclismoZ0_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 4.5666666666667;
@@ -1547,7 +604,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ0_1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ0_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ0_2").html()) + 4.5666666666667;
@@ -1568,8 +624,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ0_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ0_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ0_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -1590,8 +644,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ0_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ0_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ0_2").html()) + 0;
@@ -1612,8 +664,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ0_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ0_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ0_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -1623,7 +673,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo0").html()) + 0;
 				  $("#spanTotalSesionesCiclismo0").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion0").html()) + 0;
@@ -1633,19 +682,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo0").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo0").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (43/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo0").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo0").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion0").html()) + (0/60);
@@ -1655,19 +700,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo0").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo0").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (177.27);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo0").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo0").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion0").html()) + (0);
@@ -1675,181 +715,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera0").html()) + (0);
 				  $("#spanTotalCaloriasCarrera0").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo0").html()) + (177.27);
-				  $("#spanTotalCaloriasEsfuerzo0").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ0_1").html()) + 0;
-				  $("#spanTimeCiclismoZ0_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ0_2").html()) + 0;
-				  $("#spanTimeCiclismoZ0_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ0_3").html()) + 0;
-				  $("#spanTimeCiclismoZ0_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ0_4").html()) + 0;
-				  $("#spanTimeCiclismoZ0_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ0_5").html()) + 0;
-				  $("#spanTimeCiclismoZ0_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ0_6").html()) + 0;
-				  $("#spanTimeCiclismoZ0_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ0_7").html()) + 0;
-				  $("#spanTimeCiclismoZ0_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ0_8").html()) + 0;
-				  $("#spanTimeCiclismoZ0_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ0_9").html()) + 0;
-				  $("#spanTimeCiclismoZ0_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ0_10").html()) + 0;
-				  $("#spanTimeCiclismoZ0_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 50;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ0_1").html()) + 50;
-				  $("#spanTimeCarreraZ0_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ0_2").html()) + 0;
-				  $("#spanTimeCarreraZ0_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ0_3").html()) + 0;
-				  $("#spanTimeCarreraZ0_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ0_4").html()) + 0;
-				  $("#spanTimeCarreraZ0_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ0_5").html()) + 0;
-				  $("#spanTimeCarreraZ0_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ0_6").html()) + 0;
-				  $("#spanTimeCarreraZ0_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ0_7").html()) + 0;
-				  $("#spanTimeCarreraZ0_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ0_8").html()) + 0;
-				  $("#spanTimeCarreraZ0_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ0_9").html()) + 0;
-				  $("#spanTimeCarreraZ0_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ0_10").html()) + 0;
-				  $("#spanTimeCarreraZ0_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ0_1").html()) + 0;
-				  $("#spanTimeNatacionZ0_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ0_2").html()) + 0;
-				  $("#spanTimeNatacionZ0_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ0_3").html()) + 0;
-				  $("#spanTimeNatacionZ0_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ0_4").html()) + 0;
-				  $("#spanTimeNatacionZ0_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ0_5").html()) + 0;
-				  $("#spanTimeNatacionZ0_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ0_6").html()) + 0;
-				  $("#spanTimeNatacionZ0_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ0_7").html()) + 0;
-				  $("#spanTimeNatacionZ0_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ0_8").html()) + 0;
-				  $("#spanTimeNatacionZ0_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ0_9").html()) + 0;
-				  $("#spanTimeNatacionZ0_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ0_10").html()) + 0;
-				  $("#spanTimeNatacionZ0_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ0_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ0_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ0_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ0_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ0_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ0_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ0_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ0_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ0_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ0_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ0_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo0").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ0_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ0_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ0_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ0_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ0_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ0_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ0_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ0_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ0_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ0_10", 0); updateZoneValue("#spanTimeCarreraZ1", 50); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ0_1", 50); updateZoneValue("#spanTimeCarreraZ0_2", 0); updateZoneValue("#spanTimeCarreraZ0_3", 0); updateZoneValue("#spanTimeCarreraZ0_4", 0); updateZoneValue("#spanTimeCarreraZ0_5", 0); updateZoneValue("#spanTimeCarreraZ0_6", 0); updateZoneValue("#spanTimeCarreraZ0_7", 0); updateZoneValue("#spanTimeCarreraZ0_8", 0); updateZoneValue("#spanTimeCarreraZ0_9", 0); updateZoneValue("#spanTimeCarreraZ0_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ0_1", 0); updateZoneValue("#spanTimeNatacionZ0_2", 0); updateZoneValue("#spanTimeNatacionZ0_3", 0); updateZoneValue("#spanTimeNatacionZ0_4", 0); updateZoneValue("#spanTimeNatacionZ0_5", 0); updateZoneValue("#spanTimeNatacionZ0_6", 0); updateZoneValue("#spanTimeNatacionZ0_7", 0); updateZoneValue("#spanTimeNatacionZ0_8", 0); updateZoneValue("#spanTimeNatacionZ0_9", 0); updateZoneValue("#spanTimeNatacionZ0_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ0_1", 0); updateZoneValue("#spanDistanciaCiclismoZ0_2", 0); updateZoneValue("#spanDistanciaCiclismoZ0_3", 0); updateZoneValue("#spanDistanciaCiclismoZ0_4", 0); updateZoneValue("#spanDistanciaCiclismoZ0_5", 0); updateZoneValue("#spanDistanciaCiclismoZ0_6", 0); updateZoneValue("#spanDistanciaCiclismoZ0_7", 0); updateZoneValue("#spanDistanciaCiclismoZ0_8", 0); updateZoneValue("#spanDistanciaCiclismoZ0_9", 0); updateZoneValue("#spanDistanciaCiclismoZ0_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 10.358333333333;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -1870,7 +736,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ0_1").html()) + 10.358333333333;
 				  $("#spanDistanciaCarreraZ0_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ0_2").html()) + 0;
@@ -1891,8 +756,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ0_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ0_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ0_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -1913,8 +776,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ0_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ0_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ0_2").html()) + 0;
@@ -1935,8 +796,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ0_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ0_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ0_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -1946,7 +805,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo0").html()) + 0;
 				  $("#spanTotalSesionesCiclismo0").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion0").html()) + 0;
@@ -1956,19 +814,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo0").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo0").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (50/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo0").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo0").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion0").html()) + (0/60);
@@ -1978,19 +832,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo0").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo0").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (128.87);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo0").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo0").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion0").html()) + (0);
@@ -1998,181 +847,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera0").html()) + (0);
 				  $("#spanTotalCaloriasCarrera0").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo0").html()) + (128.87);
-				  $("#spanTotalCaloriasEsfuerzo0").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ1_1").html()) + 0;
-				  $("#spanTimeCiclismoZ1_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ1_2").html()) + 0;
-				  $("#spanTimeCiclismoZ1_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ1_3").html()) + 0;
-				  $("#spanTimeCiclismoZ1_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ1_4").html()) + 0;
-				  $("#spanTimeCiclismoZ1_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ1_5").html()) + 0;
-				  $("#spanTimeCiclismoZ1_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ1_6").html()) + 0;
-				  $("#spanTimeCiclismoZ1_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ1_7").html()) + 0;
-				  $("#spanTimeCiclismoZ1_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ1_8").html()) + 0;
-				  $("#spanTimeCiclismoZ1_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ1_9").html()) + 0;
-				  $("#spanTimeCiclismoZ1_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ1_10").html()) + 0;
-				  $("#spanTimeCiclismoZ1_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 30;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ1_1").html()) + 30;
-				  $("#spanTimeCarreraZ1_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ1_2").html()) + 0;
-				  $("#spanTimeCarreraZ1_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ1_3").html()) + 0;
-				  $("#spanTimeCarreraZ1_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ1_4").html()) + 0;
-				  $("#spanTimeCarreraZ1_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ1_5").html()) + 0;
-				  $("#spanTimeCarreraZ1_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ1_6").html()) + 0;
-				  $("#spanTimeCarreraZ1_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ1_7").html()) + 0;
-				  $("#spanTimeCarreraZ1_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ1_8").html()) + 0;
-				  $("#spanTimeCarreraZ1_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ1_9").html()) + 0;
-				  $("#spanTimeCarreraZ1_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ1_10").html()) + 0;
-				  $("#spanTimeCarreraZ1_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ1_1").html()) + 0;
-				  $("#spanTimeNatacionZ1_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ1_2").html()) + 0;
-				  $("#spanTimeNatacionZ1_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ1_3").html()) + 0;
-				  $("#spanTimeNatacionZ1_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ1_4").html()) + 0;
-				  $("#spanTimeNatacionZ1_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ1_5").html()) + 0;
-				  $("#spanTimeNatacionZ1_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ1_6").html()) + 0;
-				  $("#spanTimeNatacionZ1_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ1_7").html()) + 0;
-				  $("#spanTimeNatacionZ1_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ1_8").html()) + 0;
-				  $("#spanTimeNatacionZ1_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ1_9").html()) + 0;
-				  $("#spanTimeNatacionZ1_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ1_10").html()) + 0;
-				  $("#spanTimeNatacionZ1_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ1_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ1_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ1_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ1_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ1_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ1_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ1_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ1_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ1_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ1_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo0").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ1_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ1_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ1_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ1_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ1_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ1_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ1_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ1_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ1_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ1_10", 0); updateZoneValue("#spanTimeCarreraZ1", 30); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ1_1", 30); updateZoneValue("#spanTimeCarreraZ1_2", 0); updateZoneValue("#spanTimeCarreraZ1_3", 0); updateZoneValue("#spanTimeCarreraZ1_4", 0); updateZoneValue("#spanTimeCarreraZ1_5", 0); updateZoneValue("#spanTimeCarreraZ1_6", 0); updateZoneValue("#spanTimeCarreraZ1_7", 0); updateZoneValue("#spanTimeCarreraZ1_8", 0); updateZoneValue("#spanTimeCarreraZ1_9", 0); updateZoneValue("#spanTimeCarreraZ1_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ1_1", 0); updateZoneValue("#spanTimeNatacionZ1_2", 0); updateZoneValue("#spanTimeNatacionZ1_3", 0); updateZoneValue("#spanTimeNatacionZ1_4", 0); updateZoneValue("#spanTimeNatacionZ1_5", 0); updateZoneValue("#spanTimeNatacionZ1_6", 0); updateZoneValue("#spanTimeNatacionZ1_7", 0); updateZoneValue("#spanTimeNatacionZ1_8", 0); updateZoneValue("#spanTimeNatacionZ1_9", 0); updateZoneValue("#spanTimeNatacionZ1_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ1_1", 0); updateZoneValue("#spanDistanciaCiclismoZ1_2", 0); updateZoneValue("#spanDistanciaCiclismoZ1_3", 0); updateZoneValue("#spanDistanciaCiclismoZ1_4", 0); updateZoneValue("#spanDistanciaCiclismoZ1_5", 0); updateZoneValue("#spanDistanciaCiclismoZ1_6", 0); updateZoneValue("#spanDistanciaCiclismoZ1_7", 0); updateZoneValue("#spanDistanciaCiclismoZ1_8", 0); updateZoneValue("#spanDistanciaCiclismoZ1_9", 0); updateZoneValue("#spanDistanciaCiclismoZ1_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 6.215;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -2193,7 +868,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1_1").html()) + 6.215;
 				  $("#spanDistanciaCarreraZ1_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ1_2").html()) + 0;
@@ -2214,8 +888,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ1_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ1_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ1_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -2236,8 +908,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ1_2").html()) + 0;
@@ -2258,8 +928,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ1_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ1_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ1_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -2269,7 +937,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo1").html()) + 0;
 				  $("#spanTotalSesionesCiclismo1").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion1").html()) + 0;
@@ -2279,19 +946,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo1").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo1").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (30/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo1").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo1").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion1").html()) + (0/60);
@@ -2301,19 +964,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo1").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo1").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (259.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo1").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo1").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion1").html()) + (0);
@@ -2321,181 +979,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera1").html()) + (0);
 				  $("#spanTotalCaloriasCarrera1").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo1").html()) + (259.6);
-				  $("#spanTotalCaloriasEsfuerzo1").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ1_1").html()) + 0;
-				  $("#spanTimeCiclismoZ1_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ1_2").html()) + 0;
-				  $("#spanTimeCiclismoZ1_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ1_3").html()) + 0;
-				  $("#spanTimeCiclismoZ1_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ1_4").html()) + 0;
-				  $("#spanTimeCiclismoZ1_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ1_5").html()) + 0;
-				  $("#spanTimeCiclismoZ1_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ1_6").html()) + 0;
-				  $("#spanTimeCiclismoZ1_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ1_7").html()) + 0;
-				  $("#spanTimeCiclismoZ1_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ1_8").html()) + 0;
-				  $("#spanTimeCiclismoZ1_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ1_9").html()) + 0;
-				  $("#spanTimeCiclismoZ1_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ1_10").html()) + 0;
-				  $("#spanTimeCiclismoZ1_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 20;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 35;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ1_1").html()) + 20;
-				  $("#spanTimeCarreraZ1_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ1_2").html()) + 35;
-				  $("#spanTimeCarreraZ1_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ1_3").html()) + 0;
-				  $("#spanTimeCarreraZ1_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ1_4").html()) + 0;
-				  $("#spanTimeCarreraZ1_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ1_5").html()) + 0;
-				  $("#spanTimeCarreraZ1_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ1_6").html()) + 0;
-				  $("#spanTimeCarreraZ1_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ1_7").html()) + 0;
-				  $("#spanTimeCarreraZ1_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ1_8").html()) + 0;
-				  $("#spanTimeCarreraZ1_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ1_9").html()) + 0;
-				  $("#spanTimeCarreraZ1_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ1_10").html()) + 0;
-				  $("#spanTimeCarreraZ1_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ1_1").html()) + 0;
-				  $("#spanTimeNatacionZ1_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ1_2").html()) + 0;
-				  $("#spanTimeNatacionZ1_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ1_3").html()) + 0;
-				  $("#spanTimeNatacionZ1_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ1_4").html()) + 0;
-				  $("#spanTimeNatacionZ1_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ1_5").html()) + 0;
-				  $("#spanTimeNatacionZ1_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ1_6").html()) + 0;
-				  $("#spanTimeNatacionZ1_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ1_7").html()) + 0;
-				  $("#spanTimeNatacionZ1_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ1_8").html()) + 0;
-				  $("#spanTimeNatacionZ1_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ1_9").html()) + 0;
-				  $("#spanTimeNatacionZ1_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ1_10").html()) + 0;
-				  $("#spanTimeNatacionZ1_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ1_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ1_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ1_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ1_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ1_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ1_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ1_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ1_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ1_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ1_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo1").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ1_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ1_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ1_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ1_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ1_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ1_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ1_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ1_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ1_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ1_10", 0); updateZoneValue("#spanTimeCarreraZ1", 20); updateZoneValue("#spanTimeCarreraZ2", 35); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ1_1", 20); updateZoneValue("#spanTimeCarreraZ1_2", 35); updateZoneValue("#spanTimeCarreraZ1_3", 0); updateZoneValue("#spanTimeCarreraZ1_4", 0); updateZoneValue("#spanTimeCarreraZ1_5", 0); updateZoneValue("#spanTimeCarreraZ1_6", 0); updateZoneValue("#spanTimeCarreraZ1_7", 0); updateZoneValue("#spanTimeCarreraZ1_8", 0); updateZoneValue("#spanTimeCarreraZ1_9", 0); updateZoneValue("#spanTimeCarreraZ1_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ1_1", 0); updateZoneValue("#spanTimeNatacionZ1_2", 0); updateZoneValue("#spanTimeNatacionZ1_3", 0); updateZoneValue("#spanTimeNatacionZ1_4", 0); updateZoneValue("#spanTimeNatacionZ1_5", 0); updateZoneValue("#spanTimeNatacionZ1_6", 0); updateZoneValue("#spanTimeNatacionZ1_7", 0); updateZoneValue("#spanTimeNatacionZ1_8", 0); updateZoneValue("#spanTimeNatacionZ1_9", 0); updateZoneValue("#spanTimeNatacionZ1_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ1_1", 0); updateZoneValue("#spanDistanciaCiclismoZ1_2", 0); updateZoneValue("#spanDistanciaCiclismoZ1_3", 0); updateZoneValue("#spanDistanciaCiclismoZ1_4", 0); updateZoneValue("#spanDistanciaCiclismoZ1_5", 0); updateZoneValue("#spanDistanciaCiclismoZ1_6", 0); updateZoneValue("#spanDistanciaCiclismoZ1_7", 0); updateZoneValue("#spanDistanciaCiclismoZ1_8", 0); updateZoneValue("#spanDistanciaCiclismoZ1_9", 0); updateZoneValue("#spanDistanciaCiclismoZ1_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 7.9916666666667;
@@ -2516,7 +1000,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1_1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ1_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ1_2").html()) + 7.9916666666667;
@@ -2537,8 +1020,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ1_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ1_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ1_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -2559,8 +1040,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ1_2").html()) + 0;
@@ -2581,8 +1060,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ1_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ1_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ1_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -2592,7 +1069,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo1").html()) + 0;
 				  $("#spanTotalSesionesCiclismo1").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion1").html()) + 0;
@@ -2602,19 +1078,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo1").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo1").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (55/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo1").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo1").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion1").html()) + (0/60);
@@ -2624,19 +1096,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo1").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo1").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (177.27);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo1").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo1").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion1").html()) + (0);
@@ -2644,181 +1111,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera1").html()) + (0);
 				  $("#spanTotalCaloriasCarrera1").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo1").html()) + (177.27);
-				  $("#spanTotalCaloriasEsfuerzo1").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ1_1").html()) + 0;
-				  $("#spanTimeCiclismoZ1_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ1_2").html()) + 0;
-				  $("#spanTimeCiclismoZ1_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ1_3").html()) + 0;
-				  $("#spanTimeCiclismoZ1_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ1_4").html()) + 0;
-				  $("#spanTimeCiclismoZ1_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ1_5").html()) + 0;
-				  $("#spanTimeCiclismoZ1_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ1_6").html()) + 0;
-				  $("#spanTimeCiclismoZ1_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ1_7").html()) + 0;
-				  $("#spanTimeCiclismoZ1_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ1_8").html()) + 0;
-				  $("#spanTimeCiclismoZ1_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ1_9").html()) + 0;
-				  $("#spanTimeCiclismoZ1_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ1_10").html()) + 0;
-				  $("#spanTimeCiclismoZ1_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 30;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ1_1").html()) + 30;
-				  $("#spanTimeCarreraZ1_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ1_2").html()) + 0;
-				  $("#spanTimeCarreraZ1_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ1_3").html()) + 0;
-				  $("#spanTimeCarreraZ1_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ1_4").html()) + 0;
-				  $("#spanTimeCarreraZ1_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ1_5").html()) + 0;
-				  $("#spanTimeCarreraZ1_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ1_6").html()) + 0;
-				  $("#spanTimeCarreraZ1_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ1_7").html()) + 0;
-				  $("#spanTimeCarreraZ1_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ1_8").html()) + 0;
-				  $("#spanTimeCarreraZ1_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ1_9").html()) + 0;
-				  $("#spanTimeCarreraZ1_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ1_10").html()) + 0;
-				  $("#spanTimeCarreraZ1_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ1_1").html()) + 0;
-				  $("#spanTimeNatacionZ1_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ1_2").html()) + 0;
-				  $("#spanTimeNatacionZ1_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ1_3").html()) + 0;
-				  $("#spanTimeNatacionZ1_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ1_4").html()) + 0;
-				  $("#spanTimeNatacionZ1_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ1_5").html()) + 0;
-				  $("#spanTimeNatacionZ1_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ1_6").html()) + 0;
-				  $("#spanTimeNatacionZ1_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ1_7").html()) + 0;
-				  $("#spanTimeNatacionZ1_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ1_8").html()) + 0;
-				  $("#spanTimeNatacionZ1_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ1_9").html()) + 0;
-				  $("#spanTimeNatacionZ1_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ1_10").html()) + 0;
-				  $("#spanTimeNatacionZ1_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ1_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ1_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ1_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ1_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ1_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ1_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ1_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ1_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ1_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ1_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo1").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ1_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ1_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ1_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ1_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ1_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ1_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ1_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ1_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ1_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ1_10", 0); updateZoneValue("#spanTimeCarreraZ1", 30); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ1_1", 30); updateZoneValue("#spanTimeCarreraZ1_2", 0); updateZoneValue("#spanTimeCarreraZ1_3", 0); updateZoneValue("#spanTimeCarreraZ1_4", 0); updateZoneValue("#spanTimeCarreraZ1_5", 0); updateZoneValue("#spanTimeCarreraZ1_6", 0); updateZoneValue("#spanTimeCarreraZ1_7", 0); updateZoneValue("#spanTimeCarreraZ1_8", 0); updateZoneValue("#spanTimeCarreraZ1_9", 0); updateZoneValue("#spanTimeCarreraZ1_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ1_1", 0); updateZoneValue("#spanTimeNatacionZ1_2", 0); updateZoneValue("#spanTimeNatacionZ1_3", 0); updateZoneValue("#spanTimeNatacionZ1_4", 0); updateZoneValue("#spanTimeNatacionZ1_5", 0); updateZoneValue("#spanTimeNatacionZ1_6", 0); updateZoneValue("#spanTimeNatacionZ1_7", 0); updateZoneValue("#spanTimeNatacionZ1_8", 0); updateZoneValue("#spanTimeNatacionZ1_9", 0); updateZoneValue("#spanTimeNatacionZ1_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ1_1", 0); updateZoneValue("#spanDistanciaCiclismoZ1_2", 0); updateZoneValue("#spanDistanciaCiclismoZ1_3", 0); updateZoneValue("#spanDistanciaCiclismoZ1_4", 0); updateZoneValue("#spanDistanciaCiclismoZ1_5", 0); updateZoneValue("#spanDistanciaCiclismoZ1_6", 0); updateZoneValue("#spanDistanciaCiclismoZ1_7", 0); updateZoneValue("#spanDistanciaCiclismoZ1_8", 0); updateZoneValue("#spanDistanciaCiclismoZ1_9", 0); updateZoneValue("#spanDistanciaCiclismoZ1_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 6.215;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -2839,7 +1132,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1_1").html()) + 6.215;
 				  $("#spanDistanciaCarreraZ1_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ1_2").html()) + 0;
@@ -2860,8 +1152,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ1_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ1_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ1_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -2882,8 +1172,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ1_2").html()) + 0;
@@ -2904,8 +1192,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ1_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ1_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ1_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -2915,7 +1201,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo1").html()) + 0;
 				  $("#spanTotalSesionesCiclismo1").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion1").html()) + 0;
@@ -2925,19 +1210,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo1").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo1").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (30/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo1").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo1").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion1").html()) + (0/60);
@@ -2947,19 +1228,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo1").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo1").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (247.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo1").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo1").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion1").html()) + (0);
@@ -2967,181 +1243,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera1").html()) + (0);
 				  $("#spanTotalCaloriasCarrera1").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo1").html()) + (247.6);
-				  $("#spanTotalCaloriasEsfuerzo1").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ1_1").html()) + 0;
-				  $("#spanTimeCiclismoZ1_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ1_2").html()) + 0;
-				  $("#spanTimeCiclismoZ1_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ1_3").html()) + 0;
-				  $("#spanTimeCiclismoZ1_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ1_4").html()) + 0;
-				  $("#spanTimeCiclismoZ1_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ1_5").html()) + 0;
-				  $("#spanTimeCiclismoZ1_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ1_6").html()) + 0;
-				  $("#spanTimeCiclismoZ1_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ1_7").html()) + 0;
-				  $("#spanTimeCiclismoZ1_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ1_8").html()) + 0;
-				  $("#spanTimeCiclismoZ1_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ1_9").html()) + 0;
-				  $("#spanTimeCiclismoZ1_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ1_10").html()) + 0;
-				  $("#spanTimeCiclismoZ1_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 30;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ1_1").html()) + 30;
-				  $("#spanTimeCarreraZ1_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ1_2").html()) + 0;
-				  $("#spanTimeCarreraZ1_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ1_3").html()) + 0;
-				  $("#spanTimeCarreraZ1_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ1_4").html()) + 0;
-				  $("#spanTimeCarreraZ1_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ1_5").html()) + 0;
-				  $("#spanTimeCarreraZ1_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ1_6").html()) + 0;
-				  $("#spanTimeCarreraZ1_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ1_7").html()) + 0;
-				  $("#spanTimeCarreraZ1_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ1_8").html()) + 0;
-				  $("#spanTimeCarreraZ1_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ1_9").html()) + 0;
-				  $("#spanTimeCarreraZ1_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ1_10").html()) + 0;
-				  $("#spanTimeCarreraZ1_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ1_1").html()) + 0;
-				  $("#spanTimeNatacionZ1_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ1_2").html()) + 0;
-				  $("#spanTimeNatacionZ1_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ1_3").html()) + 0;
-				  $("#spanTimeNatacionZ1_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ1_4").html()) + 0;
-				  $("#spanTimeNatacionZ1_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ1_5").html()) + 0;
-				  $("#spanTimeNatacionZ1_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ1_6").html()) + 0;
-				  $("#spanTimeNatacionZ1_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ1_7").html()) + 0;
-				  $("#spanTimeNatacionZ1_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ1_8").html()) + 0;
-				  $("#spanTimeNatacionZ1_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ1_9").html()) + 0;
-				  $("#spanTimeNatacionZ1_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ1_10").html()) + 0;
-				  $("#spanTimeNatacionZ1_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ1_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ1_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ1_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ1_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ1_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ1_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ1_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ1_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ1_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ1_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo1").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ1_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ1_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ1_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ1_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ1_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ1_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ1_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ1_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ1_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ1_10", 0); updateZoneValue("#spanTimeCarreraZ1", 30); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ1_1", 30); updateZoneValue("#spanTimeCarreraZ1_2", 0); updateZoneValue("#spanTimeCarreraZ1_3", 0); updateZoneValue("#spanTimeCarreraZ1_4", 0); updateZoneValue("#spanTimeCarreraZ1_5", 0); updateZoneValue("#spanTimeCarreraZ1_6", 0); updateZoneValue("#spanTimeCarreraZ1_7", 0); updateZoneValue("#spanTimeCarreraZ1_8", 0); updateZoneValue("#spanTimeCarreraZ1_9", 0); updateZoneValue("#spanTimeCarreraZ1_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ1_1", 0); updateZoneValue("#spanTimeNatacionZ1_2", 0); updateZoneValue("#spanTimeNatacionZ1_3", 0); updateZoneValue("#spanTimeNatacionZ1_4", 0); updateZoneValue("#spanTimeNatacionZ1_5", 0); updateZoneValue("#spanTimeNatacionZ1_6", 0); updateZoneValue("#spanTimeNatacionZ1_7", 0); updateZoneValue("#spanTimeNatacionZ1_8", 0); updateZoneValue("#spanTimeNatacionZ1_9", 0); updateZoneValue("#spanTimeNatacionZ1_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ1_1", 0); updateZoneValue("#spanDistanciaCiclismoZ1_2", 0); updateZoneValue("#spanDistanciaCiclismoZ1_3", 0); updateZoneValue("#spanDistanciaCiclismoZ1_4", 0); updateZoneValue("#spanDistanciaCiclismoZ1_5", 0); updateZoneValue("#spanDistanciaCiclismoZ1_6", 0); updateZoneValue("#spanDistanciaCiclismoZ1_7", 0); updateZoneValue("#spanDistanciaCiclismoZ1_8", 0); updateZoneValue("#spanDistanciaCiclismoZ1_9", 0); updateZoneValue("#spanDistanciaCiclismoZ1_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 6.215;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -3162,7 +1264,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1_1").html()) + 6.215;
 				  $("#spanDistanciaCarreraZ1_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ1_2").html()) + 0;
@@ -3183,8 +1284,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ1_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ1_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ1_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -3205,8 +1304,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ1_2").html()) + 0;
@@ -3227,8 +1324,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ1_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ1_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ1_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -3238,7 +1333,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo1").html()) + 0;
 				  $("#spanTotalSesionesCiclismo1").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion1").html()) + 0;
@@ -3248,19 +1342,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo1").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo1").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (30/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo1").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo1").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion1").html()) + (0/60);
@@ -3270,19 +1360,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo1").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo1").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (373.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo1").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo1").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion1").html()) + (0);
@@ -3290,181 +1375,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera1").html()) + (0);
 				  $("#spanTotalCaloriasCarrera1").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo1").html()) + (373.6);
-				  $("#spanTotalCaloriasEsfuerzo1").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ1_1").html()) + 0;
-				  $("#spanTimeCiclismoZ1_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ1_2").html()) + 0;
-				  $("#spanTimeCiclismoZ1_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ1_3").html()) + 0;
-				  $("#spanTimeCiclismoZ1_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ1_4").html()) + 0;
-				  $("#spanTimeCiclismoZ1_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ1_5").html()) + 0;
-				  $("#spanTimeCiclismoZ1_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ1_6").html()) + 0;
-				  $("#spanTimeCiclismoZ1_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ1_7").html()) + 0;
-				  $("#spanTimeCiclismoZ1_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ1_8").html()) + 0;
-				  $("#spanTimeCiclismoZ1_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ1_9").html()) + 0;
-				  $("#spanTimeCiclismoZ1_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ1_10").html()) + 0;
-				  $("#spanTimeCiclismoZ1_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 20;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 15;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ1_1").html()) + 20;
-				  $("#spanTimeCarreraZ1_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ1_2").html()) + 0;
-				  $("#spanTimeCarreraZ1_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ1_3").html()) + 15;
-				  $("#spanTimeCarreraZ1_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ1_4").html()) + 0;
-				  $("#spanTimeCarreraZ1_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ1_5").html()) + 0;
-				  $("#spanTimeCarreraZ1_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ1_6").html()) + 0;
-				  $("#spanTimeCarreraZ1_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ1_7").html()) + 0;
-				  $("#spanTimeCarreraZ1_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ1_8").html()) + 0;
-				  $("#spanTimeCarreraZ1_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ1_9").html()) + 0;
-				  $("#spanTimeCarreraZ1_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ1_10").html()) + 0;
-				  $("#spanTimeCarreraZ1_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ1_1").html()) + 0;
-				  $("#spanTimeNatacionZ1_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ1_2").html()) + 0;
-				  $("#spanTimeNatacionZ1_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ1_3").html()) + 0;
-				  $("#spanTimeNatacionZ1_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ1_4").html()) + 0;
-				  $("#spanTimeNatacionZ1_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ1_5").html()) + 0;
-				  $("#spanTimeNatacionZ1_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ1_6").html()) + 0;
-				  $("#spanTimeNatacionZ1_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ1_7").html()) + 0;
-				  $("#spanTimeNatacionZ1_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ1_8").html()) + 0;
-				  $("#spanTimeNatacionZ1_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ1_9").html()) + 0;
-				  $("#spanTimeNatacionZ1_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ1_10").html()) + 0;
-				  $("#spanTimeNatacionZ1_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ1_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ1_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ1_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ1_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ1_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ1_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ1_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ1_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ1_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ1_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo1").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ1_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ1_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ1_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ1_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ1_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ1_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ1_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ1_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ1_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ1_10", 0); updateZoneValue("#spanTimeCarreraZ1", 20); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 15); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ1_1", 20); updateZoneValue("#spanTimeCarreraZ1_2", 0); updateZoneValue("#spanTimeCarreraZ1_3", 15); updateZoneValue("#spanTimeCarreraZ1_4", 0); updateZoneValue("#spanTimeCarreraZ1_5", 0); updateZoneValue("#spanTimeCarreraZ1_6", 0); updateZoneValue("#spanTimeCarreraZ1_7", 0); updateZoneValue("#spanTimeCarreraZ1_8", 0); updateZoneValue("#spanTimeCarreraZ1_9", 0); updateZoneValue("#spanTimeCarreraZ1_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ1_1", 0); updateZoneValue("#spanTimeNatacionZ1_2", 0); updateZoneValue("#spanTimeNatacionZ1_3", 0); updateZoneValue("#spanTimeNatacionZ1_4", 0); updateZoneValue("#spanTimeNatacionZ1_5", 0); updateZoneValue("#spanTimeNatacionZ1_6", 0); updateZoneValue("#spanTimeNatacionZ1_7", 0); updateZoneValue("#spanTimeNatacionZ1_8", 0); updateZoneValue("#spanTimeNatacionZ1_9", 0); updateZoneValue("#spanTimeNatacionZ1_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ1_1", 0); updateZoneValue("#spanDistanciaCiclismoZ1_2", 0); updateZoneValue("#spanDistanciaCiclismoZ1_3", 0); updateZoneValue("#spanDistanciaCiclismoZ1_4", 0); updateZoneValue("#spanDistanciaCiclismoZ1_5", 0); updateZoneValue("#spanDistanciaCiclismoZ1_6", 0); updateZoneValue("#spanDistanciaCiclismoZ1_7", 0); updateZoneValue("#spanDistanciaCiclismoZ1_8", 0); updateZoneValue("#spanDistanciaCiclismoZ1_9", 0); updateZoneValue("#spanDistanciaCiclismoZ1_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -3485,7 +1396,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1_1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ1_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ1_2").html()) + 0;
@@ -3506,8 +1416,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ1_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ1_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ1_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -3528,8 +1436,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ1_2").html()) + 0;
@@ -3550,8 +1456,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ1_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ1_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ1_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -3561,7 +1465,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo1").html()) + 0;
 				  $("#spanTotalSesionesCiclismo1").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion1").html()) + 0;
@@ -3571,19 +1474,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo1").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo1").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (35/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo1").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo1").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion1").html()) + (0/60);
@@ -3593,19 +1492,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo1").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo1").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (128.87);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo1").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo1").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion1").html()) + (0);
@@ -3613,181 +1507,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera1").html()) + (0);
 				  $("#spanTotalCaloriasCarrera1").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo1").html()) + (128.87);
-				  $("#spanTotalCaloriasEsfuerzo1").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ1_1").html()) + 0;
-				  $("#spanTimeCiclismoZ1_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ1_2").html()) + 0;
-				  $("#spanTimeCiclismoZ1_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ1_3").html()) + 0;
-				  $("#spanTimeCiclismoZ1_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ1_4").html()) + 0;
-				  $("#spanTimeCiclismoZ1_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ1_5").html()) + 0;
-				  $("#spanTimeCiclismoZ1_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ1_6").html()) + 0;
-				  $("#spanTimeCiclismoZ1_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ1_7").html()) + 0;
-				  $("#spanTimeCiclismoZ1_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ1_8").html()) + 0;
-				  $("#spanTimeCiclismoZ1_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ1_9").html()) + 0;
-				  $("#spanTimeCiclismoZ1_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ1_10").html()) + 0;
-				  $("#spanTimeCiclismoZ1_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 55;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ1_1").html()) + 55;
-				  $("#spanTimeCarreraZ1_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ1_2").html()) + 0;
-				  $("#spanTimeCarreraZ1_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ1_3").html()) + 0;
-				  $("#spanTimeCarreraZ1_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ1_4").html()) + 0;
-				  $("#spanTimeCarreraZ1_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ1_5").html()) + 0;
-				  $("#spanTimeCarreraZ1_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ1_6").html()) + 0;
-				  $("#spanTimeCarreraZ1_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ1_7").html()) + 0;
-				  $("#spanTimeCarreraZ1_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ1_8").html()) + 0;
-				  $("#spanTimeCarreraZ1_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ1_9").html()) + 0;
-				  $("#spanTimeCarreraZ1_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ1_10").html()) + 0;
-				  $("#spanTimeCarreraZ1_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ1_1").html()) + 0;
-				  $("#spanTimeNatacionZ1_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ1_2").html()) + 0;
-				  $("#spanTimeNatacionZ1_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ1_3").html()) + 0;
-				  $("#spanTimeNatacionZ1_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ1_4").html()) + 0;
-				  $("#spanTimeNatacionZ1_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ1_5").html()) + 0;
-				  $("#spanTimeNatacionZ1_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ1_6").html()) + 0;
-				  $("#spanTimeNatacionZ1_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ1_7").html()) + 0;
-				  $("#spanTimeNatacionZ1_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ1_8").html()) + 0;
-				  $("#spanTimeNatacionZ1_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ1_9").html()) + 0;
-				  $("#spanTimeNatacionZ1_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ1_10").html()) + 0;
-				  $("#spanTimeNatacionZ1_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ1_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ1_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ1_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ1_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ1_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ1_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ1_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ1_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ1_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ1_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ1_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo1").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ1_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ1_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ1_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ1_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ1_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ1_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ1_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ1_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ1_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ1_10", 0); updateZoneValue("#spanTimeCarreraZ1", 55); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ1_1", 55); updateZoneValue("#spanTimeCarreraZ1_2", 0); updateZoneValue("#spanTimeCarreraZ1_3", 0); updateZoneValue("#spanTimeCarreraZ1_4", 0); updateZoneValue("#spanTimeCarreraZ1_5", 0); updateZoneValue("#spanTimeCarreraZ1_6", 0); updateZoneValue("#spanTimeCarreraZ1_7", 0); updateZoneValue("#spanTimeCarreraZ1_8", 0); updateZoneValue("#spanTimeCarreraZ1_9", 0); updateZoneValue("#spanTimeCarreraZ1_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ1_1", 0); updateZoneValue("#spanTimeNatacionZ1_2", 0); updateZoneValue("#spanTimeNatacionZ1_3", 0); updateZoneValue("#spanTimeNatacionZ1_4", 0); updateZoneValue("#spanTimeNatacionZ1_5", 0); updateZoneValue("#spanTimeNatacionZ1_6", 0); updateZoneValue("#spanTimeNatacionZ1_7", 0); updateZoneValue("#spanTimeNatacionZ1_8", 0); updateZoneValue("#spanTimeNatacionZ1_9", 0); updateZoneValue("#spanTimeNatacionZ1_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ1_1", 0); updateZoneValue("#spanDistanciaCiclismoZ1_2", 0); updateZoneValue("#spanDistanciaCiclismoZ1_3", 0); updateZoneValue("#spanDistanciaCiclismoZ1_4", 0); updateZoneValue("#spanDistanciaCiclismoZ1_5", 0); updateZoneValue("#spanDistanciaCiclismoZ1_6", 0); updateZoneValue("#spanDistanciaCiclismoZ1_7", 0); updateZoneValue("#spanDistanciaCiclismoZ1_8", 0); updateZoneValue("#spanDistanciaCiclismoZ1_9", 0); updateZoneValue("#spanDistanciaCiclismoZ1_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 11.394166666667;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -3808,7 +1528,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1_1").html()) + 11.394166666667;
 				  $("#spanDistanciaCarreraZ1_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ1_2").html()) + 0;
@@ -3829,8 +1548,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ1_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ1_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ1_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -3851,8 +1568,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ1_2").html()) + 0;
@@ -3873,8 +1588,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ1_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ1_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ1_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -3884,7 +1597,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo1").html()) + 0;
 				  $("#spanTotalSesionesCiclismo1").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion1").html()) + 0;
@@ -3894,19 +1606,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo1").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo1").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (55/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo1").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo1").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion1").html()) + (0/60);
@@ -3916,19 +1624,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo1").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo1").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (137.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo1").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo1").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion1").html()) + (0);
@@ -3936,181 +1639,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera1").html()) + (0);
 				  $("#spanTotalCaloriasCarrera1").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo1").html()) + (137.6);
-				  $("#spanTotalCaloriasEsfuerzo1").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ2_1").html()) + 0;
-				  $("#spanTimeCiclismoZ2_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2_2").html()) + 0;
-				  $("#spanTimeCiclismoZ2_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ2_3").html()) + 0;
-				  $("#spanTimeCiclismoZ2_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ2_4").html()) + 0;
-				  $("#spanTimeCiclismoZ2_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ2_5").html()) + 0;
-				  $("#spanTimeCiclismoZ2_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ2_6").html()) + 0;
-				  $("#spanTimeCiclismoZ2_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ2_7").html()) + 0;
-				  $("#spanTimeCiclismoZ2_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ2_8").html()) + 0;
-				  $("#spanTimeCiclismoZ2_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ2_9").html()) + 0;
-				  $("#spanTimeCiclismoZ2_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ2_10").html()) + 0;
-				  $("#spanTimeCiclismoZ2_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 15;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ2_1").html()) + 15;
-				  $("#spanTimeCarreraZ2_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2_2").html()) + 0;
-				  $("#spanTimeCarreraZ2_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ2_3").html()) + 0;
-				  $("#spanTimeCarreraZ2_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ2_4").html()) + 0;
-				  $("#spanTimeCarreraZ2_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ2_5").html()) + 0;
-				  $("#spanTimeCarreraZ2_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ2_6").html()) + 0;
-				  $("#spanTimeCarreraZ2_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ2_7").html()) + 0;
-				  $("#spanTimeCarreraZ2_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ2_8").html()) + 0;
-				  $("#spanTimeCarreraZ2_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ2_9").html()) + 0;
-				  $("#spanTimeCarreraZ2_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ2_10").html()) + 0;
-				  $("#spanTimeCarreraZ2_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ2_1").html()) + 0;
-				  $("#spanTimeNatacionZ2_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2_2").html()) + 0;
-				  $("#spanTimeNatacionZ2_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ2_3").html()) + 0;
-				  $("#spanTimeNatacionZ2_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ2_4").html()) + 0;
-				  $("#spanTimeNatacionZ2_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ2_5").html()) + 0;
-				  $("#spanTimeNatacionZ2_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ2_6").html()) + 0;
-				  $("#spanTimeNatacionZ2_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ2_7").html()) + 0;
-				  $("#spanTimeNatacionZ2_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ2_8").html()) + 0;
-				  $("#spanTimeNatacionZ2_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ2_9").html()) + 0;
-				  $("#spanTimeNatacionZ2_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ2_10").html()) + 0;
-				  $("#spanTimeNatacionZ2_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ2_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ2_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ2_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ2_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ2_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ2_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ2_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ2_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ2_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ2_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo1").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ2_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ2_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ2_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ2_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ2_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ2_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ2_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ2_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ2_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ2_10", 0); updateZoneValue("#spanTimeCarreraZ1", 15); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ2_1", 15); updateZoneValue("#spanTimeCarreraZ2_2", 0); updateZoneValue("#spanTimeCarreraZ2_3", 0); updateZoneValue("#spanTimeCarreraZ2_4", 0); updateZoneValue("#spanTimeCarreraZ2_5", 0); updateZoneValue("#spanTimeCarreraZ2_6", 0); updateZoneValue("#spanTimeCarreraZ2_7", 0); updateZoneValue("#spanTimeCarreraZ2_8", 0); updateZoneValue("#spanTimeCarreraZ2_9", 0); updateZoneValue("#spanTimeCarreraZ2_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ2_1", 0); updateZoneValue("#spanTimeNatacionZ2_2", 0); updateZoneValue("#spanTimeNatacionZ2_3", 0); updateZoneValue("#spanTimeNatacionZ2_4", 0); updateZoneValue("#spanTimeNatacionZ2_5", 0); updateZoneValue("#spanTimeNatacionZ2_6", 0); updateZoneValue("#spanTimeNatacionZ2_7", 0); updateZoneValue("#spanTimeNatacionZ2_8", 0); updateZoneValue("#spanTimeNatacionZ2_9", 0); updateZoneValue("#spanTimeNatacionZ2_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ2_1", 0); updateZoneValue("#spanDistanciaCiclismoZ2_2", 0); updateZoneValue("#spanDistanciaCiclismoZ2_3", 0); updateZoneValue("#spanDistanciaCiclismoZ2_4", 0); updateZoneValue("#spanDistanciaCiclismoZ2_5", 0); updateZoneValue("#spanDistanciaCiclismoZ2_6", 0); updateZoneValue("#spanDistanciaCiclismoZ2_7", 0); updateZoneValue("#spanDistanciaCiclismoZ2_8", 0); updateZoneValue("#spanDistanciaCiclismoZ2_9", 0); updateZoneValue("#spanDistanciaCiclismoZ2_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -4131,7 +1660,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ2_1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ2_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2_2").html()) + 0;
@@ -4152,8 +1680,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ2_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ2_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ2_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -4174,8 +1700,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ2_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ2_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2_2").html()) + 0;
@@ -4196,8 +1720,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ2_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ2_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ2_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -4207,7 +1729,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo2").html()) + 0;
 				  $("#spanTotalSesionesCiclismo2").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion2").html()) + 0;
@@ -4217,19 +1738,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo2").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo2").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (15/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo2").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo2").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion2").html()) + (0/60);
@@ -4239,19 +1756,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo2").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo2").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (234.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo2").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo2").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion2").html()) + (0);
@@ -4259,181 +1771,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera2").html()) + (0);
 				  $("#spanTotalCaloriasCarrera2").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo2").html()) + (234.6);
-				  $("#spanTotalCaloriasEsfuerzo2").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ2_1").html()) + 0;
-				  $("#spanTimeCiclismoZ2_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2_2").html()) + 0;
-				  $("#spanTimeCiclismoZ2_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ2_3").html()) + 0;
-				  $("#spanTimeCiclismoZ2_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ2_4").html()) + 0;
-				  $("#spanTimeCiclismoZ2_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ2_5").html()) + 0;
-				  $("#spanTimeCiclismoZ2_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ2_6").html()) + 0;
-				  $("#spanTimeCiclismoZ2_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ2_7").html()) + 0;
-				  $("#spanTimeCiclismoZ2_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ2_8").html()) + 0;
-				  $("#spanTimeCiclismoZ2_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ2_9").html()) + 0;
-				  $("#spanTimeCiclismoZ2_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ2_10").html()) + 0;
-				  $("#spanTimeCiclismoZ2_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 20;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 4;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ2_1").html()) + 20;
-				  $("#spanTimeCarreraZ2_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2_2").html()) + 0;
-				  $("#spanTimeCarreraZ2_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ2_3").html()) + 0;
-				  $("#spanTimeCarreraZ2_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ2_4").html()) + 4;
-				  $("#spanTimeCarreraZ2_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ2_5").html()) + 0;
-				  $("#spanTimeCarreraZ2_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ2_6").html()) + 0;
-				  $("#spanTimeCarreraZ2_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ2_7").html()) + 0;
-				  $("#spanTimeCarreraZ2_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ2_8").html()) + 0;
-				  $("#spanTimeCarreraZ2_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ2_9").html()) + 0;
-				  $("#spanTimeCarreraZ2_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ2_10").html()) + 0;
-				  $("#spanTimeCarreraZ2_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ2_1").html()) + 0;
-				  $("#spanTimeNatacionZ2_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2_2").html()) + 0;
-				  $("#spanTimeNatacionZ2_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ2_3").html()) + 0;
-				  $("#spanTimeNatacionZ2_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ2_4").html()) + 0;
-				  $("#spanTimeNatacionZ2_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ2_5").html()) + 0;
-				  $("#spanTimeNatacionZ2_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ2_6").html()) + 0;
-				  $("#spanTimeNatacionZ2_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ2_7").html()) + 0;
-				  $("#spanTimeNatacionZ2_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ2_8").html()) + 0;
-				  $("#spanTimeNatacionZ2_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ2_9").html()) + 0;
-				  $("#spanTimeNatacionZ2_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ2_10").html()) + 0;
-				  $("#spanTimeNatacionZ2_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ2_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ2_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ2_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ2_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ2_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ2_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ2_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ2_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ2_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ2_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo2").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ2_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ2_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ2_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ2_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ2_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ2_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ2_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ2_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ2_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ2_10", 0); updateZoneValue("#spanTimeCarreraZ1", 20); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 4); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ2_1", 20); updateZoneValue("#spanTimeCarreraZ2_2", 0); updateZoneValue("#spanTimeCarreraZ2_3", 0); updateZoneValue("#spanTimeCarreraZ2_4", 4); updateZoneValue("#spanTimeCarreraZ2_5", 0); updateZoneValue("#spanTimeCarreraZ2_6", 0); updateZoneValue("#spanTimeCarreraZ2_7", 0); updateZoneValue("#spanTimeCarreraZ2_8", 0); updateZoneValue("#spanTimeCarreraZ2_9", 0); updateZoneValue("#spanTimeCarreraZ2_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ2_1", 0); updateZoneValue("#spanTimeNatacionZ2_2", 0); updateZoneValue("#spanTimeNatacionZ2_3", 0); updateZoneValue("#spanTimeNatacionZ2_4", 0); updateZoneValue("#spanTimeNatacionZ2_5", 0); updateZoneValue("#spanTimeNatacionZ2_6", 0); updateZoneValue("#spanTimeNatacionZ2_7", 0); updateZoneValue("#spanTimeNatacionZ2_8", 0); updateZoneValue("#spanTimeNatacionZ2_9", 0); updateZoneValue("#spanTimeNatacionZ2_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ2_1", 0); updateZoneValue("#spanDistanciaCiclismoZ2_2", 0); updateZoneValue("#spanDistanciaCiclismoZ2_3", 0); updateZoneValue("#spanDistanciaCiclismoZ2_4", 0); updateZoneValue("#spanDistanciaCiclismoZ2_5", 0); updateZoneValue("#spanDistanciaCiclismoZ2_6", 0); updateZoneValue("#spanDistanciaCiclismoZ2_7", 0); updateZoneValue("#spanDistanciaCiclismoZ2_8", 0); updateZoneValue("#spanDistanciaCiclismoZ2_9", 0); updateZoneValue("#spanDistanciaCiclismoZ2_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -4454,7 +1792,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ2_1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ2_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2_2").html()) + 0;
@@ -4475,8 +1812,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ2_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ2_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ2_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -4497,8 +1832,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ2_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ2_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2_2").html()) + 0;
@@ -4519,8 +1852,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ2_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ2_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ2_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -4530,7 +1861,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo2").html()) + 0;
 				  $("#spanTotalSesionesCiclismo2").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion2").html()) + 0;
@@ -4540,19 +1870,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo2").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo2").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (24/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo2").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo2").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion2").html()) + (0/60);
@@ -4562,19 +1888,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo2").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo2").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (150.2);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo2").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo2").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion2").html()) + (0);
@@ -4582,181 +1903,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera2").html()) + (0);
 				  $("#spanTotalCaloriasCarrera2").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo2").html()) + (150.2);
-				  $("#spanTotalCaloriasEsfuerzo2").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ2_1").html()) + 0;
-				  $("#spanTimeCiclismoZ2_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2_2").html()) + 0;
-				  $("#spanTimeCiclismoZ2_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ2_3").html()) + 0;
-				  $("#spanTimeCiclismoZ2_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ2_4").html()) + 0;
-				  $("#spanTimeCiclismoZ2_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ2_5").html()) + 0;
-				  $("#spanTimeCiclismoZ2_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ2_6").html()) + 0;
-				  $("#spanTimeCiclismoZ2_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ2_7").html()) + 0;
-				  $("#spanTimeCiclismoZ2_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ2_8").html()) + 0;
-				  $("#spanTimeCiclismoZ2_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ2_9").html()) + 0;
-				  $("#spanTimeCiclismoZ2_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ2_10").html()) + 0;
-				  $("#spanTimeCiclismoZ2_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 35;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ2_1").html()) + 35;
-				  $("#spanTimeCarreraZ2_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2_2").html()) + 0;
-				  $("#spanTimeCarreraZ2_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ2_3").html()) + 0;
-				  $("#spanTimeCarreraZ2_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ2_4").html()) + 0;
-				  $("#spanTimeCarreraZ2_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ2_5").html()) + 0;
-				  $("#spanTimeCarreraZ2_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ2_6").html()) + 0;
-				  $("#spanTimeCarreraZ2_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ2_7").html()) + 0;
-				  $("#spanTimeCarreraZ2_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ2_8").html()) + 0;
-				  $("#spanTimeCarreraZ2_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ2_9").html()) + 0;
-				  $("#spanTimeCarreraZ2_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ2_10").html()) + 0;
-				  $("#spanTimeCarreraZ2_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ2_1").html()) + 0;
-				  $("#spanTimeNatacionZ2_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2_2").html()) + 0;
-				  $("#spanTimeNatacionZ2_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ2_3").html()) + 0;
-				  $("#spanTimeNatacionZ2_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ2_4").html()) + 0;
-				  $("#spanTimeNatacionZ2_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ2_5").html()) + 0;
-				  $("#spanTimeNatacionZ2_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ2_6").html()) + 0;
-				  $("#spanTimeNatacionZ2_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ2_7").html()) + 0;
-				  $("#spanTimeNatacionZ2_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ2_8").html()) + 0;
-				  $("#spanTimeNatacionZ2_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ2_9").html()) + 0;
-				  $("#spanTimeNatacionZ2_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ2_10").html()) + 0;
-				  $("#spanTimeNatacionZ2_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ2_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ2_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ2_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ2_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ2_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ2_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ2_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ2_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ2_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ2_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo2").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ2_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ2_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ2_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ2_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ2_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ2_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ2_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ2_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ2_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ2_10", 0); updateZoneValue("#spanTimeCarreraZ1", 35); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ2_1", 35); updateZoneValue("#spanTimeCarreraZ2_2", 0); updateZoneValue("#spanTimeCarreraZ2_3", 0); updateZoneValue("#spanTimeCarreraZ2_4", 0); updateZoneValue("#spanTimeCarreraZ2_5", 0); updateZoneValue("#spanTimeCarreraZ2_6", 0); updateZoneValue("#spanTimeCarreraZ2_7", 0); updateZoneValue("#spanTimeCarreraZ2_8", 0); updateZoneValue("#spanTimeCarreraZ2_9", 0); updateZoneValue("#spanTimeCarreraZ2_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ2_1", 0); updateZoneValue("#spanTimeNatacionZ2_2", 0); updateZoneValue("#spanTimeNatacionZ2_3", 0); updateZoneValue("#spanTimeNatacionZ2_4", 0); updateZoneValue("#spanTimeNatacionZ2_5", 0); updateZoneValue("#spanTimeNatacionZ2_6", 0); updateZoneValue("#spanTimeNatacionZ2_7", 0); updateZoneValue("#spanTimeNatacionZ2_8", 0); updateZoneValue("#spanTimeNatacionZ2_9", 0); updateZoneValue("#spanTimeNatacionZ2_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ2_1", 0); updateZoneValue("#spanDistanciaCiclismoZ2_2", 0); updateZoneValue("#spanDistanciaCiclismoZ2_3", 0); updateZoneValue("#spanDistanciaCiclismoZ2_4", 0); updateZoneValue("#spanDistanciaCiclismoZ2_5", 0); updateZoneValue("#spanDistanciaCiclismoZ2_6", 0); updateZoneValue("#spanDistanciaCiclismoZ2_7", 0); updateZoneValue("#spanDistanciaCiclismoZ2_8", 0); updateZoneValue("#spanDistanciaCiclismoZ2_9", 0); updateZoneValue("#spanDistanciaCiclismoZ2_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 7.2508333333333;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -4777,7 +1924,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ2_1").html()) + 7.2508333333333;
 				  $("#spanDistanciaCarreraZ2_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2_2").html()) + 0;
@@ -4798,8 +1944,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ2_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ2_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ2_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -4820,8 +1964,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ2_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ2_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2_2").html()) + 0;
@@ -4842,8 +1984,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ2_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ2_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ2_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -4853,7 +1993,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo2").html()) + 0;
 				  $("#spanTotalSesionesCiclismo2").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion2").html()) + 0;
@@ -4863,19 +2002,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo2").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo2").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (35/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo2").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo2").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion2").html()) + (0/60);
@@ -4885,19 +2020,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo2").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo2").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (247.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo2").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo2").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion2").html()) + (0);
@@ -4905,181 +2035,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera2").html()) + (0);
 				  $("#spanTotalCaloriasCarrera2").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo2").html()) + (247.6);
-				  $("#spanTotalCaloriasEsfuerzo2").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ2_1").html()) + 0;
-				  $("#spanTimeCiclismoZ2_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2_2").html()) + 0;
-				  $("#spanTimeCiclismoZ2_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ2_3").html()) + 0;
-				  $("#spanTimeCiclismoZ2_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ2_4").html()) + 0;
-				  $("#spanTimeCiclismoZ2_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ2_5").html()) + 0;
-				  $("#spanTimeCiclismoZ2_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ2_6").html()) + 0;
-				  $("#spanTimeCiclismoZ2_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ2_7").html()) + 0;
-				  $("#spanTimeCiclismoZ2_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ2_8").html()) + 0;
-				  $("#spanTimeCiclismoZ2_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ2_9").html()) + 0;
-				  $("#spanTimeCiclismoZ2_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ2_10").html()) + 0;
-				  $("#spanTimeCiclismoZ2_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 20;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ2_1").html()) + 20;
-				  $("#spanTimeCarreraZ2_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2_2").html()) + 0;
-				  $("#spanTimeCarreraZ2_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ2_3").html()) + 0;
-				  $("#spanTimeCarreraZ2_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ2_4").html()) + 0;
-				  $("#spanTimeCarreraZ2_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ2_5").html()) + 0;
-				  $("#spanTimeCarreraZ2_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ2_6").html()) + 0;
-				  $("#spanTimeCarreraZ2_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ2_7").html()) + 0;
-				  $("#spanTimeCarreraZ2_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ2_8").html()) + 0;
-				  $("#spanTimeCarreraZ2_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ2_9").html()) + 0;
-				  $("#spanTimeCarreraZ2_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ2_10").html()) + 0;
-				  $("#spanTimeCarreraZ2_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ2_1").html()) + 0;
-				  $("#spanTimeNatacionZ2_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2_2").html()) + 0;
-				  $("#spanTimeNatacionZ2_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ2_3").html()) + 0;
-				  $("#spanTimeNatacionZ2_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ2_4").html()) + 0;
-				  $("#spanTimeNatacionZ2_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ2_5").html()) + 0;
-				  $("#spanTimeNatacionZ2_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ2_6").html()) + 0;
-				  $("#spanTimeNatacionZ2_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ2_7").html()) + 0;
-				  $("#spanTimeNatacionZ2_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ2_8").html()) + 0;
-				  $("#spanTimeNatacionZ2_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ2_9").html()) + 0;
-				  $("#spanTimeNatacionZ2_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ2_10").html()) + 0;
-				  $("#spanTimeNatacionZ2_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ2_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ2_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ2_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ2_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ2_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ2_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ2_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ2_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ2_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ2_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo2").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ2_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ2_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ2_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ2_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ2_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ2_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ2_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ2_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ2_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ2_10", 0); updateZoneValue("#spanTimeCarreraZ1", 20); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ2_1", 20); updateZoneValue("#spanTimeCarreraZ2_2", 0); updateZoneValue("#spanTimeCarreraZ2_3", 0); updateZoneValue("#spanTimeCarreraZ2_4", 0); updateZoneValue("#spanTimeCarreraZ2_5", 0); updateZoneValue("#spanTimeCarreraZ2_6", 0); updateZoneValue("#spanTimeCarreraZ2_7", 0); updateZoneValue("#spanTimeCarreraZ2_8", 0); updateZoneValue("#spanTimeCarreraZ2_9", 0); updateZoneValue("#spanTimeCarreraZ2_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ2_1", 0); updateZoneValue("#spanTimeNatacionZ2_2", 0); updateZoneValue("#spanTimeNatacionZ2_3", 0); updateZoneValue("#spanTimeNatacionZ2_4", 0); updateZoneValue("#spanTimeNatacionZ2_5", 0); updateZoneValue("#spanTimeNatacionZ2_6", 0); updateZoneValue("#spanTimeNatacionZ2_7", 0); updateZoneValue("#spanTimeNatacionZ2_8", 0); updateZoneValue("#spanTimeNatacionZ2_9", 0); updateZoneValue("#spanTimeNatacionZ2_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ2_1", 0); updateZoneValue("#spanDistanciaCiclismoZ2_2", 0); updateZoneValue("#spanDistanciaCiclismoZ2_3", 0); updateZoneValue("#spanDistanciaCiclismoZ2_4", 0); updateZoneValue("#spanDistanciaCiclismoZ2_5", 0); updateZoneValue("#spanDistanciaCiclismoZ2_6", 0); updateZoneValue("#spanDistanciaCiclismoZ2_7", 0); updateZoneValue("#spanDistanciaCiclismoZ2_8", 0); updateZoneValue("#spanDistanciaCiclismoZ2_9", 0); updateZoneValue("#spanDistanciaCiclismoZ2_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -5100,7 +2056,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ2_1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ2_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2_2").html()) + 0;
@@ -5121,8 +2076,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ2_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ2_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ2_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -5143,8 +2096,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ2_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ2_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2_2").html()) + 0;
@@ -5165,8 +2116,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ2_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ2_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ2_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -5176,7 +2125,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo2").html()) + 0;
 				  $("#spanTotalSesionesCiclismo2").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion2").html()) + 0;
@@ -5186,19 +2134,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo2").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo2").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (20/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo2").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo2").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion2").html()) + (0/60);
@@ -5208,19 +2152,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo2").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo2").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (338.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo2").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo2").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion2").html()) + (0);
@@ -5228,181 +2167,11 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera2").html()) + (0);
 				  $("#spanTotalCaloriasCarrera2").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo2").html()) + (338.6);
-				  $("#spanTotalCaloriasEsfuerzo2").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ2_1").html()) + 0;
-				  $("#spanTimeCiclismoZ2_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2_2").html()) + 0;
-				  $("#spanTimeCiclismoZ2_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ2_3").html()) + 0;
-				  $("#spanTimeCiclismoZ2_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ2_4").html()) + 0;
-				  $("#spanTimeCiclismoZ2_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ2_5").html()) + 0;
-				  $("#spanTimeCiclismoZ2_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ2_6").html()) + 0;
-				  $("#spanTimeCiclismoZ2_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ2_7").html()) + 0;
-				  $("#spanTimeCiclismoZ2_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ2_8").html()) + 0;
-				  $("#spanTimeCiclismoZ2_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ2_9").html()) + 0;
-				  $("#spanTimeCiclismoZ2_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ2_10").html()) + 0;
-				  $("#spanTimeCiclismoZ2_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 20;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 12;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
+				  $("#spanTotalCaloriasEsfuerzo2").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ2_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ2_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ2_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ2_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ2_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ2_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ2_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ2_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ2_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ2_10", 0); updateZoneValue("#spanTimeCarreraZ1", 20); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 12);
 				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 4.390243902439;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ2_1").html()) + 20;
-				  $("#spanTimeCarreraZ2_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2_2").html()) + 0;
-				  $("#spanTimeCarreraZ2_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ2_3").html()) + 12;
-				  $("#spanTimeCarreraZ2_3").html(Math.round(valorZ3C));
+				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C)); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ2_1", 20); updateZoneValue("#spanTimeCarreraZ2_2", 0); updateZoneValue("#spanTimeCarreraZ2_3", 12);
 				  valorZ4C= Number($("#spanTimeCarreraZ2_4").html()) + 4.390243902439;
-				  $("#spanTimeCarreraZ2_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ2_5").html()) + 0;
-				  $("#spanTimeCarreraZ2_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ2_6").html()) + 0;
-				  $("#spanTimeCarreraZ2_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ2_7").html()) + 0;
-				  $("#spanTimeCarreraZ2_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ2_8").html()) + 0;
-				  $("#spanTimeCarreraZ2_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ2_9").html()) + 0;
-				  $("#spanTimeCarreraZ2_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ2_10").html()) + 0;
-				  $("#spanTimeCarreraZ2_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ2_1").html()) + 0;
-				  $("#spanTimeNatacionZ2_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2_2").html()) + 0;
-				  $("#spanTimeNatacionZ2_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ2_3").html()) + 0;
-				  $("#spanTimeNatacionZ2_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ2_4").html()) + 0;
-				  $("#spanTimeNatacionZ2_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ2_5").html()) + 0;
-				  $("#spanTimeNatacionZ2_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ2_6").html()) + 0;
-				  $("#spanTimeNatacionZ2_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ2_7").html()) + 0;
-				  $("#spanTimeNatacionZ2_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ2_8").html()) + 0;
-				  $("#spanTimeNatacionZ2_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ2_9").html()) + 0;
-				  $("#spanTimeNatacionZ2_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ2_10").html()) + 0;
-				  $("#spanTimeNatacionZ2_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ2_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ2_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ2_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ2_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ2_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ2_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ2_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ2_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ2_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ2_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTimeCarreraZ2_4").html(Math.round(valorZ4C)); updateZoneValue("#spanTimeCarreraZ2_5", 0); updateZoneValue("#spanTimeCarreraZ2_6", 0); updateZoneValue("#spanTimeCarreraZ2_7", 0); updateZoneValue("#spanTimeCarreraZ2_8", 0); updateZoneValue("#spanTimeCarreraZ2_9", 0); updateZoneValue("#spanTimeCarreraZ2_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ2_1", 0); updateZoneValue("#spanTimeNatacionZ2_2", 0); updateZoneValue("#spanTimeNatacionZ2_3", 0); updateZoneValue("#spanTimeNatacionZ2_4", 0); updateZoneValue("#spanTimeNatacionZ2_5", 0); updateZoneValue("#spanTimeNatacionZ2_6", 0); updateZoneValue("#spanTimeNatacionZ2_7", 0); updateZoneValue("#spanTimeNatacionZ2_8", 0); updateZoneValue("#spanTimeNatacionZ2_9", 0); updateZoneValue("#spanTimeNatacionZ2_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ2_1", 0); updateZoneValue("#spanDistanciaCiclismoZ2_2", 0); updateZoneValue("#spanDistanciaCiclismoZ2_3", 0); updateZoneValue("#spanDistanciaCiclismoZ2_4", 0); updateZoneValue("#spanDistanciaCiclismoZ2_5", 0); updateZoneValue("#spanDistanciaCiclismoZ2_6", 0); updateZoneValue("#spanDistanciaCiclismoZ2_7", 0); updateZoneValue("#spanDistanciaCiclismoZ2_8", 0); updateZoneValue("#spanDistanciaCiclismoZ2_9", 0); updateZoneValue("#spanDistanciaCiclismoZ2_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -5423,7 +2192,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ2_1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ2_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2_2").html()) + 0;
@@ -5444,8 +2212,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ2_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ2_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ2_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -5466,8 +2232,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ2_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ2_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2_2").html()) + 0;
@@ -5488,8 +2252,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ2_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ2_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ2_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -5499,7 +2261,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo2").html()) + 0;
 				  $("#spanTotalSesionesCiclismo2").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion2").html()) + 0;
@@ -5509,19 +2270,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo2").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo2").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (36.390243902439/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo2").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo2").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion2").html()) + (0/60);
@@ -5531,19 +2288,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo2").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo2").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (137.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo2").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo2").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion2").html()) + (0);
@@ -5551,181 +2303,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera2").html()) + (0);
 				  $("#spanTotalCaloriasCarrera2").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo2").html()) + (137.6);
-				  $("#spanTotalCaloriasEsfuerzo2").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ2_1").html()) + 0;
-				  $("#spanTimeCiclismoZ2_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2_2").html()) + 0;
-				  $("#spanTimeCiclismoZ2_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ2_3").html()) + 0;
-				  $("#spanTimeCiclismoZ2_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ2_4").html()) + 0;
-				  $("#spanTimeCiclismoZ2_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ2_5").html()) + 0;
-				  $("#spanTimeCiclismoZ2_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ2_6").html()) + 0;
-				  $("#spanTimeCiclismoZ2_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ2_7").html()) + 0;
-				  $("#spanTimeCiclismoZ2_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ2_8").html()) + 0;
-				  $("#spanTimeCiclismoZ2_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ2_9").html()) + 0;
-				  $("#spanTimeCiclismoZ2_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ2_10").html()) + 0;
-				  $("#spanTimeCiclismoZ2_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 60;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ2_1").html()) + 60;
-				  $("#spanTimeCarreraZ2_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2_2").html()) + 0;
-				  $("#spanTimeCarreraZ2_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ2_3").html()) + 0;
-				  $("#spanTimeCarreraZ2_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ2_4").html()) + 0;
-				  $("#spanTimeCarreraZ2_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ2_5").html()) + 0;
-				  $("#spanTimeCarreraZ2_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ2_6").html()) + 0;
-				  $("#spanTimeCarreraZ2_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ2_7").html()) + 0;
-				  $("#spanTimeCarreraZ2_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ2_8").html()) + 0;
-				  $("#spanTimeCarreraZ2_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ2_9").html()) + 0;
-				  $("#spanTimeCarreraZ2_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ2_10").html()) + 0;
-				  $("#spanTimeCarreraZ2_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ2_1").html()) + 0;
-				  $("#spanTimeNatacionZ2_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2_2").html()) + 0;
-				  $("#spanTimeNatacionZ2_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ2_3").html()) + 0;
-				  $("#spanTimeNatacionZ2_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ2_4").html()) + 0;
-				  $("#spanTimeNatacionZ2_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ2_5").html()) + 0;
-				  $("#spanTimeNatacionZ2_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ2_6").html()) + 0;
-				  $("#spanTimeNatacionZ2_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ2_7").html()) + 0;
-				  $("#spanTimeNatacionZ2_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ2_8").html()) + 0;
-				  $("#spanTimeNatacionZ2_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ2_9").html()) + 0;
-				  $("#spanTimeNatacionZ2_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ2_10").html()) + 0;
-				  $("#spanTimeNatacionZ2_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ2_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ2_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ2_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ2_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ2_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ2_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ2_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ2_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ2_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ2_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ2_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo2").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ2_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ2_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ2_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ2_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ2_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ2_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ2_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ2_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ2_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ2_10", 0); updateZoneValue("#spanTimeCarreraZ1", 60); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ2_1", 60); updateZoneValue("#spanTimeCarreraZ2_2", 0); updateZoneValue("#spanTimeCarreraZ2_3", 0); updateZoneValue("#spanTimeCarreraZ2_4", 0); updateZoneValue("#spanTimeCarreraZ2_5", 0); updateZoneValue("#spanTimeCarreraZ2_6", 0); updateZoneValue("#spanTimeCarreraZ2_7", 0); updateZoneValue("#spanTimeCarreraZ2_8", 0); updateZoneValue("#spanTimeCarreraZ2_9", 0); updateZoneValue("#spanTimeCarreraZ2_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ2_1", 0); updateZoneValue("#spanTimeNatacionZ2_2", 0); updateZoneValue("#spanTimeNatacionZ2_3", 0); updateZoneValue("#spanTimeNatacionZ2_4", 0); updateZoneValue("#spanTimeNatacionZ2_5", 0); updateZoneValue("#spanTimeNatacionZ2_6", 0); updateZoneValue("#spanTimeNatacionZ2_7", 0); updateZoneValue("#spanTimeNatacionZ2_8", 0); updateZoneValue("#spanTimeNatacionZ2_9", 0); updateZoneValue("#spanTimeNatacionZ2_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ2_1", 0); updateZoneValue("#spanDistanciaCiclismoZ2_2", 0); updateZoneValue("#spanDistanciaCiclismoZ2_3", 0); updateZoneValue("#spanDistanciaCiclismoZ2_4", 0); updateZoneValue("#spanDistanciaCiclismoZ2_5", 0); updateZoneValue("#spanDistanciaCiclismoZ2_6", 0); updateZoneValue("#spanDistanciaCiclismoZ2_7", 0); updateZoneValue("#spanDistanciaCiclismoZ2_8", 0); updateZoneValue("#spanDistanciaCiclismoZ2_9", 0); updateZoneValue("#spanDistanciaCiclismoZ2_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 12.43;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -5746,7 +2324,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ2_1").html()) + 12.43;
 				  $("#spanDistanciaCarreraZ2_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2_2").html()) + 0;
@@ -5767,8 +2344,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ2_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ2_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ2_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -5789,8 +2364,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ2_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ2_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2_2").html()) + 0;
@@ -5811,8 +2384,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ2_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ2_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ2_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -5822,7 +2393,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo2").html()) + 0;
 				  $("#spanTotalSesionesCiclismo2").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion2").html()) + 0;
@@ -5832,19 +2402,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo2").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo2").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (60/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo2").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo2").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion2").html()) + (0/60);
@@ -5854,19 +2420,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo2").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo2").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (137.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo2").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo2").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion2").html()) + (0);
@@ -5874,181 +2435,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera2").html()) + (0);
 				  $("#spanTotalCaloriasCarrera2").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo2").html()) + (137.6);
-				  $("#spanTotalCaloriasEsfuerzo2").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ3_1").html()) + 0;
-				  $("#spanTimeCiclismoZ3_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ3_2").html()) + 0;
-				  $("#spanTimeCiclismoZ3_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3_3").html()) + 0;
-				  $("#spanTimeCiclismoZ3_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ3_4").html()) + 0;
-				  $("#spanTimeCiclismoZ3_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ3_5").html()) + 0;
-				  $("#spanTimeCiclismoZ3_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ3_6").html()) + 0;
-				  $("#spanTimeCiclismoZ3_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ3_7").html()) + 0;
-				  $("#spanTimeCiclismoZ3_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ3_8").html()) + 0;
-				  $("#spanTimeCiclismoZ3_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ3_9").html()) + 0;
-				  $("#spanTimeCiclismoZ3_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ3_10").html()) + 0;
-				  $("#spanTimeCiclismoZ3_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 20;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ3_1").html()) + 20;
-				  $("#spanTimeCarreraZ3_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ3_2").html()) + 0;
-				  $("#spanTimeCarreraZ3_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3_3").html()) + 0;
-				  $("#spanTimeCarreraZ3_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ3_4").html()) + 0;
-				  $("#spanTimeCarreraZ3_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ3_5").html()) + 0;
-				  $("#spanTimeCarreraZ3_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ3_6").html()) + 0;
-				  $("#spanTimeCarreraZ3_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ3_7").html()) + 0;
-				  $("#spanTimeCarreraZ3_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ3_8").html()) + 0;
-				  $("#spanTimeCarreraZ3_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ3_9").html()) + 0;
-				  $("#spanTimeCarreraZ3_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ3_10").html()) + 0;
-				  $("#spanTimeCarreraZ3_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ3_1").html()) + 0;
-				  $("#spanTimeNatacionZ3_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ3_2").html()) + 0;
-				  $("#spanTimeNatacionZ3_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3_3").html()) + 0;
-				  $("#spanTimeNatacionZ3_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ3_4").html()) + 0;
-				  $("#spanTimeNatacionZ3_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ3_5").html()) + 0;
-				  $("#spanTimeNatacionZ3_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ3_6").html()) + 0;
-				  $("#spanTimeNatacionZ3_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ3_7").html()) + 0;
-				  $("#spanTimeNatacionZ3_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ3_8").html()) + 0;
-				  $("#spanTimeNatacionZ3_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ3_9").html()) + 0;
-				  $("#spanTimeNatacionZ3_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ3_10").html()) + 0;
-				  $("#spanTimeNatacionZ3_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ3_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ3_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ3_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ3_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ3_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ3_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ3_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ3_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ3_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ3_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo2").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ3_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ3_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ3_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ3_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ3_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ3_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ3_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ3_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ3_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ3_10", 0); updateZoneValue("#spanTimeCarreraZ1", 20); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ3_1", 20); updateZoneValue("#spanTimeCarreraZ3_2", 0); updateZoneValue("#spanTimeCarreraZ3_3", 0); updateZoneValue("#spanTimeCarreraZ3_4", 0); updateZoneValue("#spanTimeCarreraZ3_5", 0); updateZoneValue("#spanTimeCarreraZ3_6", 0); updateZoneValue("#spanTimeCarreraZ3_7", 0); updateZoneValue("#spanTimeCarreraZ3_8", 0); updateZoneValue("#spanTimeCarreraZ3_9", 0); updateZoneValue("#spanTimeCarreraZ3_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ3_1", 0); updateZoneValue("#spanTimeNatacionZ3_2", 0); updateZoneValue("#spanTimeNatacionZ3_3", 0); updateZoneValue("#spanTimeNatacionZ3_4", 0); updateZoneValue("#spanTimeNatacionZ3_5", 0); updateZoneValue("#spanTimeNatacionZ3_6", 0); updateZoneValue("#spanTimeNatacionZ3_7", 0); updateZoneValue("#spanTimeNatacionZ3_8", 0); updateZoneValue("#spanTimeNatacionZ3_9", 0); updateZoneValue("#spanTimeNatacionZ3_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ3_1", 0); updateZoneValue("#spanDistanciaCiclismoZ3_2", 0); updateZoneValue("#spanDistanciaCiclismoZ3_3", 0); updateZoneValue("#spanDistanciaCiclismoZ3_4", 0); updateZoneValue("#spanDistanciaCiclismoZ3_5", 0); updateZoneValue("#spanDistanciaCiclismoZ3_6", 0); updateZoneValue("#spanDistanciaCiclismoZ3_7", 0); updateZoneValue("#spanDistanciaCiclismoZ3_8", 0); updateZoneValue("#spanDistanciaCiclismoZ3_9", 0); updateZoneValue("#spanDistanciaCiclismoZ3_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -6069,7 +2456,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ3_1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ3_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ3_2").html()) + 0;
@@ -6090,8 +2476,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ3_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ3_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ3_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -6112,8 +2496,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ3_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ3_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ3_2").html()) + 0;
@@ -6134,8 +2516,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ3_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ3_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ3_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -6145,7 +2525,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo3").html()) + 0;
 				  $("#spanTotalSesionesCiclismo3").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion3").html()) + 0;
@@ -6155,19 +2534,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo3").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo3").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (20/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo3").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo3").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion3").html()) + (0/60);
@@ -6177,19 +2552,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo3").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo3").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (383.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo3").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo3").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion3").html()) + (0);
@@ -6197,181 +2567,11 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera3").html()) + (0);
 				  $("#spanTotalCaloriasCarrera3").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo3").html()) + (383.6);
-				  $("#spanTotalCaloriasEsfuerzo3").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ3_1").html()) + 0;
-				  $("#spanTimeCiclismoZ3_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ3_2").html()) + 0;
-				  $("#spanTimeCiclismoZ3_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3_3").html()) + 0;
-				  $("#spanTimeCiclismoZ3_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ3_4").html()) + 0;
-				  $("#spanTimeCiclismoZ3_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ3_5").html()) + 0;
-				  $("#spanTimeCiclismoZ3_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ3_6").html()) + 0;
-				  $("#spanTimeCiclismoZ3_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ3_7").html()) + 0;
-				  $("#spanTimeCiclismoZ3_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ3_8").html()) + 0;
-				  $("#spanTimeCiclismoZ3_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ3_9").html()) + 0;
-				  $("#spanTimeCiclismoZ3_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ3_10").html()) + 0;
-				  $("#spanTimeCiclismoZ3_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 20;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
+				  $("#spanTotalCaloriasEsfuerzo3").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ3_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ3_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ3_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ3_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ3_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ3_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ3_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ3_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ3_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ3_10", 0); updateZoneValue("#spanTimeCarreraZ1", 20); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0);
 				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 2.7713625866051;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ3_1").html()) + 20;
-				  $("#spanTimeCarreraZ3_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ3_2").html()) + 0;
-				  $("#spanTimeCarreraZ3_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3_3").html()) + 0;
-				  $("#spanTimeCarreraZ3_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ3_4").html()) + 0;
-				  $("#spanTimeCarreraZ3_4").html(Math.round(valorZ4C));
+				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C)); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ3_1", 20); updateZoneValue("#spanTimeCarreraZ3_2", 0); updateZoneValue("#spanTimeCarreraZ3_3", 0); updateZoneValue("#spanTimeCarreraZ3_4", 0);
 				  valorZ5C= Number($("#spanTimeCarreraZ3_5").html()) + 2.7713625866051;
-				  $("#spanTimeCarreraZ3_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ3_6").html()) + 0;
-				  $("#spanTimeCarreraZ3_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ3_7").html()) + 0;
-				  $("#spanTimeCarreraZ3_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ3_8").html()) + 0;
-				  $("#spanTimeCarreraZ3_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ3_9").html()) + 0;
-				  $("#spanTimeCarreraZ3_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ3_10").html()) + 0;
-				  $("#spanTimeCarreraZ3_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ3_1").html()) + 0;
-				  $("#spanTimeNatacionZ3_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ3_2").html()) + 0;
-				  $("#spanTimeNatacionZ3_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3_3").html()) + 0;
-				  $("#spanTimeNatacionZ3_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ3_4").html()) + 0;
-				  $("#spanTimeNatacionZ3_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ3_5").html()) + 0;
-				  $("#spanTimeNatacionZ3_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ3_6").html()) + 0;
-				  $("#spanTimeNatacionZ3_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ3_7").html()) + 0;
-				  $("#spanTimeNatacionZ3_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ3_8").html()) + 0;
-				  $("#spanTimeNatacionZ3_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ3_9").html()) + 0;
-				  $("#spanTimeNatacionZ3_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ3_10").html()) + 0;
-				  $("#spanTimeNatacionZ3_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ3_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ3_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ3_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ3_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ3_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ3_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ3_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ3_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ3_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ3_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTimeCarreraZ3_5").html(Math.round(valorZ5C)); updateZoneValue("#spanTimeCarreraZ3_6", 0); updateZoneValue("#spanTimeCarreraZ3_7", 0); updateZoneValue("#spanTimeCarreraZ3_8", 0); updateZoneValue("#spanTimeCarreraZ3_9", 0); updateZoneValue("#spanTimeCarreraZ3_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ3_1", 0); updateZoneValue("#spanTimeNatacionZ3_2", 0); updateZoneValue("#spanTimeNatacionZ3_3", 0); updateZoneValue("#spanTimeNatacionZ3_4", 0); updateZoneValue("#spanTimeNatacionZ3_5", 0); updateZoneValue("#spanTimeNatacionZ3_6", 0); updateZoneValue("#spanTimeNatacionZ3_7", 0); updateZoneValue("#spanTimeNatacionZ3_8", 0); updateZoneValue("#spanTimeNatacionZ3_9", 0); updateZoneValue("#spanTimeNatacionZ3_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ3_1", 0); updateZoneValue("#spanDistanciaCiclismoZ3_2", 0); updateZoneValue("#spanDistanciaCiclismoZ3_3", 0); updateZoneValue("#spanDistanciaCiclismoZ3_4", 0); updateZoneValue("#spanDistanciaCiclismoZ3_5", 0); updateZoneValue("#spanDistanciaCiclismoZ3_6", 0); updateZoneValue("#spanDistanciaCiclismoZ3_7", 0); updateZoneValue("#spanDistanciaCiclismoZ3_8", 0); updateZoneValue("#spanDistanciaCiclismoZ3_9", 0); updateZoneValue("#spanDistanciaCiclismoZ3_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -6392,7 +2592,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ3_1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ3_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ3_2").html()) + 0;
@@ -6413,8 +2612,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ3_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ3_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ3_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -6435,8 +2632,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ3_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ3_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ3_2").html()) + 0;
@@ -6457,8 +2652,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ3_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ3_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ3_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -6468,7 +2661,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo3").html()) + 0;
 				  $("#spanTotalSesionesCiclismo3").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion3").html()) + 0;
@@ -6478,19 +2670,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo3").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo3").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (22.771362586605/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo3").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo3").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion3").html()) + (0/60);
@@ -6500,19 +2688,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo3").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo3").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (150.2);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo3").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo3").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion3").html()) + (0);
@@ -6520,181 +2703,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera3").html()) + (0);
 				  $("#spanTotalCaloriasCarrera3").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo3").html()) + (150.2);
-				  $("#spanTotalCaloriasEsfuerzo3").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ3_1").html()) + 0;
-				  $("#spanTimeCiclismoZ3_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ3_2").html()) + 0;
-				  $("#spanTimeCiclismoZ3_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3_3").html()) + 0;
-				  $("#spanTimeCiclismoZ3_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ3_4").html()) + 0;
-				  $("#spanTimeCiclismoZ3_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ3_5").html()) + 0;
-				  $("#spanTimeCiclismoZ3_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ3_6").html()) + 0;
-				  $("#spanTimeCiclismoZ3_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ3_7").html()) + 0;
-				  $("#spanTimeCiclismoZ3_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ3_8").html()) + 0;
-				  $("#spanTimeCiclismoZ3_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ3_9").html()) + 0;
-				  $("#spanTimeCiclismoZ3_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ3_10").html()) + 0;
-				  $("#spanTimeCiclismoZ3_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 30;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ3_1").html()) + 30;
-				  $("#spanTimeCarreraZ3_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ3_2").html()) + 0;
-				  $("#spanTimeCarreraZ3_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3_3").html()) + 0;
-				  $("#spanTimeCarreraZ3_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ3_4").html()) + 0;
-				  $("#spanTimeCarreraZ3_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ3_5").html()) + 0;
-				  $("#spanTimeCarreraZ3_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ3_6").html()) + 0;
-				  $("#spanTimeCarreraZ3_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ3_7").html()) + 0;
-				  $("#spanTimeCarreraZ3_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ3_8").html()) + 0;
-				  $("#spanTimeCarreraZ3_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ3_9").html()) + 0;
-				  $("#spanTimeCarreraZ3_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ3_10").html()) + 0;
-				  $("#spanTimeCarreraZ3_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ3_1").html()) + 0;
-				  $("#spanTimeNatacionZ3_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ3_2").html()) + 0;
-				  $("#spanTimeNatacionZ3_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3_3").html()) + 0;
-				  $("#spanTimeNatacionZ3_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ3_4").html()) + 0;
-				  $("#spanTimeNatacionZ3_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ3_5").html()) + 0;
-				  $("#spanTimeNatacionZ3_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ3_6").html()) + 0;
-				  $("#spanTimeNatacionZ3_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ3_7").html()) + 0;
-				  $("#spanTimeNatacionZ3_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ3_8").html()) + 0;
-				  $("#spanTimeNatacionZ3_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ3_9").html()) + 0;
-				  $("#spanTimeNatacionZ3_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ3_10").html()) + 0;
-				  $("#spanTimeNatacionZ3_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ3_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ3_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ3_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ3_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ3_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ3_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ3_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ3_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ3_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ3_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo3").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ3_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ3_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ3_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ3_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ3_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ3_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ3_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ3_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ3_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ3_10", 0); updateZoneValue("#spanTimeCarreraZ1", 30); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ3_1", 30); updateZoneValue("#spanTimeCarreraZ3_2", 0); updateZoneValue("#spanTimeCarreraZ3_3", 0); updateZoneValue("#spanTimeCarreraZ3_4", 0); updateZoneValue("#spanTimeCarreraZ3_5", 0); updateZoneValue("#spanTimeCarreraZ3_6", 0); updateZoneValue("#spanTimeCarreraZ3_7", 0); updateZoneValue("#spanTimeCarreraZ3_8", 0); updateZoneValue("#spanTimeCarreraZ3_9", 0); updateZoneValue("#spanTimeCarreraZ3_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ3_1", 0); updateZoneValue("#spanTimeNatacionZ3_2", 0); updateZoneValue("#spanTimeNatacionZ3_3", 0); updateZoneValue("#spanTimeNatacionZ3_4", 0); updateZoneValue("#spanTimeNatacionZ3_5", 0); updateZoneValue("#spanTimeNatacionZ3_6", 0); updateZoneValue("#spanTimeNatacionZ3_7", 0); updateZoneValue("#spanTimeNatacionZ3_8", 0); updateZoneValue("#spanTimeNatacionZ3_9", 0); updateZoneValue("#spanTimeNatacionZ3_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ3_1", 0); updateZoneValue("#spanDistanciaCiclismoZ3_2", 0); updateZoneValue("#spanDistanciaCiclismoZ3_3", 0); updateZoneValue("#spanDistanciaCiclismoZ3_4", 0); updateZoneValue("#spanDistanciaCiclismoZ3_5", 0); updateZoneValue("#spanDistanciaCiclismoZ3_6", 0); updateZoneValue("#spanDistanciaCiclismoZ3_7", 0); updateZoneValue("#spanDistanciaCiclismoZ3_8", 0); updateZoneValue("#spanDistanciaCiclismoZ3_9", 0); updateZoneValue("#spanDistanciaCiclismoZ3_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 6.215;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -6715,7 +2724,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ3_1").html()) + 6.215;
 				  $("#spanDistanciaCarreraZ3_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ3_2").html()) + 0;
@@ -6736,8 +2744,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ3_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ3_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ3_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -6758,8 +2764,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ3_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ3_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ3_2").html()) + 0;
@@ -6780,8 +2784,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ3_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ3_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ3_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -6791,7 +2793,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo3").html()) + 0;
 				  $("#spanTotalSesionesCiclismo3").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion3").html()) + 0;
@@ -6801,19 +2802,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo3").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo3").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (30/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo3").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo3").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion3").html()) + (0/60);
@@ -6823,19 +2820,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo3").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo3").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (247.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo3").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo3").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion3").html()) + (0);
@@ -6843,181 +2835,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera3").html()) + (0);
 				  $("#spanTotalCaloriasCarrera3").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo3").html()) + (247.6);
-				  $("#spanTotalCaloriasEsfuerzo3").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ3_1").html()) + 0;
-				  $("#spanTimeCiclismoZ3_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ3_2").html()) + 0;
-				  $("#spanTimeCiclismoZ3_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3_3").html()) + 0;
-				  $("#spanTimeCiclismoZ3_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ3_4").html()) + 0;
-				  $("#spanTimeCiclismoZ3_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ3_5").html()) + 0;
-				  $("#spanTimeCiclismoZ3_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ3_6").html()) + 0;
-				  $("#spanTimeCiclismoZ3_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ3_7").html()) + 0;
-				  $("#spanTimeCiclismoZ3_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ3_8").html()) + 0;
-				  $("#spanTimeCiclismoZ3_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ3_9").html()) + 0;
-				  $("#spanTimeCiclismoZ3_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ3_10").html()) + 0;
-				  $("#spanTimeCiclismoZ3_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 15;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ3_1").html()) + 15;
-				  $("#spanTimeCarreraZ3_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ3_2").html()) + 0;
-				  $("#spanTimeCarreraZ3_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3_3").html()) + 0;
-				  $("#spanTimeCarreraZ3_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ3_4").html()) + 0;
-				  $("#spanTimeCarreraZ3_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ3_5").html()) + 0;
-				  $("#spanTimeCarreraZ3_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ3_6").html()) + 0;
-				  $("#spanTimeCarreraZ3_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ3_7").html()) + 0;
-				  $("#spanTimeCarreraZ3_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ3_8").html()) + 0;
-				  $("#spanTimeCarreraZ3_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ3_9").html()) + 0;
-				  $("#spanTimeCarreraZ3_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ3_10").html()) + 0;
-				  $("#spanTimeCarreraZ3_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ3_1").html()) + 0;
-				  $("#spanTimeNatacionZ3_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ3_2").html()) + 0;
-				  $("#spanTimeNatacionZ3_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3_3").html()) + 0;
-				  $("#spanTimeNatacionZ3_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ3_4").html()) + 0;
-				  $("#spanTimeNatacionZ3_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ3_5").html()) + 0;
-				  $("#spanTimeNatacionZ3_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ3_6").html()) + 0;
-				  $("#spanTimeNatacionZ3_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ3_7").html()) + 0;
-				  $("#spanTimeNatacionZ3_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ3_8").html()) + 0;
-				  $("#spanTimeNatacionZ3_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ3_9").html()) + 0;
-				  $("#spanTimeNatacionZ3_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ3_10").html()) + 0;
-				  $("#spanTimeNatacionZ3_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ3_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ3_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ3_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ3_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ3_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ3_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ3_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ3_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ3_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ3_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo3").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ3_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ3_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ3_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ3_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ3_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ3_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ3_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ3_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ3_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ3_10", 0); updateZoneValue("#spanTimeCarreraZ1", 15); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ3_1", 15); updateZoneValue("#spanTimeCarreraZ3_2", 0); updateZoneValue("#spanTimeCarreraZ3_3", 0); updateZoneValue("#spanTimeCarreraZ3_4", 0); updateZoneValue("#spanTimeCarreraZ3_5", 0); updateZoneValue("#spanTimeCarreraZ3_6", 0); updateZoneValue("#spanTimeCarreraZ3_7", 0); updateZoneValue("#spanTimeCarreraZ3_8", 0); updateZoneValue("#spanTimeCarreraZ3_9", 0); updateZoneValue("#spanTimeCarreraZ3_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ3_1", 0); updateZoneValue("#spanTimeNatacionZ3_2", 0); updateZoneValue("#spanTimeNatacionZ3_3", 0); updateZoneValue("#spanTimeNatacionZ3_4", 0); updateZoneValue("#spanTimeNatacionZ3_5", 0); updateZoneValue("#spanTimeNatacionZ3_6", 0); updateZoneValue("#spanTimeNatacionZ3_7", 0); updateZoneValue("#spanTimeNatacionZ3_8", 0); updateZoneValue("#spanTimeNatacionZ3_9", 0); updateZoneValue("#spanTimeNatacionZ3_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ3_1", 0); updateZoneValue("#spanDistanciaCiclismoZ3_2", 0); updateZoneValue("#spanDistanciaCiclismoZ3_3", 0); updateZoneValue("#spanDistanciaCiclismoZ3_4", 0); updateZoneValue("#spanDistanciaCiclismoZ3_5", 0); updateZoneValue("#spanDistanciaCiclismoZ3_6", 0); updateZoneValue("#spanDistanciaCiclismoZ3_7", 0); updateZoneValue("#spanDistanciaCiclismoZ3_8", 0); updateZoneValue("#spanDistanciaCiclismoZ3_9", 0); updateZoneValue("#spanDistanciaCiclismoZ3_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -7038,7 +2856,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ3_1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ3_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ3_2").html()) + 0;
@@ -7059,8 +2876,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ3_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ3_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ3_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -7081,8 +2896,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ3_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ3_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ3_2").html()) + 0;
@@ -7103,8 +2916,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ3_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ3_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ3_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -7114,7 +2925,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo3").html()) + 0;
 				  $("#spanTotalSesionesCiclismo3").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion3").html()) + 0;
@@ -7124,19 +2934,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo3").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo3").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (15/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo3").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo3").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion3").html()) + (0/60);
@@ -7146,19 +2952,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo3").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo3").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (431.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo3").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo3").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion3").html()) + (0);
@@ -7166,181 +2967,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera3").html()) + (0);
 				  $("#spanTotalCaloriasCarrera3").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo3").html()) + (431.6);
-				  $("#spanTotalCaloriasEsfuerzo3").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ3_1").html()) + 0;
-				  $("#spanTimeCiclismoZ3_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ3_2").html()) + 0;
-				  $("#spanTimeCiclismoZ3_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3_3").html()) + 0;
-				  $("#spanTimeCiclismoZ3_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ3_4").html()) + 0;
-				  $("#spanTimeCiclismoZ3_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ3_5").html()) + 0;
-				  $("#spanTimeCiclismoZ3_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ3_6").html()) + 0;
-				  $("#spanTimeCiclismoZ3_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ3_7").html()) + 0;
-				  $("#spanTimeCiclismoZ3_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ3_8").html()) + 0;
-				  $("#spanTimeCiclismoZ3_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ3_9").html()) + 0;
-				  $("#spanTimeCiclismoZ3_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ3_10").html()) + 0;
-				  $("#spanTimeCiclismoZ3_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 20;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 30;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ3_1").html()) + 20;
-				  $("#spanTimeCarreraZ3_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ3_2").html()) + 0;
-				  $("#spanTimeCarreraZ3_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3_3").html()) + 0;
-				  $("#spanTimeCarreraZ3_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ3_4").html()) + 30;
-				  $("#spanTimeCarreraZ3_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ3_5").html()) + 0;
-				  $("#spanTimeCarreraZ3_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ3_6").html()) + 0;
-				  $("#spanTimeCarreraZ3_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ3_7").html()) + 0;
-				  $("#spanTimeCarreraZ3_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ3_8").html()) + 0;
-				  $("#spanTimeCarreraZ3_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ3_9").html()) + 0;
-				  $("#spanTimeCarreraZ3_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ3_10").html()) + 0;
-				  $("#spanTimeCarreraZ3_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ3_1").html()) + 0;
-				  $("#spanTimeNatacionZ3_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ3_2").html()) + 0;
-				  $("#spanTimeNatacionZ3_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3_3").html()) + 0;
-				  $("#spanTimeNatacionZ3_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ3_4").html()) + 0;
-				  $("#spanTimeNatacionZ3_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ3_5").html()) + 0;
-				  $("#spanTimeNatacionZ3_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ3_6").html()) + 0;
-				  $("#spanTimeNatacionZ3_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ3_7").html()) + 0;
-				  $("#spanTimeNatacionZ3_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ3_8").html()) + 0;
-				  $("#spanTimeNatacionZ3_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ3_9").html()) + 0;
-				  $("#spanTimeNatacionZ3_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ3_10").html()) + 0;
-				  $("#spanTimeNatacionZ3_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ3_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ3_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ3_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ3_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ3_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ3_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ3_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ3_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ3_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ3_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo3").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ3_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ3_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ3_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ3_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ3_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ3_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ3_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ3_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ3_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ3_10", 0); updateZoneValue("#spanTimeCarreraZ1", 20); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 30); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ3_1", 20); updateZoneValue("#spanTimeCarreraZ3_2", 0); updateZoneValue("#spanTimeCarreraZ3_3", 0); updateZoneValue("#spanTimeCarreraZ3_4", 30); updateZoneValue("#spanTimeCarreraZ3_5", 0); updateZoneValue("#spanTimeCarreraZ3_6", 0); updateZoneValue("#spanTimeCarreraZ3_7", 0); updateZoneValue("#spanTimeCarreraZ3_8", 0); updateZoneValue("#spanTimeCarreraZ3_9", 0); updateZoneValue("#spanTimeCarreraZ3_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ3_1", 0); updateZoneValue("#spanTimeNatacionZ3_2", 0); updateZoneValue("#spanTimeNatacionZ3_3", 0); updateZoneValue("#spanTimeNatacionZ3_4", 0); updateZoneValue("#spanTimeNatacionZ3_5", 0); updateZoneValue("#spanTimeNatacionZ3_6", 0); updateZoneValue("#spanTimeNatacionZ3_7", 0); updateZoneValue("#spanTimeNatacionZ3_8", 0); updateZoneValue("#spanTimeNatacionZ3_9", 0); updateZoneValue("#spanTimeNatacionZ3_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ3_1", 0); updateZoneValue("#spanDistanciaCiclismoZ3_2", 0); updateZoneValue("#spanDistanciaCiclismoZ3_3", 0); updateZoneValue("#spanDistanciaCiclismoZ3_4", 0); updateZoneValue("#spanDistanciaCiclismoZ3_5", 0); updateZoneValue("#spanDistanciaCiclismoZ3_6", 0); updateZoneValue("#spanDistanciaCiclismoZ3_7", 0); updateZoneValue("#spanDistanciaCiclismoZ3_8", 0); updateZoneValue("#spanDistanciaCiclismoZ3_9", 0); updateZoneValue("#spanDistanciaCiclismoZ3_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -7361,7 +2988,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ3_1").html()) + 4.1433333333333;
 				  $("#spanDistanciaCarreraZ3_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ3_2").html()) + 0;
@@ -7382,8 +3008,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ3_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ3_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ3_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -7404,8 +3028,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ3_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ3_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ3_2").html()) + 0;
@@ -7426,8 +3048,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ3_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ3_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ3_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -7437,7 +3057,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo3").html()) + 0;
 				  $("#spanTotalSesionesCiclismo3").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion3").html()) + 0;
@@ -7447,19 +3066,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo3").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo3").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (50/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo3").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo3").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion3").html()) + (0/60);
@@ -7469,19 +3084,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo3").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo3").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (142.14);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo3").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo3").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion3").html()) + (0);
@@ -7489,181 +3099,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera3").html()) + (0);
 				  $("#spanTotalCaloriasCarrera3").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo3").html()) + (142.14);
-				  $("#spanTotalCaloriasEsfuerzo3").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ3_1").html()) + 0;
-				  $("#spanTimeCiclismoZ3_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ3_2").html()) + 0;
-				  $("#spanTimeCiclismoZ3_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3_3").html()) + 0;
-				  $("#spanTimeCiclismoZ3_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ3_4").html()) + 0;
-				  $("#spanTimeCiclismoZ3_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ3_5").html()) + 0;
-				  $("#spanTimeCiclismoZ3_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ3_6").html()) + 0;
-				  $("#spanTimeCiclismoZ3_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ3_7").html()) + 0;
-				  $("#spanTimeCiclismoZ3_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ3_8").html()) + 0;
-				  $("#spanTimeCiclismoZ3_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ3_9").html()) + 0;
-				  $("#spanTimeCiclismoZ3_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ3_10").html()) + 0;
-				  $("#spanTimeCiclismoZ3_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 40;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ3_1").html()) + 40;
-				  $("#spanTimeCarreraZ3_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ3_2").html()) + 0;
-				  $("#spanTimeCarreraZ3_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3_3").html()) + 0;
-				  $("#spanTimeCarreraZ3_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ3_4").html()) + 0;
-				  $("#spanTimeCarreraZ3_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ3_5").html()) + 0;
-				  $("#spanTimeCarreraZ3_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ3_6").html()) + 0;
-				  $("#spanTimeCarreraZ3_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ3_7").html()) + 0;
-				  $("#spanTimeCarreraZ3_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ3_8").html()) + 0;
-				  $("#spanTimeCarreraZ3_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ3_9").html()) + 0;
-				  $("#spanTimeCarreraZ3_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ3_10").html()) + 0;
-				  $("#spanTimeCarreraZ3_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ3_1").html()) + 0;
-				  $("#spanTimeNatacionZ3_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ3_2").html()) + 0;
-				  $("#spanTimeNatacionZ3_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3_3").html()) + 0;
-				  $("#spanTimeNatacionZ3_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ3_4").html()) + 0;
-				  $("#spanTimeNatacionZ3_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ3_5").html()) + 0;
-				  $("#spanTimeNatacionZ3_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ3_6").html()) + 0;
-				  $("#spanTimeNatacionZ3_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ3_7").html()) + 0;
-				  $("#spanTimeNatacionZ3_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ3_8").html()) + 0;
-				  $("#spanTimeNatacionZ3_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ3_9").html()) + 0;
-				  $("#spanTimeNatacionZ3_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ3_10").html()) + 0;
-				  $("#spanTimeNatacionZ3_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ3_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ3_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ3_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ3_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ3_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ3_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ3_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ3_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ3_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ3_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ3_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo3").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ3_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ3_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ3_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ3_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ3_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ3_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ3_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ3_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ3_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ3_10", 0); updateZoneValue("#spanTimeCarreraZ1", 40); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ3_1", 40); updateZoneValue("#spanTimeCarreraZ3_2", 0); updateZoneValue("#spanTimeCarreraZ3_3", 0); updateZoneValue("#spanTimeCarreraZ3_4", 0); updateZoneValue("#spanTimeCarreraZ3_5", 0); updateZoneValue("#spanTimeCarreraZ3_6", 0); updateZoneValue("#spanTimeCarreraZ3_7", 0); updateZoneValue("#spanTimeCarreraZ3_8", 0); updateZoneValue("#spanTimeCarreraZ3_9", 0); updateZoneValue("#spanTimeCarreraZ3_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ3_1", 0); updateZoneValue("#spanTimeNatacionZ3_2", 0); updateZoneValue("#spanTimeNatacionZ3_3", 0); updateZoneValue("#spanTimeNatacionZ3_4", 0); updateZoneValue("#spanTimeNatacionZ3_5", 0); updateZoneValue("#spanTimeNatacionZ3_6", 0); updateZoneValue("#spanTimeNatacionZ3_7", 0); updateZoneValue("#spanTimeNatacionZ3_8", 0); updateZoneValue("#spanTimeNatacionZ3_9", 0); updateZoneValue("#spanTimeNatacionZ3_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ3_1", 0); updateZoneValue("#spanDistanciaCiclismoZ3_2", 0); updateZoneValue("#spanDistanciaCiclismoZ3_3", 0); updateZoneValue("#spanDistanciaCiclismoZ3_4", 0); updateZoneValue("#spanDistanciaCiclismoZ3_5", 0); updateZoneValue("#spanDistanciaCiclismoZ3_6", 0); updateZoneValue("#spanDistanciaCiclismoZ3_7", 0); updateZoneValue("#spanDistanciaCiclismoZ3_8", 0); updateZoneValue("#spanDistanciaCiclismoZ3_9", 0); updateZoneValue("#spanDistanciaCiclismoZ3_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 8.2866666666667;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -7684,7 +3120,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ3_1").html()) + 8.2866666666667;
 				  $("#spanDistanciaCarreraZ3_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ3_2").html()) + 0;
@@ -7705,8 +3140,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ3_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ3_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ3_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -7727,8 +3160,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ3_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ3_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ3_2").html()) + 0;
@@ -7749,8 +3180,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ3_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ3_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ3_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -7760,7 +3189,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo3").html()) + 0;
 				  $("#spanTotalSesionesCiclismo3").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion3").html()) + 0;
@@ -7770,19 +3198,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo3").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo3").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (40/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo3").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo3").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion3").html()) + (0/60);
@@ -7792,19 +3216,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo3").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo3").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (154.74);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo3").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo3").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion3").html()) + (0);
@@ -7812,181 +3231,15 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera3").html()) + (0);
 				  $("#spanTotalCaloriasCarrera3").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo3").html()) + (154.74);
-				  $("#spanTotalCaloriasEsfuerzo3").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ4_1").html()) + 0;
-				  $("#spanTimeCiclismoZ4_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ4_2").html()) + 0;
-				  $("#spanTimeCiclismoZ4_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ4_3").html()) + 0;
-				  $("#spanTimeCiclismoZ4_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4_4").html()) + 0;
-				  $("#spanTimeCiclismoZ4_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ4_5").html()) + 0;
-				  $("#spanTimeCiclismoZ4_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ4_6").html()) + 0;
-				  $("#spanTimeCiclismoZ4_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ4_7").html()) + 0;
-				  $("#spanTimeCiclismoZ4_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ4_8").html()) + 0;
-				  $("#spanTimeCiclismoZ4_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ4_9").html()) + 0;
-				  $("#spanTimeCiclismoZ4_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ4_10").html()) + 0;
-				  $("#spanTimeCiclismoZ4_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 15;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
+				  $("#spanTotalCaloriasEsfuerzo3").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ4_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ4_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ4_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ4_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ4_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ4_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ4_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ4_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ4_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ4_10", 0); updateZoneValue("#spanTimeCarreraZ1", 15); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0);
 				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 3.6585365853659;
 				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
 				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 3.4642032332564;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ4_1").html()) + 15;
-				  $("#spanTimeCarreraZ4_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ4_2").html()) + 0;
-				  $("#spanTimeCarreraZ4_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ4_3").html()) + 0;
-				  $("#spanTimeCarreraZ4_3").html(Math.round(valorZ3C));
+				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C)); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ4_1", 15); updateZoneValue("#spanTimeCarreraZ4_2", 0); updateZoneValue("#spanTimeCarreraZ4_3", 0);
 				  valorZ4C= Number($("#spanTimeCarreraZ4_4").html()) + 3.6585365853659;
 				  $("#spanTimeCarreraZ4_4").html(Math.round(valorZ4C));
 				  valorZ5C= Number($("#spanTimeCarreraZ4_5").html()) + 3.4642032332564;
-				  $("#spanTimeCarreraZ4_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ4_6").html()) + 0;
-				  $("#spanTimeCarreraZ4_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ4_7").html()) + 0;
-				  $("#spanTimeCarreraZ4_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ4_8").html()) + 0;
-				  $("#spanTimeCarreraZ4_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ4_9").html()) + 0;
-				  $("#spanTimeCarreraZ4_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ4_10").html()) + 0;
-				  $("#spanTimeCarreraZ4_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ4_1").html()) + 0;
-				  $("#spanTimeNatacionZ4_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ4_2").html()) + 0;
-				  $("#spanTimeNatacionZ4_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ4_3").html()) + 0;
-				  $("#spanTimeNatacionZ4_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4_4").html()) + 0;
-				  $("#spanTimeNatacionZ4_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ4_5").html()) + 0;
-				  $("#spanTimeNatacionZ4_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ4_6").html()) + 0;
-				  $("#spanTimeNatacionZ4_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ4_7").html()) + 0;
-				  $("#spanTimeNatacionZ4_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ4_8").html()) + 0;
-				  $("#spanTimeNatacionZ4_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ4_9").html()) + 0;
-				  $("#spanTimeNatacionZ4_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ4_10").html()) + 0;
-				  $("#spanTimeNatacionZ4_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ4_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ4_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ4_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ4_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ4_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ4_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ4_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ4_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ4_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ4_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTimeCarreraZ4_5").html(Math.round(valorZ5C)); updateZoneValue("#spanTimeCarreraZ4_6", 0); updateZoneValue("#spanTimeCarreraZ4_7", 0); updateZoneValue("#spanTimeCarreraZ4_8", 0); updateZoneValue("#spanTimeCarreraZ4_9", 0); updateZoneValue("#spanTimeCarreraZ4_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ4_1", 0); updateZoneValue("#spanTimeNatacionZ4_2", 0); updateZoneValue("#spanTimeNatacionZ4_3", 0); updateZoneValue("#spanTimeNatacionZ4_4", 0); updateZoneValue("#spanTimeNatacionZ4_5", 0); updateZoneValue("#spanTimeNatacionZ4_6", 0); updateZoneValue("#spanTimeNatacionZ4_7", 0); updateZoneValue("#spanTimeNatacionZ4_8", 0); updateZoneValue("#spanTimeNatacionZ4_9", 0); updateZoneValue("#spanTimeNatacionZ4_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ4_1", 0); updateZoneValue("#spanDistanciaCiclismoZ4_2", 0); updateZoneValue("#spanDistanciaCiclismoZ4_3", 0); updateZoneValue("#spanDistanciaCiclismoZ4_4", 0); updateZoneValue("#spanDistanciaCiclismoZ4_5", 0); updateZoneValue("#spanDistanciaCiclismoZ4_6", 0); updateZoneValue("#spanDistanciaCiclismoZ4_7", 0); updateZoneValue("#spanDistanciaCiclismoZ4_8", 0); updateZoneValue("#spanDistanciaCiclismoZ4_9", 0); updateZoneValue("#spanDistanciaCiclismoZ4_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -8007,7 +3260,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ4_1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ4_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ4_2").html()) + 0;
@@ -8028,8 +3280,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ4_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ4_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ4_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -8050,8 +3300,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ4_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ4_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ4_2").html()) + 0;
@@ -8072,8 +3320,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ4_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ4_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ4_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -8083,7 +3329,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo4").html()) + 0;
 				  $("#spanTotalSesionesCiclismo4").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion4").html()) + 0;
@@ -8093,19 +3338,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo4").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo4").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (22.122739818622/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo4").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo4").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion4").html()) + (0/60);
@@ -8115,19 +3356,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo4").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo4").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (154.74);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo4").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo4").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion4").html()) + (0);
@@ -8135,181 +3371,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera4").html()) + (0);
 				  $("#spanTotalCaloriasCarrera4").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo4").html()) + (154.74);
-				  $("#spanTotalCaloriasEsfuerzo4").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ4_1").html()) + 0;
-				  $("#spanTimeCiclismoZ4_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ4_2").html()) + 0;
-				  $("#spanTimeCiclismoZ4_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ4_3").html()) + 0;
-				  $("#spanTimeCiclismoZ4_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4_4").html()) + 0;
-				  $("#spanTimeCiclismoZ4_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ4_5").html()) + 0;
-				  $("#spanTimeCiclismoZ4_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ4_6").html()) + 0;
-				  $("#spanTimeCiclismoZ4_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ4_7").html()) + 0;
-				  $("#spanTimeCiclismoZ4_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ4_8").html()) + 0;
-				  $("#spanTimeCiclismoZ4_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ4_9").html()) + 0;
-				  $("#spanTimeCiclismoZ4_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ4_10").html()) + 0;
-				  $("#spanTimeCiclismoZ4_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 15;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ4_1").html()) + 15;
-				  $("#spanTimeCarreraZ4_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ4_2").html()) + 0;
-				  $("#spanTimeCarreraZ4_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ4_3").html()) + 0;
-				  $("#spanTimeCarreraZ4_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4_4").html()) + 0;
-				  $("#spanTimeCarreraZ4_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ4_5").html()) + 0;
-				  $("#spanTimeCarreraZ4_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ4_6").html()) + 0;
-				  $("#spanTimeCarreraZ4_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ4_7").html()) + 0;
-				  $("#spanTimeCarreraZ4_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ4_8").html()) + 0;
-				  $("#spanTimeCarreraZ4_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ4_9").html()) + 0;
-				  $("#spanTimeCarreraZ4_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ4_10").html()) + 0;
-				  $("#spanTimeCarreraZ4_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ4_1").html()) + 0;
-				  $("#spanTimeNatacionZ4_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ4_2").html()) + 0;
-				  $("#spanTimeNatacionZ4_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ4_3").html()) + 0;
-				  $("#spanTimeNatacionZ4_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4_4").html()) + 0;
-				  $("#spanTimeNatacionZ4_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ4_5").html()) + 0;
-				  $("#spanTimeNatacionZ4_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ4_6").html()) + 0;
-				  $("#spanTimeNatacionZ4_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ4_7").html()) + 0;
-				  $("#spanTimeNatacionZ4_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ4_8").html()) + 0;
-				  $("#spanTimeNatacionZ4_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ4_9").html()) + 0;
-				  $("#spanTimeNatacionZ4_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ4_10").html()) + 0;
-				  $("#spanTimeNatacionZ4_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ4_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ4_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ4_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ4_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ4_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ4_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ4_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ4_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ4_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ4_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo4").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ4_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ4_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ4_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ4_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ4_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ4_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ4_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ4_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ4_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ4_10", 0); updateZoneValue("#spanTimeCarreraZ1", 15); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ4_1", 15); updateZoneValue("#spanTimeCarreraZ4_2", 0); updateZoneValue("#spanTimeCarreraZ4_3", 0); updateZoneValue("#spanTimeCarreraZ4_4", 0); updateZoneValue("#spanTimeCarreraZ4_5", 0); updateZoneValue("#spanTimeCarreraZ4_6", 0); updateZoneValue("#spanTimeCarreraZ4_7", 0); updateZoneValue("#spanTimeCarreraZ4_8", 0); updateZoneValue("#spanTimeCarreraZ4_9", 0); updateZoneValue("#spanTimeCarreraZ4_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ4_1", 0); updateZoneValue("#spanTimeNatacionZ4_2", 0); updateZoneValue("#spanTimeNatacionZ4_3", 0); updateZoneValue("#spanTimeNatacionZ4_4", 0); updateZoneValue("#spanTimeNatacionZ4_5", 0); updateZoneValue("#spanTimeNatacionZ4_6", 0); updateZoneValue("#spanTimeNatacionZ4_7", 0); updateZoneValue("#spanTimeNatacionZ4_8", 0); updateZoneValue("#spanTimeNatacionZ4_9", 0); updateZoneValue("#spanTimeNatacionZ4_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ4_1", 0); updateZoneValue("#spanDistanciaCiclismoZ4_2", 0); updateZoneValue("#spanDistanciaCiclismoZ4_3", 0); updateZoneValue("#spanDistanciaCiclismoZ4_4", 0); updateZoneValue("#spanDistanciaCiclismoZ4_5", 0); updateZoneValue("#spanDistanciaCiclismoZ4_6", 0); updateZoneValue("#spanDistanciaCiclismoZ4_7", 0); updateZoneValue("#spanDistanciaCiclismoZ4_8", 0); updateZoneValue("#spanDistanciaCiclismoZ4_9", 0); updateZoneValue("#spanDistanciaCiclismoZ4_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -8330,7 +3392,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ4_1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ4_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ4_2").html()) + 0;
@@ -8351,8 +3412,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ4_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ4_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ4_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -8373,8 +3432,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ4_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ4_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ4_2").html()) + 0;
@@ -8395,8 +3452,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ4_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ4_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ4_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -8406,7 +3461,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo4").html()) + 0;
 				  $("#spanTotalSesionesCiclismo4").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion4").html()) + 0;
@@ -8416,19 +3470,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo4").html()) + 1;
 				  $("#spanTotalSesionesEsfuerzo4").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (15/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo4").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo4").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion4").html()) + (0/60);
@@ -8438,19 +3488,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo4").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo4").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (320.6);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo4").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo4").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion4").html()) + (0);
@@ -8458,181 +3503,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera4").html()) + (0);
 				  $("#spanTotalCaloriasCarrera4").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo4").html()) + (320.6);
-				  $("#spanTotalCaloriasEsfuerzo4").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ4_1").html()) + 0;
-				  $("#spanTimeCiclismoZ4_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ4_2").html()) + 0;
-				  $("#spanTimeCiclismoZ4_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ4_3").html()) + 0;
-				  $("#spanTimeCiclismoZ4_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4_4").html()) + 0;
-				  $("#spanTimeCiclismoZ4_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ4_5").html()) + 0;
-				  $("#spanTimeCiclismoZ4_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ4_6").html()) + 0;
-				  $("#spanTimeCiclismoZ4_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ4_7").html()) + 0;
-				  $("#spanTimeCiclismoZ4_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ4_8").html()) + 0;
-				  $("#spanTimeCiclismoZ4_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ4_9").html()) + 0;
-				  $("#spanTimeCiclismoZ4_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ4_10").html()) + 0;
-				  $("#spanTimeCiclismoZ4_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 25;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ4_1").html()) + 25;
-				  $("#spanTimeCarreraZ4_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ4_2").html()) + 0;
-				  $("#spanTimeCarreraZ4_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ4_3").html()) + 0;
-				  $("#spanTimeCarreraZ4_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4_4").html()) + 0;
-				  $("#spanTimeCarreraZ4_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ4_5").html()) + 0;
-				  $("#spanTimeCarreraZ4_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ4_6").html()) + 0;
-				  $("#spanTimeCarreraZ4_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ4_7").html()) + 0;
-				  $("#spanTimeCarreraZ4_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ4_8").html()) + 0;
-				  $("#spanTimeCarreraZ4_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ4_9").html()) + 0;
-				  $("#spanTimeCarreraZ4_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ4_10").html()) + 0;
-				  $("#spanTimeCarreraZ4_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ4_1").html()) + 0;
-				  $("#spanTimeNatacionZ4_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ4_2").html()) + 0;
-				  $("#spanTimeNatacionZ4_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ4_3").html()) + 0;
-				  $("#spanTimeNatacionZ4_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4_4").html()) + 0;
-				  $("#spanTimeNatacionZ4_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ4_5").html()) + 0;
-				  $("#spanTimeNatacionZ4_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ4_6").html()) + 0;
-				  $("#spanTimeNatacionZ4_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ4_7").html()) + 0;
-				  $("#spanTimeNatacionZ4_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ4_8").html()) + 0;
-				  $("#spanTimeNatacionZ4_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ4_9").html()) + 0;
-				  $("#spanTimeNatacionZ4_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ4_10").html()) + 0;
-				  $("#spanTimeNatacionZ4_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ4_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ4_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ4_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ4_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ4_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ4_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ4_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ4_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ4_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ4_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo4").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ4_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ4_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ4_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ4_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ4_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ4_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ4_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ4_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ4_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ4_10", 0); updateZoneValue("#spanTimeCarreraZ1", 25); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ4_1", 25); updateZoneValue("#spanTimeCarreraZ4_2", 0); updateZoneValue("#spanTimeCarreraZ4_3", 0); updateZoneValue("#spanTimeCarreraZ4_4", 0); updateZoneValue("#spanTimeCarreraZ4_5", 0); updateZoneValue("#spanTimeCarreraZ4_6", 0); updateZoneValue("#spanTimeCarreraZ4_7", 0); updateZoneValue("#spanTimeCarreraZ4_8", 0); updateZoneValue("#spanTimeCarreraZ4_9", 0); updateZoneValue("#spanTimeCarreraZ4_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ4_1", 0); updateZoneValue("#spanTimeNatacionZ4_2", 0); updateZoneValue("#spanTimeNatacionZ4_3", 0); updateZoneValue("#spanTimeNatacionZ4_4", 0); updateZoneValue("#spanTimeNatacionZ4_5", 0); updateZoneValue("#spanTimeNatacionZ4_6", 0); updateZoneValue("#spanTimeNatacionZ4_7", 0); updateZoneValue("#spanTimeNatacionZ4_8", 0); updateZoneValue("#spanTimeNatacionZ4_9", 0); updateZoneValue("#spanTimeNatacionZ4_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ4_1", 0); updateZoneValue("#spanDistanciaCiclismoZ4_2", 0); updateZoneValue("#spanDistanciaCiclismoZ4_3", 0); updateZoneValue("#spanDistanciaCiclismoZ4_4", 0); updateZoneValue("#spanDistanciaCiclismoZ4_5", 0); updateZoneValue("#spanDistanciaCiclismoZ4_6", 0); updateZoneValue("#spanDistanciaCiclismoZ4_7", 0); updateZoneValue("#spanDistanciaCiclismoZ4_8", 0); updateZoneValue("#spanDistanciaCiclismoZ4_9", 0); updateZoneValue("#spanDistanciaCiclismoZ4_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 5.1791666666667;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -8653,7 +3524,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ4_1").html()) + 5.1791666666667;
 				  $("#spanDistanciaCarreraZ4_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ4_2").html()) + 0;
@@ -8674,8 +3544,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ4_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ4_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ4_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -8696,8 +3564,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ4_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ4_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ4_2").html()) + 0;
@@ -8718,8 +3584,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ4_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ4_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ4_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -8729,7 +3593,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo4").html()) + 0;
 				  $("#spanTotalSesionesCiclismo4").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion4").html()) + 0;
@@ -8739,19 +3602,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo4").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo4").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (25/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo4").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo4").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion4").html()) + (0/60);
@@ -8761,19 +3620,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo4").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo4").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (252.14);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo4").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo4").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion4").html()) + (0);
@@ -8781,181 +3635,7 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera4").html()) + (0);
 				  $("#spanTotalCaloriasCarrera4").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo4").html()) + (252.14);
-				  $("#spanTotalCaloriasEsfuerzo4").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ4_1").html()) + 0;
-				  $("#spanTimeCiclismoZ4_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ4_2").html()) + 0;
-				  $("#spanTimeCiclismoZ4_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ4_3").html()) + 0;
-				  $("#spanTimeCiclismoZ4_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4_4").html()) + 0;
-				  $("#spanTimeCiclismoZ4_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ4_5").html()) + 0;
-				  $("#spanTimeCiclismoZ4_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ4_6").html()) + 0;
-				  $("#spanTimeCiclismoZ4_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ4_7").html()) + 0;
-				  $("#spanTimeCiclismoZ4_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ4_8").html()) + 0;
-				  $("#spanTimeCiclismoZ4_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ4_9").html()) + 0;
-				  $("#spanTimeCiclismoZ4_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ4_10").html()) + 0;
-				  $("#spanTimeCiclismoZ4_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 15;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 0;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ4_1").html()) + 15;
-				  $("#spanTimeCarreraZ4_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ4_2").html()) + 0;
-				  $("#spanTimeCarreraZ4_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ4_3").html()) + 0;
-				  $("#spanTimeCarreraZ4_3").html(Math.round(valorZ3C));
-				  valorZ4C= Number($("#spanTimeCarreraZ4_4").html()) + 0;
-				  $("#spanTimeCarreraZ4_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ4_5").html()) + 0;
-				  $("#spanTimeCarreraZ4_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ4_6").html()) + 0;
-				  $("#spanTimeCarreraZ4_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ4_7").html()) + 0;
-				  $("#spanTimeCarreraZ4_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ4_8").html()) + 0;
-				  $("#spanTimeCarreraZ4_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ4_9").html()) + 0;
-				  $("#spanTimeCarreraZ4_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ4_10").html()) + 0;
-				  $("#spanTimeCarreraZ4_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ4_1").html()) + 0;
-				  $("#spanTimeNatacionZ4_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ4_2").html()) + 0;
-				  $("#spanTimeNatacionZ4_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ4_3").html()) + 0;
-				  $("#spanTimeNatacionZ4_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4_4").html()) + 0;
-				  $("#spanTimeNatacionZ4_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ4_5").html()) + 0;
-				  $("#spanTimeNatacionZ4_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ4_6").html()) + 0;
-				  $("#spanTimeNatacionZ4_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ4_7").html()) + 0;
-				  $("#spanTimeNatacionZ4_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ4_8").html()) + 0;
-				  $("#spanTimeNatacionZ4_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ4_9").html()) + 0;
-				  $("#spanTimeNatacionZ4_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ4_10").html()) + 0;
-				  $("#spanTimeNatacionZ4_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ4_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ4_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ4_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ4_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ4_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ4_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ4_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ4_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ4_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ4_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTotalCaloriasEsfuerzo4").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ4_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ4_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ4_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ4_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ4_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ4_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ4_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ4_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ4_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ4_10", 0); updateZoneValue("#spanTimeCarreraZ1", 15); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0); updateZoneValue("#spanTimeCarreraZ4", 0); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ4_1", 15); updateZoneValue("#spanTimeCarreraZ4_2", 0); updateZoneValue("#spanTimeCarreraZ4_3", 0); updateZoneValue("#spanTimeCarreraZ4_4", 0); updateZoneValue("#spanTimeCarreraZ4_5", 0); updateZoneValue("#spanTimeCarreraZ4_6", 0); updateZoneValue("#spanTimeCarreraZ4_7", 0); updateZoneValue("#spanTimeCarreraZ4_8", 0); updateZoneValue("#spanTimeCarreraZ4_9", 0); updateZoneValue("#spanTimeCarreraZ4_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ4_1", 0); updateZoneValue("#spanTimeNatacionZ4_2", 0); updateZoneValue("#spanTimeNatacionZ4_3", 0); updateZoneValue("#spanTimeNatacionZ4_4", 0); updateZoneValue("#spanTimeNatacionZ4_5", 0); updateZoneValue("#spanTimeNatacionZ4_6", 0); updateZoneValue("#spanTimeNatacionZ4_7", 0); updateZoneValue("#spanTimeNatacionZ4_8", 0); updateZoneValue("#spanTimeNatacionZ4_9", 0); updateZoneValue("#spanTimeNatacionZ4_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ4_1", 0); updateZoneValue("#spanDistanciaCiclismoZ4_2", 0); updateZoneValue("#spanDistanciaCiclismoZ4_3", 0); updateZoneValue("#spanDistanciaCiclismoZ4_4", 0); updateZoneValue("#spanDistanciaCiclismoZ4_5", 0); updateZoneValue("#spanDistanciaCiclismoZ4_6", 0); updateZoneValue("#spanDistanciaCiclismoZ4_7", 0); updateZoneValue("#spanDistanciaCiclismoZ4_8", 0); updateZoneValue("#spanDistanciaCiclismoZ4_9", 0); updateZoneValue("#spanDistanciaCiclismoZ4_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -8976,7 +3656,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ4_1").html()) + 3.1075;
 				  $("#spanDistanciaCarreraZ4_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ4_2").html()) + 0;
@@ -8997,8 +3676,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ4_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ4_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ4_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -9019,8 +3696,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ4_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ4_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ4_2").html()) + 0;
@@ -9041,8 +3716,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ4_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ4_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ4_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -9052,7 +3725,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo4").html()) + 0;
 				  $("#spanTotalSesionesCiclismo4").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion4").html()) + 0;
@@ -9062,19 +3734,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo4").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo4").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (15/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo4").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo4").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion4").html()) + (0/60);
@@ -9084,19 +3752,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo4").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo4").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (252.14);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo4").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo4").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion4").html()) + (0);
@@ -9104,181 +3767,11 @@ $( function() {
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera4").html()) + (0);
 				  $("#spanTotalCaloriasCarrera4").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo4").html()) + (252.14);
-				  $("#spanTotalCaloriasEsfuerzo4").html(Math.round(sumSesionE));
-
-//ciclismo TIME
-				  valorZ1B= Number($("#spanTimeCiclismoZ1").html()) + 0;
-				  $("#spanTimeCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ1B= Number($("#spanTimeCiclismoZ4_1").html()) + 0;
-				  $("#spanTimeCiclismoZ4_1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ2").html()) + 0;
-				  $("#spanTimeCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ2B= Number($("#spanTimeCiclismoZ4_2").html()) + 0;
-				  $("#spanTimeCiclismoZ4_2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ3").html()) + 0;
-				  $("#spanTimeCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ3B= Number($("#spanTimeCiclismoZ4_3").html()) + 0;
-				  $("#spanTimeCiclismoZ4_3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4").html()) + 0;
-				  $("#spanTimeCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ4B= Number($("#spanTimeCiclismoZ4_4").html()) + 0;
-				  $("#spanTimeCiclismoZ4_4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ5").html()) + 0;
-				  $("#spanTimeCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ5B= Number($("#spanTimeCiclismoZ4_5").html()) + 0;
-				  $("#spanTimeCiclismoZ4_5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ6").html()) + 0;
-				  $("#spanTimeCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ6B= Number($("#spanTimeCiclismoZ4_6").html()) + 0;
-				  $("#spanTimeCiclismoZ4_6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ7").html()) + 0;
-				  $("#spanTimeCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ7B= Number($("#spanTimeCiclismoZ4_7").html()) + 0;
-				  $("#spanTimeCiclismoZ4_7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ8").html()) + 0;
-				  $("#spanTimeCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ8B= Number($("#spanTimeCiclismoZ4_8").html()) + 0;
-				  $("#spanTimeCiclismoZ4_8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ9").html()) + 0;
-				  $("#spanTimeCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ9B= Number($("#spanTimeCiclismoZ4_9").html()) + 0;
-				  $("#spanTimeCiclismoZ4_9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ10").html()) + 0;
-				  $("#spanTimeCiclismoZ10").html(Math.round(valorZ10B));
-				  valorZ10B= Number($("#spanTimeCiclismoZ4_10").html()) + 0;
-				  $("#spanTimeCiclismoZ4_10").html(Math.round(valorZ10B));
-
-				  //carrera TIME
-				  valorZ1C= Number($("#spanTimeCarreraZ1").html()) + 0;
-				  $("#spanTimeCarreraZ1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ2").html()) + 0;
-				  $("#spanTimeCarreraZ2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ3").html()) + 0;
-				  $("#spanTimeCarreraZ3").html(Math.round(valorZ3C));
+				  $("#spanTotalCaloriasEsfuerzo4").html(Math.round(sumSesionE)); updateZoneValue("#spanTimeCiclismoZ1", 0); updateZoneValue("#spanTimeCiclismoZ4_1", 0); updateZoneValue("#spanTimeCiclismoZ2", 0); updateZoneValue("#spanTimeCiclismoZ4_2", 0); updateZoneValue("#spanTimeCiclismoZ3", 0); updateZoneValue("#spanTimeCiclismoZ4_3", 0); updateZoneValue("#spanTimeCiclismoZ4", 0); updateZoneValue("#spanTimeCiclismoZ4_4", 0); updateZoneValue("#spanTimeCiclismoZ5", 0); updateZoneValue("#spanTimeCiclismoZ4_5", 0); updateZoneValue("#spanTimeCiclismoZ6", 0); updateZoneValue("#spanTimeCiclismoZ4_6", 0); updateZoneValue("#spanTimeCiclismoZ7", 0); updateZoneValue("#spanTimeCiclismoZ4_7", 0); updateZoneValue("#spanTimeCiclismoZ8", 0); updateZoneValue("#spanTimeCiclismoZ4_8", 0); updateZoneValue("#spanTimeCiclismoZ9", 0); updateZoneValue("#spanTimeCiclismoZ4_9", 0); updateZoneValue("#spanTimeCiclismoZ10", 0); updateZoneValue("#spanTimeCiclismoZ4_10", 0); updateZoneValue("#spanTimeCarreraZ1", 0); updateZoneValue("#spanTimeCarreraZ2", 0); updateZoneValue("#spanTimeCarreraZ3", 0);
 				  valorZ4C= Number($("#spanTimeCarreraZ4").html()) + 18.292682926829;
-				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ5").html()) + 0;
-				  $("#spanTimeCarreraZ5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ6").html()) + 0;
-				  $("#spanTimeCarreraZ6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ7").html()) + 0;
-				  $("#spanTimeCarreraZ7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ8").html()) + 0;
-				  $("#spanTimeCarreraZ8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ9").html()) + 0;
-				  $("#spanTimeCarreraZ9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ10").html()) + 0;
-				  $("#spanTimeCarreraZ10").html(Math.round(valorZ10C));
-				  
-				  valorZ1C= Number($("#spanTimeCarreraZ4_1").html()) + 0;
-				  $("#spanTimeCarreraZ4_1").html(Math.round(valorZ1C));
-				  valorZ2C= Number($("#spanTimeCarreraZ4_2").html()) + 0;
-				  $("#spanTimeCarreraZ4_2").html(Math.round(valorZ2C));
-				  valorZ3C= Number($("#spanTimeCarreraZ4_3").html()) + 0;
-				  $("#spanTimeCarreraZ4_3").html(Math.round(valorZ3C));
+				  $("#spanTimeCarreraZ4").html(Math.round(valorZ4C)); updateZoneValue("#spanTimeCarreraZ5", 0); updateZoneValue("#spanTimeCarreraZ6", 0); updateZoneValue("#spanTimeCarreraZ7", 0); updateZoneValue("#spanTimeCarreraZ8", 0); updateZoneValue("#spanTimeCarreraZ9", 0); updateZoneValue("#spanTimeCarreraZ10", 0); updateZoneValue("#spanTimeCarreraZ4_1", 0); updateZoneValue("#spanTimeCarreraZ4_2", 0); updateZoneValue("#spanTimeCarreraZ4_3", 0);
 				  valorZ4C= Number($("#spanTimeCarreraZ4_4").html()) + 18.292682926829;
-				  $("#spanTimeCarreraZ4_4").html(Math.round(valorZ4C));
-				  valorZ5C= Number($("#spanTimeCarreraZ4_5").html()) + 0;
-				  $("#spanTimeCarreraZ4_5").html(Math.round(valorZ5C));
-				  valorZ6C= Number($("#spanTimeCarreraZ4_6").html()) + 0;
-				  $("#spanTimeCarreraZ4_6").html(Math.round(valorZ6C));
-				  valorZ7C= Number($("#spanTimeCarreraZ4_7").html()) + 0;
-				  $("#spanTimeCarreraZ4_7").html(Math.round(valorZ7C));
-				  valorZ8C= Number($("#spanTimeCarreraZ4_8").html()) + 0;
-				  $("#spanTimeCarreraZ4_8").html(Math.round(valorZ8C));
-				  valorZ9C= Number($("#spanTimeCarreraZ4_9").html()) + 0;
-				  $("#spanTimeCarreraZ4_9").html(Math.round(valorZ9C));
-				  valorZ10C= Number($("#spanTimeCarreraZ4_10").html()) + 0;
-				  $("#spanTimeCarreraZ4_10").html(Math.round(valorZ10C));
-
-				  //natacion TIME
-				  valorZ1N= Number($("#spanTimeNatacionZ1").html()) + 0;
-				  $("#spanTimeNatacionZ1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ2").html()) + 0;
-				  $("#spanTimeNatacionZ2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ3").html()) + 0;
-				  $("#spanTimeNatacionZ3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4").html()) + 0;
-				  $("#spanTimeNatacionZ4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ5").html()) + 0;
-				  $("#spanTimeNatacionZ5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ6").html()) + 0;
-				  $("#spanTimeNatacionZ6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ7").html()) + 0;
-				  $("#spanTimeNatacionZ7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ8").html()) + 0;
-				  $("#spanTimeNatacionZ8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ9").html()) + 0;
-				  $("#spanTimeNatacionZ9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ10").html()) + 0;
-				  $("#spanTimeNatacionZ10").html(Math.round(valorZ10N));
-				  
-				  valorZ1N= Number($("#spanTimeNatacionZ4_1").html()) + 0;
-				  $("#spanTimeNatacionZ4_1").html(Math.round(valorZ1N));
-				  valorZ2N= Number($("#spanTimeNatacionZ4_2").html()) + 0;
-				  $("#spanTimeNatacionZ4_2").html(Math.round(valorZ2N));
-				  valorZ3N= Number($("#spanTimeNatacionZ4_3").html()) + 0;
-				  $("#spanTimeNatacionZ4_3").html(Math.round(valorZ3N));
-				  valorZ4N= Number($("#spanTimeNatacionZ4_4").html()) + 0;
-				  $("#spanTimeNatacionZ4_4").html(Math.round(valorZ4N));
-				  valorZ5N= Number($("#spanTimeNatacionZ4_5").html()) + 0;
-				  $("#spanTimeNatacionZ4_5").html(Math.round(valorZ5N));
-				  valorZ6N= Number($("#spanTimeNatacionZ4_6").html()) + 0;
-				  $("#spanTimeNatacionZ4_6").html(Math.round(valorZ6N));
-				  valorZ7N= Number($("#spanTimeNatacionZ4_7").html()) + 0;
-				  $("#spanTimeNatacionZ4_7").html(Math.round(valorZ7N));
-				  valorZ8N= Number($("#spanTimeNatacionZ4_8").html()) + 0;
-				  $("#spanTimeNatacionZ4_8").html(Math.round(valorZ8N));
-				  valorZ9N= Number($("#spanTimeNatacionZ4_9").html()) + 0;
-				  $("#spanTimeNatacionZ4_9").html(Math.round(valorZ9N));
-				  valorZ10N= Number($("#spanTimeNatacionZ4_10").html()) + 0;
-				  $("#spanTimeNatacionZ4_10").html(Math.round(valorZ10N));
-
-
-				  //ciclismo DISTANCIA
-				  valorZ1B= Number($("#spanDistanciaCiclismoZ1").html()) + 0;
-				  $("#spanDistanciaCiclismoZ1").html(Math.round(valorZ1B));
-				  valorZ2B= Number($("#spanDistanciaCiclismoZ2").html()) + 0;
-				  $("#spanDistanciaCiclismoZ2").html(Math.round(valorZ2B));
-				  valorZ3B= Number($("#spanDistanciaCiclismoZ3").html()) + 0;
-				  $("#spanDistanciaCiclismoZ3").html(Math.round(valorZ3B));
-				  valorZ4B= Number($("#spanDistanciaCiclismoZ4").html()) + 0;
-				  $("#spanDistanciaCiclismoZ4").html(Math.round(valorZ4B));
-				  valorZ5B= Number($("#spanDistanciaCiclismoZ5").html()) + 0;
-				  $("#spanDistanciaCiclismoZ5").html(Math.round(valorZ5B));
-				  valorZ6B= Number($("#spanDistanciaCiclismoZ6").html()) + 0;
-				  $("#spanDistanciaCiclismoZ6").html(Math.round(valorZ6B));
-				  valorZ7B= Number($("#spanDistanciaCiclismoZ7").html()) + 0;
-				  $("#spanDistanciaCiclismoZ7").html(Math.round(valorZ7B));
-				  valorZ8B= Number($("#spanDistanciaCiclismoZ8").html()) + 0;
-				  $("#spanDistanciaCiclismoZ8").html(Math.round(valorZ8B));
-				  valorZ9B= Number($("#spanDistanciaCiclismoZ9").html()) + 0;
-				  $("#spanDistanciaCiclismoZ9").html(Math.round(valorZ9B));
-				  valorZ10B= Number($("#spanDistanciaCiclismoZ10").html()) + 0;
-				  $("#spanDistanciaCiclismoZ10").html(Math.round(valorZ10B));
-				  
-			  valorZ1B= Number($("#spanDistanciaCiclismoZ4_1").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_1").html(Math.round(valorZ1B));
-			  valorZ2B= Number($("#spanDistanciaCiclismoZ4_2").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_2").html(Math.round(valorZ2B));
-			  valorZ3B= Number($("#spanDistanciaCiclismoZ4_3").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_3").html(Math.round(valorZ3B));
-			  valorZ4B= Number($("#spanDistanciaCiclismoZ4_4").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_4").html(Math.round(valorZ4B));
-			  valorZ5B= Number($("#spanDistanciaCiclismoZ4_5").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_5").html(Math.round(valorZ5B));
-			  valorZ6B= Number($("#spanDistanciaCiclismoZ4_6").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_6").html(Math.round(valorZ6B));
-			  valorZ7B= Number($("#spanDistanciaCiclismoZ4_7").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_7").html(Math.round(valorZ7B));
-			  valorZ8B= Number($("#spanDistanciaCiclismoZ4_8").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_8").html(Math.round(valorZ8B));
-			  valorZ9B= Number($("#spanDistanciaCiclismoZ4_9").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_9").html(Math.round(valorZ9B));
-			  valorZ10B= Number($("#spanDistanciaCiclismoZ4_10").html()) + 0;
-			  $("#spanDistanciaCiclismoZ4_10").html(Math.round(valorZ10B));
-
-				  //carrera DISTANCIA
+				  $("#spanTimeCarreraZ4_4").html(Math.round(valorZ4C)); updateZoneValue("#spanTimeCarreraZ4_5", 0); updateZoneValue("#spanTimeCarreraZ4_6", 0); updateZoneValue("#spanTimeCarreraZ4_7", 0); updateZoneValue("#spanTimeCarreraZ4_8", 0); updateZoneValue("#spanTimeCarreraZ4_9", 0); updateZoneValue("#spanTimeCarreraZ4_10", 0); updateZoneValue("#spanTimeNatacionZ1", 0); updateZoneValue("#spanTimeNatacionZ2", 0); updateZoneValue("#spanTimeNatacionZ3", 0); updateZoneValue("#spanTimeNatacionZ4", 0); updateZoneValue("#spanTimeNatacionZ5", 0); updateZoneValue("#spanTimeNatacionZ6", 0); updateZoneValue("#spanTimeNatacionZ7", 0); updateZoneValue("#spanTimeNatacionZ8", 0); updateZoneValue("#spanTimeNatacionZ9", 0); updateZoneValue("#spanTimeNatacionZ10", 0); updateZoneValue("#spanTimeNatacionZ4_1", 0); updateZoneValue("#spanTimeNatacionZ4_2", 0); updateZoneValue("#spanTimeNatacionZ4_3", 0); updateZoneValue("#spanTimeNatacionZ4_4", 0); updateZoneValue("#spanTimeNatacionZ4_5", 0); updateZoneValue("#spanTimeNatacionZ4_6", 0); updateZoneValue("#spanTimeNatacionZ4_7", 0); updateZoneValue("#spanTimeNatacionZ4_8", 0); updateZoneValue("#spanTimeNatacionZ4_9", 0); updateZoneValue("#spanTimeNatacionZ4_10", 0); updateZoneValue("#spanDistanciaCiclismoZ1", 0); updateZoneValue("#spanDistanciaCiclismoZ2", 0); updateZoneValue("#spanDistanciaCiclismoZ3", 0); updateZoneValue("#spanDistanciaCiclismoZ4", 0); updateZoneValue("#spanDistanciaCiclismoZ5", 0); updateZoneValue("#spanDistanciaCiclismoZ6", 0); updateZoneValue("#spanDistanciaCiclismoZ7", 0); updateZoneValue("#spanDistanciaCiclismoZ8", 0); updateZoneValue("#spanDistanciaCiclismoZ9", 0); updateZoneValue("#spanDistanciaCiclismoZ10", 0); updateZoneValue("#spanDistanciaCiclismoZ4_1", 0); updateZoneValue("#spanDistanciaCiclismoZ4_2", 0); updateZoneValue("#spanDistanciaCiclismoZ4_3", 0); updateZoneValue("#spanDistanciaCiclismoZ4_4", 0); updateZoneValue("#spanDistanciaCiclismoZ4_5", 0); updateZoneValue("#spanDistanciaCiclismoZ4_6", 0); updateZoneValue("#spanDistanciaCiclismoZ4_7", 0); updateZoneValue("#spanDistanciaCiclismoZ4_8", 0); updateZoneValue("#spanDistanciaCiclismoZ4_9", 0); updateZoneValue("#spanDistanciaCiclismoZ4_10", 0);
 				  valorZ1C= Number($("#spanDistanciaCarreraZ1").html()) + 0;
 				  $("#spanDistanciaCarreraZ1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ2").html()) + 0;
@@ -9299,7 +3792,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ10").html()) + 0;
 				  $("#spanDistanciaCarreraZ10").html(parseFloat(valorZ10C).toFixed(1));
-				  
 				  valorZ1C= Number($("#spanDistanciaCarreraZ4_1").html()) + 0;
 				  $("#spanDistanciaCarreraZ4_1").html(parseFloat(valorZ1C).toFixed(1));
 				  valorZ2C= Number($("#spanDistanciaCarreraZ4_2").html()) + 0;
@@ -9320,8 +3812,6 @@ $( function() {
 				  $("#spanDistanciaCarreraZ4_9").html(parseFloat(valorZ9C).toFixed(1));
 				  valorZ10C= Number($("#spanDistanciaCarreraZ4_10").html()) + 0;
 				  $("#spanDistanciaCarreraZ4_10").html(parseFloat(valorZ10C).toFixed(1));
-
-				  //natacion DISTANCIA
 				  valorZ1N= Number($("#spanDistanciaNatacionZ1").html()) + 0;
 				  $("#spanDistanciaNatacionZ1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ2").html()) + 0;
@@ -9342,8 +3832,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ10").html()) + 0;
 				  $("#spanDistanciaNatacionZ10").html(parseFloat(valorZ10N).toFixed(1));
-				  
-				  //natacion DISTANCIA semanal
 				  valorZ1N= Number($("#spanDistanciaNatacionZ4_1").html()) + 0;
 				  $("#spanDistanciaNatacionZ4_1").html(parseFloat(valorZ1N).toFixed(1));
 				  valorZ2N= Number($("#spanDistanciaNatacionZ4_2").html()) + 0;
@@ -9364,8 +3852,6 @@ $( function() {
 				  $("#spanDistanciaNatacionZ4_9").html(parseFloat(valorZ9N).toFixed(1));
 				  valorZ10N= Number($("#spanDistanciaNatacionZ4_10").html()) + 0;
 				  $("#spanDistanciaNatacionZ4_10").html(parseFloat(valorZ10N).toFixed(1));
-
-				  //total sesiones por deporte
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo").html()) + 0;
 				  $("#spanTotalSesionesCiclismo").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion").html()) + 0;
@@ -9375,7 +3861,6 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo").html(Math.round(sumSesionE));
 				  tempNumSesionE= sumSesionE;
-				  
 				  sumSesionB= Number($("#spanTotalSesionesCiclismo4").html()) + 0;
 				  $("#spanTotalSesionesCiclismo4").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalSesionesNatacion4").html()) + 0;
@@ -9385,19 +3870,15 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalSesionesEsfuerzo4").html()) + 0;
 				  $("#spanTotalSesionesEsfuerzo4").html(Math.round(sumSesionE));
 				  tempNumSesionSemE= sumSesionE;
-				  
-				  //total horas por deporte
 				  sumSesionB= Number($("#spanTotalHorasCiclismo").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacionN").html()) + (0/60);
 				  $("#spanTotalHorasNatacionN").html(parseFloat(sumSesionN).toFixed(1));
-				  //console.log(sumSesionN + "--" + $("#spanTotalHorasNatacionN").html() + " .." + 0);
 				  sumSesionC= Number($("#spanTotalHorasCarrera").html()) + (18.292682926829/60);
 				  $("#spanTotalHorasCarrera").html(parseFloat(sumSesionC).toFixed(1));
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo").html()) + (0/60);
 				  sumSesionE= (tempNumSesionE*30) /60;
 				  $("#spanTotalHorasEsfuerzo").html(parseFloat(sumSesionE).toFixed(1));
-				  
 				  sumSesionB= Number($("#spanTotalHorasCiclismo4").html()) + (0/60);
 				  $("#spanTotalHorasCiclismo4").html(parseFloat(sumSesionB).toFixed(1));
 				  sumSesionN= Number($("#spanTotalHorasNatacion4").html()) + (0/60);
@@ -9407,19 +3888,14 @@ $( function() {
 				  sumSesionE= Number($("#spanTotalHorasEsfuerzo4").html()) + (0/60);
 				  sumSesionE= (tempNumSesionSemE*30) /60;
 				  $("#spanTotalHorasEsfuerzo4").html(parseFloat(sumSesionE).toFixed(1));
-
-				  //total Calorias por deporte
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo").html(Math.round(sumSesionB));
-				  //console.log(sumSesionB + " - " + 0);
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion").html()) + (0);
 				  $("#spanTotalCaloriasNatacion").html(Math.round(sumSesionN));
 				  sumSesionC= Number($("#spanTotalCaloriasCarrera").html()) + (0);
 				  $("#spanTotalCaloriasCarrera").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo").html()) + (154.74);
 				  $("#spanTotalCaloriasEsfuerzo").html(Math.round(sumSesionE));
-				  console.log();
-				  
 				  sumSesionB= Number($("#spanTotalCaloriasCiclismo4").html()) + (0);
 				  $("#spanTotalCaloriasCiclismo4").html(Math.round(sumSesionB));
 				  sumSesionN= Number($("#spanTotalCaloriasNatacion4").html()) + (0);
@@ -9428,16 +3904,11 @@ $( function() {
 				  $("#spanTotalCaloriasCarrera4").html(Math.round(sumSesionC));
 				  sumSesionE= Number($("#spanTotalCaloriasEsfuerzo4").html()) + (154.74);
 				  $("#spanTotalCaloriasEsfuerzo4").html(Math.round(sumSesionE));
-
 function getAddSesion(numeroDia, fila){//numeroDia =>  1=lunes, 2=martes, etc etc
 		var _profile= $("#mesocyclesmesocycle-profile_id").val();
-	//index.php?r=
 	var url= 'sessionsssession/create&cp=&orgn=meso&idorgn=30901&cporgn=&dayID=0&numeroDia='+numeroDia+'&fila='+fila+'&pr='+_profile+'&orgnDash=&orgnDash=false';
-	//document.location.href= url;
-	//
 	validaEdit(url);
 }
-
 function verTooltipSemana(valor, accion){
 	if(accion=="ver"){
 		$('#divSemana'+valor).removeClass('ocultoSemana');
@@ -9464,13 +3935,11 @@ function verformulasMeso(tipo){
 		$("#divCuadroEstadisticas").hide();
 	}
 }
-
 function getMoverA(divID, valID){
 	$('.rbMoverAqui').show();
 	$('#divSemanaDia').show();
 	$("#hddMoverA").val("moverA");
 	$("#hddMoviendoID").val(divID);
-	//$('#sesion_select').val(valID);
 	$('#sesion_select').empty();
 	$('#sesion_select').append('<option value="' + valID + '"> </option>');
 	$('#btnPrevisualizar').click();
@@ -9479,14 +3948,11 @@ function getMoverA(divID, valID){
 	$("#btnPrevisualizar").hide();
 	$('#divAtletasParaCopiar').hide();
 	$("#btnCopiarAtleta").hide();
-	//alert(valID);
 }
-
 function getCopiarAtleta(divID, valID){
 	$('#divSemanaDia').hide();
 	$("#hddMoverA").val("copiarA");
 	$("#hddMoviendoID").val(divID);
-	//$('#sesion_select').val(valID);
 	$('#sesion_select').empty();
 	$('#sesion_select').append('<option value="' + valID + '"> </option>');
 	$('#btnPrevisualizar').click();
@@ -9496,30 +3962,21 @@ function getCopiarAtleta(divID, valID){
 	$("#btnCopiarAtleta").show();
 	$('#divAtletasParaCopiar').show();
 }
-	
 function addLine2(){
-	
 }
 function readlines(html_intermedia,cont_line){
 	let html='';
 	$(".week_item").each(function() {	
-		console.log('hh-');
 		let cont = $(this).data('cont');
-
 		html='<div class="week_item row week' + cont + '" id="week' + cont + '" data-cont="'+cont+'">' +
 		$(this).html()+'</div>';
 		$('#weeks').append(html);
 		if(cont_line===cont){
 			$('#weeks').append(html_intermedia);
 		}
-		
 	});
-	console.log(html);
-	//$('#weeks').empty();
-	
 }
 var is_preview=true;
-		
 $(document).ready(function() {
 		is_variasVeces=false;
 	is_variasVeces_count=0;
@@ -9532,14 +3989,9 @@ $(document).ready(function() {
 	$('#divAtletasParaCopiar').hide();
 	$("#btnCopiarAtleta").hide();
 	$('#aVerGrafica').html('');
-	
-	//alert("");
-		
-	
 	$("#btnMover").click(function() {
         $("#add_ss").click();
     });
-	
 	$("#search_session").on('keypress', function (e) {
 	  var keycode = e.keyCode || e.which;
 		if (keycode == 13) {
@@ -9547,7 +3999,6 @@ $(document).ready(function() {
 			return false;
 		}
 	});
-	
 	$("#search_progresion").on('keypress', function (e) {
 	  var keycode = e.keyCode || e.which;
 		if (keycode == 13) {
@@ -9555,16 +4006,13 @@ $(document).ready(function() {
 			return false;
 		}
 	});
-	
 	$("#search_microciclo").on('keypress', function (e) {
-		
 	  var keycode = e.keyCode || e.which;
 		if (keycode == 13) {
 			$('#searchMicrociclo').click();
 			return false;
 		}
 	});
-	
 	$("#search_mesociclo").on('keypress', function (e) {
 	  var keycode = e.keyCode || e.which;
 		if (keycode == 13) {
@@ -9572,7 +4020,6 @@ $(document).ready(function() {
 			return false;
 		}
 	});
-	
 	$("#txtBuscarAtleta").on('keypress', function (e) {
 	  var keycode = e.keyCode || e.which;
 		if (keycode == 13) {
@@ -9580,23 +4027,18 @@ $(document).ready(function() {
 			return false;
 		}
 	});
-	
 	let totalesEcosSemanalZ1=0; 
 	dayID="";
 	$('.submitFormBtn').click(function(){
-		//$('#labelSubmitFormBtn').html("Espere un momento");
-		//alert("Espere un momento.")
 		swal("Espere un momento. Cargando...", {
 			buttons: false,
 			timer: 5000,
 		});
-		
         var $this = $(this);
         var $next = $this.next();
         if($next.hasClass('submitFormBtnBlock')) {
             $blockBtn = $next;
         } else {
-			
 			var form = document.getElementById('w0');			
 			var dtClear = 0;
 			var errores="";
@@ -9605,18 +4047,13 @@ $(document).ready(function() {
 					dtClear ++;
 				 }
 			}
-			
 			var valida=false;
 			var sesionesSelecionados= Number($('#hddValida').val());
 			if(sesionesSelecionados>0)
 				valida=true;
-			
 			if($("#Mesocyclesmesocycle-name").val()=="") errores += "> Número\n";
-			
-			
 							if($("#sport_select").val()=="") errores += "> Deporte\n";
 				if($("#distance_select").val()=="") errores += "> Distancia\n";
-			
 				if($('#sport_select').val()==4){//Triatlón
 					if($("#nlevel_select").val()=="") {errores += "> Nivel Natación\n"; dtClear ++;}
 					if($("#blevel_select").val()=="") {errores += "> Nivel Ciclismo\n"; dtClear ++;}
@@ -9641,7 +4078,6 @@ $(document).ready(function() {
 					if($("#level_select").val()=="") {errores += "> Nivel\n"; dtClear ++;}
 					if($("#contain_select").val()=="") {errores += "> Contenido\n"; dtClear ++;}
 				}
-						
 			if(dtClear == 0 && valida==true){
 				$blockBtn = $this.clone();
 				$blockBtn.attr('type', 'button');
@@ -9650,11 +4086,9 @@ $(document).ready(function() {
 				$blockBtn.removeClass('submitFormBtn');
 				$blockBtn.insertAfter($this);
 				$blockBtn.attr('disabled', 'disabled');
-				
 				$this.hide();
 		 		$blockBtn.show();
 			}
-			
 			if(dtClear>0){
 				if(sesionesSelecionados==0)
 					errores = "> Debe seleccionar almenos una sesión\n" + errores;
@@ -9697,8 +4131,6 @@ $(document).ready(function() {
 							else{
 								flagExistecodigo= false;
 							}
-							console.log(data);//
-							//alert(data);
 						},
 						error: function(data) {},
 					});
@@ -9707,7 +4139,6 @@ $(document).ready(function() {
 					codigo += $('#distance_select option:selected').html();
 					codigo += $('#level_select option:selected').html();
 					codigo += $('#contain_select option:selected').html();*/
-
 					if(flagExistecodigo){
 						swal("El mesociclo ya existe", "Puede cambiar uno o más valores seleccionados.\n Número | Deporte | Distancia | Nivel | Contenido", {
 						icon : "error",
@@ -9721,8 +4152,6 @@ $(document).ready(function() {
 					}
 							}
         }
-	
-	
 		$('.submitFormBtn').parents('form').on('afterValidate', function (event, messages, errorAttributes) {				
 			if(errorAttributes.length > 0) {
 				$('.submitFormBtn').show();
@@ -9730,21 +4159,16 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
 	$('#mesocyclesmesocycle-profile_id').change(function() {
 		let _idPerfil = $(this).val();
 		let url="";
 		url= '';
-		//alert(url);
-
 							document.location.href = 'index.php?r=mesocyclesmesocycle/update'+url+'&id=30901&cp=&perfilsel=' +  _idPerfil;
-								//$('.submitFormBtn').click();
 				swal("Espere un momento. Cargando...", {
 					buttons: false,
 					timer: 20000,
 				});
 					});
-	
 			$.ajax({
 			type: 'get',
 			url: "/web/index.php?r=sessionsssession/getatletas",
@@ -9758,8 +4182,6 @@ $(document).ready(function() {
     $("#add_line").click(function() {
         agregarLinea();
     });
-	
-	
 	function agregarLinea(){
 		contador_weeks = 1;
 		$(".week_item").each(function() {	
@@ -9769,13 +4191,10 @@ $(document).ready(function() {
 			}			
 		});
 		var $divs = $(".clsSemana").toArray().length;
-		console.log("Hay " + $divs + " elementos");
 		if($divs==0){
 			cont=-1;
 		}
-
 		cont = cont + 1;
-		
 		let fechaRealizaL="";
 		let fechaRealizaM="";
 		let fechaRealizaMi="";
@@ -9785,7 +4204,6 @@ $(document).ready(function() {
 		let fechaRealizaD="";
 		var fecha_inicio = new Date();
 		var dias = cont * 7; // Número de días a agregar
-		
 				let btn_add='';
 		if(!is_preview){
 			btn_add='<div  style="position: absolute; bottom: 8%;margin-left:2px">'+
@@ -9800,9 +4218,7 @@ $(document).ready(function() {
 			'<input type="hidden" id="hddMinZona3' + cont + '" name="hddMinZona3' + cont + '" value="0" style="width:70px;">' +
 			'<input type="hidden" id="hddMinZona4' + cont + '" name="hddMinZona4' + cont + '" value="0" style="width:70px;">' +
 			'<div class="fondoBordeBlanco" style="position:relative; margin-top:10px;">' +
-			//'<br /> <b class="clsSemana">Semana ' + Number(cont + 1) +
 			'<br /> <b class="clsSemana">Semana ' + contador_weeks +
-			
             '</b> &nbsp; <span class="" style="cursor:pointer; position:absolute; right:8px; top:5px;" title="Eliminar semana" onclick="eliminarFila(' + cont + ');">X</span><b class="centrado2DEL"><img src="require/img/ecos70.png" class="centrado" style="cursor: pointer;" onClick="verTooltipSemana(\'' + cont + '\', \'ver\')"/>' +
 			'<div class="centrado" id="ecos_tot' + cont + '" style="color:white; cursor: pointer; padding-left:6px;" onClick="verTooltipSemana(\'' + cont + '\',\'ver\')">0</div>' +
 			'<div id="divSemana' + cont + '" class="tooltipSemana ocultoSemana row">' +
@@ -9872,9 +4288,6 @@ $(document).ready(function() {
             '</div>' +
             '</div>');
 	}
-
-	
-	
 	$("#add_line2").click(function() {
 		$("#add_line").click();
 		$('#weeks_selectMacro').empty();
@@ -9887,8 +4300,6 @@ $(document).ready(function() {
 		$(".week_item").each(function() {	
 			cont_item = $(this).data('cont');
 			cont_item_text = $(this).data('textcont');
-
-			console.log('hh-'+cont_item);
 			if(cont_item_text==='?'){
 				$('#weeks_selectMacro').append('<option value="' + cont_item + '">Semana ' +
 				cont_item_text + '</option>');
@@ -9910,7 +4321,6 @@ $(document).ready(function() {
 			timer: 2000
 		});
 	});
-	
     $.ajax({
         type: 'get',
         url: "/web/index.php?r=sessionsssession/getsport",
@@ -9968,7 +4378,6 @@ $(document).ready(function() {
 		activarDistancia();
 		activarCombosNivelContenido();
     });
-	
 	function activarDistancia(){
 		let sel = $('#sport_select').val();
         $.ajax({
@@ -9984,7 +4393,6 @@ $(document).ready(function() {
             error: function(data) {},
         });
 	}
-	
 	function activarCombosNivelContenido(){
 		$('#divLevel').hide();
 		$('#divnLevel').hide();
@@ -10019,7 +4427,6 @@ $(document).ready(function() {
 			$('#divContent').show();
 		}
 	}
-	
     $('#search').click(function() {
         $('#btnPrevisualizar').hide();
         let sel = $('#search_session').val();
@@ -10050,14 +4457,12 @@ $(document).ready(function() {
 						width: '100%'
 					});
 					var $select2 = $('#sesion_select').data('select2');
-					// Abre el select2 programáticamente
 					$select2.open();
 				},
 				error: function(data) {},
 			});
 		}
     });
-    
 	$('#searchProgresion').click(function() {
         $('#btnPrevisualizarP').hide();
         let sel = $('#search_progresion').val();
@@ -10088,14 +4493,12 @@ $(document).ready(function() {
 						width: '100%'
 					});
 					var $select2 = $('#progresion_select').data('select2');
-					// Abre el select2 programáticamente
 					$select2.open();
 				},
 				error: function(data) {},
 			});
 		}
     });
-    
 	$('#sesion_select').select2({
 		placeholder: 'Buscar...',
 		minimumInputLength: 3, // Número mínimo de caracteres para activar la búsqueda
@@ -10104,18 +4507,12 @@ $(document).ready(function() {
 			dataType: 'json',
 			delay: 250, // Retraso en milisegundos antes de enviar la solicitud
 			data: function (params) {
-				console.log($('#checkses').is(':checked'))
 				return {
 					word: params.term, // Término de búsqueda introducido por el usuario
-					//check:$('#checkses').is(':checked')
 					check:false //el check es para saber si debe traer libreria personal(true) o no (false)
-
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
-				
-
 				return {
 					results: data
 				};
@@ -10132,17 +4529,12 @@ $(document).ready(function() {
 			dataType: 'json',
 			delay: 250, // Retraso en milisegundos antes de enviar la solicitud
 			data: function (params) {
-				console.log($('#checkses').is(':checked'))
 				return {
 					word: params.term, // Término de búsqueda introducido por el usuario
 					check:true
-
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
-				
-
 				return {
 					results: data
 				};
@@ -10151,7 +4543,6 @@ $(document).ready(function() {
 		},
 		width:'100%'
 	});
-	// Inicializa Select2 en el select
 	$('#microciclo_select').select2({
 		placeholder: 'Buscar...',
 		minimumInputLength: 3, // Número mínimo de caracteres para activar la búsqueda
@@ -10162,14 +4553,11 @@ $(document).ready(function() {
 			data: function (params) {
 				return {
 					word: params.term, // Término de búsqueda introducido por el usuario
-					//check:$('#checkmic').is(':checked')
 					check:false
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
 				$('#btnPrevisualizarM').show();
-
 				return {
 					results: data
 				};
@@ -10192,9 +4580,7 @@ $(document).ready(function() {
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
 				$('#btnPrevisualizarMPersonal').show();
-
 				return {
 					results: data
 				};
@@ -10203,7 +4589,6 @@ $(document).ready(function() {
 		},
 		width:'100%'
 	});
-	// Inicializa Select2 en el select
 	$('#progresion_select').select2({
 		placeholder: 'Buscar...',
 		minimumInputLength: 3, // Número mínimo de caracteres para activar la búsqueda
@@ -10217,7 +4602,6 @@ $(document).ready(function() {
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
 				return {
 					results: data
 				};
@@ -10226,7 +4610,6 @@ $(document).ready(function() {
 		},
 		width:'100%'
 	});
-	// Inicializa Select2 en el select
 	$('#mesociclo_select').select2({
 		placeholder: 'Buscar...',
 		minimumInputLength: 3, // Número mínimo de caracteres para activar la búsqueda
@@ -10235,16 +4618,12 @@ $(document).ready(function() {
 			dataType: 'json',
 			delay: 250, // Retraso en milisegundos antes de enviar la solicitud
 			data: function (params) {
-				console.log(params);
 				return {
 					word: params.term, // Término de búsqueda introducido por el usuario
-					//check:$('#checkmes').is(':checked')
 					check:false
-
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
 				$('#btnPrevisualizarMeso').show();
 				return {
 					results: data
@@ -10262,15 +4641,12 @@ $(document).ready(function() {
 			dataType: 'json',
 			delay: 250, // Retraso en milisegundos antes de enviar la solicitud
 			data: function (params) {
-				console.log(params);
 				return {
 					word: params.term, // Término de búsqueda introducido por el usuario
 					check:true
-
 				};
 			},
 			processResults: function (data) {
-				console.log(data);
 				$('#btnPrevisualizarMesoPersonal').show();
 				return {
 					results: data
@@ -10280,7 +4656,6 @@ $(document).ready(function() {
 		},
 		width:'100%'
 	});
-	    
 	$('#searchMicrociclo').click(function() {
         $('#btnPrevisualizarM').hide();
         let sel = $('#search_microciclo').val();
@@ -10306,22 +4681,18 @@ $(document).ready(function() {
 					"word": sel
 				},
 				success: function(data) {
-					console.log(data);
 					document.getElementById('microciclo_select').innerHTML = data;
 					$('#btnPrevisualizarM').show();
 					$('#microciclo_select').select2({
 						width: '100%'
 					});
 					var $select2 = $('#microciclo_select').data('select2');
-					// Abre el select2 programáticamente
 					$select2.open();
-			
 				},
 				error: function(data) {},
 			});
 		}
     });
-	
 	$('#sesion_select').change(function() {
 		$("#add_ss").show();
 		$("#btnMover").hide();
@@ -10330,7 +4701,6 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModal(0);
     });
-	
 	$('#btnPrevisualizar').click(function() {
 		$("#add_ss").show();
 		$("#btnMover").hide();
@@ -10346,7 +4716,6 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModal(1);
     });
-	
 	$('#btnPrevisualizarPersonal').click(function() {
 		$("#add_ss").show();
 		$("#btnMover").hide();
@@ -10354,7 +4723,6 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModal(1);
 	});
-	
 	$('#btnBuscarAtleta').click(function() {
 		let sel = $('#txtBuscarAtleta').val();
 		if(sel.trim()==""){
@@ -10388,12 +4756,10 @@ $(document).ready(function() {
 			});
 		}
 	});
-	
 	$('#btnCopiarAtleta').click(function() {
 		var _fechaCopy = $("#txtFechaInicialCopiar").val();
 		var _atletaCopy = $("#cmbAtletaACopiar").val();
 		var sessionID = $("#sesion_select").val();
-		//alert(sessionID);
 		var _errors = "";
 		if(_fechaCopy == ""){
 			_errors += "-Seleccione una fecha";
@@ -10422,12 +4788,10 @@ $(document).ready(function() {
 					buttons: false,
 					timer: 1500,
 				});
-
 				_atletaCopy="";
 				$(".hddAtletaID").each(function() {
 					_atletaCopy += (_atletaCopy != "" ? "||" : "") + this.value;
 				});
-								  
 				$.ajax({
 					type: 'get',
 					url: "/web/index.php?r=progressionsprogression/copysesionatleta",
@@ -10462,7 +4826,6 @@ $(document).ready(function() {
 								},
 							});
 						}
-						
 						else{
 							swal("Error al copiar la sesion!", "" + data, {
 								icon : "warning",
@@ -10480,17 +4843,14 @@ $(document).ready(function() {
 				});
 			},
 				function() {
-
 				}
 			);
 		}
 	});
-	
 	function getModal(es_personal){
 		contador_weeks = 1;
         $('#weeks_select').empty();
         /*$(".week").each(function() {
-            //console.log('sleec week')
 			alert(cont);
             $('#weeks_select').append('<option value="' + contador_weeks + '">Semana ' +
                 Number(contador_weeks + 1) + '</option>');
@@ -10499,8 +4859,6 @@ $(document).ready(function() {
 		$(".week_item").each(function() {	
 			cont_item = $(this).data('cont');
 			cont_item_text = $(this).data('textcont');
-			console.log('hh-'+cont_item);				
-
 			if(cont_item_text==='?'){
 				$('#weeks_select').append('<option value="' + cont_item + '">Semana ' +
 				cont_item_text + '</option>');
@@ -10520,7 +4878,6 @@ $(document).ready(function() {
 		}else{
 			sesion = $('#sesion_select');
 		}
-        
 		if(sesion.val().trim()=="" || sesion.val()=="" || sesion.val()=="null"){
 			swal("Campos requeridos!", "Seleccione una sesión para poder visualizar.", {
 				icon : "warning",
@@ -10536,15 +4893,12 @@ $(document).ready(function() {
 		$('#add_ss').addClass('submitFormBtn');
 		$('#add_ss').removeClass('submitFormBtnBlock');
 		$('#add_ss').attr('disabled', false);
-		
 		swal("Espere un momento", {
 			buttons: false,
 			timer: 1000,
 		});
-		
         $.ajax({
             type: 'get',
-            //url: "/web/index.php?r=mesocyclesmesocycle/getdatamodal",
             url: "/web/index.php?r=progressionsprogression/getdatamodal",
             data: {
                 "id": sesion.val(),
@@ -10561,14 +4915,10 @@ $(document).ready(function() {
 				}else{
 					$('#btnPrevisualizar').show();
 				}
-				
-                
             },
             error: function(data) {},
         });
 	}
-	
-	
 	$('#progresion_select').change(function() {
 		$("#btnMover").hide();
 		$('#divSemanaDia').show();
@@ -10576,7 +4926,6 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModalProgresion();
     });
-	
 	$('#btnPrevisualizarP').click(function() {
 		$("#btnMover").hide();
 		$('#divSemanaDia').show();
@@ -10584,7 +4933,6 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModalProgresion();
 	});
-	
 	function getModalProgresion(){
 		contador_weeks = 1;
         $('#weeks_select').empty();
@@ -10596,8 +4944,6 @@ $(document).ready(function() {
 		$(".week_item").each(function() {	
 			cont_item = $(this).data('cont');
 			cont_item_text = $(this).data('textcont');
-			console.log('hh-'+cont_item);
-
 			if(cont_item_text==='?'){
 				$('#weeks_select').append('<option value="' + cont_item + '">Semana ' +
 				cont_item_text + '</option>');
@@ -10628,15 +4974,12 @@ $(document).ready(function() {
 		$('#add_ss').addClass('submitFormBtn');
 		$('#add_ss').removeClass('submitFormBtnBlock');
 		$('#add_ss').attr('disabled', false);
-		
 		swal("Espere un momento", {
 			buttons: false,
 			timer: 1000,
 		});
-		
         $.ajax({
             type: 'get',
-            //url: "/web/index.php?r=mesocyclesmesocycle/getdatamodal",
             url: "/web/index.php?r=progressionsprogression/getdatamodal",
             data: {
                 "id": sesion.val(),
@@ -10647,14 +4990,10 @@ $(document).ready(function() {
                 $('#modal_body_s').append(data);
                 $('#exampleModal').modal('show');
 				$('#btnPrevisualizarP').show();
-                
             },
             error: function(data) {},
         });
 	}
-	
-	
-	
 	$('#microciclo_select').change(function() {
 		$("#btnMover").hide();
 		$('#divSemanaDia').show();
@@ -10669,7 +5008,6 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModalMicrociclo(1);
     });
-	
 	$('#btnPrevisualizarM').click(function() {
 		$("#btnMover").hide();
 		$('#divSemanaDia').show();
@@ -10684,7 +5022,6 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModalMicrociclo(1);
 	});
-	
 	function getModalMicrociclo(es_personal){
 		perfilID= $("#mesocyclesmesocycle-profile_id").val();
 		if(perfilID==""){
@@ -10708,11 +5045,6 @@ $(document).ready(function() {
 			$(".week_item").each(function() {	
 				cont_item = $(this).data('cont');
 				cont_item_text = $(this).data('textcont');
-
-				console.log('hh-'+cont_item);
-				
-				
-				
 				if(cont_item_text==='?'){
 					$('#weeks_select').append('<option value="' + cont_item + '">Semana ' +
 					cont_item_text + '</option>');
@@ -10753,20 +5085,13 @@ $(document).ready(function() {
 			$('#add_ss').addClass('submitFormBtn');
 			$('#add_ss').removeClass('submitFormBtnBlock');
 			$('#add_ss').attr('disabled', false);
-			
 			swal("Espere un momento", {
 				buttons: false,
 				timer: 1000,
 			});
-			
 			load_frame(sesion.val(), 1);
 		}
-		
 	}
-	
-	
-	
-	//buscar mesociclo
 	$('#mesociclo_select').change(function() {
 		$("#btnMover").hide();
 		$('#divSemanaDia').show();
@@ -10781,7 +5106,6 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModalMesociclo(1);
     });
-	
 	$('#btnPrevisualizarMeso').click(function() {
 		$("#btnMover").hide();
 		$('#divSemanaDia').show();
@@ -10796,7 +5120,6 @@ $(document).ready(function() {
 		$("#btnCopiarAtleta").hide();
 		getModalMesociclo(1);
 	});
-	
 	function getModalMesociclo(es_personal){
 		perfilID= $("#mesocyclesmesocycle-profile_id").val();
 		if(perfilID==""){
@@ -10827,9 +5150,6 @@ $(document).ready(function() {
 			$(".week_item").each(function() {	
 				cont_item = $(this).data('cont');
 				cont_item_text = $(this).data('textcont');
-
-				console.log('hh-'+cont_item);
-				
 				if(cont_item_text==='?'){
 					$('#weeks_select').append('<option value="' + cont_item + '">Semana ' +
 					cont_item_text + '</option>');
@@ -10848,7 +5168,6 @@ $(document).ready(function() {
 			}else{
 				sesion = $('#mesociclo_select');
 			}
-			
 			if(sesion.val().trim()=="" || sesion.val()=="" || sesion.val()=="null"){
 				swal("Campos requeridos!", "Seleccione una sesión para poder visualizar.", {
 					icon : "warning",
@@ -10864,19 +5183,13 @@ $(document).ready(function() {
 			$('#add_ss').addClass('submitFormBtn');
 			$('#add_ss').removeClass('submitFormBtnBlock');
 			$('#add_ss').attr('disabled', false);
-			
 			swal("Espere un momento", {
 				buttons: false,
 				timer: 1000,
 			});
-			
 			load_frame(sesion.val(), 2);
 		}
-		
 	}
-	
-	
-    
 	$('#searchMesociclo').click(function() {
         $('#btnPrevisualizarMeso').hide();
         let sel = $('#search_mesociclo').val();
@@ -10891,8 +5204,6 @@ $(document).ready(function() {
 			});
 		}
 		else{
-
-
 			swal("Espere un momento. Cargando...", {
 				buttons: false,
 				timer: 6000,
@@ -10910,53 +5221,36 @@ $(document).ready(function() {
 						width: '100%'
 					});
 					var $select2 = $('#mesociclo_select').data('select2');
-					// Abre el select2 programáticamente
 					$select2.open();
 				},
 				error: function(data) {},
 			});
 		}
     });
-	
-	
 	function load_frame(id, type) {
 		$('#modalOptions').modal('hide');
 		$('#previewModal').modal('show');
-		//$('#btnPrevisualizar').show();
-		
 		$('#btnAgregarMicroMeso').data('micromeso',id);
 		$('#btnAgregarMicroMeso').data('option',type);
-
 		switch (type) {
 			case 1:
 				url = 'index.php?r=mesocyclesmesocycle/microciclo&mrc=tr&id=' + id + '&cp=0&preview=true&orgn=dash&displaytbl=false';
-				//&preview=true
 				break;
 			case 2:
 				ss = id.split('_');
 				url = 'index.php?r=mesocyclesmesocycle/update&id=' + ss[0] + '&cp=' + ss[1] + '&preview=true&orgn=dash&displaytbl=false';
-				//&preview=true
 				$('#btnAgregarMicroMeso').data('micromeso',ss[0]);
 				break;
 			case 3:
-				//&preview=true
 				url = 'index.php?r=mesocyclesmesocycle/update&mac=tr&id=' + id + '&cp=0&preview=true&orgn=dash&displaytbl=false';
 				break;
-
 			default:
 				break;
 		}
-		
-		console.log($('#btnAgregarMicroMeso').data('micromeso'));
-		console.log(url);
 		$('#iframe').attr('src', url);
 		$('#iframe').reload();
-
 	}
-	//fin buscar mesociclo
-
 	$('#btnAgregarMicroMeso').click(function() {
-		
 		$('#btnAgregarMicroMeso').attr('disabled', 'disabled');
 		swal("Espere un momento...", {
 			buttons: false,
@@ -10967,23 +5261,18 @@ $(document).ready(function() {
 		if(option==1){
 			$.ajax({
 				type: 'get',
-				//async: false,
 				url: "/web/index.php?r=progressionsprogression/getdays",
 				data: {
 					"id": id_micro_meso,
 				},
 				success: function(data) {
-					//console.log(data);
 					data=JSON.parse(data);
 					$.each(data, function(i, item) {
-						console.log(item.session_id,item.day);
 						if(option==1){
 							week = $('#weeks_selectMacro').val();
 						}else{
 							week = 0;
 						}
-						
-						
 						day = item.day;
 						string_type = 'Lunes';
 						switch (day) {
@@ -11009,10 +5298,7 @@ $(document).ready(function() {
 								string_type = 'domingo';
 								break;
 						}
-						console.log(string_type);
-						//MI1C21KB2COM
 						setTimeout(() => {
-						console.log("Delayed for 1 second.");
 						}, "10000");
 						perfilID= $("#mesocyclesmesocycle-profile_id").val();
 							if(perfilID=="") perfilID=0;
@@ -11033,27 +5319,19 @@ $(document).ready(function() {
 									"perfilSelectedactivo": 'NO',
 								},
 								success: function(data) {
-									//console.log(data);
-									//document.getElementById('distance_select').innerHTML = data;
-									console.log('dia','#' + string_type + week);
 									$('#' + string_type + week).append(data);
-									//$('#exampleModal').modal('hide');
-
 									totales = 0;
 									$(".sum_e" + week).each(function() {
 										totales = totales + Number($(this).val());
 									});
-									//alert(week);
 									$('#ecos_tot' + week).empty();
 									$('#ecos_tot' + week).append(totales);
 									$('#tot_ecos_week' + week).val(totales);
 									$('#hddValida').val(Number($('#hddValida').val())+1);
-
 									$('#add_ss').html('Agregar'); 
 									$('#add_ss').addClass('submitFormBtn');
 									$('#add_ss').removeClass('submitFormBtnBlock');
 									$('#add_ss').attr('disabled', false);
-									
 								},
 								error: function(data) {
 									swal("Error al guardar!", "" + data, {
@@ -11066,7 +5344,6 @@ $(document).ready(function() {
 									});
 								},
 							});
-						
 					});
 				},
 				error: function(data) {
@@ -11079,28 +5356,19 @@ $(document).ready(function() {
 						},
 					});
 				},
-			
 			})
 		}else{
-
 			$.ajax({
 				type: 'get',
-				//async: false,
 				url: "/web/index.php?r=progressionsprogression/getweeks",
 				data: {
 					"id": id_micro_meso,
 				},
 				success: function(data) {
 					data=JSON.parse(data);
-					
-					//alert(size);
 					week = $('#weeks_selectMacro').val();
 					size=Number(data.length)+Number(week);
-					console.log('size',size);
-
 					$.each(data, function(i, item2) {
-						console.log('semanaID',item2.semanaID);
-
 						$.ajax({
 							type: 'get',
 							async: false,
@@ -11109,10 +5377,8 @@ $(document).ready(function() {
 								"id": item2.semanaID,
 							},
 							success: function(data) {
-								//console.log(data);
 								data=JSON.parse(data);
 								$.each(data, function(i, item) {
-									console.log(item.session_id,item.day);
 									day = item.day;
 									string_type = 'Lunes';
 									switch (day) {
@@ -11138,10 +5404,7 @@ $(document).ready(function() {
 											string_type = 'domingo';
 											break;
 									}
-									console.log(string_type);
-									//MI1C21KB2COM
 									setTimeout(() => {
-									console.log("Delayed for 1 second.");
 									}, "10000");
 									perfilID= $("#mesocyclesmesocycle-profile_id").val();
 										if(perfilID=="") perfilID=0;
@@ -11162,27 +5425,19 @@ $(document).ready(function() {
 												"perfilSelectedactivo": 'NO',
 											},
 											success: function(data) {
-												//console.log(data);
-												//document.getElementById('distance_select').innerHTML = data;
-												console.log('dia','#' + string_type + week);
 												$('#' + string_type + week).append(data);
-												//$('#exampleModal').modal('hide');
-
 												totales = 0;
 												$(".sum_e" + week).each(function() {
 													totales = totales + Number($(this).val());
 												});
-												//alert(week);
 												$('#ecos_tot' + week).empty();
 												$('#ecos_tot' + week).append(totales);
 												$('#tot_ecos_week' + week).val(totales);
 												$('#hddValida').val(Number($('#hddValida').val())+1);
-
 												$('#add_ss').html('Agregar'); 
 												$('#add_ss').addClass('submitFormBtn');
 												$('#add_ss').removeClass('submitFormBtnBlock');
 												$('#add_ss').attr('disabled', false);
-												
 											},
 											error: function(data) {
 												swal("Error al guardar!", "" + data, {
@@ -11195,7 +5450,6 @@ $(document).ready(function() {
 												});
 											},
 										});
-									
 								});
 							},
 							error: function(data) {
@@ -11208,17 +5462,13 @@ $(document).ready(function() {
 									},
 								});
 							},
-							
 						})
 						week++;
 						if(week>cont){
 							if(week<size){
 								$("#add_line").click();
 							}
-							
 						}
-						
-						
 					})
 				},
 				error: function(data) {
@@ -11232,15 +5482,10 @@ $(document).ready(function() {
 					});
 				},
 			})
-
-			
 		}
-		
 		$('#previewModal').modal('hide');
 		$('#btnAgregarMicroMeso').attr('disabled', false);
 	})
-	
-	
 	$('#cmbAtletaACopiar').change(function() {
 		var validaSeleccionado= false;
 		$('#divError').html("");
@@ -11249,7 +5494,6 @@ $(document).ready(function() {
              validaSeleccionado= true;
 			}
         });
-		
 		if(validaSeleccionado==false) {
 			var _atletaID = this.value;
 			var _atletaName= $('#cmbAtletaACopiar option:selected').html();
@@ -11263,28 +5507,23 @@ $(document).ready(function() {
 				'</div>' +
 				'</div>'
 				);
-
 			}
 			else{
-
 			}
 		}
 		else {
 			$('#divError').html("Atleta previamente seleccionado");
 		}
     });
-	
 	$('.iconRemoveListaAtleta').click(function() {
 		alert(1);
 		$(this).closest('.clsListaAtleta').remove();
 		alert(2);
 	});
-	
     /*'098'
     'mexico'*/
 	temp1=0;
     $('#add_ss').click(function() {
-		
 		var validaSeleccion= false;
 		$("input:checkbox:checked").each(function() {
              validaSeleccion= true;
@@ -11300,25 +5539,20 @@ $(document).ready(function() {
 			});
 		}
 		else{
-			//if($('#hddMoverA').val()=="moverA" || (esduplicar==true && is_variasVeces==false)){// && esduplicar==false
 			if($('#hddMoverA').val()=="moverA" || (esduplicar==true)){
 				var esMover = true;
 				el($("#hddMoviendoID").val(), esMover);
 				$('#sesion_select').empty();
-				//alert($('#sesion_select').val());
 			}
-			
 			$('#add_ss').html('Espere un momento...'); 
 			$('#add_ss').addClass('submitFormBtnBlock');
 			$('#add_ss').removeClass('submitFormBtn');
 			$('#add_ss').attr('disabled', 'disabled');
 			sesion = $('#sesion_select').val();
-
 			sesion = $('#sesion_select');
 			week = $('#weeks_select').val();
 			day = $('#days_select').val();
 			string_type = 'Lunes';
-			//alert($('#weeks_select').val() + " -- " + week);
 			switch (day) {
 				case '1':
 					string_type = 'lunes';
@@ -11342,12 +5576,9 @@ $(document).ready(function() {
 					string_type = 'domingo';
 					break;
 			}
-
 			perfilID= $("#mesocyclesmesocycle-profile_id").val();
 			if(perfilID=="") perfilID=0;
 			$("input:checkbox:checked").each(function() {
-				//alert($(this).val());
-				//alert('');
 				 $.ajax({
 					type: 'get',
 					/*async: false,*/
@@ -11366,21 +5597,15 @@ $(document).ready(function() {
 						"perfilSelectedactivo": 'NO',
 					},
 					success: function(data) {
-						//console.log(data);
-						//document.getElementById('distance_select').innerHTML = data;
 						$('#' + string_type + week).append(data);
-						//$('#exampleModal').modal('hide');
-
 						totales = 0;
 						$(".sum_e" + week).each(function() {
 							totales = totales + Number($(this).val());
 						});
-						//alert(week);
 						$('#ecos_tot' + week).empty();
 						$('#ecos_tot' + week).append(totales);
 						$('#tot_ecos_week' + week).val(totales);
 						$('#hddValida').val(Number($('#hddValida').val())+1);
-
 						$('#add_ss').html('Agregar'); 
 						$('#add_ss').addClass('submitFormBtn');
 						$('#add_ss').removeClass('submitFormBtnBlock');
@@ -11398,18 +5623,14 @@ $(document).ready(function() {
 					},
 				});
 			});
-			
 		}
 		$('#exampleModal').modal('hide');
 		$("#hddMoviendoID").val("")
 		$("#add_ss").html("Agregar");
 		$("#add_ss").show();
 		$("#btnMover").hide();
-		//$("#btnPrevisualizar").hide();
-		
 		if($('#hddMoverA').val()=="moverA"){
 			if (mensajeLanzado==0) {
-				
 				notificacionToast("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla");
 			}
 			else{
@@ -11432,9 +5653,7 @@ $(document).ready(function() {
 			/**/
 		}
 		$('#hddMoverA').val("");
-		//alert(212);
     });
-	
 	let totalEcoZ1=0;
 					dayID='1419812';
 				agregarSesion(846460,0,1, 605);
@@ -11498,39 +5717,32 @@ $(document).ready(function() {
 				agregarSesion(846486,4,5, 605);
 								dayID='1419840';
 				agregarSesion(846487,4,7, 605);
-							//readlines();
 						totalesMinZ1 = 0;
 			$(".sum_minutosZ1").each(function() {
 				totalesMinZ1 = totalesMinZ1 + Number($(this).val());
 			});
 			$('#hddMinZona1').val(totalesMinZ1);
-	
 			totalesMinZ2 = 0;
 			$(".sum_minutosZ2").each(function() {
 				totalesMinZ2 = totalesMinZ2 + Number($(this).val());
 			});
 			$('#hddMinZona2').val(totalesMinZ2);
-	
 			totalesMinZ3 = 0;
 			$(".sum_minutosZ3").each(function() {
 				totalesMinZ3 = totalesMinZ3 + Number($(this).val());
 			});
 			$('#hddMinZona3').val(totalesMinZ3);
-	
 			totalesMinZ4 = 0;
 			$(".sum_minutosZ4").each(function() {
 				totalesMinZ4 = totalesMinZ4 + Number($(this).val());
 			});
 			$('#hddMinZona4').val(totalesMinZ4);
-				
 			totalMinGlobales = 0;
 			$(".sum_mintosTotalesGlobal").each(function() {
 				totalMinGlobales = totalMinGlobales + Number($(this).val());
 			});
-	
 			let horas= (totalesMinZ1+totalesMinZ2+totalesMinZ3+totalesMinZ4)/60;
 			horas= totalMinGlobales/60;
-			//let horas= totalMinGlobales/60;
 			$('#divHoras').empty();
 			$('#divHoras').append(horas.toFixed(1));
 			let Fase1 = totalesMinZ1 + (0.5 * totalesMinZ2)
@@ -11546,97 +5758,69 @@ $(document).ready(function() {
 			$('#tdTiempo2').append(porcentajeTiempoF2.toFixed(0));
 			$('#tdTiempo3').empty();
 			$('#tdTiempo3').append(porcentajeTiempoF3.toFixed(0));
-			//alert(totalFases);
-			//let porcentajeCargaF1 = (sumaEcosFase*100)/$sumaEcosTotal
-			//var 
 			totalesEcosZ1 = 0;
 			$(".sum_ecosZ1").each(function() {
-				//alert(Number($(this).val()));
 				totalesEcosZ1 = Number(totalesEcosZ1) + Number($(this).val());
-				//alert(totalEcoZ1);
 			});
-			//alert(80);
 			$('#hddEcosZona1').val(totalesEcosZ1);
-	
-			//alert(81);
 			totalesEcosZ2 = 0;
 			$(".sum_ecosZ2").each(function() {
 				totalesEcosZ2 = totalesEcosZ2 + Number($(this).val());
 			});
 			$('#hddEcosZona2').val(totalesEcosZ2);
-	
 			totalesEcosZ3 = 0;
 			$(".sum_ecosZ3").each(function() {
 				totalesEcosZ3 = totalesEcosZ3 + Number($(this).val());
 			});
 			$('#hddEcosZona3').val(totalesEcosZ3);
-	
 			totalesEcosZ4 = 0;
 			$(".sum_ecosZ4").each(function() {
 				totalesEcosZ4 = totalesEcosZ4 + Number($(this).val());
-				//alert(7);
 			});
 			$('#hddEcosZona4').val(totalesEcosZ4);
-	
 			totalesEcosFuerza = 0;
 			$(".sum_ecosFuerza").each(function() {
 				totalesEcosFuerza = totalesEcosFuerza + Number($(this).val());
-				//alert(7);
 			});
 			$('#hddEcosFuerza').val(totalesEcosFuerza);
 			$('#divEcosFuerza').html(totalesEcosFuerza);
-			
 			totalesEcosGlobal = 0;
 			$(".sum_ecosTotales").each(function() {
 				totalesEcosGlobal = totalesEcosGlobal + Number($(this).val());
-				//alert(7);
 			});
 			$('#divtotalEcos').html(Math.round(totalesEcosGlobal+totalesEcosFuerza));
 			$('#hddtotalEcos').val(Math.round(totalesEcosGlobal));
-			
-			//carrera
 			mintosTotales = 0;
 			$(".sum_mintosTotalesCarrera").each(function() {
 				mintosTotales = mintosTotales + Number($(this).val());
 			});
-			//alert(mintosTotales);
 			$('#totaKm_carrera').html(parseFloat(mintosTotales).toFixed(1));
 			$('#hddMinutosTotales').val(mintosTotales);
-			
-			//ciclismo
 			mintosTotales = 0;
 			$(".sum_mintosTotalesCiclismo").each(function() {
 				mintosTotales = mintosTotales + Number($(this).val());
 			});
 			$('#totaKm_ciclismo').html(mintosTotales);
-			
-			//natacion
 			mintosTotales = 0;
 			$(".sum_mintosTotalesNatacion").each(function() {
 				mintosTotales = mintosTotales + Number($(this).val());
 			});
 			$('#totaKm_natacion').html(Number(mintosTotales).toFixed(1));
-		
-	
 			ecosTotalesN = 0;
 			$(".sum_ecosTotalesNatacion").each(function() {
 				ecosTotalesN = ecosTotalesN + Number($(this).val());
 			});
 			$('#divEcosTotalesN').html(ecosTotalesN);
-	
 			ecosTotalesB = 0;
 			$(".sum_ecosTotalesCiclismo").each(function() {
 				ecosTotalesB = ecosTotalesB + Number($(this).val());
 			});
 			$('#divEcosTotalesB').html(ecosTotalesB);
-	
 			ecosTotalesC = 0;
 			$(".sum_ecosTotalesCarrera").each(function() {
 				ecosTotalesC = ecosTotalesC + Number($(this).val());
 			});
 			$('#divEcosTotalesC').html(ecosTotalesC);
-			
-	
 			let ecosFase1 = totalesEcosZ1 + (0.5 * totalesEcosZ2)
 			let ecosFase2 = (0.5 * totalesEcosZ2) + totalesEcosZ3
 			let ecosFase3 = totalesEcosZ4;
@@ -11650,24 +5834,18 @@ $(document).ready(function() {
 			$('#tdCarga2').append(porcentajeCargaF2.toFixed(0));
 			$('#tdCarga3').empty();
 			porcentajeCargaF3 = 100-(Math.round(porcentajeCargaF1) + Math.round(porcentajeCargaF2));
-			//alert(Math.round(porcentajeCargaF1) + ' ' + porcentajeCargaF2.toFixed(0));
 			$('#tdCarga3').append(porcentajeCargaF3.toFixed(0));
-			
-			//alert("total 3 fases= "+totalecosFases);
 			let ecosFuerza= totalesEcosFuerza;
 			totalecosFases = totalecosFases + ecosFuerza;
 			let porcentajeCargaTotalF1 = (ecosFase1*100)/totalecosFases;
 			let porcentajeCargaTotalF2 = (ecosFase2*100)/totalecosFases;
 			let porcentajeCargaTotalF3 = (ecosFase3*100)/totalecosFases;
-			
 			/*alert("total 3 fases + esfuerzo= "+totalecosFases);
 			alert("Ecos F1= " + ecosFase1 + ' - ' + "Ecos F2= " + ecosFase2 + ' - ' + "Ecos F3= " + ecosFase3);
 			alert(porcentajeCargaF1 + ' - ' + porcentajeCargaTotalF1);
 			alert(porcentajeCargaF2 + ' - ' + porcentajeCargaTotalF2);
 			alert(porcentajeCargaF3 + ' - ' + porcentajeCargaTotalF3);
 			*/
-			
-			
 			$('#tdCargaTotal1').empty();
 			$('#tdCargaTotal1').append(porcentajeCargaTotalF1.toFixed(0));
 			$('#tdCargaTotal2').empty();
@@ -11675,7 +5853,6 @@ $(document).ready(function() {
 			$('#tdCargaTotal3').empty();
 			porcentajeCargaTotalF3 = 100-(Math.round(porcentajeCargaTotalF1)+Math.round(porcentajeCargaTotalF2));
 			$('#tdCargaTotal3').append(porcentajeCargaTotalF3.toFixed(0));
-			
 			if(1==1){
 											week=0;
 							totalMinSemanaZ1 = 0;
@@ -11683,105 +5860,77 @@ $(document).ready(function() {
 								totalMinSemanaZ1 = totalMinSemanaZ1 + Number($(this).val());
 							});
 							$('#hddMinZona1' + week).val(totalMinSemanaZ1);
-
 							totalMinSemanaZ2 = 0;
 							$(".sum_min_weekZ2" + week).each(function() {
 								totalMinSemanaZ2 = totalMinSemanaZ2 + Number($(this).val());
 							});
 							$('#hddMinZona2' + week).val(totalMinSemanaZ2);
-
 							totalMinSemanaZ3 = 0;
 							$(".sum_min_weekZ3" + week).each(function() {
 								totalMinSemanaZ3 = totalMinSemanaZ3 + Number($(this).val());
 							});
 							$('#hddMinZona3' + week).val(totalMinSemanaZ3);
-
 							totalMinSemanaZ4 = 0;
 							$(".sum_min_weekZ4" + week).each(function() {
 								totalMinSemanaZ4 = totalMinSemanaZ4 + Number($(this).val());
 							});
 							$('#hddMinZona4' + week).val(totalMinSemanaZ4);
-
 							totalMinGlobales = 0;
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-
-
-							//minutos por deporte
 							/*totalMinCarrera = 0;
 							$(".sum_minutosCarrera_week" + week).each(function() {
 								totalMinCarrera = totalMinCarrera + Number($(this).val());
 							});
 							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-
 							totalMinCiclismo = 0;
 							$(".sum_minutosCiclismo_week" + week).each(function() {
 								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
 							});
-							//$('#spanTimeCiclismoZ' + week).html(totalMinCiclismo);
-
 							totalMinNatacion = 0;
 							$(".sum_minutosNatacion_week" + week).each(function() {
 								totalMinNatacion = totalMinNatacion + Number($(this).val());
 							});
 							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
-							//fin minutos por deporte
-
 							if(1==1){
-								//carrera
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_carrera' + week).html(parseFloat(mintosTotales).toFixed(1));
-
-								//ciclismo
 								mintosTotales = 0;
 								$(".sum_mintosTotalesB_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_ciclismo' + week).html(mintosTotales);
-
-								//natacion
 								mintosTotales = 0;
 								$(".sum_mintosTotalesN_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_natacion' + week).html(Number(mintosTotales).toFixed(1));
-
-
-
 								ecosTotalesN = 0;
 								$(".sum_ecosTotalesN_week" + week).each(function() {
 									ecosTotalesN = ecosTotalesN + Number($(this).val());
 								});
 								$('#tdSumaEcosNatacion' + week).append(ecosTotalesN);
-
 								ecosTotalesB = 0;
 								$(".sum_ecosTotalesB_week" + week).each(function() {
 									ecosTotalesB = ecosTotalesB + Number($(this).val());
 								});
 								$('#tdSumaEcosCiclismo' + week).append(ecosTotalesB);
-
-
 								ecosTotalesC = 0;
 								$(".sum_ecosTotalesC_week" + week).each(function() {
 									ecosTotalesC = ecosTotalesC + Number($(this).val());
 								});
 								$('#tdSumaEcosCarrera' + week).html(ecosTotalesC);
-
-
 								ecosTotalesE = 0;
 								$(".sum_ecos_Fuerza_week" + week).each(function() {
 									ecosTotalesE = ecosTotalesE + Number($(this).val());
 								});
 								$('#tdSumaEcosEsfuerzo' + week).append(ecosTotalesE);
-
 							}
 							horasCal= totalMinGlobales/60;
-							//totalMinSemanaZ4= totalMinGlobales-(totalMinSemanaZ1+totalMinSemanaZ2+totalMinSemanaZ3);
-
 							$('#divHoras' + week).empty();
 							$('#divHoras' + week).append(horasCal.toFixed(1));
 							Fase1 = totalMinSemanaZ1 + (0.5 * totalMinSemanaZ2)
@@ -11802,42 +5951,29 @@ $(document).ready(function() {
 								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
-								//alert(Number($(this).val()));
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
-								//alert(totalEcoZ1);
 							});
-							//alert(80);
 							$('#hddEcosZona1' + week).val(totalesEcosSemanalZ1);
-
-							//alert(81);
 							totalesEcosZ2 = 0;
 							$(".sum_ecos_weekZ2" + week).each(function() {
 								totalesEcosZ2 = totalesEcosZ2 + Number($(this).val());
 							});
 							$('#hddEcosZona2' + week).val(totalesEcosZ2);
-
 							totalesEcosZ3 = 0;
 							$(".sum_ecos_weekZ3" + week).each(function() {
 								totalesEcosZ3 = totalesEcosZ3 + Number($(this).val());
 							});
 							$('#hddEcosZona3' + week).val(totalesEcosZ3);
-
 							totalesEcosZ4 = 0;
 							$(".sum_ecos_weekZ4" + week).each(function() {
 								totalesEcosZ4 = totalesEcosZ4 + Number($(this).val());
-								//alert(7);
 							});
 							$('#hddEcosZona4' + week).val(totalesEcosZ4);
-
 							totalesEcosFuerza = 0;
 							$(".sum_ecos_Fuerza_week" + week).each(function() {
 								totalesEcosFuerza = totalesEcosFuerza + Number($(this).val());
 							});
 							$('#hddEcosFuerza' + week).val(totalesEcosFuerza);
-
-
-
-							//alert(totalesEcosSemanalZ1+totalesEcosZ2+totalesEcosZ3+totalesEcosZ4);
 							ecosFase1 = totalesEcosSemanalZ1 + (0.5 * totalesEcosZ2)
 							ecosFase2 = (0.5 * totalesEcosZ2) + totalesEcosZ3
 							ecosFase3 = totalesEcosZ4;
@@ -11852,7 +5988,6 @@ $(document).ready(function() {
 							$('#tdCarga3' + week).empty();
 							porcentajeCargaF3 = 100-(Math.round(porcentajeCargaF1)+Math.round(porcentajeCargaF2));
 							$('#tdCarga3' + week).append(porcentajeCargaF3.toFixed(0));
-
 							ecosFuerza= totalesEcosFuerza;
 							totalecosFases = totalecosFases + ecosFuerza;
 							porcentajeCargaTotalF1 = (ecosFase1*100)/totalecosFases;
@@ -11865,137 +6000,99 @@ $(document).ready(function() {
 							$('#tdCargaTotal3' + week).empty();
 							porcentajeCargaTotalF3 = 100-(Math.round(porcentajeCargaTotalF1)+Math.round(porcentajeCargaTotalF2));
 							$('#tdCargaTotal3' + week).append(porcentajeCargaTotalF3.toFixed(0));
-							//alert($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila1_' + week).html($('#divEstadisticaSemanal1_' + week).html());
 							$('#divSemanaFila2_' + week).html($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila3_' + week).html($('#divEstadisticaSemanal3_' + week).html());
 							$('#divSemanaFila4_' + week).html($('#divEstadisticaSemanal4_' + week).html());
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
-
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-
-							///copia detalle
 							/*var totalesPorSemanna = 0;
 							$(".sum_e" + week).each(function() {
 								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
 							});
-							//alert(day + " - " + string_type + week);
 							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							//alert(totales + ' - ' + totalesEcosFuerza);
 							$('#ecos_tot' + week).empty();
 							$('#ecos_tot' + week).append(totalesPorSemanna);
 							$('#tot_ecos_week' + week).val(totalesPorSemanna);
 							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							//alert('divSumaEcosSemana'+ week + ' - ' + sumEcosPorDetporte);
 							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
-							///fin copia detalle
-
-
 														week=1;
 							totalMinSemanaZ1 = 0;
 							$(".sum_min_weekZ1" + week).each(function() {
 								totalMinSemanaZ1 = totalMinSemanaZ1 + Number($(this).val());
 							});
 							$('#hddMinZona1' + week).val(totalMinSemanaZ1);
-
 							totalMinSemanaZ2 = 0;
 							$(".sum_min_weekZ2" + week).each(function() {
 								totalMinSemanaZ2 = totalMinSemanaZ2 + Number($(this).val());
 							});
 							$('#hddMinZona2' + week).val(totalMinSemanaZ2);
-
 							totalMinSemanaZ3 = 0;
 							$(".sum_min_weekZ3" + week).each(function() {
 								totalMinSemanaZ3 = totalMinSemanaZ3 + Number($(this).val());
 							});
 							$('#hddMinZona3' + week).val(totalMinSemanaZ3);
-
 							totalMinSemanaZ4 = 0;
 							$(".sum_min_weekZ4" + week).each(function() {
 								totalMinSemanaZ4 = totalMinSemanaZ4 + Number($(this).val());
 							});
 							$('#hddMinZona4' + week).val(totalMinSemanaZ4);
-
 							totalMinGlobales = 0;
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-
-
-							//minutos por deporte
 							/*totalMinCarrera = 0;
 							$(".sum_minutosCarrera_week" + week).each(function() {
 								totalMinCarrera = totalMinCarrera + Number($(this).val());
 							});
 							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-
 							totalMinCiclismo = 0;
 							$(".sum_minutosCiclismo_week" + week).each(function() {
 								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
 							});
-							//$('#spanTimeCiclismoZ' + week).html(totalMinCiclismo);
-
 							totalMinNatacion = 0;
 							$(".sum_minutosNatacion_week" + week).each(function() {
 								totalMinNatacion = totalMinNatacion + Number($(this).val());
 							});
 							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
-							//fin minutos por deporte
-
 							if(1==1){
-								//carrera
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_carrera' + week).html(parseFloat(mintosTotales).toFixed(1));
-
-								//ciclismo
 								mintosTotales = 0;
 								$(".sum_mintosTotalesB_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_ciclismo' + week).html(mintosTotales);
-
-								//natacion
 								mintosTotales = 0;
 								$(".sum_mintosTotalesN_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_natacion' + week).html(Number(mintosTotales).toFixed(1));
-
-
-
 								ecosTotalesN = 0;
 								$(".sum_ecosTotalesN_week" + week).each(function() {
 									ecosTotalesN = ecosTotalesN + Number($(this).val());
 								});
 								$('#tdSumaEcosNatacion' + week).append(ecosTotalesN);
-
 								ecosTotalesB = 0;
 								$(".sum_ecosTotalesB_week" + week).each(function() {
 									ecosTotalesB = ecosTotalesB + Number($(this).val());
 								});
 								$('#tdSumaEcosCiclismo' + week).append(ecosTotalesB);
-
-
 								ecosTotalesC = 0;
 								$(".sum_ecosTotalesC_week" + week).each(function() {
 									ecosTotalesC = ecosTotalesC + Number($(this).val());
 								});
 								$('#tdSumaEcosCarrera' + week).html(ecosTotalesC);
-
-
 								ecosTotalesE = 0;
 								$(".sum_ecos_Fuerza_week" + week).each(function() {
 									ecosTotalesE = ecosTotalesE + Number($(this).val());
 								});
 								$('#tdSumaEcosEsfuerzo' + week).append(ecosTotalesE);
-
 							}
 							horasCal= totalMinGlobales/60;
-							//totalMinSemanaZ4= totalMinGlobales-(totalMinSemanaZ1+totalMinSemanaZ2+totalMinSemanaZ3);
-
 							$('#divHoras' + week).empty();
 							$('#divHoras' + week).append(horasCal.toFixed(1));
 							Fase1 = totalMinSemanaZ1 + (0.5 * totalMinSemanaZ2)
@@ -12016,42 +6113,29 @@ $(document).ready(function() {
 								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
-								//alert(Number($(this).val()));
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
-								//alert(totalEcoZ1);
 							});
-							//alert(80);
 							$('#hddEcosZona1' + week).val(totalesEcosSemanalZ1);
-
-							//alert(81);
 							totalesEcosZ2 = 0;
 							$(".sum_ecos_weekZ2" + week).each(function() {
 								totalesEcosZ2 = totalesEcosZ2 + Number($(this).val());
 							});
 							$('#hddEcosZona2' + week).val(totalesEcosZ2);
-
 							totalesEcosZ3 = 0;
 							$(".sum_ecos_weekZ3" + week).each(function() {
 								totalesEcosZ3 = totalesEcosZ3 + Number($(this).val());
 							});
 							$('#hddEcosZona3' + week).val(totalesEcosZ3);
-
 							totalesEcosZ4 = 0;
 							$(".sum_ecos_weekZ4" + week).each(function() {
 								totalesEcosZ4 = totalesEcosZ4 + Number($(this).val());
-								//alert(7);
 							});
 							$('#hddEcosZona4' + week).val(totalesEcosZ4);
-
 							totalesEcosFuerza = 0;
 							$(".sum_ecos_Fuerza_week" + week).each(function() {
 								totalesEcosFuerza = totalesEcosFuerza + Number($(this).val());
 							});
 							$('#hddEcosFuerza' + week).val(totalesEcosFuerza);
-
-
-
-							//alert(totalesEcosSemanalZ1+totalesEcosZ2+totalesEcosZ3+totalesEcosZ4);
 							ecosFase1 = totalesEcosSemanalZ1 + (0.5 * totalesEcosZ2)
 							ecosFase2 = (0.5 * totalesEcosZ2) + totalesEcosZ3
 							ecosFase3 = totalesEcosZ4;
@@ -12066,7 +6150,6 @@ $(document).ready(function() {
 							$('#tdCarga3' + week).empty();
 							porcentajeCargaF3 = 100-(Math.round(porcentajeCargaF1)+Math.round(porcentajeCargaF2));
 							$('#tdCarga3' + week).append(porcentajeCargaF3.toFixed(0));
-
 							ecosFuerza= totalesEcosFuerza;
 							totalecosFases = totalecosFases + ecosFuerza;
 							porcentajeCargaTotalF1 = (ecosFase1*100)/totalecosFases;
@@ -12079,137 +6162,99 @@ $(document).ready(function() {
 							$('#tdCargaTotal3' + week).empty();
 							porcentajeCargaTotalF3 = 100-(Math.round(porcentajeCargaTotalF1)+Math.round(porcentajeCargaTotalF2));
 							$('#tdCargaTotal3' + week).append(porcentajeCargaTotalF3.toFixed(0));
-							//alert($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila1_' + week).html($('#divEstadisticaSemanal1_' + week).html());
 							$('#divSemanaFila2_' + week).html($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila3_' + week).html($('#divEstadisticaSemanal3_' + week).html());
 							$('#divSemanaFila4_' + week).html($('#divEstadisticaSemanal4_' + week).html());
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
-
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-
-							///copia detalle
 							/*var totalesPorSemanna = 0;
 							$(".sum_e" + week).each(function() {
 								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
 							});
-							//alert(day + " - " + string_type + week);
 							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							//alert(totales + ' - ' + totalesEcosFuerza);
 							$('#ecos_tot' + week).empty();
 							$('#ecos_tot' + week).append(totalesPorSemanna);
 							$('#tot_ecos_week' + week).val(totalesPorSemanna);
 							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							//alert('divSumaEcosSemana'+ week + ' - ' + sumEcosPorDetporte);
 							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
-							///fin copia detalle
-
-
 														week=2;
 							totalMinSemanaZ1 = 0;
 							$(".sum_min_weekZ1" + week).each(function() {
 								totalMinSemanaZ1 = totalMinSemanaZ1 + Number($(this).val());
 							});
 							$('#hddMinZona1' + week).val(totalMinSemanaZ1);
-
 							totalMinSemanaZ2 = 0;
 							$(".sum_min_weekZ2" + week).each(function() {
 								totalMinSemanaZ2 = totalMinSemanaZ2 + Number($(this).val());
 							});
 							$('#hddMinZona2' + week).val(totalMinSemanaZ2);
-
 							totalMinSemanaZ3 = 0;
 							$(".sum_min_weekZ3" + week).each(function() {
 								totalMinSemanaZ3 = totalMinSemanaZ3 + Number($(this).val());
 							});
 							$('#hddMinZona3' + week).val(totalMinSemanaZ3);
-
 							totalMinSemanaZ4 = 0;
 							$(".sum_min_weekZ4" + week).each(function() {
 								totalMinSemanaZ4 = totalMinSemanaZ4 + Number($(this).val());
 							});
 							$('#hddMinZona4' + week).val(totalMinSemanaZ4);
-
 							totalMinGlobales = 0;
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-
-
-							//minutos por deporte
 							/*totalMinCarrera = 0;
 							$(".sum_minutosCarrera_week" + week).each(function() {
 								totalMinCarrera = totalMinCarrera + Number($(this).val());
 							});
 							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-
 							totalMinCiclismo = 0;
 							$(".sum_minutosCiclismo_week" + week).each(function() {
 								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
 							});
-							//$('#spanTimeCiclismoZ' + week).html(totalMinCiclismo);
-
 							totalMinNatacion = 0;
 							$(".sum_minutosNatacion_week" + week).each(function() {
 								totalMinNatacion = totalMinNatacion + Number($(this).val());
 							});
 							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
-							//fin minutos por deporte
-
 							if(1==1){
-								//carrera
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_carrera' + week).html(parseFloat(mintosTotales).toFixed(1));
-
-								//ciclismo
 								mintosTotales = 0;
 								$(".sum_mintosTotalesB_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_ciclismo' + week).html(mintosTotales);
-
-								//natacion
 								mintosTotales = 0;
 								$(".sum_mintosTotalesN_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_natacion' + week).html(Number(mintosTotales).toFixed(1));
-
-
-
 								ecosTotalesN = 0;
 								$(".sum_ecosTotalesN_week" + week).each(function() {
 									ecosTotalesN = ecosTotalesN + Number($(this).val());
 								});
 								$('#tdSumaEcosNatacion' + week).append(ecosTotalesN);
-
 								ecosTotalesB = 0;
 								$(".sum_ecosTotalesB_week" + week).each(function() {
 									ecosTotalesB = ecosTotalesB + Number($(this).val());
 								});
 								$('#tdSumaEcosCiclismo' + week).append(ecosTotalesB);
-
-
 								ecosTotalesC = 0;
 								$(".sum_ecosTotalesC_week" + week).each(function() {
 									ecosTotalesC = ecosTotalesC + Number($(this).val());
 								});
 								$('#tdSumaEcosCarrera' + week).html(ecosTotalesC);
-
-
 								ecosTotalesE = 0;
 								$(".sum_ecos_Fuerza_week" + week).each(function() {
 									ecosTotalesE = ecosTotalesE + Number($(this).val());
 								});
 								$('#tdSumaEcosEsfuerzo' + week).append(ecosTotalesE);
-
 							}
 							horasCal= totalMinGlobales/60;
-							//totalMinSemanaZ4= totalMinGlobales-(totalMinSemanaZ1+totalMinSemanaZ2+totalMinSemanaZ3);
-
 							$('#divHoras' + week).empty();
 							$('#divHoras' + week).append(horasCal.toFixed(1));
 							Fase1 = totalMinSemanaZ1 + (0.5 * totalMinSemanaZ2)
@@ -12230,42 +6275,29 @@ $(document).ready(function() {
 								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
-								//alert(Number($(this).val()));
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
-								//alert(totalEcoZ1);
 							});
-							//alert(80);
 							$('#hddEcosZona1' + week).val(totalesEcosSemanalZ1);
-
-							//alert(81);
 							totalesEcosZ2 = 0;
 							$(".sum_ecos_weekZ2" + week).each(function() {
 								totalesEcosZ2 = totalesEcosZ2 + Number($(this).val());
 							});
 							$('#hddEcosZona2' + week).val(totalesEcosZ2);
-
 							totalesEcosZ3 = 0;
 							$(".sum_ecos_weekZ3" + week).each(function() {
 								totalesEcosZ3 = totalesEcosZ3 + Number($(this).val());
 							});
 							$('#hddEcosZona3' + week).val(totalesEcosZ3);
-
 							totalesEcosZ4 = 0;
 							$(".sum_ecos_weekZ4" + week).each(function() {
 								totalesEcosZ4 = totalesEcosZ4 + Number($(this).val());
-								//alert(7);
 							});
 							$('#hddEcosZona4' + week).val(totalesEcosZ4);
-
 							totalesEcosFuerza = 0;
 							$(".sum_ecos_Fuerza_week" + week).each(function() {
 								totalesEcosFuerza = totalesEcosFuerza + Number($(this).val());
 							});
 							$('#hddEcosFuerza' + week).val(totalesEcosFuerza);
-
-
-
-							//alert(totalesEcosSemanalZ1+totalesEcosZ2+totalesEcosZ3+totalesEcosZ4);
 							ecosFase1 = totalesEcosSemanalZ1 + (0.5 * totalesEcosZ2)
 							ecosFase2 = (0.5 * totalesEcosZ2) + totalesEcosZ3
 							ecosFase3 = totalesEcosZ4;
@@ -12280,7 +6312,6 @@ $(document).ready(function() {
 							$('#tdCarga3' + week).empty();
 							porcentajeCargaF3 = 100-(Math.round(porcentajeCargaF1)+Math.round(porcentajeCargaF2));
 							$('#tdCarga3' + week).append(porcentajeCargaF3.toFixed(0));
-
 							ecosFuerza= totalesEcosFuerza;
 							totalecosFases = totalecosFases + ecosFuerza;
 							porcentajeCargaTotalF1 = (ecosFase1*100)/totalecosFases;
@@ -12293,137 +6324,99 @@ $(document).ready(function() {
 							$('#tdCargaTotal3' + week).empty();
 							porcentajeCargaTotalF3 = 100-(Math.round(porcentajeCargaTotalF1)+Math.round(porcentajeCargaTotalF2));
 							$('#tdCargaTotal3' + week).append(porcentajeCargaTotalF3.toFixed(0));
-							//alert($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila1_' + week).html($('#divEstadisticaSemanal1_' + week).html());
 							$('#divSemanaFila2_' + week).html($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila3_' + week).html($('#divEstadisticaSemanal3_' + week).html());
 							$('#divSemanaFila4_' + week).html($('#divEstadisticaSemanal4_' + week).html());
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
-
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-
-							///copia detalle
 							/*var totalesPorSemanna = 0;
 							$(".sum_e" + week).each(function() {
 								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
 							});
-							//alert(day + " - " + string_type + week);
 							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							//alert(totales + ' - ' + totalesEcosFuerza);
 							$('#ecos_tot' + week).empty();
 							$('#ecos_tot' + week).append(totalesPorSemanna);
 							$('#tot_ecos_week' + week).val(totalesPorSemanna);
 							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							//alert('divSumaEcosSemana'+ week + ' - ' + sumEcosPorDetporte);
 							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
-							///fin copia detalle
-
-
 														week=3;
 							totalMinSemanaZ1 = 0;
 							$(".sum_min_weekZ1" + week).each(function() {
 								totalMinSemanaZ1 = totalMinSemanaZ1 + Number($(this).val());
 							});
 							$('#hddMinZona1' + week).val(totalMinSemanaZ1);
-
 							totalMinSemanaZ2 = 0;
 							$(".sum_min_weekZ2" + week).each(function() {
 								totalMinSemanaZ2 = totalMinSemanaZ2 + Number($(this).val());
 							});
 							$('#hddMinZona2' + week).val(totalMinSemanaZ2);
-
 							totalMinSemanaZ3 = 0;
 							$(".sum_min_weekZ3" + week).each(function() {
 								totalMinSemanaZ3 = totalMinSemanaZ3 + Number($(this).val());
 							});
 							$('#hddMinZona3' + week).val(totalMinSemanaZ3);
-
 							totalMinSemanaZ4 = 0;
 							$(".sum_min_weekZ4" + week).each(function() {
 								totalMinSemanaZ4 = totalMinSemanaZ4 + Number($(this).val());
 							});
 							$('#hddMinZona4' + week).val(totalMinSemanaZ4);
-
 							totalMinGlobales = 0;
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-
-
-							//minutos por deporte
 							/*totalMinCarrera = 0;
 							$(".sum_minutosCarrera_week" + week).each(function() {
 								totalMinCarrera = totalMinCarrera + Number($(this).val());
 							});
 							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-
 							totalMinCiclismo = 0;
 							$(".sum_minutosCiclismo_week" + week).each(function() {
 								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
 							});
-							//$('#spanTimeCiclismoZ' + week).html(totalMinCiclismo);
-
 							totalMinNatacion = 0;
 							$(".sum_minutosNatacion_week" + week).each(function() {
 								totalMinNatacion = totalMinNatacion + Number($(this).val());
 							});
 							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
-							//fin minutos por deporte
-
 							if(1==1){
-								//carrera
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_carrera' + week).html(parseFloat(mintosTotales).toFixed(1));
-
-								//ciclismo
 								mintosTotales = 0;
 								$(".sum_mintosTotalesB_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_ciclismo' + week).html(mintosTotales);
-
-								//natacion
 								mintosTotales = 0;
 								$(".sum_mintosTotalesN_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_natacion' + week).html(Number(mintosTotales).toFixed(1));
-
-
-
 								ecosTotalesN = 0;
 								$(".sum_ecosTotalesN_week" + week).each(function() {
 									ecosTotalesN = ecosTotalesN + Number($(this).val());
 								});
 								$('#tdSumaEcosNatacion' + week).append(ecosTotalesN);
-
 								ecosTotalesB = 0;
 								$(".sum_ecosTotalesB_week" + week).each(function() {
 									ecosTotalesB = ecosTotalesB + Number($(this).val());
 								});
 								$('#tdSumaEcosCiclismo' + week).append(ecosTotalesB);
-
-
 								ecosTotalesC = 0;
 								$(".sum_ecosTotalesC_week" + week).each(function() {
 									ecosTotalesC = ecosTotalesC + Number($(this).val());
 								});
 								$('#tdSumaEcosCarrera' + week).html(ecosTotalesC);
-
-
 								ecosTotalesE = 0;
 								$(".sum_ecos_Fuerza_week" + week).each(function() {
 									ecosTotalesE = ecosTotalesE + Number($(this).val());
 								});
 								$('#tdSumaEcosEsfuerzo' + week).append(ecosTotalesE);
-
 							}
 							horasCal= totalMinGlobales/60;
-							//totalMinSemanaZ4= totalMinGlobales-(totalMinSemanaZ1+totalMinSemanaZ2+totalMinSemanaZ3);
-
 							$('#divHoras' + week).empty();
 							$('#divHoras' + week).append(horasCal.toFixed(1));
 							Fase1 = totalMinSemanaZ1 + (0.5 * totalMinSemanaZ2)
@@ -12444,42 +6437,29 @@ $(document).ready(function() {
 								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
-								//alert(Number($(this).val()));
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
-								//alert(totalEcoZ1);
 							});
-							//alert(80);
 							$('#hddEcosZona1' + week).val(totalesEcosSemanalZ1);
-
-							//alert(81);
 							totalesEcosZ2 = 0;
 							$(".sum_ecos_weekZ2" + week).each(function() {
 								totalesEcosZ2 = totalesEcosZ2 + Number($(this).val());
 							});
 							$('#hddEcosZona2' + week).val(totalesEcosZ2);
-
 							totalesEcosZ3 = 0;
 							$(".sum_ecos_weekZ3" + week).each(function() {
 								totalesEcosZ3 = totalesEcosZ3 + Number($(this).val());
 							});
 							$('#hddEcosZona3' + week).val(totalesEcosZ3);
-
 							totalesEcosZ4 = 0;
 							$(".sum_ecos_weekZ4" + week).each(function() {
 								totalesEcosZ4 = totalesEcosZ4 + Number($(this).val());
-								//alert(7);
 							});
 							$('#hddEcosZona4' + week).val(totalesEcosZ4);
-
 							totalesEcosFuerza = 0;
 							$(".sum_ecos_Fuerza_week" + week).each(function() {
 								totalesEcosFuerza = totalesEcosFuerza + Number($(this).val());
 							});
 							$('#hddEcosFuerza' + week).val(totalesEcosFuerza);
-
-
-
-							//alert(totalesEcosSemanalZ1+totalesEcosZ2+totalesEcosZ3+totalesEcosZ4);
 							ecosFase1 = totalesEcosSemanalZ1 + (0.5 * totalesEcosZ2)
 							ecosFase2 = (0.5 * totalesEcosZ2) + totalesEcosZ3
 							ecosFase3 = totalesEcosZ4;
@@ -12494,7 +6474,6 @@ $(document).ready(function() {
 							$('#tdCarga3' + week).empty();
 							porcentajeCargaF3 = 100-(Math.round(porcentajeCargaF1)+Math.round(porcentajeCargaF2));
 							$('#tdCarga3' + week).append(porcentajeCargaF3.toFixed(0));
-
 							ecosFuerza= totalesEcosFuerza;
 							totalecosFases = totalecosFases + ecosFuerza;
 							porcentajeCargaTotalF1 = (ecosFase1*100)/totalecosFases;
@@ -12507,137 +6486,99 @@ $(document).ready(function() {
 							$('#tdCargaTotal3' + week).empty();
 							porcentajeCargaTotalF3 = 100-(Math.round(porcentajeCargaTotalF1)+Math.round(porcentajeCargaTotalF2));
 							$('#tdCargaTotal3' + week).append(porcentajeCargaTotalF3.toFixed(0));
-							//alert($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila1_' + week).html($('#divEstadisticaSemanal1_' + week).html());
 							$('#divSemanaFila2_' + week).html($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila3_' + week).html($('#divEstadisticaSemanal3_' + week).html());
 							$('#divSemanaFila4_' + week).html($('#divEstadisticaSemanal4_' + week).html());
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
-
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-
-							///copia detalle
 							/*var totalesPorSemanna = 0;
 							$(".sum_e" + week).each(function() {
 								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
 							});
-							//alert(day + " - " + string_type + week);
 							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							//alert(totales + ' - ' + totalesEcosFuerza);
 							$('#ecos_tot' + week).empty();
 							$('#ecos_tot' + week).append(totalesPorSemanna);
 							$('#tot_ecos_week' + week).val(totalesPorSemanna);
 							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							//alert('divSumaEcosSemana'+ week + ' - ' + sumEcosPorDetporte);
 							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
-							///fin copia detalle
-
-
 														week=4;
 							totalMinSemanaZ1 = 0;
 							$(".sum_min_weekZ1" + week).each(function() {
 								totalMinSemanaZ1 = totalMinSemanaZ1 + Number($(this).val());
 							});
 							$('#hddMinZona1' + week).val(totalMinSemanaZ1);
-
 							totalMinSemanaZ2 = 0;
 							$(".sum_min_weekZ2" + week).each(function() {
 								totalMinSemanaZ2 = totalMinSemanaZ2 + Number($(this).val());
 							});
 							$('#hddMinZona2' + week).val(totalMinSemanaZ2);
-
 							totalMinSemanaZ3 = 0;
 							$(".sum_min_weekZ3" + week).each(function() {
 								totalMinSemanaZ3 = totalMinSemanaZ3 + Number($(this).val());
 							});
 							$('#hddMinZona3' + week).val(totalMinSemanaZ3);
-
 							totalMinSemanaZ4 = 0;
 							$(".sum_min_weekZ4" + week).each(function() {
 								totalMinSemanaZ4 = totalMinSemanaZ4 + Number($(this).val());
 							});
 							$('#hddMinZona4' + week).val(totalMinSemanaZ4);
-
 							totalMinGlobales = 0;
 							$(".sum_mintosTotalesGlobal_week" + week).each(function() {
 								totalMinGlobales = totalMinGlobales + Number($(this).val());
 							});
-
-
-							//minutos por deporte
 							/*totalMinCarrera = 0;
 							$(".sum_minutosCarrera_week" + week).each(function() {
 								totalMinCarrera = totalMinCarrera + Number($(this).val());
 							});
 							$('#spanTimeCarreraZ' + week).html(totalMinCarrera);
-
 							totalMinCiclismo = 0;
 							$(".sum_minutosCiclismo_week" + week).each(function() {
 								totalMinCiclismo = totalMinCiclismo + Number($(this).val());
 							});
-							//$('#spanTimeCiclismoZ' + week).html(totalMinCiclismo);
-
 							totalMinNatacion = 0;
 							$(".sum_minutosNatacion_week" + week).each(function() {
 								totalMinNatacion = totalMinNatacion + Number($(this).val());
 							});
 							$('#spanTimeNatacionZ' + week).html(totalMinNatacion);*/
-							//fin minutos por deporte
-
 							if(1==1){
-								//carrera
 								mintosTotales = 0;
 								$(".sum_mintosTotalesC_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_carrera' + week).html(parseFloat(mintosTotales).toFixed(1));
-
-								//ciclismo
 								mintosTotales = 0;
 								$(".sum_mintosTotalesB_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_ciclismo' + week).html(mintosTotales);
-
-								//natacion
 								mintosTotales = 0;
 								$(".sum_mintosTotalesN_week" + week).each(function() {
 									mintosTotales = mintosTotales + Number($(this).val());
 								});
 								$('#totaKm_natacion' + week).html(Number(mintosTotales).toFixed(1));
-
-
-
 								ecosTotalesN = 0;
 								$(".sum_ecosTotalesN_week" + week).each(function() {
 									ecosTotalesN = ecosTotalesN + Number($(this).val());
 								});
 								$('#tdSumaEcosNatacion' + week).append(ecosTotalesN);
-
 								ecosTotalesB = 0;
 								$(".sum_ecosTotalesB_week" + week).each(function() {
 									ecosTotalesB = ecosTotalesB + Number($(this).val());
 								});
 								$('#tdSumaEcosCiclismo' + week).append(ecosTotalesB);
-
-
 								ecosTotalesC = 0;
 								$(".sum_ecosTotalesC_week" + week).each(function() {
 									ecosTotalesC = ecosTotalesC + Number($(this).val());
 								});
 								$('#tdSumaEcosCarrera' + week).html(ecosTotalesC);
-
-
 								ecosTotalesE = 0;
 								$(".sum_ecos_Fuerza_week" + week).each(function() {
 									ecosTotalesE = ecosTotalesE + Number($(this).val());
 								});
 								$('#tdSumaEcosEsfuerzo' + week).append(ecosTotalesE);
-
 							}
 							horasCal= totalMinGlobales/60;
-							//totalMinSemanaZ4= totalMinGlobales-(totalMinSemanaZ1+totalMinSemanaZ2+totalMinSemanaZ3);
-
 							$('#divHoras' + week).empty();
 							$('#divHoras' + week).append(horasCal.toFixed(1));
 							Fase1 = totalMinSemanaZ1 + (0.5 * totalMinSemanaZ2)
@@ -12658,42 +6599,29 @@ $(document).ready(function() {
 								*/
 							totalesEcosSemanalZ1= 0;
 							$(".sum_ecos_weekZ1" + week).each(function() {
-								//alert(Number($(this).val()));
 								totalesEcosSemanalZ1 = Number(totalesEcosSemanalZ1) + Number($(this).val());
-								//alert(totalEcoZ1);
 							});
-							//alert(80);
 							$('#hddEcosZona1' + week).val(totalesEcosSemanalZ1);
-
-							//alert(81);
 							totalesEcosZ2 = 0;
 							$(".sum_ecos_weekZ2" + week).each(function() {
 								totalesEcosZ2 = totalesEcosZ2 + Number($(this).val());
 							});
 							$('#hddEcosZona2' + week).val(totalesEcosZ2);
-
 							totalesEcosZ3 = 0;
 							$(".sum_ecos_weekZ3" + week).each(function() {
 								totalesEcosZ3 = totalesEcosZ3 + Number($(this).val());
 							});
 							$('#hddEcosZona3' + week).val(totalesEcosZ3);
-
 							totalesEcosZ4 = 0;
 							$(".sum_ecos_weekZ4" + week).each(function() {
 								totalesEcosZ4 = totalesEcosZ4 + Number($(this).val());
-								//alert(7);
 							});
 							$('#hddEcosZona4' + week).val(totalesEcosZ4);
-
 							totalesEcosFuerza = 0;
 							$(".sum_ecos_Fuerza_week" + week).each(function() {
 								totalesEcosFuerza = totalesEcosFuerza + Number($(this).val());
 							});
 							$('#hddEcosFuerza' + week).val(totalesEcosFuerza);
-
-
-
-							//alert(totalesEcosSemanalZ1+totalesEcosZ2+totalesEcosZ3+totalesEcosZ4);
 							ecosFase1 = totalesEcosSemanalZ1 + (0.5 * totalesEcosZ2)
 							ecosFase2 = (0.5 * totalesEcosZ2) + totalesEcosZ3
 							ecosFase3 = totalesEcosZ4;
@@ -12708,7 +6636,6 @@ $(document).ready(function() {
 							$('#tdCarga3' + week).empty();
 							porcentajeCargaF3 = 100-(Math.round(porcentajeCargaF1)+Math.round(porcentajeCargaF2));
 							$('#tdCarga3' + week).append(porcentajeCargaF3.toFixed(0));
-
 							ecosFuerza= totalesEcosFuerza;
 							totalecosFases = totalecosFases + ecosFuerza;
 							porcentajeCargaTotalF1 = (ecosFase1*100)/totalecosFases;
@@ -12721,38 +6648,25 @@ $(document).ready(function() {
 							$('#tdCargaTotal3' + week).empty();
 							porcentajeCargaTotalF3 = 100-(Math.round(porcentajeCargaTotalF1)+Math.round(porcentajeCargaTotalF2));
 							$('#tdCargaTotal3' + week).append(porcentajeCargaTotalF3.toFixed(0));
-							//alert($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila1_' + week).html($('#divEstadisticaSemanal1_' + week).html());
 							$('#divSemanaFila2_' + week).html($('#divEstadisticaSemanal2_' + week).html());
 							$('#divSemanaFila3_' + week).html($('#divEstadisticaSemanal3_' + week).html());
 							$('#divSemanaFila4_' + week).html($('#divEstadisticaSemanal4_' + week).html());
 							$('#divSemanaFila5_' + week).html($('#divEstadisticaSemanal5_' + week).html());
-
 							$('#divSenamaCuadroEstadisticas' + week).html($('#divCuadroEstadisticas' + week).html());
-
-							///copia detalle
 							/*var totalesPorSemanna = 0;
 							$(".sum_e" + week).each(function() {
 								totalesPorSemanna = totalesPorSemanna + Number($(this).val());
 							});
-							//alert(day + " - " + string_type + week);
 							totalesPorSemanna = totalesPorSemanna + totalesEcosFuerza;
-							//alert(totales + ' - ' + totalesEcosFuerza);
 							$('#ecos_tot' + week).empty();
 							$('#ecos_tot' + week).append(totalesPorSemanna);
 							$('#tot_ecos_week' + week).val(totalesPorSemanna);
 							var sumEcosPorDetporte = ecosTotalesC+ecosTotalesN+ecosTotalesB+ecosTotalesE;
-							//alert('divSumaEcosSemana'+ week + ' - ' + sumEcosPorDetporte);
 							$('#divSumaEcosSemana' + week).html(sumEcosPorDetporte);*/
-							///fin copia detalle
-
-
-											//week=1;
-				
 			}
 			function agregarSesion(sesion, week, day, perfilID){
 		string_type = 'Lunes';
-		
 		$.ajax({
 			type: 'get',
 			async: false,/**/
@@ -12773,7 +6687,6 @@ $(document).ready(function() {
 				"displayTblestadistica": ""
 			},
 			success: function(data) {
-				//console.log(data);
 				switch (day) {
 					case 1:
 						string_type = 'lunes';
@@ -12798,72 +6711,50 @@ $(document).ready(function() {
 						break;
 				}
 				$('#' + string_type + week).append(data);
-				//$('#exampleModal').modal('hide');
-
-				
 				totalesEcosFuerza2 = 0;
 				$(".sum_ecos_Fuerza_week" + week).each(function() {
 					totalesEcosFuerza2 = totalesEcosFuerza2 + Number($(this).val());
 				});
-				
 				totales = 0;
-				//console.log("START" + week);
 				$(".sum_e" + week).each(function() {
-					//console.log("tot: ", totales + " + " + $(this).val());
 					totales = totales + Number($(this).val());
 				});
 				/*console.log("totalesEcosFuerza2: ", totalesEcosFuerza2);
-				console.log("END " + week);*/
 				totales += totalesEcosFuerza2;
-				//alert(day + " - " + string_type + week);
-				//pinta ecos semana color verde
 				$('#ecos_tot' + week).empty();
 				$('#ecos_tot' + week).append(totales);
-				//alert(totales);
 				$('#tot_ecos_week' + week).val(totales);
 				$('#divSumaEcosSemana' + week).html(totales);
 				/**/
 				$('#hddValida').val(Number($('#hddValida').val())+1);
-				
 				totalMinSemanaZ1 = 0;
 				$(".sum_min_weekZ1" + week).each(function() {
 					totalMinSemanaZ1 = totalMinSemanaZ1 + Number($(this).val());
 				});
 				$('#hddMinZona1' + week).val(totalMinSemanaZ1);
-				
 				totalMinSemanaZ2 = 0;
 				$(".sum_min_weekZ2" + week).each(function() {
 					totalMinSemanaZ2 = totalMinSemanaZ2 + Number($(this).val());
 				});
 				$('#hddMinZona2' + week).val(totalMinSemanaZ2);
-				
 				totalMinSemanaZ3 = 0;
 				$(".sum_min_weekZ3" + week).each(function() {
 					totalMinSemanaZ3 = totalMinSemanaZ3 + Number($(this).val());
 				});
 				$('#hddMinZona3' + week).val(totalMinSemanaZ3);
-				
 				totalMinSemanaZ4 = 0;
 				$(".sum_min_weekZ4" + week).each(function() {
 					totalMinSemanaZ4 = totalMinSemanaZ4 + Number($(this).val());
 				});
 				$('#hddMinZona4' + week).val(totalMinSemanaZ4);
-				
 				totalMinGlobales = 0;
 				$(".sum_mintosTotalesGlobal" + week).each(function() {
 					totalMinGlobales = totalMinGlobales + Number($(this).val());
 				});
-				
 				horasCal= (totalMinSemanaZ1+totalMinSemanaZ2+totalMinSemanaZ3+totalMinSemanaZ4)/60;
-				//let horas= totalMinGlobales;
-				//console.log(horasCal);
-				
 			},
-			
 			error: function(data) {
-				//alert(sesion+" -- "+week+" -- "+day+" -- "+perfilID);
 				listaErrores += "semana: " + (week+1) + " | dia: " + day + " | sesion:" + sesion +"\n";
-				console.log("data: ", data);
 				swal("Error al leer los items!", listaErrores + data, {
 					icon : "error",
 					buttons: {        			
@@ -12875,7 +6766,6 @@ $(document).ready(function() {
 			},
 		});
 	}
-	
     $('.dup').click(function() {
         index = $(this).data('index');
         week = $(this).data('week');
@@ -12883,7 +6773,6 @@ $(document).ready(function() {
 		return;
 		perfilID= $("#mesocyclesmesocycle-profile_id").val();
 		if(perfilID=="") perfilID=0;
-		
         $.ajax({
             type: 'get',
             url: "/web/index.php?r=progressionsprogression/getdata",
@@ -12900,10 +6789,7 @@ $(document).ready(function() {
 				"perfilSelectedactivo": 'NO',
             },
             success: function(data) {
-                //console.log(data);
-                //document.getElementById('distance_select').innerHTML = data;
                 $('#progresiones').append(data);
-                //document.getElementById('progresiones').innerHTML = data;
                 totales = 0;
                 $(".sum_e" + week).each(function() {
                     totales = totales + Number($(this).val());
@@ -12917,15 +6803,11 @@ $(document).ready(function() {
     });
 });
 function agregarLineaIntermedia(cont_line,first){
-		
 		var $divs = $(".clsSemana").toArray().length;
-		console.log("Hay " + $divs + " elementos");
 		if($divs==0){
 			cont=-1;
 		}
-
 		cont = cont + 1;
-		
 		let fechaRealizaL="";
 		let fechaRealizaM="";
 		let fechaRealizaMi="";
@@ -12935,7 +6817,6 @@ function agregarLineaIntermedia(cont_line,first){
 		let fechaRealizaD="";
 		var fecha_inicio = new Date();
 		var dias = cont * 7; // Número de días a agregar
-		
 				let btn_add='';
 		if(!is_preview){
 			btn_add='<div  style="position: absolute; bottom: 8%;margin-left:2px">'+
@@ -13019,21 +6900,13 @@ function agregarLineaIntermedia(cont_line,first){
             '<div class="cuadroInfo" id="domingo' + cont + '"></div>' +
             '</div>' +
             '</div>';
-			console.log(html_intermedia);
-			//readlines(html_intermedia,cont_line)
-			// Selecciona el div al que deseas agregar otro div después
 			var divExistente = $('#week'+cont_line);
-
-			// Crea un nuevo div
 			var nuevoDiv = html_intermedia;
 			if(first){
-				// Agrega el nuevo div antes del div existente
 				divExistente.before(nuevoDiv);
 			}else{
-				// Agrega el nuevo div después del div existente
 				divExistente.after(nuevoDiv);
 			}
-			
 	}
 	function verGrafica(){
 		let _idPerfil = $('#mesocyclesmesocycle-profile_id').val();
@@ -13041,17 +6914,13 @@ function agregarLineaIntermedia(cont_line,first){
 			document.location.href = 'index.php?r=mesocyclesfolder/grafica&id=30901&cp=';
 		else
 			document.location.href = 'index.php?r=mesocyclesfolder/grafica&id=30901&cp=&perfilSelectedID=' +  _idPerfil;
-		//$('.submitFormBtn').click();
 		swal("Espere un momento. Cargando...", {
 			buttons: false,
 			timer: 20000,
 		});
 	}
-
 /*function dup(divID, valID) {
-	
 	getMoverA(divID, valID);
-	
 	return true;/**/
 function dup(index, week, day, divID, valID) {
 	$("#hddIndex").val(index);
@@ -13061,7 +6930,6 @@ function dup(index, week, day, divID, valID) {
 	$("#hddValID1").val(valID);
 	/*CODIGO OBSOLETO*/
 		tiempoToast=2000;
-		
 		notificacionToast("Espere un momento. Cargando...");
 		let string_type = 'Lunes';
 		switch (day) {
@@ -13087,7 +6955,6 @@ function dup(index, week, day, divID, valID) {
 				string_type = 'domingo';
 				break;
 		}
-
 		perfilID= $("#mesocyclesmesocycle-profile_id").val();
 		if(perfilID=="") perfilID=0;
 		let idn=null;
@@ -13107,9 +6974,7 @@ function dup(index, week, day, divID, valID) {
 				"perfilSelectedactivo": 'NO',
 			},
 			success: function(data) {
-				console.log(data);
 				idn=data;
-					//segundo ajax, se cambio index por idn
 					$.ajax({
 						type: 'get',
 						url: "/web/index.php?r=progressionsprogression/getdata",
@@ -13127,8 +6992,6 @@ function dup(index, week, day, divID, valID) {
 							"esduplicado": "SI"
 						},
 						success: function(data) {
-							//console.log(data);
-							//document.getElementById('distance_select').innerHTML = data;
 							$('#' + string_type + week).append(data);
 							totales = 0;
 							$(".sum_e" + week).each(function() {
@@ -13137,8 +7000,6 @@ function dup(index, week, day, divID, valID) {
 							$('#ecos_tot' + week).empty();
 							$('#ecos_tot' + week).append(totales);
 							$('#tot_ecos_week' + week).val(totales);
-							//document.getElementById('progresiones').innerHTML = data;
-							
 							notificacionToast("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla");
 							/*swal("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla", "", {
 								icon : "warning",
@@ -13148,22 +7009,17 @@ function dup(index, week, day, divID, valID) {
 									}
 								},
 							});*/
-							//alert("en dup()");
 							if(is_variasVeces) {
 								if(is_variasVeces_count>0) {
-									//alert(divID+"---"+valID+"---"+idn)
 									divID= idn;
 								}
 								else {
-									//alert("else-"+divID+"---"+valID+"---"+idn)
 									divID= $(".duplicado-" + idn).data("duplicado");
 									$("#hddMoviendoID").val(divID);
-									//alert("else" + divID);
 								}
 								valID= idn;
 								is_variasVeces_count++;
 							}
-							//alert(divID+"---"+valID);
 							getMoverA(divID, valID);
 						},
 						error: function(data) {},
@@ -13171,11 +7027,8 @@ function dup(index, week, day, divID, valID) {
 			},
 			error: function(data) {},
 		});
-		
 	/*fin CODIGO OBSOLETO*/
-	
 }
-
 function validaEdit(_url){
 	if(banderaGuardarAntesDeEditar==1){
 		$("#hddUrlSesion").val(_url);
@@ -13183,19 +7036,14 @@ function validaEdit(_url){
 	}
 	else {
 					document.location.href="index.php?r=" + _url;
-					
-		//document.location.href="index.php?r=" + _url;
 	}
 }
-	
 function el(index, esMover=false) {
 	if(esMover==false){
 		alertify.confirm(
 		'Confirmación',
 		'Seguro que desea eliminar el registro?',
 		function() {
-			//alert(index);
-			//console.log('#' + index);
 			llamarElininar(index);
 		},
 		function() {});
@@ -13203,11 +7051,8 @@ function el(index, esMover=false) {
 	else{
 		llamarElininar(index);
 	}
-		
 }
-	
 function llamarElininar(index){
-	//alert("Eliminado: "+index);
 	$('#' + index + '').remove();
 		totales = 0;
 		$(".sum_e" + week).each(function() {
@@ -13217,13 +7062,8 @@ function llamarElininar(index){
 		$('#ecos_tot' + week).append(totales);
 		$('#tot_ecos_week' + week).val(totales);
 		$('#hddValida').val(Number($('#hddValida').val())-1);
-	//if(mensajeLanzado==0) {
-		
 		notificacionToast("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla");
-	//}
-	//else{
 		mensajeLanzado=1;
-	//}
 		/*swal("Recuerda No Editar una Sesión hasta guardar Cambios en esta Pantalla", "", {
 			icon : "warning",
 			buttons: {        			
@@ -13233,7 +7073,6 @@ function llamarElininar(index){
 			},
 		});*/
 }
-	
 function eliminarFila(index){
 	$("#week" + index).remove();
 }
@@ -13245,8 +7084,6 @@ function addLibrary() {
             "id": 30901,
 			"option":2        },
         success: function(data) {
-            console.log('duplicando');
-            console.log(data);
             idn=data;
             $.ajax({
                 type: 'get',
@@ -13256,16 +7093,11 @@ function addLibrary() {
 					"tipo":2,
                     "name": $('#name_library').val(),
 					"descripcion": $('#descripcion_library').val(),
-
                 },
                 success: function(data) {
-                    console.log('agregando a libreria');
-                    console.log(data);
                     $('#libraryModal').modal('hide');
-
                     swal({
                         title: "Mesociclo agregado correctamente a la librería!",
-                        
                         text: 'Éxito',
                         icon: "success",
                         buttons: false,
@@ -13274,18 +7106,13 @@ function addLibrary() {
                 },
                 error: function(data) {},
             });
-            //segundo ajax, se cambio index por idn
         },
         error: function(data) {},
     });
-
 }
-//title: " agregado correctamente a la librería!",
-
 function confirmDelete(){
 		var key = "NVhjL2dYM2p5eXg4Y2swWGNOTktBQT09"; 
 		var token = "";
-		
         alertify.confirm('Confirmación', '¿Seguro que desea eliminar el registro?', 
             function(){
                 $.ajax({
@@ -13293,7 +7120,6 @@ function confirmDelete(){
                      url: "index.php?r=mesocyclesmesocycle/delete",
                      data:{key:key, token:token},
                      success:function(bool){
-						 //console.log('success '+bool);
                         if (bool == true){
                             alertify.success('<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado<br> espere un momento ...</span>', 2 , function (){
 								window.location.href = "index.php?r=mesocyclesmesocycle/index&del=true"; 
@@ -13303,7 +7129,6 @@ function confirmDelete(){
 						}
                      },
                      error: function(data){ 
-                        // console.log('error '+data);
 						alertify.error('<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>', 2 , function (){location.reload(); }); 
                      },
                 });
@@ -13311,17 +7136,13 @@ function confirmDelete(){
             function(){
             });
     }
-
 jQuery(function ($) {
 jQuery&&jQuery.pjax&&(jQuery.pjax.defaults.maxCacheLength=0);
 if (jQuery('#mesocyclesmesocycle-profile_id').data('select2')) { jQuery('#mesocyclesmesocycle-profile_id').select2('destroy'); }
 jQuery.when(jQuery('#mesocyclesmesocycle-profile_id').select2(select2_e6279efa)).done(initS2Loading('mesocyclesmesocycle-profile_id','s2options_d6851687'));
-
 jQuery('#w0').yiiActiveForm([{"id":"mesocyclesmesocycle-profile_id","name":"profile_id","container":".field-mesocyclesmesocycle-profile_id","input":"#mesocyclesmesocycle-profile_id","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Perfil ID debe ser un número entero.","skipOnEmpty":1});}},{"id":"mesocyclesmesocycle-updated_at","name":"updated_at","container":".field-mesocyclesmesocycle-updated_at","input":"#mesocyclesmesocycle-updated_at","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Updated At no puede estar vacío."});}},{"id":"mesocyclesmesocycle-created_by_id","name":"created_by_id","container":".field-mesocyclesmesocycle-created_by_id","input":"#mesocyclesmesocycle-created_by_id","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Created By ID debe ser un número entero.","skipOnEmpty":1});}}], []);
 });
-
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

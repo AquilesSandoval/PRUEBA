@@ -4,7 +4,6 @@ Highcharts.addEvent(Highcharts.Point, 'click', function () {
     const chart = this.series.chart;
     const date = Highcharts.dateFormat('%A, %b %e, %Y', this.x);
     const text = `<b>${date}</b><br/>${this.y} ${this.series.name}`;
-
     const anchorX = this.plotX + this.series.xAxis.pos;
     const anchorY = this.plotY + this.series.yAxis.pos;
     const align = anchorX < chart.chartWidth - 200 ? 'left' : 'right';
@@ -33,31 +32,24 @@ Highcharts.addEvent(Highcharts.Point, 'click', function () {
     }
   }
 });
-
-
 Highcharts.chart('container', {
-
   chart: {
     scrollablePlotArea: {
       minWidth: 700
     }
   },
-
   data: {
     csvURL: 'https://codyexpert.com/garmin2/web/analytics.csv',
     beforeParse: function (csv) {
       return csv.replace(/\n\n/g, '\n');
     }
   },
-
   title: {
     text: 'Daily sessions at www.highcharts.com'
   },
-
   subtitle: {
     text: 'Source: Google Analytics'
   },
-
   xAxis: {
     tickInterval: 7 * 24 * 3600 * 1000, // one week
     tickWidth: 0,
@@ -68,7 +60,6 @@ Highcharts.chart('container', {
       y: -3
     }
   },
-
   yAxis: [{ // left y axis
     title: {
       text: null
@@ -95,18 +86,15 @@ Highcharts.chart('container', {
     },
     showFirstLabel: false
   }],
-
   legend: {
     align: 'left',
     verticalAlign: 'top',
     borderWidth: 0
   },
-
   tooltip: {
     shared: true,
     crosshairs: true
   },
-
   plotOptions: {
     series: {
       cursor: 'pointer',
@@ -116,7 +104,6 @@ Highcharts.chart('container', {
       }
     }
   },
-
   series: [{
     name: 'All sessions',
     lineWidth: 4,
@@ -127,19 +114,14 @@ Highcharts.chart('container', {
     name: 'New users'
   }]
 });*/
-
-
 /*
 Highcharts.chart('container', {
-
   title: {
     text: 'Informe Lactato 10-11-2021'
   },
-
   subtitle: {
     text: 'Nombre: Jonatan Steve'
   },
-
   yAxis: {
     title: {
       text: 'FC (ppm)'
@@ -155,25 +137,21 @@ Highcharts.chart('container', {
         	yAxis: 2,
         	data: [1.5, 2.5, 3.5]
         }],
-
   xAxis: {
     accessibility: {
       rangeDescription: 'Range: 2010 to 2017'
     }
   },
-
   xAxis: {
     title: {
       text: 'Ritmo (min/km)'
     }
   },
-
   legend: {
     layout: 'vertical',
     align: 'right',
     verticalAlign: 'middle'
   },
-
   plotOptions: {
     series: {
       label: {
@@ -184,7 +162,6 @@ Highcharts.chart('container', {
 		pointEnd: 3.53
     }
   },
-
   series: [{
     name: 'FC',
     data: [140, 145, 150]
@@ -195,7 +172,6 @@ Highcharts.chart('container', {
     name: 'RPE',
     data: [1, 2]
   }],
-
   responsive: {
     rules: [{
       condition: {
@@ -210,9 +186,7 @@ Highcharts.chart('container', {
       }
     }]
   }
-
 });*/
-
 Highcharts.chart('container', {
                 chart: {
                     zoomType: 'xy'
@@ -222,7 +196,6 @@ Highcharts.chart('container', {
                     align: 'left'
                 },
                 subtitle: {
-                    //text: 'Nombre: Alberto Garcia',
                     text: '',
                     align: 'left'
                 },
@@ -236,7 +209,6 @@ Highcharts.chart('container', {
                         text: 'Ritmo (min/km)'
                     },
                     labels: {
-                        //format: ' ',  
                     },
                 }],
                 yAxis: [{ // Primary yAxis
@@ -254,7 +226,6 @@ Highcharts.chart('container', {
                         }
                     },
                     opposite: true
-
                 }, { // Secondary yAxis
                     min: 98,                    max: 160,                    tickInterval: 10,
                     gridLineWidth: 0,
@@ -270,7 +241,6 @@ Highcharts.chart('container', {
                             color: Highcharts.getOptions().colors[0]
                         }
                     }
-
                 }, { // Tertiary yAxis
                     min: 2.1,                    max: 9.2,                    tickInterval: 0.05,
                     gridLineWidth: 0,
@@ -317,7 +287,6 @@ Highcharts.chart('container', {
                         tooltip: {
                             valueSuffix: ''
                         }
-
                     }, {
                         name: 'LA (mMol/L)',
                         type: 'spline',
@@ -330,12 +299,10 @@ Highcharts.chart('container', {
 		},*/
                         data: [2.1,1.9,3.4,5.8,9.2],
                         /*1016, 1016, 1015.9, 1015.5, 1012.3, 1009.5, 1009.6, 1010.2, 1013.1, 1016.9, 1018.2, 1016.7*/
-
                         /*dashStyle: 'shortdot',*/
                         tooltip: {
                             valueSuffix: ''
                         }
-
                     }, {
                         name: 'RPE (0-10)',
                         type: 'spline',
@@ -403,7 +370,6 @@ Highcharts.chart('container', {
                     }]
                 }
             });
-
 function espere() {
         swal("Espere un momento", {
             buttons: false,
@@ -429,7 +395,6 @@ function espere() {
     	$('#divInformeDeportivo1').hide();
     	$('#divInformeDeportivo2').hide();
     	$('#divInformeDeportivo3').hide();
-
     	if($("#reportsfolder-deporteID1").is(':checked')){
     		$('#divDeporte1').removeClass("btn-border");
     		$('#divTexto1').removeClass("textoNegro");
@@ -449,7 +414,6 @@ function espere() {
     		$('#divInformeEsfuerzo2').show();
     	}
     	else if($("#reportsfolder-deporteID3").is(':checked')){
-    		
     	}
     }
     	*/
@@ -460,22 +424,15 @@ function espere() {
     $('#divInformeDeportivo1').show();
     $('#divInformeDeportivo2').show();
     $('#divInformeDeportivo3').show();
-
 $(document).ready(function(){
-	//$("#modal").show();
 	$("#pdfDownloader").click(function(){	
-		//$('#cols-det').removeClass('col-md-10').addClass('col-md-8 maxtext');
-		
-
 		const btn = document.getElementById('pdfDownloader');
 		btn.textContent = 'Espere un momento...';
 		document.getElementById("pdfDownloader").disabled = true;
 		/*
 		html2canvas(document.querySelector("#exporta")).then(canvas => {
-				//canvas:10,			
 			var imagedata = canvas.toDataURL('image/png');
 			var imgdata = imagedata.replace(/^data:image\/(png|jpeg);base64,/, "");
-					//ajax call to save image inside folder
 			$.ajax({
 				async:false,
 				url: '/web/index.php?r=reportsfolder/saveimg',
@@ -484,16 +441,13 @@ $(document).ready(function(){
 					   },
 				type: 'post',
 				success: function (response) {   
-				   	console.log(response);
 				}
 			});
 		});
 		*/
 		html2canvas(document.querySelector("#graficas")).then(canvas => {
-				//canvas:10,			
 			var imagedata = canvas.toDataURL('image/png');
 			var imgdata = imagedata.replace(/^data:image\/(png|jpeg);base64,/, "");
-					//ajax call to save image inside folder
 			$.ajax({
 				async:false,
 				url: '/web/index.php?r=reportsfolder/saveimg',
@@ -502,7 +456,6 @@ $(document).ready(function(){
 					   },
 				type: 'post',
 				success: function (response) {   
-				   	console.log(response);
 					mandar(btn);//si hay otro, se debe quitar esta linea
 				}
 			});
@@ -510,11 +463,8 @@ $(document).ready(function(){
 		/*
 		html2canvas(document.querySelector("#divInformeDeportivo1"), {
 			}).then(canvas => {
-				//canvas:10,
-			
 			var imagedata = canvas.toDataURL('image/png');
 			var imgdata = imagedata.replace(/^data:image\/(png|jpeg);base64,/, "");
-					//ajax call to save image inside folder
 			$.ajax({
 				async:false,
 				url: '/web/index.php?r=reportsfolder/saveimg',
@@ -523,18 +473,13 @@ $(document).ready(function(){
 					   },
 				type: 'post',
 				success: function (response) {   
-				   	console.log(response);
 				}
 			});
 		});
-		
 		html2canvas(document.querySelector("#divInformeDeportivo2"), {
 			}).then(canvas => {
-				//canvas:10,
-			
 			var imagedata = canvas.toDataURL('image/png');
 			var imgdata = imagedata.replace(/^data:image\/(png|jpeg);base64,/, "");
-					//ajax call to save image inside folder
 			$.ajax({
 				async:false,
 				url: '/web/index.php?r=reportsfolder/saveimg',
@@ -543,18 +488,13 @@ $(document).ready(function(){
 					   },
 				type: 'post',
 				success: function (response) {   
-				   	console.log(response);
 				}
 			});
 		});
-		
 		html2canvas(document.querySelector("#divInformeDeportivo3"), {
 			}).then(canvas => {
-				//canvas:10,
-			
 			var imagedata = canvas.toDataURL('image/png');
 			var imgdata = imagedata.replace(/^data:image\/(png|jpeg);base64,/, "");
-					//ajax call to save image inside folder
 			$.ajax({
 				async:false,
 				url: '/web/index.php?r=reportsfolder/saveimg',
@@ -563,36 +503,27 @@ $(document).ready(function(){
 					   },
 				type: 'post',
 				success: function (response) {   
-				   	console.log(response);
 					mandar(btn);
 				}
 			});
 		});*/
-		
 		sleep(60).then(() => {
-			
 		});
 		$('#cols-det').removeClass('col-md-8').addClass('col-md-10');
     });	
-	//$("#pdfDownloader").click();
 });
-
 function mandar(btn){
 	btn.textContent = 'Descargar PDF';
 			document.getElementById("pdfDownloader").disabled = false;
 			window.open('index.php?r=reportsfolder/savepdf&cp=28&er=55&type=1', '_blank');
 }
-	
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
-
 jQuery(function ($) {
 jQuery('#w0').yiiActiveForm([{"id":"reportsfolder-created_by_id","name":"created_by_id","container":".field-reportsfolder-created_by_id","input":"#reportsfolder-created_by_id","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Created By ID debe ser un número entero.","skipOnEmpty":1});}},{"id":"reportsfolder-status","name":"status","container":".field-reportsfolder-status","input":"#reportsfolder-status","error":".help-block.errorHiden","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Estado no puede estar vacío."});yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Estado debe ser un número entero.","skipOnEmpty":1});}}], []);
 });
-
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",

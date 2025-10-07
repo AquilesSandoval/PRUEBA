@@ -6,7 +6,6 @@ function modalMove(_id, _cp, _name){
 	$("#hddAccion").val("Mover");
 	$("#spanTitleCopyMove").html("Mover mesociclo " + _name);
 }
-
 function modalCopy(_id, _cp, _name){
 	$('#hddMesoID').val(_id);
 	$('#hddfolderID').val(_cp);
@@ -15,7 +14,6 @@ function modalCopy(_id, _cp, _name){
 	$("#hddAccion").val("Copiar");
 	$("#spanTitleCopyMove").html("Copiar mesociclo " + _name);
 }
-
 	$('#txtBuscar').keydown(function (e) {
 		if (e.keyCode == 13) {
 			$('#btnBuscar').click();
@@ -25,7 +23,6 @@ function modalCopy(_id, _cp, _name){
 			return false;
 		}
 	});
-    
 	$('#btnBuscar').click(function() {
 		$('#btnPrevisualizar').hide();
         let sel = $('#txtBuscar').val();
@@ -58,7 +55,6 @@ function modalCopy(_id, _cp, _name){
 			});
 		}
     });
-	
 	$('#folder_select').change(function() {
 		$('#btnCopiar').addClass("d-none");
 		$('#btnMover').addClass("d-none");
@@ -74,22 +70,17 @@ function modalCopy(_id, _cp, _name){
 			}
 		}
 	});
-	
 	function validaMover(_msg){
 		$('#btnCopiar').addClass("d-none");
 		$('#btnMover').addClass("d-none");
 		var valida= false;
 		var errores="";
 		var dtClear= 0;
-
 		if($('#folder_select').val()=="") {errores += "> Seleccione una carpeta\n"; dtClear ++;}
-
 		if(dtClear==0){
 			valida=true;
 		}
-		//alert(valida);
 		if(valida){
-			//$('#btnCopiar').removeClass("d-none");
 			return true;
 		}
 		else{
@@ -106,8 +97,6 @@ function modalCopy(_id, _cp, _name){
 			return false;
 		}
 	}
-	
-	
 function dup() {
 	var valida= false;
 	if($('#folder_select').val()!="" && $('#hddMesoID').val()!=""){
@@ -123,9 +112,6 @@ function dup() {
 			},
 		});
 	}
-	
-	//valida = validaMover(true);
-		
 	if(valida){
 		alertify.confirm(
 		'Confirmación',
@@ -135,12 +121,10 @@ function dup() {
 				buttons: false,
 				timer: 3000,
 			});
-
 			var origen_id = $('#hddMesoID').val() + '_';
 			var folderOrigenID = $('#hddfolderID').val();
 			var folderDestinoID = $('#folder_select').val();
 			var _name = $('#txtName').val();
-			
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=mesocyclesmesocycle/mesodup",
@@ -153,7 +137,6 @@ function dup() {
 					"option" : 2, //mesociclo
 				},
 				success: function(data) {
-					console.log(data);
 					if(data=="Exito"){
 						swal("Mesociclo copiado correctamente", "", {
 							icon : "success",
@@ -185,8 +168,6 @@ function dup() {
 		function() {});
 	}
 }
-	
-	
 function move() {
 	var valida= false;
 	if($('#folder_select').val()!="" && $('#hddMesoID').val()!=""){
@@ -211,11 +192,9 @@ function move() {
 				buttons: false,
 				timer: 3000,
 			});
-
 			var origen_id = $('#hddMesoID').val();
 			var folderOrigenID = $('#hddfolderID').val();
 			var folderDestinoID = $('#folder_select').val();
-			
 			$.ajax({
 				type: 'get',
 				url: "/web/index.php?r=mesocyclesmesocycle/mesomove",
@@ -225,7 +204,6 @@ function move() {
 					"folderDestinoID": folderDestinoID,
 				},
 				success: function(data) {
-					console.log(data);
 					if(data=="Exito"){
 						swal("El mesociclo fué movido correctamente", "", {
 							icon : "success",
@@ -257,7 +235,6 @@ function move() {
 		function() {});
 	}
 }
-	
 function confirmDelete(key, token) {
     alertify.confirm('Confirmación', 'Seguro que desea eliminar el registro',
         function() {
@@ -269,7 +246,6 @@ function confirmDelete(key, token) {
                     token: token
                 },
                 success: function(bool) {
-                    //console.log('success '+bool);
                     if (bool == true) {
                         alertify.success(
                             '<span style="color: #FFFFFF;"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;&nbsp;Registro eliminado<br>Espere un momento ...</span>',
@@ -287,7 +263,6 @@ function confirmDelete(key, token) {
                     }
                 },
                 error: function(data) {
-                    // console.log('error '+data);
                     alertify.error(
                         '<span style="color: #FFFFFF;">Ocurrio un error, intenta de nuevo</span>',
                         2,
@@ -299,13 +274,10 @@ function confirmDelete(key, token) {
         },
         function() {});
 }
-
 jQuery(function ($) {
 jQuery('#w0').yiiGridView({"filterUrl":"\/web\/index.php?r=mesocyclesmesocycle\/index","filterSelector":"#w0-filters input, #w0-filters select","filterOnFocusOut":true});
 });
-
 function changeIdioma(id, flag) {
-    console.log(id + "-" + flag);
     $.ajax({
         url: '/web/index.php?r=idiomas/changeidioma',
         type: "POST",
