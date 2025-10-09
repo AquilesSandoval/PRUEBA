@@ -1,0 +1,301 @@
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const { Pool } = require('@neondatabase/serverless');
+const ws = require('ws');
+
+const app = express();
+const PORT = 5000;
+
+// Database connection
+const pool = new Pool({ 
+  connectionString: process.env.DATABASE_URL,
+  ws: ws
+});
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Serve static files (frontend)
+app.use(express.static(path.join(__dirname, '..')));
+
+// API Routes
+
+// Pendientes (tasks) endpoints - stub responses for now
+app.get('/api/pendientes', async (req, res) => {
+  res.json([]);
+});
+
+app.post('/api/pendientes', async (req, res) => {
+  res.json({ success: true, message: 'Pendiente creado' });
+});
+
+app.put('/api/pendientes/:id', async (req, res) => {
+  res.json({ success: true, message: 'Pendiente actualizado' });
+});
+
+app.delete('/api/pendientes/:id', async (req, res) => {
+  res.json({ success: true, message: 'Pendiente eliminado' });
+});
+
+// Ubicaciones endpoints - stub responses
+app.post('/api/ubicaciones', async (req, res) => {
+  res.json({ success: true, message: 'Ubicación guardada' });
+});
+
+app.delete('/api/ubicaciones', async (req, res) => {
+  res.json({ success: true, message: 'Ubicación eliminada' });
+});
+
+// User data endpoints
+app.post('/api/user-data', async (req, res) => {
+  res.json({ success: true, message: 'Datos guardados' });
+});
+
+// Mesociclos folder endpoint
+app.get('/api/mesociclos/folder', async (req, res) => {
+  res.send('<option value="">Seleccione una carpeta</option>');
+});
+
+// Circuitos endpoints
+app.delete('/api/circuitos/:id', async (req, res) => {
+  res.json({ success: true, message: 'Circuito eliminado' });
+});
+
+// Sessions support endpoints
+app.get('/api/sessions/cities', async (req, res) => {
+  res.json([
+    { id: 1, text: 'Madrid' },
+    { id: 2, text: 'Barcelona' },
+    { id: 3, text: 'Valencia' }
+  ]);
+});
+
+app.get('/api/sessions/sports', async (req, res) => {
+  res.send('<option value="1">Carrera</option><option value="2">Bici</option><option value="3">Natación</option>');
+});
+
+app.get('/api/sessions/disciplines', async (req, res) => {
+  res.send('<option value="">Seleccione disciplina</option>');
+});
+
+app.get('/api/sessions/contains', async (req, res) => {
+  res.send('<option value="8">Continuo</option><option value="9">Intervalos</option>');
+});
+
+app.get('/api/sessions/levels', async (req, res) => {
+  res.send('<option value="1">Básico</option><option value="2">Intermedio</option><option value="3">Avanzado</option>');
+});
+
+// Language change endpoint
+app.post('/api/language/change', async (req, res) => {
+  res.json({ success: true });
+});
+
+// Activities endpoints
+app.delete('/api/activities/:id', async (req, res) => {
+  res.send('Exito');
+});
+
+// Athletes endpoints
+app.get('/api/athletes', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM atletas WHERE activo = true ORDER BY created_at DESC');
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error fetching athletes:', error);
+    res.status(500).json({ error: 'Error fetching athletes' });
+  }
+});
+
+app.get('/api/athletes/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await pool.query('SELECT * FROM atletas WHERE id = $1', [id]);
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'Athlete not found' });
+    }
+    res.json(result.rows[0]);
+  } catch (error) {
+    console.error('Error fetching athlete:', error);
+    res.status(500).json({ error: 'Error fetching athlete' });
+  }
+});
+
+app.post('/api/athletes', async (req, res) => {
+  try {
+    const { nombre, apellido, email, deporte_principal, genero } = req.body;
+    const result = await pool.query(
+      'INSERT INTO atletas (nombre, apellido, email, deporte_principal, genero) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+      [nombre, apellido, email, deporte_principal, genero]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (error) {
+    console.error('Error creating athlete:', error);
+    res.status(500).json({ error: 'Error creating athlete' });
+  }
+});
+
+// Sessions endpoints
+app.get('/api/sessions', async (req, res) => {
+  try {
+    const { atleta_id } = req.query;
+    let query = 'SELECT * FROM sesiones ORDER BY fecha DESC';
+    let params = [];
+    
+    if (atleta_id) {
+      query = 'SELECT * FROM sesiones WHERE atleta_id = $1 ORDER BY fecha DESC';
+      params = [atleta_id];
+    }
+    
+    const result = await pool.query(query, params);
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error fetching sessions:', error);
+    res.status(500).json({ error: 'Error fetching sessions' });
+  }
+});
+
+app.post('/api/sessions', async (req, res) => {
+  try {
+    const { atleta_id, fecha, nombre_sesion, tipo_sesion, duracion_minutos, distancia_km } = req.body;
+    const result = await pool.query(
+      'INSERT INTO sesiones (atleta_id, fecha, nombre_sesion, tipo_sesion, duracion_minutos, distancia_km) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+      [atleta_id, fecha, nombre_sesion, tipo_sesion, duracion_minutos, distancia_km]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (error) {
+    console.error('Error creating session:', error);
+    res.status(500).json({ error: 'Error creating session' });
+  }
+});
+
+// Informes endpoints
+app.get('/api/informes/ergo/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await pool.query(
+      `SELECT i.*, ie.*, a.nombre, a.apellido, a.foto_url 
+       FROM informes i 
+       JOIN informes_ergo ie ON i.id = ie.informe_id 
+       JOIN atletas a ON i.atleta_id = a.id 
+       WHERE i.id = $1`,
+      [id]
+    );
+    
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'Report not found' });
+    }
+    
+    // Transform to expected frontend format
+    const row = result.rows[0];
+    const data = {
+      informe: {
+        id: row.id,
+        fecha: row.fecha_evaluacion,
+        medico: row.evaluador,
+        protocolo: row.protocolo_prueba,
+        atleta: {
+          nombre: row.nombre,
+          apellido: row.apellido,
+          foto: row.foto_url
+        }
+      },
+      composicion_corporal: {
+        peso_kg: 70,
+        estatura_cm: 175,
+        imc: 22.9,
+        porcentaje_grasa: 15,
+        porcentaje_musculo: 45,
+        peso_graso_kg: 10.5,
+        peso_muscular_kg: 31.5,
+        comentario: row.conclusiones
+      },
+      gasto_energetico_reposo: {
+        vo2_promedio: row.vo2max,
+        fc_reposo: row.fc_reposo,
+        gasto_diario_kcal: 2000,
+        mets: 1.0,
+        mets_ajustados: 1.0,
+        rq: 0.85,
+        cho_porcentaje: 50,
+        grasa_porcentaje: 50,
+        cho_gramos_dia: 250,
+        grasa_gramos_dia: 100,
+        grasa_esperada_porcentaje: 15,
+        muscular_peso_ideal_porcentaje: 45,
+        masa_grasa_perder_kg: 0,
+        peso_ideal_kg: 70,
+        comentario: row.recomendaciones_entrenamiento
+      }
+    };
+    
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching ergo report:', error);
+    res.status(500).json({ error: 'Error fetching ergo report' });
+  }
+});
+
+app.get('/api/informes/lactato/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await pool.query(
+      `SELECT i.*, il.*, a.nombre, a.apellido, a.foto_url 
+       FROM informes i 
+       JOIN informes_lactato il ON i.id = il.informe_id 
+       JOIN atletas a ON i.atleta_id = a.id 
+       WHERE i.id = $1`,
+      [id]
+    );
+    
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'Report not found' });
+    }
+    
+    const row = result.rows[0];
+    const data = {
+      informe: {
+        id: row.id,
+        fecha: row.fecha_evaluacion,
+        atleta: {
+          nombre: row.nombre,
+          apellido: row.apellido,
+          foto: row.foto_url
+        }
+      },
+      datos_prueba: {
+        ritmo_min_100: [],
+        fc_ppm: [],
+        lactato_mmol: [],
+        rpe_0_10: []
+      },
+      analisis: {
+        zonas: []
+      }
+    };
+    
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching lactato report:', error);
+    res.status(500).json({ error: 'Error fetching lactato report' });
+  }
+});
+
+// Default route to serve index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'index.html'));
+});
+
+// Catch-all for HTML pages
+app.get('/:page.html', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', req.path));
+});
+
+// Start server
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`AIYM Training App server running on http://0.0.0.0:${PORT}`);
+  console.log(`Database connected: ${process.env.DATABASE_URL ? 'Yes' : 'No'}`);
+});
