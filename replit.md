@@ -114,6 +114,18 @@ The application now includes a secure authentication system:
 4. Updated all "Salir" (logout) buttons to redirect to login
 5. Implemented secure login flow with token-based authentication
 
+### UI Simplification (October 10, 2025)
+1. **Navbar cleanup:**
+   - Removed language selector
+   - Removed "Lecciones" option
+   - Removed "Progresión", "Personal", "Sesión" from Training menu
+   - Removed "Dashboard" and "Perfiles" from main menu
+   - Removed "Patrocinios" from profile menu, kept only logout option
+2. **Index page redesign:**
+   - Replaced world map with ALL IN YOUR MIND logo
+   - Removed "Actividades realizadas", "Actividades programadas", "Competiciones" sections
+   - Kept only: Logo, "Mis pendientes", "Cumpleaños del Mes"
+
 ### Current State
 - ✅ Database schema created with users table
 - ✅ Backend server running on port 5000
