@@ -73,7 +73,7 @@ app.post('/api/login', async (req, res) => {
         username: user.username, 
         rol: user.rol 
       },
-      JWT_SECRET_KEY,
+      JWT_SECRET,
       { expiresIn: '24h' }
     );
 
