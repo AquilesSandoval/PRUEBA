@@ -1,0 +1,44 @@
+Hola, necesito desarrollar el flujo completo para la generación de informes de atletas. El proceso abarca desde la selección del atleta hasta la visualización y exportación de reportes gráficos.
+
+1. Página Principal de Informes: Informes Inicio.html
+Objetivo: Crear una página que muestre un listado de todos los atletas registrados en la base de datos. No se debe usar ningún archivo .csv.
+
+Diseño Visual: La estructura y apariencia de esta página deben ser idénticas a la imagen de referencia proporcionada.
+
+Funcionalidad por Atleta: Cada atleta en la lista deberá tener un menú con las siguientes cuatro opciones:
+
+Agregar Lactato: Al hacer clic, debe redirigir al formulario para agregar un nuevo informe de lactato para ese atleta (AGREGAR LACTATO.html).
+
+Ergoespirométrico: Al hacer clic, debe redirigir al formulario para agregar un nuevo informe ergoespirométrico (AGREGAR ERGO.html).
+
+Informes: Al hacer clic, debe llevar a una página de reportes históricos de ese atleta (REPORTES.html).
+
+Eliminar: Debe permitir eliminar al atleta de la base de datos.
+
+Navegación General: La página debe contener tres botones de navegación principales:
+
+Consulta: Debe funcionar como un botón para recargar o regresar a Informes Inicio.html.
+
+Informe Lactato: Redirige al formulario AGREGAR LACTATO.html.
+
+Informe Ergoespirométrico: Redirige al formulario AGREGAR ERGO.html.
+
+2. Flujo de Generación de Informes y Gráficas
+Paso 1: Entrada de Datos: El usuario llenará los datos en los formularios de las páginas AGREGAR ERGO.html o AGREGAR LACTATO.html.
+
+Paso 2: Procesamiento y Redirección:
+
+Al enviar el formulario de AGREGAR ERGO.html, los datos deben ser procesados y guardados. Inmediatamente después, el usuario debe ser redirigido a la página de visualización del reporte: ERGOESPIROMETRICO.html.
+
+Al enviar el formulario de AGREGAR LACTATO.html, los datos se guardan y el usuario es redirigido a la página de visualización del reporte: INFORME LACTATO.html.
+
+Paso 3: Visualización de Gráficas:
+
+Las páginas ERGOESPIROMETRICO.html y INFORME LACTATO.html deben generar y mostrar gráficas precisas basadas en los datos que se acaban de ingresar.
+
+Se debe modificar o asegurar que los archivos ERGOESPIROMETRICO.js y el JS correspondiente a lactato funcionen correctamente para procesar los datos recibidos del formulario y renderizar las gráficas de manera adecuada.
+
+3. Requisitos Técnicos Adicionales
+Persistencia de Datos: Todos los datos de los informes generados (tanto de lactato como ergoespirométricos) deben guardarse de forma permanente en la base de datos.
+
+Exportación a PDF: Todas las páginas de informes finales (ERGOESPIROMETRICO.html, INFORME LACTATO.html, etc.) deben incluir una funcionalidad para imprimir o exportar el informe completo como un archivo PDF.
