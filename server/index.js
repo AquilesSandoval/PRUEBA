@@ -202,15 +202,110 @@ app.get('/api/athletes/:id', async (req, res) => {
 
 app.post('/api/athletes', async (req, res) => {
   try {
-    const { nombre, apellido, email, deporte_principal, genero } = req.body;
+    const { 
+      nombre, 
+      apellido, 
+      fecha_nacimiento, 
+      email, 
+      telefono, 
+      deporte_principal, 
+      genero, 
+      peso, 
+      altura,
+      notas 
+    } = req.body;
+    
     const result = await pool.query(
-      'INSERT INTO atletas (nombre, apellido, email, deporte_principal, genero) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-      [nombre, apellido, email, deporte_principal, genero]
+      `INSERT INTO atletas (
+        nombre, apellido, fecha_nacimiento, email, telefono, 
+        deporte_principal, genero, peso, altura, notas
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *`,
+      [nombre, apellido, fecha_nacimiento, email, telefono, deporte_principal, genero, peso, altura, notas]
     );
-    res.status(201).json(result.rows[0]);
+    
+    res.status(201).json({
+      success: true,
+      message: 'Atleta creado exitosamente',
+      atleta: result.rows[0]
+    });
   } catch (error) {
     console.error('Error creating athlete:', error);
-    res.status(500).json({ error: 'Error creating athlete' });
+    res.status(500).json({ 
+      success: false,
+      error: 'Error al crear atleta',
+      message: error.message 
+    });
+  }
+});
+
+app.put('/api/athletes/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { 
+      nombre, 
+      apellido, 
+      fecha_nacimiento, 
+      email, 
+      telefono, 
+      deporte_principal, 
+      genero, 
+      peso, 
+      altura,
+      notas 
+    } = req.body;
+    
+    const result = await pool.query(
+      `UPDATE atletas SET 
+        nombre = $1, apellido = $2, fecha_nacimiento = $3, email = $4, telefono = $5,
+        deporte_principal = $6, genero = $7, peso = $8, altura = $9, notas = $10,
+        updated_at = CURRENT_TIMESTAMP
+      WHERE id = $11 RETURNING *`,
+      [nombre, apellido, fecha_nacimiento, email, telefono, deporte_principal, genero, peso, altura, notas, id]
+    );
+    
+    if (result.rows.length === 0) {
+      return res.status(404).json({ success: false, error: 'Atleta no encontrado' });
+    }
+    
+    res.json({
+      success: true,
+      message: 'Atleta actualizado exitosamente',
+      atleta: result.rows[0]
+    });
+  } catch (error) {
+    console.error('Error updating athlete:', error);
+    res.status(500).json({ 
+      success: false,
+      error: 'Error al actualizar atleta',
+      message: error.message 
+    });
+  }
+});
+
+app.delete('/api/athletes/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    // Soft delete - just mark as inactive
+    const result = await pool.query(
+      'UPDATE atletas SET activo = false WHERE id = $1 RETURNING *',
+      [id]
+    );
+    
+    if (result.rows.length === 0) {
+      return res.status(404).json({ success: false, error: 'Atleta no encontrado' });
+    }
+    
+    res.json({
+      success: true,
+      message: 'Atleta eliminado exitosamente'
+    });
+  } catch (error) {
+    console.error('Error deleting athlete:', error);
+    res.status(500).json({ 
+      success: false,
+      error: 'Error al eliminar atleta',
+      message: error.message 
+    });
   }
 });
 
