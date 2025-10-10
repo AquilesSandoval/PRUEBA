@@ -189,6 +189,47 @@ The application now includes a secure authentication system:
    - Fixed Leaflet map errors by conditionally initializing map code only when map element exists
    - All console errors resolved - application runs cleanly
 
+### Reports System Implementation (October 10, 2025)
+1. **Backend API Endpoints** (`/server/index.js`):
+   - `GET /api/informes/athletes` - List all active athletes for reports
+   - `GET /api/informes/by-athlete/:athleteId` - Get all reports for a specific athlete
+   - `POST /api/informes/lactato` - Create lactate report with transaction safety
+   - `POST /api/informes/ergo` - Create ergospirometric report with transaction safety
+   - `GET /api/informes/lactato/:id` - Get specific lactate report (legacy endpoint)
+   - `GET /api/informes/ergo/:id` - Get specific ergospirometric report (legacy endpoint)
+
+2. **Reports Main Page** (`INFORMES/Informes Inicio.html`):
+   - Athlete list table with action buttons for each athlete
+   - Quick access buttons: Consulta, Informe de lactato, Informe ergoespirométrico
+   - Action buttons per athlete: Lactato, Ergoespirométrico, Datos año, Informes, Eliminar
+   - Dynamic athlete loading from API
+   - Filter counter showing results
+
+3. **Lactate Report Form** (`INFORMES/REPORTES/LACTATO/Lactato Form.html`):
+   - Accepts athlete_id from URL parameter
+   - Comprehensive form with all lactate test fields:
+     - General info: fecha_prueba, deporte, protocolo_prueba, temperatura, humedad
+     - Aerobic threshold: FC, velocity, lactate level
+     - Anaerobic threshold: FC, velocity, lactate level
+     - Maximum values: VO2max estimated, FC maxima
+     - Analysis: conclusions, training recommendations, notes
+   - Form validation with required fields
+   - Saves to database via POST /api/informes/lactato
+   - Redirects to visualization page after successful save
+
+4. **Ergospirometric Report Form** (`INFORMES/REPORTES/ERGO/Ergo Form.html`):
+   - Accepts athlete_id from URL parameter
+   - Comprehensive form with all ergospirometric test fields:
+     - General info: fecha_prueba, deporte, protocolo_prueba
+     - VO2 and ventilation: VO2max, VO2max absolute, VCO2max, ventilation maxima
+     - Heart rate: FC maxima, FC reposo, FC VT1, FC VT2
+     - Speed/Power: Velocity VT1/VT2, maximum power, threshold power
+     - Ratios: RER max, EqO2, EqCO2
+     - Analysis: conclusions, training recommendations, notes
+   - Form validation with required fields
+   - Saves to database via POST /api/informes/ergo
+   - Redirects to visualization page after successful save
+
 ### Current State
 - ✅ Database schema created with users table and atletas table
 - ✅ Backend server running on port 5000
@@ -204,8 +245,13 @@ The application now includes a secure authentication system:
   - ✅ List athletes in card-based layout with search and filters
   - ✅ Edit athletes (integration with existing EDITAR page)
   - ✅ Delete athletes (soft delete with confirmation)
-- ✅ UI enhanced with emoji icons on all interactive buttons
-- ⚠️ Some frontend features may need additional API endpoints
+- ✅ Reports system foundation implemented
+  - ✅ Main reports page with athlete list and action buttons
+  - ✅ Lactate report form with full data capture and API integration
+  - ✅ Ergospirometric report form with full data capture and API integration
+  - ✅ Backend API endpoints for creating and retrieving reports
+  - ⚠️ Visualization pages pending (INFORME LACTATO.html, ERGOESPIROMETRICO.html)
+  - ⚠️ Reports history page pending (REPORTES.html)
 - ⚠️ JWT verification middleware not yet implemented on protected routes (recommended for production)
 
 ## Running the Application

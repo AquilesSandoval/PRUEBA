@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ES-es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Informe Ergoespirométrico :: AIYM YUC</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <link rel="icon" type="image/png" href="../../../assets/favicon-32x32.png">
+    
+    <link href="../../../assets/fonts.min.css" rel="stylesheet">
+    <link href="../../../assets/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../assets/atlantis2.css" rel="stylesheet">
+    <link href="../../../assets/demo.css" rel="stylesheet">
+    <link href="../../../assets/sweetalert.min.js.descarga" rel="stylesheet">
+    
+    <style>
+        .form-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body data-background-color="bg3">
+    <div class="wrapper page-container">
+        <div class="main-header" data-background-color="white">
+            <div class="nav-top">
+                <div class="container d-flex flex-row">
+                    <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+                    <a class="logo d-flex align-items-center" href="../../../index.html">
+                        <img src="../../../assets/logo_all.png" alt="logo" class="navbar-brand">
+                    </a>
+                    
+                    <nav class="navbar navbar-header navbar-expand-lg p-0">
+                        <div class="container-fluid p-0">
+                            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+                                        <div style="float: left; padding: 10px; color: #535353;">| YUC</div>
+                                        <div class="avatar-sm" style="float: left;">
+                                            <img src="../../../assets/user_242.png" alt="..." class="avatar-img rounded-circle">
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user animated fadeIn">
+                                        <div class="dropdown-user-scroll scrollbar-outer">
+                                            <li><a class="dropdown-item" href="../../../login.html">Salir</a></li>
+                                        </div>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-panel" style="width: 100%;">
+            <div class="content">
+                <div class="container">
+                    <div class="page-inner">
+                        <div class="page-header">
+                            <h4 class="page-title">
+                                <i class="fas fa-heartbeat"></i> Informe Ergoespirométrico  
+                                <i class="fas fa-angle-right" style="font-size: 14px;"></i> 
+                                Agregar
+                            </h4>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="ergoForm">
+                                    <input type="hidden" id="atleta_id" name="atleta_id">
+                                    
+                                    <div class="form-section">
+                                        <h5><i class="fas fa-info-circle"></i> Información General</h5>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Fecha de Prueba <span class="text-danger">*</span></label>
+                                                    <input type="date" class="form-control" name="fecha_prueba" id="fecha_prueba" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Deporte <span class="text-danger">*</span></label>
+                                                    <select class="form-control" name="deporte" id="deporte" required>
+                                                        <option value="">-- Seleccionar --</option>
+                                                        <option value="Carrera">Carrera</option>
+                                                        <option value="Ciclismo">Ciclismo</option>
+                                                        <option value="Natación">Natación</option>
+                                                        <option value="Triatlón">Triatlón</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Protocolo de Prueba</label>
+                                                    <input type="text" class="form-control" name="protocolo_prueba" id="protocolo_prueba">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-section">
+                                        <h5><i class="fas fa-lungs"></i> Valores VO2 y Ventilación</h5>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>VO2max (ml/kg/min) <span class="text-danger">*</span></label>
+                                                    <input type="number" step="0.1" class="form-control" name="vo2max" id="vo2max" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>VO2max Absoluto (L/min)</label>
+                                                    <input type="number" step="0.01" class="form-control" name="vo2max_absoluto" id="vo2max_absoluto">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>VCO2max (L/min)</label>
+                                                    <input type="number" step="0.01" class="form-control" name="vco2max" id="vco2max">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Ventilación Máxima (L/min)</label>
+                                                    <input type="number" step="0.1" class="form-control" name="ventilacion_maxima" id="ventilacion_maxima">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-section">
+                                        <h5><i class="fas fa-heartbeat"></i> Frecuencia Cardíaca</h5>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>FC Máxima (ppm) <span class="text-danger">*</span></label>
+                                                    <input type="number" class="form-control" name="fc_maxima" id="fc_maxima" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>FC Reposo (ppm)</label>
+                                                    <input type="number" class="form-control" name="fc_reposo" id="fc_reposo">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>FC VT1 (ppm)</label>
+                                                    <input type="number" class="form-control" name="fc_umbral_ventilatorio_1" id="fc_umbral_ventilatorio_1">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>FC VT2 (ppm)</label>
+                                                    <input type="number" class="form-control" name="fc_umbral_ventilatorio_2" id="fc_umbral_ventilatorio_2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-section">
+                                        <h5><i class="fas fa-tachometer-alt"></i> Velocidad y Potencia</h5>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Velocidad VT1</label>
+                                                    <input type="text" class="form-control" name="vel_umbral_ventilatorio_1" id="vel_umbral_ventilatorio_1">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Velocidad VT2</label>
+                                                    <input type="text" class="form-control" name="vel_umbral_ventilatorio_2" id="vel_umbral_ventilatorio_2">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Potencia Máxima (W)</label>
+                                                    <input type="number" class="form-control" name="potencia_maxima" id="potencia_maxima">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Potencia Umbral (W)</label>
+                                                    <input type="number" class="form-control" name="potencia_umbral" id="potencia_umbral">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-section">
+                                        <h5><i class="fas fa-exchange-alt"></i> Cocientes y Equivalentes</h5>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>RER Máximo</label>
+                                                    <input type="number" step="0.01" class="form-control" name="cociente_respiratorio_max" id="cociente_respiratorio_max">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>EqO2</label>
+                                                    <input type="number" step="0.1" class="form-control" name="equivalente_ventilatorio_o2" id="equivalente_ventilatorio_o2">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>EqCO2</label>
+                                                    <input type="number" step="0.1" class="form-control" name="equivalente_ventilatorio_co2" id="equivalente_ventilatorio_co2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-section">
+                                        <h5><i class="fas fa-clipboard-list"></i> Análisis y Recomendaciones</h5>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Conclusiones</label>
+                                                    <textarea class="form-control" name="conclusiones" id="conclusiones" rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Recomendaciones de Entrenamiento</label>
+                                                    <textarea class="form-control" name="recomendaciones_entrenamiento" id="recomendaciones_entrenamiento" rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Notas Adicionales</label>
+                                                    <textarea class="form-control" name="notas" id="notas" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group text-right">
+                                        <button type="button" class="btn btn-secondary mr-2" onclick="window.location.href='../../Informes Inicio.html'">
+                                            <i class="fas fa-times"></i> Cancelar
+                                        </button>
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fa fa-check"></i> Guardar y Ver Informe
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="../../../assets/logo_all.png" alt="logo" class="navbar-brand">
+                        </div>
+                        <div class="col-sm-9" style="text-align: right; padding-top: 15px; font-weight: 700; color: #003A5D;">
+                            Copyright © 2025 by <a href="http://allinyourmind.es/" target="_blank">ALL IN YOUR MIND</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../assets/jquery.min.js.descarga"></script>
+    <script src="../../../assets/popper.min.js.descarga"></script>
+    <script src="../../../assets/bootstrap.min.js.descarga"></script>
+    <script src="../../../assets/atlantis2.min.js.descarga"></script>
+    <script src="../../../assets/sweetalert.min.js.descarga"></script>
+
+    <script>
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const athleteId = urlParams.get('atleta_id');
+            
+            if (athleteId) {
+                $('#atleta_id').val(athleteId);
+            } else {
+                swal("Error", "No se ha especificado un atleta", "error")
+                    .then(() => window.location.href = '../../Informes Inicio.html');
+            }
+            
+            $('#ergoForm').on('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    atleta_id: parseInt($('#atleta_id').val()),
+                    fecha_prueba: $('#fecha_prueba').val(),
+                    deporte: $('#deporte').val(),
+                    protocolo_prueba: $('#protocolo_prueba').val(),
+                    vo2max: parseFloat($('#vo2max').val()),
+                    vo2max_absoluto: parseFloat($('#vo2max_absoluto').val()) || null,
+                    vco2max: parseFloat($('#vco2max').val()) || null,
+                    ventilacion_maxima: parseFloat($('#ventilacion_maxima').val()) || null,
+                    fc_maxima: parseInt($('#fc_maxima').val()),
+                    fc_reposo: parseInt($('#fc_reposo').val()) || null,
+                    fc_umbral_ventilatorio_1: parseInt($('#fc_umbral_ventilatorio_1').val()) || null,
+                    fc_umbral_ventilatorio_2: parseInt($('#fc_umbral_ventilatorio_2').val()) || null,
+                    vel_umbral_ventilatorio_1: $('#vel_umbral_ventilatorio_1').val() || null,
+                    vel_umbral_ventilatorio_2: $('#vel_umbral_ventilatorio_2').val() || null,
+                    potencia_maxima: parseInt($('#potencia_maxima').val()) || null,
+                    potencia_umbral: parseInt($('#potencia_umbral').val()) || null,
+                    cociente_respiratorio_max: parseFloat($('#cociente_respiratorio_max').val()) || null,
+                    equivalente_ventilatorio_o2: parseFloat($('#equivalente_ventilatorio_o2').val()) || null,
+                    equivalente_ventilatorio_co2: parseFloat($('#equivalente_ventilatorio_co2').val()) || null,
+                    conclusiones: $('#conclusiones').val(),
+                    recomendaciones_entrenamiento: $('#recomendaciones_entrenamiento').val(),
+                    notas: $('#notas').val(),
+                    datos_mediciones: {},
+                    zonas_entrenamiento: {}
+                };
+                
+                try {
+                    const response = await fetch('/api/informes/ergo', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        swal("¡Éxito!", "Informe ergoespirométrico creado correctamente", "success")
+                            .then(() => {
+                                window.location.href = `ERGOESPIROMETRICO.html?id=${data.informe_id}`;
+                            });
+                    } else {
+                        swal("Error", data.error || "Error al crear el informe", "error");
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    swal("Error", "Error de conexión al servidor", "error");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
