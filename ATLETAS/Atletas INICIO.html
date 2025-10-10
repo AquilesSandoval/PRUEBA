@@ -31,7 +31,7 @@
             <div class="nav-top">
                 <div class="container d-flex flex-row">
 
-                    <button class="topbar-toggler more" style="font-size: 20px;">☰</button>
+                    <button class="topbar-toggler more"><i class="fas fa-bars"></i></button>
                     <!-- Logo Header -->
                     <a class="logo d-flex align-items-center" href="../index.html"><img src="../assets/logo_all.png" alt="logo" class="navbar-brand"></a>                    <!-- End Logo Header -->
 
@@ -318,6 +318,38 @@
 
 <div class="page-inner">
 
+        <!-- Cuadros vacíos superiores -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card" style="border-radius:10px; height: 100px; display: flex; align-items: center; justify-content: center;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-running" style="font-size: 32px; color: #19b2eb;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="border-radius:10px; height: 100px; display: flex; align-items: center; justify-content: center;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-chart-line" style="font-size: 32px; color: #19b2eb;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="border-radius:10px; height: 100px; display: flex; align-items: center; justify-content: center;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-trophy" style="font-size: 32px; color: #19b2eb;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="border-radius:10px; height: 100px; display: flex; align-items: center; justify-content: center;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-calendar-alt" style="font-size: 32px; color: #19b2eb;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- aqui inicia el contenido -->
 
         <div class="row">
@@ -590,10 +622,10 @@
                         </div>
                         <div class="mt-3 d-flex justify-content-end">
                             <button class="btn btn-sm btn-info mr-2" onclick="editAthlete(${athlete.id})" title="Editar">
-                                ✏️ Editar
+                                <i class="fas fa-edit"></i> Editar
                             </button>
                             <button class="btn btn-sm btn-danger" onclick="deleteAthlete(${athlete.id}, '${athlete.nombre} ${athlete.apellido}')" title="Eliminar">
-                                🗑️ Eliminar
+                                <i class="fas fa-trash"></i> Eliminar
                             </button>
                         </div>
                     </div>
