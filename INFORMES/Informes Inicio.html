@@ -174,10 +174,10 @@
                             <button class="btn btn-primary btn-filter" onclick="window.location.href='Informes Inicio.html'">
                                 <i class="fas fa-search"></i> Consulta
                             </button>
-                            <button class="btn btn-info btn-filter" onclick="window.location.href='REPORTES/LACTATO/Lactato Form.html'">
+                            <button class="btn btn-info btn-filter" onclick="window.location.href='REPORTES/LACTATO/AGREGAR LACTATO.html'">
                                 <i class="fas fa-plus"></i> Informe de lactato
                             </button>
-                            <button class="btn btn-success btn-filter" onclick="window.location.href='REPORTES/ERGO/Ergo Form.html'">
+                            <button class="btn btn-success btn-filter" onclick="window.location.href='REPORTES/ERGO/AGREGAR ERGO.html'">
                                 <i class="fas fa-plus"></i> Informe ergoespirométrico
                             </button>
                         </div>
@@ -271,9 +271,6 @@
                         <button class="btn btn-sm btn-success btn-action" onclick="addErgo(${athlete.id})">
                             <i class="fas fa-heartbeat"></i> Ergoespirométrico
                         </button>
-                        <button class="btn btn-sm btn-primary btn-action" onclick="viewReports(${athlete.id})">
-                            <i class="fas fa-chart-bar"></i> Datos año
-                        </button>
                         <button class="btn btn-sm btn-warning btn-action" onclick="viewInformes(${athlete.id})">
                             <i class="fas fa-file-alt"></i> Informes
                         </button>
@@ -287,15 +284,11 @@
         }
 
         function addLactato(athleteId) {
-            window.location.href = `REPORTES/LACTATO/Lactato Form.html?atleta_id=${athleteId}`;
+            window.location.href = `REPORTES/LACTATO/AGREGAR LACTATO.html?atleta_id=${athleteId}`;
         }
 
         function addErgo(athleteId) {
-            window.location.href = `REPORTES/ERGO/Ergo Form.html?atleta_id=${athleteId}`;
-        }
-
-        function viewReports(athleteId) {
-            window.location.href = `REPORTES/REPORTES.html?atleta_id=${athleteId}`;
+            window.location.href = `REPORTES/ERGO/AGREGAR ERGO.html?atleta_id=${athleteId}`;
         }
 
         function viewInformes(athleteId) {

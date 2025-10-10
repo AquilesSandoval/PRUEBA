@@ -201,34 +201,28 @@ The application now includes a secure authentication system:
 2. **Reports Main Page** (`INFORMES/Informes Inicio.html`):
    - Athlete list table with action buttons for each athlete
    - Quick access buttons: Consulta, Informe de lactato, Informe ergoespirométrico
-   - Action buttons per athlete: Lactato, Ergoespirométrico, Datos año, Informes, Eliminar
+   - Action buttons per athlete: Lactato, Ergoespirométrico, Informes, Eliminar
    - Dynamic athlete loading from API
    - Filter counter showing results
+   - Removed "Datos año" button as requested
 
-3. **Lactate Report Form** (`INFORMES/REPORTES/LACTATO/Lactato Form.html`):
-   - Accepts athlete_id from URL parameter
-   - Comprehensive form with all lactate test fields:
-     - General info: fecha_prueba, deporte, protocolo_prueba, temperatura, humedad
-     - Aerobic threshold: FC, velocity, lactate level
-     - Anaerobic threshold: FC, velocity, lactate level
-     - Maximum values: VO2max estimated, FC maxima
-     - Analysis: conclusions, training recommendations, notes
-   - Form validation with required fields
+3. **Lactate Report Form Integration** (`INFORMES/REPORTES/LACTATO/AGREGAR LACTATO.html`):
+   - Uses original AGREGAR LACTATO.html file with API integration
+   - Accepts athlete_id from URL parameter via `agregar-lactato-api.js`
+   - Integrates with existing form fields and validation
+   - Collects all test data including measurement table
    - Saves to database via POST /api/informes/lactato
-   - Redirects to visualization page after successful save
+   - Redirects to INFORME LACTATO.html after successful save
+   - Preserves original UI/UX and functionality
 
-4. **Ergospirometric Report Form** (`INFORMES/REPORTES/ERGO/Ergo Form.html`):
-   - Accepts athlete_id from URL parameter
-   - Comprehensive form with all ergospirometric test fields:
-     - General info: fecha_prueba, deporte, protocolo_prueba
-     - VO2 and ventilation: VO2max, VO2max absolute, VCO2max, ventilation maxima
-     - Heart rate: FC maxima, FC reposo, FC VT1, FC VT2
-     - Speed/Power: Velocity VT1/VT2, maximum power, threshold power
-     - Ratios: RER max, EqO2, EqCO2
-     - Analysis: conclusions, training recommendations, notes
-   - Form validation with required fields
+4. **Ergospirometric Report Form Integration** (`INFORMES/REPORTES/ERGO/AGREGAR ERGO.html`):
+   - Uses original AGREGAR ERGO.html file with API integration
+   - Accepts athlete_id from URL parameter via `agregar-ergo-api.js`
+   - Integrates with existing form fields and validation
+   - Collects all ergospirometric test data
    - Saves to database via POST /api/informes/ergo
-   - Redirects to visualization page after successful save
+   - Redirects to ERGOESPIROMETRICO.html after successful save
+   - Preserves original UI/UX and functionality
 
 ### Current State
 - ✅ Database schema created with users table and atletas table
