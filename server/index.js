@@ -215,12 +215,35 @@ app.post('/api/athletes', async (req, res) => {
       notas 
     } = req.body;
     
+    // Validate required fields
+    if (!nombre || !apellido) {
+      return res.status(400).json({ 
+        success: false,
+        error: 'Nombre y apellido son requeridos' 
+      });
+    }
+    
+    // Validate nombre and apellido are strings and not empty after trim
+    if (typeof nombre !== 'string' || nombre.trim() === '') {
+      return res.status(400).json({ 
+        success: false,
+        error: 'Nombre debe ser un texto válido' 
+      });
+    }
+    
+    if (typeof apellido !== 'string' || apellido.trim() === '') {
+      return res.status(400).json({ 
+        success: false,
+        error: 'Apellido debe ser un texto válido' 
+      });
+    }
+    
     const result = await pool.query(
       `INSERT INTO atletas (
         nombre, apellido, fecha_nacimiento, email, telefono, 
-        deporte_principal, genero, peso, altura, notas
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *`,
-      [nombre, apellido, fecha_nacimiento, email, telefono, deporte_principal, genero, peso, altura, notas]
+        deporte_principal, genero, peso, altura, notas, activo
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, true) RETURNING *`,
+      [nombre.trim(), apellido.trim(), fecha_nacimiento, email, telefono, deporte_principal, genero, peso, altura, notas]
     );
     
     res.status(201).json({
@@ -254,13 +277,36 @@ app.put('/api/athletes/:id', async (req, res) => {
       notas 
     } = req.body;
     
+    // Validate required fields
+    if (!nombre || !apellido) {
+      return res.status(400).json({ 
+        success: false,
+        error: 'Nombre y apellido son requeridos' 
+      });
+    }
+    
+    // Validate nombre and apellido are strings and not empty after trim
+    if (typeof nombre !== 'string' || nombre.trim() === '') {
+      return res.status(400).json({ 
+        success: false,
+        error: 'Nombre debe ser un texto válido' 
+      });
+    }
+    
+    if (typeof apellido !== 'string' || apellido.trim() === '') {
+      return res.status(400).json({ 
+        success: false,
+        error: 'Apellido debe ser un texto válido' 
+      });
+    }
+    
     const result = await pool.query(
       `UPDATE atletas SET 
         nombre = $1, apellido = $2, fecha_nacimiento = $3, email = $4, telefono = $5,
         deporte_principal = $6, genero = $7, peso = $8, altura = $9, notas = $10,
         updated_at = CURRENT_TIMESTAMP
       WHERE id = $11 RETURNING *`,
-      [nombre, apellido, fecha_nacimiento, email, telefono, deporte_principal, genero, peso, altura, notas, id]
+      [nombre.trim(), apellido.trim(), fecha_nacimiento, email, telefono, deporte_principal, genero, peso, altura, notas, id]
     );
     
     if (result.rows.length === 0) {

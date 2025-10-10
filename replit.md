@@ -123,6 +123,39 @@ The application now includes a secure authentication system:
    - Removed "Patrocinios" from profile menu, kept only logout option
    - Created automated Node.js script (`update_navbars.js`) to apply changes consistently across entire project
 
+### Athlete CRUD Implementation (October 10, 2025)
+1. **Backend API Endpoints** (`/server/index.js`):
+   - `GET /api/athletes` - List all active athletes
+   - `GET /api/athletes/:id` - Get specific athlete details
+   - `POST /api/athletes` - Create new athlete with all fields
+   - `PUT /api/athletes/:id` - Update athlete information
+   - `DELETE /api/athletes/:id` - Soft delete (marks as inactive)
+   - All endpoints support: nombre, apellido, fecha_nacimiento, email, telefono, deporte_principal, genero, peso, altura, notas
+
+2. **Athlete Add Form** (`ATLETAS/Atletas AGREGAR.html`):
+   - Clean, simplified form with essential athlete fields
+   - Input validation and required field indicators
+   - Real-time API integration with success/error handling
+   - Redirect to athlete list after successful creation
+   - Icons: 💾 Save button, Cancel button with icon
+
+3. **Athlete List with Cards** (`ATLETAS/Atletas INICIO.html`):
+   - Replaced static table with dynamic card-based grid layout
+   - Real-time athlete loading from API
+   - Search functionality (by name, email, phone)
+   - Filter by sport (Carrera, Bici, Natación, Triatlón, Otro)
+   - Card displays: photo, name, age, email, phone, sport badge
+   - Action buttons per card: ✏️ Edit, 🗑️ Delete
+   - Sport-specific color coding for visual differentiation
+   - Responsive 3-column grid (adjusts to screen size)
+
+4. **UI Enhancements**:
+   - Added emoji icons to all interactive buttons (☰ menu, ✏️ edit, 🗑️ delete, 💾 save)
+   - Hover effects on athlete cards
+   - Color-coded sport badges
+   - Loading states and empty state messaging
+   - Confirmation dialogs for delete operations
+
 2. **Index page redesign:**
    - Replaced world map with ALL IN YOUR MIND logo
    - Removed "Actividades realizadas", "Actividades programadas", "Competiciones" sections
@@ -134,7 +167,7 @@ The application now includes a secure authentication system:
    - All console errors resolved - application runs cleanly
 
 ### Current State
-- ✅ Database schema created with users table
+- ✅ Database schema created with users table and atletas table
 - ✅ Backend server running on port 5000
 - ✅ Static files serving correctly
 - ✅ API adapter intercepting old routes
@@ -143,6 +176,12 @@ The application now includes a secure authentication system:
 - ✅ Logout properly clears authentication tokens
 - ✅ Navbar simplified across all 39 HTML pages consistently
 - ✅ All JavaScript console errors resolved
+- ✅ Complete athlete CRUD functionality implemented
+  - ✅ Create new athletes via form (ATLETAS/Atletas AGREGAR.html)
+  - ✅ List athletes in card-based layout with search and filters
+  - ✅ Edit athletes (integration with existing EDITAR page)
+  - ✅ Delete athletes (soft delete with confirmation)
+- ✅ UI enhanced with emoji icons on all interactive buttons
 - ⚠️ Some frontend features may need additional API endpoints
 - ⚠️ JWT verification middleware not yet implemented on protected routes (recommended for production)
 
