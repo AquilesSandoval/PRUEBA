@@ -1,8 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const { Pool } = require('@neondatabase/serverless');
-const ws = require('ws');
+const { Pool } = require('pg');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -11,8 +10,7 @@ const PORT = 5000;
 
 // Database connection
 const pool = new Pool({ 
-  connectionString: process.env.DATABASE_URL,
-  ws: ws
+  connectionString: process.env.DATABASE_URL
 });
 
 // Middleware
