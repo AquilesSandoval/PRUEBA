@@ -115,16 +115,23 @@ The application now includes a secure authentication system:
 5. Implemented secure login flow with token-based authentication
 
 ### UI Simplification (October 10, 2025)
-1. **Navbar cleanup:**
+1. **Navbar cleanup (applied to ALL 39 HTML files):**
    - Removed language selector
    - Removed "Lecciones" option
    - Removed "Progresión", "Personal", "Sesión" from Training menu
    - Removed "Dashboard" and "Perfiles" from main menu
    - Removed "Patrocinios" from profile menu, kept only logout option
+   - Created automated Node.js script (`update_navbars.js`) to apply changes consistently across entire project
+
 2. **Index page redesign:**
    - Replaced world map with ALL IN YOUR MIND logo
    - Removed "Actividades realizadas", "Actividades programadas", "Competiciones" sections
    - Kept only: Logo, "Mis pendientes", "Cumpleaños del Mes"
+
+3. **JavaScript error fixes:**
+   - Fixed DataTable initialization errors by adding existence checks
+   - Fixed Leaflet map errors by conditionally initializing map code only when map element exists
+   - All console errors resolved - application runs cleanly
 
 ### Current State
 - ✅ Database schema created with users table
@@ -134,6 +141,8 @@ The application now includes a secure authentication system:
 - ✅ Authentication system with login/logout flow working
 - ✅ JWT token generation with secure secret
 - ✅ Logout properly clears authentication tokens
+- ✅ Navbar simplified across all 39 HTML pages consistently
+- ✅ All JavaScript console errors resolved
 - ⚠️ Some frontend features may need additional API endpoints
 - ⚠️ JWT verification middleware not yet implemented on protected routes (recommended for production)
 
@@ -169,8 +178,7 @@ Frontend files are served statically. Changes take effect immediately (browser r
 
 ## Known Issues
 
-- DataTable library error in console (non-critical, doesn't affect core functionality)
-- Some advanced features from original PHP backend may need additional implementation
+- Some advanced features from original PHP backend may need additional API endpoints
 
 ## Architecture
 

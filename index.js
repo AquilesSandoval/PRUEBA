@@ -4,7 +4,7 @@ $(".filtro-programadas").hide();
 $('#btn-clean').prop("disabled", true);;
 $(".filtro").show();
 
-banderaReporte = 1; //1 = ACTIVIDADES RECIBIDAS 	|| 	2 = ACTIVIDADES PROGRAMADAS
+banderaReporte = 1; //1 = ACTIVIDADES RECIBIDAS         ||      2 = ACTIVIDADES PROGRAMADAS
 function selecciona(_opt) {
     banderaReporte = _opt;
     if (_opt == 1) {
@@ -378,34 +378,35 @@ $('#add_data').click(function() {
     });
 });
 
-var map = L.map('map').
-setView([29.108599233573933, -95.95890816533367], 3);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '<a href="#">AIYM</a> AIYM socios',
-    maxZoom: 16,
-}).addTo(map);
-L.control.scale().addTo(map);
-map.setZoom(4);
-map.on('popupopen', function(e) {
-    e.popup.highlight = L.circleMarker(e.popup.getLatLng(), {
-        radius: 15,
-        opacity: 0,
-        fillColor: "#000000",
-        fillOpacity: .3
+if (document.getElementById('map')) {
+    var map = L.map('map').
+    setView([29.108599233573933, -95.95890816533367], 3);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '<a href="#">AIYM</a> AIYM socios',
+        maxZoom: 16,
     }).addTo(map);
+    L.control.scale().addTo(map);
+    map.setZoom(4);
+    map.on('popupopen', function(e) {
+        e.popup.highlight = L.circleMarker(e.popup.getLatLng(), {
+            radius: 15,
+            opacity: 0,
+            fillColor: "#000000",
+            fillOpacity: .3
+        }).addTo(map);
 
-});
-map.on('popupclose', function(e) {
-    map.removeLayer(e.popup.highlight);
+    });
+    map.on('popupclose', function(e) {
+        map.removeLayer(e.popup.highlight);
 
-});
+    });
 
-var layers = [];
-var baselayers = {};
+    var layers = [];
+    var baselayers = {};
 
 
 
-var blueIcon = new L.Icon({
+    var blueIcon = new L.Icon({
     iconUrl: 'https://app.allinyourmind.es/web/require/marker/marker-icon-blue.png',
     shadowUrl: 'https://app.allinyourmind.es/web/require/marker/sombra_marker.png',
     iconSize: [25, 41],
@@ -420,7 +421,7 @@ var marker1212 = L.marker([15.501905309650002, -87.943791496875], {
 }).addTo(map);
 //marker1212.bindPopup("<br>AIYM HONDURAS").openPopup();
 marker1212.bindPopup("<br>AIYM HONDURAS");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -433,7 +434,7 @@ marker1212.bindPopup("<br>AIYM HONDURAS");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -452,8 +453,8 @@ marker1212.bindPopup("<br>AIYM HONDURAS");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-5.972061406242306);
 var marker1212 = L.marker([37.386559021646136, -5.972061406242306], {
@@ -461,7 +462,7 @@ var marker1212 = L.marker([37.386559021646136, -5.972061406242306], {
 }).addTo(map);
 //marker1212.bindPopup("<br>AIYM SEVILLA (ESP)").openPopup();
 marker1212.bindPopup("<br>AIYM SEVILLA (ESP)");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -474,7 +475,7 @@ marker1212.bindPopup("<br>AIYM SEVILLA (ESP)");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -493,8 +494,8 @@ marker1212.bindPopup("<br>AIYM SEVILLA (ESP)");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-0.10179295362650276);
 var marker1212 = L.marker([38.57693948004331, -0.10179295362650276], {
@@ -502,7 +503,7 @@ var marker1212 = L.marker([38.57693948004331, -0.10179295362650276], {
 }).addTo(map);
 //marker1212.bindPopup("<br>AIYM ALFÁS DEL PI").openPopup();
 marker1212.bindPopup("<br>AIYM ALFÁS DEL PI");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -515,7 +516,7 @@ marker1212.bindPopup("<br>AIYM ALFÁS DEL PI");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -534,8 +535,8 @@ marker1212.bindPopup("<br>AIYM ALFÁS DEL PI");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-88.0042163015625);
 var marker1212 = L.marker([15.496611910482272, -88.0042163015625], {
@@ -543,7 +544,7 @@ var marker1212 = L.marker([15.496611910482272, -88.0042163015625], {
 }).addTo(map);
 //marker1212.bindPopup("<br>HONDURAS").openPopup();
 marker1212.bindPopup("<br>HONDURAS");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -556,7 +557,7 @@ marker1212.bindPopup("<br>HONDURAS");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -575,8 +576,8 @@ marker1212.bindPopup("<br>HONDURAS");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-101.67944823515624);
 var marker1212 = L.marker([21.118372427767056, -101.67944823515624], {
@@ -584,7 +585,7 @@ var marker1212 = L.marker([21.118372427767056, -101.67944823515624], {
 }).addTo(map);
 //marker1212.bindPopup("<br>LEÓN").openPopup();
 marker1212.bindPopup("<br>LEÓN");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -597,7 +598,7 @@ marker1212.bindPopup("<br>LEÓN");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -616,8 +617,8 @@ marker1212.bindPopup("<br>LEÓN");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-101.69407207345607);
 var marker1212 = L.marker([21.16747503563404, -101.69407207345607], {
@@ -625,7 +626,7 @@ var marker1212 = L.marker([21.16747503563404, -101.69407207345607], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Leon").openPopup();
 marker1212.bindPopup("<br>Leon");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -638,7 +639,7 @@ marker1212.bindPopup("<br>Leon");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -657,8 +658,8 @@ marker1212.bindPopup("<br>Leon");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-1.0887766943025667);
 var marker1212 = L.marker([38.86417536306884, -1.0887766943025667], {
@@ -666,7 +667,7 @@ var marker1212 = L.marker([38.86417536306884, -1.0887766943025667], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Almansa").openPopup();
 marker1212.bindPopup("<br>Almansa");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -679,7 +680,7 @@ marker1212.bindPopup("<br>Almansa");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -698,8 +699,8 @@ marker1212.bindPopup("<br>Almansa");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-101.699934081895);
 var marker1212 = L.marker([21.178313714305396, -101.699934081895], {
@@ -707,7 +708,7 @@ var marker1212 = L.marker([21.178313714305396, -101.699934081895], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Leon").openPopup();
 marker1212.bindPopup("<br>Leon");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -720,7 +721,7 @@ marker1212.bindPopup("<br>Leon");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -739,8 +740,8 @@ marker1212.bindPopup("<br>Leon");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-99.14786767668787);
 var marker1212 = L.marker([19.468961982250384, -99.14786767668787], {
@@ -748,7 +749,7 @@ var marker1212 = L.marker([19.468961982250384, -99.14786767668787], {
 }).addTo(map);
 //marker1212.bindPopup("<br>CMDX").openPopup();
 marker1212.bindPopup("<br>CMDX");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -761,7 +762,7 @@ marker1212.bindPopup("<br>CMDX");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -780,8 +781,8 @@ marker1212.bindPopup("<br>CMDX");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-1.0862563991532692);
 var marker1212 = L.marker([38.875581147161526, -1.0862563991532692], {
@@ -789,7 +790,7 @@ var marker1212 = L.marker([38.875581147161526, -1.0862563991532692], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Almansa").openPopup();
 marker1212.bindPopup("<br>Almansa");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -802,7 +803,7 @@ marker1212.bindPopup("<br>Almansa");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -821,8 +822,8 @@ marker1212.bindPopup("<br>Almansa");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-99.17548206758708);
 var marker1212 = L.marker([19.58206678694643, -99.17548206758708], {
@@ -830,7 +831,7 @@ var marker1212 = L.marker([19.58206678694643, -99.17548206758708], {
 }).addTo(map);
 //marker1212.bindPopup("<br>CDMX Polanco").openPopup();
 marker1212.bindPopup("<br>CDMX Polanco");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -843,7 +844,7 @@ marker1212.bindPopup("<br>CDMX Polanco");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -862,8 +863,8 @@ marker1212.bindPopup("<br>CDMX Polanco");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(2.250299182412916);
 var marker1212 = L.marker([41.394547002944236, 2.250299182412916], {
@@ -871,7 +872,7 @@ var marker1212 = L.marker([41.394547002944236, 2.250299182412916], {
 }).addTo(map);
 //marker1212.bindPopup("<br>BARCELONA MAR").openPopup();
 marker1212.bindPopup("<br>BARCELONA MAR");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -884,7 +885,7 @@ marker1212.bindPopup("<br>BARCELONA MAR");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -903,8 +904,8 @@ marker1212.bindPopup("<br>BARCELONA MAR");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-5.981361614461329);
 var marker1212 = L.marker([37.37990527259824, -5.981361614461329], {
@@ -912,7 +913,7 @@ var marker1212 = L.marker([37.37990527259824, -5.981361614461329], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Sevilla").openPopup();
 marker1212.bindPopup("<br>Sevilla");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -925,7 +926,7 @@ marker1212.bindPopup("<br>Sevilla");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -944,8 +945,8 @@ marker1212.bindPopup("<br>Sevilla");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-0.5166149139404297);
 var marker1212 = L.marker([39.07441052863363, -0.5166149139404297], {
@@ -953,7 +954,7 @@ var marker1212 = L.marker([39.07441052863363, -0.5166149139404297], {
 }).addTo(map);
 //marker1212.bindPopup("<br>VG Training Squad").openPopup();
 marker1212.bindPopup("<br>VG Training Squad");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -966,7 +967,7 @@ marker1212.bindPopup("<br>VG Training Squad");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -985,8 +986,8 @@ marker1212.bindPopup("<br>VG Training Squad");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-3.6948474972414647);
 var marker1212 = L.marker([40.46085236623379, -3.6948474972414647], {
@@ -994,7 +995,7 @@ var marker1212 = L.marker([40.46085236623379, -3.6948474972414647], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Madrid").openPopup();
 marker1212.bindPopup("<br>Madrid");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1007,7 +1008,7 @@ marker1212.bindPopup("<br>Madrid");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1026,8 +1027,8 @@ marker1212.bindPopup("<br>Madrid");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-3.7088481256663286);
 var marker1212 = L.marker([40.60755292768381, -3.7088481256663286], {
@@ -1035,7 +1036,7 @@ var marker1212 = L.marker([40.60755292768381, -3.7088481256663286], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Sede Tricantina").openPopup();
 marker1212.bindPopup("<br>Sede Tricantina");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1048,7 +1049,7 @@ marker1212.bindPopup("<br>Sede Tricantina");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1067,8 +1068,8 @@ marker1212.bindPopup("<br>Sede Tricantina");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-3.8720136069807687);
 var marker1212 = L.marker([40.322555198987956, -3.8720136069807687], {
@@ -1076,7 +1077,7 @@ var marker1212 = L.marker([40.322555198987956, -3.8720136069807687], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Casa").openPopup();
 marker1212.bindPopup("<br>Casa");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1089,7 +1090,7 @@ marker1212.bindPopup("<br>Casa");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1108,8 +1109,8 @@ marker1212.bindPopup("<br>Casa");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-2.4392538785980555);
 var marker1212 = L.marker([42.41984538361533, -2.4392538785980555], {
@@ -1117,7 +1118,7 @@ var marker1212 = L.marker([42.41984538361533, -2.4392538785980555], {
 }).addTo(map);
 //marker1212.bindPopup("<br>LOGROÑO").openPopup();
 marker1212.bindPopup("<br>LOGROÑO");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1130,7 +1131,7 @@ marker1212.bindPopup("<br>LOGROÑO");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1149,8 +1150,8 @@ marker1212.bindPopup("<br>LOGROÑO");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-3.6222428324215983);
 var marker1212 = L.marker([40.56161432836043, -3.6222428324215983], {
@@ -1158,7 +1159,7 @@ var marker1212 = L.marker([40.56161432836043, -3.6222428324215983], {
 }).addTo(map);
 //marker1212.bindPopup("<br>San Sebastian de los Reyes").openPopup();
 marker1212.bindPopup("<br>San Sebastian de los Reyes");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1171,7 +1172,7 @@ marker1212.bindPopup("<br>San Sebastian de los Reyes");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1190,8 +1191,8 @@ marker1212.bindPopup("<br>San Sebastian de los Reyes");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-3.5872772634137062);
 var marker1212 = L.marker([37.12103886343926, -3.5872772634137062], {
@@ -1199,7 +1200,7 @@ var marker1212 = L.marker([37.12103886343926, -3.5872772634137062], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Mi Ubicación").openPopup();
 marker1212.bindPopup("<br>Mi Ubicación");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1212,7 +1213,7 @@ marker1212.bindPopup("<br>Mi Ubicación");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1231,8 +1232,8 @@ marker1212.bindPopup("<br>Mi Ubicación");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-3.4918871999999945);
 var marker1212 = L.marker([39.10069267966064, -3.4918871999999945], {
@@ -1240,7 +1241,7 @@ var marker1212 = L.marker([39.10069267966064, -3.4918871999999945], {
 }).addTo(map);
 //marker1212.bindPopup("<br>iñaki").openPopup();
 marker1212.bindPopup("<br>iñaki");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1253,7 +1254,7 @@ marker1212.bindPopup("<br>iñaki");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1272,8 +1273,8 @@ marker1212.bindPopup("<br>iñaki");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-3.0100924095440518);
 var marker1212 = L.marker([43.335663010185, -3.0100924095440518], {
@@ -1281,7 +1282,7 @@ var marker1212 = L.marker([43.335663010185, -3.0100924095440518], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Getxo").openPopup();
 marker1212.bindPopup("<br>Getxo");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1294,7 +1295,7 @@ marker1212.bindPopup("<br>Getxo");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1313,8 +1314,8 @@ marker1212.bindPopup("<br>Getxo");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-1.2265761101818784);
 var marker1212 = L.marker([37.97021880548774, -1.2265761101818784], {
@@ -1322,7 +1323,7 @@ var marker1212 = L.marker([37.97021880548774, -1.2265761101818784], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Pepe RN").openPopup();
 marker1212.bindPopup("<br>Pepe RN");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1335,7 +1336,7 @@ marker1212.bindPopup("<br>Pepe RN");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1354,8 +1355,8 @@ marker1212.bindPopup("<br>Pepe RN");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-4.6496606517915335);
 var marker1212 = L.marker([37.99495506341999, -4.6496606517915335], {
@@ -1363,7 +1364,7 @@ var marker1212 = L.marker([37.99495506341999, -4.6496606517915335], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Jaen").openPopup();
 marker1212.bindPopup("<br>Jaen");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1376,7 +1377,7 @@ marker1212.bindPopup("<br>Jaen");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1395,8 +1396,8 @@ marker1212.bindPopup("<br>Jaen");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-5.573006808372365);
 var marker1212 = L.marker([42.646539449189454, -5.573006808372365], {
@@ -1404,7 +1405,7 @@ var marker1212 = L.marker([42.646539449189454, -5.573006808372365], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Leon").openPopup();
 marker1212.bindPopup("<br>Leon");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1417,7 +1418,7 @@ marker1212.bindPopup("<br>Leon");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1436,8 +1437,8 @@ marker1212.bindPopup("<br>Leon");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-3.010938913171106);
 var marker1212 = L.marker([43.3103885644718, -3.010938913171106], {
@@ -1445,7 +1446,7 @@ var marker1212 = L.marker([43.3103885644718, -3.010938913171106], {
 }).addTo(map);
 //marker1212.bindPopup("<br>PORTUGALETE(BILBAO)").openPopup();
 marker1212.bindPopup("<br>PORTUGALETE(BILBAO)");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1458,7 +1459,7 @@ marker1212.bindPopup("<br>PORTUGALETE(BILBAO)");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1477,8 +1478,8 @@ marker1212.bindPopup("<br>PORTUGALETE(BILBAO)");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-0.7532736430726783);
 var marker1212 = L.marker([38.877186500837254, -0.7532736430726783], {
@@ -1486,7 +1487,7 @@ var marker1212 = L.marker([38.877186500837254, -0.7532736430726783], {
 }).addTo(map);
 //marker1212.bindPopup("<br>GUERRER DE MOIXENT").openPopup();
 marker1212.bindPopup("<br>GUERRER DE MOIXENT");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1499,7 +1500,7 @@ marker1212.bindPopup("<br>GUERRER DE MOIXENT");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1518,8 +1519,8 @@ marker1212.bindPopup("<br>GUERRER DE MOIXENT");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-96.10059981147153);
 var marker1212 = L.marker([19.101098691881376, -96.10059981147153], {
@@ -1527,7 +1528,7 @@ var marker1212 = L.marker([19.101098691881376, -96.10059981147153], {
 }).addTo(map);
 //marker1212.bindPopup("<br>VERACRUZ").openPopup();
 marker1212.bindPopup("<br>VERACRUZ");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1540,7 +1541,7 @@ marker1212.bindPopup("<br>VERACRUZ");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1559,8 +1560,8 @@ marker1212.bindPopup("<br>VERACRUZ");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-16.312932121874994);
 var marker1212 = L.marker([28.454732260643475, -16.312932121874994], {
@@ -1568,7 +1569,7 @@ var marker1212 = L.marker([28.454732260643475, -16.312932121874994], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Tenerife España").openPopup();
 marker1212.bindPopup("<br>Tenerife España");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1581,7 +1582,7 @@ marker1212.bindPopup("<br>Tenerife España");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1600,8 +1601,8 @@ marker1212.bindPopup("<br>Tenerife España");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-91.78950791567846);
 var marker1212 = L.marker([18.65076142938692, -91.78950791567846], {
@@ -1609,7 +1610,7 @@ var marker1212 = L.marker([18.65076142938692, -91.78950791567846], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Isla de Tris").openPopup();
 marker1212.bindPopup("<br>Isla de Tris");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1622,7 +1623,7 @@ marker1212.bindPopup("<br>Isla de Tris");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1641,8 +1642,8 @@ marker1212.bindPopup("<br>Isla de Tris");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-96.09634510003983);
 var marker1212 = L.marker([19.087344163491583, -96.09634510003983], {
@@ -1650,7 +1651,7 @@ var marker1212 = L.marker([19.087344163491583, -96.09634510003983], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Veracruz").openPopup();
 marker1212.bindPopup("<br>Veracruz");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1663,7 +1664,7 @@ marker1212.bindPopup("<br>Veracruz");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1682,8 +1683,8 @@ marker1212.bindPopup("<br>Veracruz");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-3.2564146693292817);
 var marker1212 = L.marker([42.21214727186062, -3.2564146693292817], {
@@ -1691,7 +1692,7 @@ var marker1212 = L.marker([42.21214727186062, -3.2564146693292817], {
 }).addTo(map);
 //marker1212.bindPopup("<br>Pamplona").openPopup();
 marker1212.bindPopup("<br>Pamplona");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1704,7 +1705,7 @@ marker1212.bindPopup("<br>Pamplona");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1723,8 +1724,8 @@ marker1212.bindPopup("<br>Pamplona");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-86.81864951794081);
 var marker1212 = L.marker([21.16234132374795, -86.81864951794081], {
@@ -1732,7 +1733,7 @@ var marker1212 = L.marker([21.16234132374795, -86.81864951794081], {
 }).addTo(map);
 //marker1212.bindPopup("<br>CANCÚN").openPopup();
 marker1212.bindPopup("<br>CANCÚN");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1745,7 +1746,7 @@ marker1212.bindPopup("<br>CANCÚN");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1764,8 +1765,8 @@ marker1212.bindPopup("<br>CANCÚN");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-86.8443867945704);
 var marker1212 = L.marker([21.11973310816566, -86.8443867945704], {
@@ -1773,7 +1774,7 @@ var marker1212 = L.marker([21.11973310816566, -86.8443867945704], {
 }).addTo(map);
 //marker1212.bindPopup("<br>cancun").openPopup();
 marker1212.bindPopup("<br>cancun");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1786,7 +1787,7 @@ marker1212.bindPopup("<br>cancun");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1805,8 +1806,8 @@ marker1212.bindPopup("<br>cancun");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-87.61896020573303);
 var marker1212 = L.marker([41.88912088288811, -87.61896020573303], {
@@ -1814,7 +1815,7 @@ var marker1212 = L.marker([41.88912088288811, -87.61896020573303], {
 }).addTo(map);
 //marker1212.bindPopup("<br>AIYM CHICAGO").openPopup();
 marker1212.bindPopup("<br>AIYM CHICAGO");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1827,7 +1828,7 @@ marker1212.bindPopup("<br>AIYM CHICAGO");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1846,8 +1847,8 @@ marker1212.bindPopup("<br>AIYM CHICAGO");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 console.log(-90.51028602437903);
 var marker1212 = L.marker([19.853745823077602, -90.51028602437903], {
@@ -1855,7 +1856,7 @@ var marker1212 = L.marker([19.853745823077602, -90.51028602437903], {
 }).addTo(map);
 //marker1212.bindPopup("<br>AIYM CAMPECHE").openPopup();
 marker1212.bindPopup("<br>AIYM CAMPECHE");
-	
+        
   // Mostrar el popup al pasar el mouse sobre el marcador
   marker1212.on('mouseover', function(e) {
     this.openPopup();
@@ -1868,7 +1869,7 @@ marker1212.bindPopup("<br>AIYM CAMPECHE");
 
   // 
   marker1212.on('click', function(e) {
-	  console.log("EEEE", e);
+          console.log("EEEE", e);
     let lat = e.latlng.lat;
     let lng = e.latlng.lng;
     let titulo = e.content;
@@ -1887,12 +1888,12 @@ marker1212.bindPopup("<br>AIYM CAMPECHE");
                 window.location.reload();
             },
             error: function(data) {},
-		});
-	}
+                });
+        }
   });
 
 map.on('click', function(e) {
-	//alert(2);
+        //alert(2);
     lat = e.latlng.lat;
     lng = e.latlng.lng;
     $('#latitud').val(lat);
@@ -1901,7 +1902,7 @@ map.on('click', function(e) {
 
 });
 map.on('popupopen', function(e) {
-	return;
+        return;
     let text;
     let lat = e.popup._latlng.lat;
     let lng = e.popup._latlng.lng;
@@ -1931,39 +1932,47 @@ map.on('popupopen', function(e) {
     console.log(e.popup._content);
     console.log(e.popup._latlng);
 });
+}
 
 $(document).ready(function() {
-    $('#basic-datatables').DataTable({});
+    if (typeof $.fn.DataTable !== 'undefined') {
+        if ($('#basic-datatables').length) {
+            $('#basic-datatables').DataTable({});
+        }
 
-    $('#multi-filter-select').DataTable({
-        "pageLength": 5,
-        initComplete: function() {
-            this.api().columns().every(function() {
-                var column = this;
-                var select = $(
-                        '<select class="form-control"><option value=""></option></select>')
-                    .appendTo($(column.footer()).empty())
-                    .on('change', function() {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
+        if ($('#multi-filter-select').length) {
+            $('#multi-filter-select').DataTable({
+                "pageLength": 5,
+                initComplete: function() {
+                    this.api().columns().every(function() {
+                        var column = this;
+                        var select = $(
+                                '<select class="form-control"><option value=""></option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
 
-                        column
-                            .search(val ? '^' + val + '$' : '', true, false)
-                            .draw();
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function(d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
                     });
-
-                column.data().unique().sort().each(function(d, j) {
-                    select.append('<option value="' + d + '">' + d + '</option>')
-                });
+                }
             });
         }
-    });
 
-    // Add Row
-    $('#add-row').DataTable({
-        "pageLength": 5,
-    });
+        if ($('#add-row').length) {
+            $('#add-row').DataTable({
+                "pageLength": 5,
+            });
+        }
+    }
 
     var action =
         '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
