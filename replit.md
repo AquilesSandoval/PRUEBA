@@ -148,7 +148,6 @@ The application now includes a secure authentication system:
    - Minimalist Font Awesome icons for all buttons
 
 3. **Athlete List with Cards** (`ATLETAS/Atletas INICIO.html`):
-   - Added 4 empty placeholder cards at top of page with minimalist icons
    - Replaced static table with dynamic card-based grid layout
    - Real-time athlete loading from API
    - Search functionality (by name, email, phone)
@@ -158,19 +157,28 @@ The application now includes a secure authentication system:
    - Sport-specific color coding for visual differentiation
    - Responsive 3-column grid (adjusts to screen size)
 
-4. **UI Enhancements & Icon Updates**:
-   - Replaced ALL emoji icons with minimalist Font Awesome icons
-   - Menu hamburguesa: <i class="fas fa-bars"> instead of ☰ emoji
-   - Edit button: <i class="fas fa-edit"> instead of ✏️ emoji
-   - Delete button: <i class="fas fa-trash"> instead of 🗑️ emoji
-   - Save button: <i class="fas fa-save"> instead of 💾 emoji
+4. **Athlete Edit Form** (`ATLETAS/EDITAR/Atletas Editar.html` & `Atletas Editar.js`):
+   - Migrated from old PHP/Yii framework to new Express API
+   - Uses `PUT /api/athletes/:id` endpoint for updates
+   - Loads athlete data from API on page load
+   - Email validation and required field checking
+   - Real-time API integration with success/error handling
+   - Redirect to athlete list after successful update
+   - Delete functionality integrated with confirmation dialog
+
+5. **UI Enhancements & Icon Updates**:
+   - Replaced emoji icons with minimalist Font Awesome icons where appropriate
+   - Menu hamburguesa: Restored original <i class="icon-options-vertical"> icon (3 vertical dots)
+   - Edit button: <i class="fas fa-edit"> on athlete cards
+   - Delete button: <i class="fas fa-trash"> on athlete cards
+   - Save button: <i class="fa fa-check"> in edit form
    - Modern Inter font applied across all pages (assets/modern-font.css)
    - Hover effects on athlete cards
    - Color-coded sport badges
    - Loading states and empty state messaging
    - Confirmation dialogs for delete operations
 
-5. **Index page redesign:**
+6. **Index page redesign:**
    - Replaced world map with ALL IN YOUR MIND logo
    - Kept "Mis pendientes" card with "Añadir pendiente" button
    - Kept "Cumpleaños del Mes" card
