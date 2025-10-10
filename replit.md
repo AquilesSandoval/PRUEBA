@@ -71,9 +71,34 @@ The backend provides REST API endpoints:
 
 The `api-adapter.js` file provides compatibility between the old PHP routes and new Express API. It intercepts AJAX calls from the original frontend and redirects them to the new backend.
 
+## Authentication
+
+The application now includes a secure authentication system:
+
+### Login Credentials (Development)
+- **Username**: `admin`
+- **Password**: `admin123`
+- **Role**: Admin
+
+### Authentication Features
+- JWT-based authentication with 24-hour token expiration
+- Bcrypt password hashing for security
+- Session persistence with "Remember Me" functionality
+- Login page with custom background image
+- Logout functionality redirects to login page
+
+### Database Tables
+- `users` - User authentication and profile information
+  - Fields: id, username, password_hash, email, nombre, rol, activo
+
+### API Endpoints
+- `POST /api/login` - Authenticate user and receive JWT token
+  - Request: `{ username, password }`
+  - Response: `{ success, token, user }`
+
 ## Recent Changes
 
-**Date**: October 9, 2025
+**Date**: October 9-10, 2025
 
 ### Migration from PHP/Yii to Node.js/Express
 1. Created PostgreSQL database with complete schema
@@ -82,11 +107,20 @@ The `api-adapter.js` file provides compatibility between the old PHP routes and 
 4. Configured static file serving
 5. Set up workflow to run on port 5000
 
+### Authentication System Implementation
+1. Created `users` table in database
+2. Added JWT authentication with bcrypt password hashing
+3. Created login page with custom background image
+4. Updated all "Salir" (logout) buttons to redirect to login
+5. Implemented secure login flow with token-based authentication
+
 ### Current State
-- ✅ Database schema created
+- ✅ Database schema created with users table
 - ✅ Backend server running on port 5000
 - ✅ Static files serving correctly
 - ✅ API adapter intercepting old routes
+- ✅ Authentication system fully functional
+- ✅ Login/logout flow working correctly
 - ⚠️ Some frontend features may need additional API endpoints
 
 ## Running the Application

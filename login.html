@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ES-es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aiym Panel</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <link rel="icon" type="image/png" href="assets/favicon-32x32.png">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900">
+    <link href="assets/fonts.min.css" rel="stylesheet">
+    <link href="assets/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/atlantis2.css" rel="stylesheet">
+    
+    <style>
+        body.login {
+            background-image: url('assets/login-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .wrapper-login {
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .container-login {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body class="login">
+    <div class="wrapper wrapper-login">
+        <div class="container container-login animated fadeIn" style="display: block;">
+            <h3 class="text-center">ALL IN YOUR MIND</h3>
+            <br>
+            <form id="login-form" action="/api/login" method="post">
+                <div class="login-form">
+                    <div class="form-group form-floating-label">
+                        <input type="text" class="form-control input-border-bottom" id="loginform-username" required="required" name="username" autofocus="" aria-required="true" autocomplete="off">
+                        <label for="loginform-username" class="placeholder">Usuario</label>
+                    </div>
+                    <div class="form-group form-floating-label">
+                        <input type="password" id="loginform-password" autocomplete="off" required="required" class="form-control input-border-bottom" name="password" aria-required="true">
+                        <label for="loginform-password" class="placeholder">Contraseña</label>
+                        <div class="show-password">
+                            <i class="icon-eye"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-12" style="margin-top: 10px;">
+                    </div>
+                    <div class="form-group form-floating-label">
+                        <input type="checkbox" id="loginform-rememberme" name="rememberMe" value="1" checked="">
+                        <label style="color: #5A5A5A !important; font-size: 14px !important;" for="loginform-rememberme">Recuerdame</label>
+                    </div>
+                    
+                    <div class="form-action mb-3">
+                        <button type="submit" class="btn btn-primary btn-rounded btn-login">Ingresar ahora</button>
+                    </div>
+                    <div class="login-account">
+                        <span class="msg">Derechos reservados © ALL IN YOUR MIND</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="assets/jquery.min.js.descarga"></script>
+    <script src="assets/bootstrap.min.js.descarga"></script>
+    <script src="assets/atlantis2.min.js.descarga"></script>
+    
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('loginform-username').value;
+            const password = document.getElementById('loginform-password').value;
+            const rememberMe = document.getElementById('loginform-rememberme').checked;
+            
+            const submitButton = this.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Ingresando...';
+            
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    if (rememberMe) {
+                        localStorage.setItem('aiym_token', data.token);
+                        localStorage.setItem('aiym_user', JSON.stringify(data.user));
+                    } else {
+                        sessionStorage.setItem('aiym_token', data.token);
+                        sessionStorage.setItem('aiym_user', JSON.stringify(data.user));
+                    }
+                    
+                    window.location.href = '/index.html';
+                } else {
+                    alert(data.message || 'Error al iniciar sesión');
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Ingresar ahora';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error de conexión. Por favor, intente nuevamente.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Ingresar ahora';
+            }
+        });
+    </script>
+<script src="/logout.js"></script>
+</body>
+</html>

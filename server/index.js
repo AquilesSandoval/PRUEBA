@@ -3,6 +3,8 @@ const cors = require('cors');
 const path = require('path');
 const { Pool } = require('@neondatabase/serverless');
 const ws = require('ws');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 const PORT = 5000;
@@ -20,6 +22,82 @@ app.use(express.urlencoded({ extended: true }));
 
 // Serve static files (frontend)
 app.use(express.static(path.join(__dirname, '..')));
+
+// JWT Secret - MUST be set via environment variable
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  console.error('FATAL: JWT_SECRET environment variable is not set!');
+  console.error('Authentication cannot function without a secure JWT secret.');
+  console.error('Please set the JWT_SECRET environment variable and restart the server.');
+  process.exit(1);
+}
+
+// Authentication endpoint
+app.post('/api/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    
+    if (!username || !password) {
+      return res.status(400).json({ 
+        success: false, 
+        message: 'Usuario y contraseña son requeridos' 
+      });
+    }
+
+    const result = await pool.query(
+      'SELECT * FROM users WHERE username = $1 AND activo = true',
+      [username]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(401).json({ 
+        success: false, 
+        message: 'Usuario o contraseña incorrectos' 
+      });
+    }
+
+    const user = result.rows[0];
+    const validPassword = await bcrypt.compare(password, user.password_hash);
+
+    if (!validPassword) {
+      return res.status(401).json({ 
+        success: false, 
+        message: 'Usuario o contraseña incorrectos' 
+      });
+    }
+
+    const token = jwt.sign(
+      { 
+        id: user.id, 
+        username: user.username, 
+        rol: user.rol 
+      },
+      JWT_SECRET_KEY,
+      { expiresIn: '24h' }
+    );
+
+    res.json({
+      success: true,
+      message: 'Login exitoso',
+      token: token,
+      user: {
+        id: user.id,
+        username: user.username,
+        nombre: user.nombre,
+        email: user.email,
+        rol: user.rol
+      }
+    });
+
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Error en el servidor' 
+    });
+  }
+});
 
 // API Routes
 
