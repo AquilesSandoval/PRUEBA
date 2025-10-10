@@ -16,6 +16,60 @@
     <link rel="stylesheet" href="../assets/alertif.min.css">
     <link rel="stylesheet" href="EDITAR/Atletas Editar.css">
     
+    <style>
+        /* Toggle Switch CSS */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+        }
+        
+        input:checked + .slider {
+            background-color: #19b2eb;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        .slider.round {
+            border-radius: 24px;
+        }
+        
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+    
     <script src="../assets/jquery-2.1.4.js.descarga"></script>
 </head>
 
@@ -180,20 +234,36 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-                                                    <label class="control-label" for="fecha_nacimiento">Fecha Nacimiento</label>
+                                                    <label class="control-label" for="fecha_nacimiento">Fecha Nacimiento *</label>
                                                     <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control form-control-sm">
                                                 </div>
                                             </div>
                                         </div>
                                         
-                                        <!-- Row 2: Email, Telefono, Genero -->
+                                        <!-- Row 2: Empresa, Correo, Contraseña -->
                                         <div class="row">
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-                                                    <label class="control-label" for="email">Correo Electrónico</label>
+                                                    <label class="control-label" for="empresa">Empresa</label>
+                                                    <input type="text" id="empresa" name="empresa" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="email">Correo *</label>
                                                     <input type="email" id="email" name="email" class="form-control form-control-sm">
                                                 </div>
                                             </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="password">Contraseña *</label>
+                                                    <input type="password" id="password" name="password" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Row 3: Teléfono, Forma, Fatiga -->
+                                        <div class="row">
                                             <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label class="control-label" for="telefono">Teléfono</label>
@@ -202,22 +272,60 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-                                                    <label class="control-label" for="genero">Género</label>
-                                                    <select id="genero" name="genero" class="form-control form-control-sm">
+                                                    <label class="control-label" for="forma">Forma</label>
+                                                    <input type="text" id="forma" name="forma" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="fatiga">Fatiga</label>
+                                                    <input type="text" id="fatiga" name="fatiga" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Row 4: Default Control Zonas para Carrera, Natación, Ciclismo -->
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="zona_carrera">Default Control Zonas para Carrera</label>
+                                                    <select id="zona_carrera" name="zona_carrera" class="form-control form-control-sm">
                                                         <option value="">-- Selecciona --</option>
-                                                        <option value="M">Masculino</option>
-                                                        <option value="F">Femenino</option>
-                                                        <option value="Otro">Otro</option>
+                                                        <option value="FC">FC</option>
+                                                        <option value="Potencia">Potencia</option>
+                                                        <option value="Velocidad">Velocidad</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="zona_natacion">Default Control Zonas para Natación</label>
+                                                    <select id="zona_natacion" name="zona_natacion" class="form-control form-control-sm">
+                                                        <option value="">-- Selecciona --</option>
+                                                        <option value="FC">FC</option>
+                                                        <option value="Potencia">Potencia</option>
+                                                        <option value="Velocidad">Velocidad</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="zona_ciclismo">Default Control Zonas para Ciclismo</label>
+                                                    <select id="zona_ciclismo" name="zona_ciclismo" class="form-control form-control-sm">
+                                                        <option value="">-- Selecciona --</option>
+                                                        <option value="FC">FC</option>
+                                                        <option value="Potencia">Potencia</option>
+                                                        <option value="Velocidad">Velocidad</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                         
-                                        <!-- Row 3: Deporte Principal, Peso, Altura -->
+                                        <!-- Row 5: Deporte, Tipo de Contrato -->
                                         <div class="row">
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-                                                    <label class="control-label" for="deporte_principal">Deporte Principal</label>
+                                                    <label class="control-label" for="deporte_principal">Deporte</label>
                                                     <select id="deporte_principal" name="deporte_principal" class="form-control form-control-sm">
                                                         <option value="">-- Selecciona --</option>
                                                         <option value="Carrera">Carrera</option>
@@ -230,36 +338,151 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-                                                    <label class="control-label" for="peso">Peso (kg)</label>
-                                                    <input type="number" id="peso" name="peso" class="form-control form-control-sm" step="0.1" min="0">
+                                                    <label class="control-label" for="tipo_contrato">Tipo de contrato</label>
+                                                    <select id="tipo_contrato" name="tipo_contrato" class="form-control form-control-sm">
+                                                        <option value="">-- Selecciona --</option>
+                                                        <option value="Mensual">Mensual</option>
+                                                        <option value="Trimestral">Trimestral</option>
+                                                        <option value="Semestral">Semestral</option>
+                                                        <option value="Anual">Anual</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-                                                    <label class="control-label" for="altura">Altura (cm)</label>
-                                                    <input type="number" id="altura" name="altura" class="form-control form-control-sm" step="1" min="0">
+                                                    <label class="control-label">Activo</label><br>
+                                                    <label class="switch">
+                                                        <input type="checkbox" id="activo" name="activo" checked>
+                                                        <span class="slider round"></span>
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
                                         
-                                        <!-- Row 4: Notas -->
+                                        <!-- Row 6: Contacto emergencia 1 -->
                                         <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-sm-4">
                                                 <div class="form-group">
-                                                    <label class="control-label" for="notas">Notas / Observaciones</label>
-                                                    <textarea id="notas" name="notas" class="form-control" rows="3"></textarea>
+                                                    <label class="control-label" for="contacto_emergencia1">Contacto emergencia</label>
+                                                    <input type="text" id="contacto_emergencia1" name="contacto_emergencia1" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="telefono_emergencia1">Teléfono emergencia</label>
+                                                    <input type="text" id="telefono_emergencia1" name="telefono_emergencia1" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="parentesco1">Parentesco</label>
+                                                    <input type="text" id="parentesco1" name="parentesco1" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Row 7: Contacto emergencia 2 -->
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="contacto_emergencia2">Contacto emergencia</label>
+                                                    <input type="text" id="contacto_emergencia2" name="contacto_emergencia2" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="telefono_emergencia2">Teléfono emergencia</label>
+                                                    <input type="text" id="telefono_emergencia2" name="telefono_emergencia2" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="parentesco2">Parentesco</label>
+                                                    <input type="text" id="parentesco2" name="parentesco2" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Row 8: Tipo de sangre, Alergias, Datos gastos médicos -->
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="tipo_sangre">Tipo de sangre</label>
+                                                    <input type="text" id="tipo_sangre" name="tipo_sangre" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="alergias">Alergias a medicamentos</label>
+                                                    <input type="text" id="alergias" name="alergias" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="gastos_medicos">Datos Según Gastos Médicos</label>
+                                                    <input type="text" id="gastos_medicos" name="gastos_medicos" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Row 9: Hospital, Número Afiliación -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="hospital">Hospital al que trasladar</label>
+                                                    <input type="text" id="hospital" name="hospital" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="numero_federacion">Número Afiliación Federación</label>
+                                                    <input type="text" id="numero_federacion" name="numero_federacion" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Row 10: Archivos - Foto, Concierto, Electrocardiograma -->
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="foto">Foto</label>
+                                                    <div class="text-center mb-2">
+                                                        <img src="../athlete/default.png" id="foto_preview" alt="Foto" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+                                                    </div>
+                                                    <input type="file" id="foto" name="foto" class="form-control-file" accept="image/*">
+                                                    <button type="button" class="btn btn-sm btn-secondary mt-1" onclick="document.getElementById('foto').click()">Seleccionar archivo</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="concierto">Concierto</label>
+                                                    <div class="text-center mb-2">
+                                                        <i class="fas fa-file-pdf" style="font-size: 60px; color: #999;"></i>
+                                                    </div>
+                                                    <input type="file" id="concierto" name="concierto" class="form-control-file" accept=".pdf,.doc,.docx">
+                                                    <button type="button" class="btn btn-sm btn-secondary mt-1" onclick="document.getElementById('concierto').click()">Seleccionar archivo</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="electrocardiograma">Electrocardiograma</label>
+                                                    <div class="text-center mb-2">
+                                                        <i class="fas fa-heartbeat" style="font-size: 60px; color: #999;"></i>
+                                                    </div>
+                                                    <input type="file" id="electrocardiograma" name="electrocardiograma" class="form-control-file" accept=".pdf,.doc,.docx,image/*">
+                                                    <button type="button" class="btn btn-sm btn-secondary mt-1" onclick="document.getElementById('electrocardiograma').click()">Seleccionar archivo</button>
                                                 </div>
                                             </div>
                                         </div>
                                         
                                         <!-- Submit Button -->
-                                        <div class="row">
+                                        <div class="row mt-4">
                                             <div class="col-sm-12 text-right">
                                                 <button type="button" class="btn btn-secondary mr-2" onclick="window.location.href='Atletas INICIO.html'">
-                                                    <i class="icon-close"></i> Cancelar
+                                                    <i class="fas fa-times"></i> Cancelar
                                                 </button>
                                                 <button type="submit" class="btn btn-info">
-                                                    💾 Guardar Atleta
+                                                    <i class="fas fa-save"></i> Guardar Atleta
                                                 </button>
                                             </div>
                                         </div>
