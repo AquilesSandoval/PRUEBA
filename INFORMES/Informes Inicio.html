@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ES-es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aiym Panel :: AIYM YUC</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <link rel="icon" type="image/png" href="../assets/favicon-32x32.png">
+    
+    <!-- CSS Files -->
+    <link href="../assets/fonts.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/atlantis2.css" rel="stylesheet">
+    <link href="../assets/demo.css" rel="stylesheet">
+    <link href="../assets/sweetalert.min.js.descarga" rel="stylesheet">
+    
+    <style>
+        .athlete-row {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+        .btn-action {
+            margin: 2px;
+            padding: 5px 15px;
+            font-size: 13px;
+        }
+        .filter-buttons {
+            margin-bottom: 20px;
+        }
+        .btn-filter {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body data-background-color="bg3">
+    <div class="wrapper page-container">
+        <!-- Header -->
+        <div class="main-header" data-background-color="white">
+            <div class="nav-top">
+                <div class="container d-flex flex-row">
+                    <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+                    <a class="logo d-flex align-items-center" href="../index.html">
+                        <img src="../assets/logo_all.png" alt="logo" class="navbar-brand">
+                    </a>
+                    
+                    <nav class="navbar navbar-header navbar-expand-lg p-0">
+                        <div class="container-fluid p-0">
+                            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                                <!-- Training Menu -->
+                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false" title="Entrenamientos">
+                                        <img src="../assets/menu_entrenamientos.png" style="width: 28px;">
+                                    </a>
+                                    <div class="dropdown-menu quick-actions quick-actions-info animated fadeIn">
+                                        <div class="quick-actions-scroll scrollbar-outer">
+                                            <div class="quick-actions-items">
+                                                <div class="row m-0">
+                                                    <a class="col-6 col-md-4 p-0" href="../POSIBLES NO NECESARIOS/EJERCICIO/EJERCICIO INICIO.html">
+                                                        <div class="quick-actions-item">
+                                                            <img src="../assets/m_ejercicio.png" style="width: 40px;">
+                                                            <span class="text">Ejercicio</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="col-6 col-md-4 p-0" href="../POSIBLES NO NECESARIOS/Circuitos/INICIO CIRCUITO.html">
+                                                        <div class="quick-actions-item">
+                                                            <img src="../assets/m_circuito.png" style="width: 40px;">
+                                                            <span class="text">Circuito</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="col-6 col-md-4 p-0" href="../POSIBLES NO NECESARIOS/DRILLS/INICIO DRILLS.html">
+                                                        <div class="quick-actions-item">
+                                                            <img src="../assets/drills.svg" style="width: 32px;">
+                                                            <span class="text">Drills</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="col-6 col-md-4 p-0" href="../MICRO/INICIO MICRO.html">
+                                                        <div class="quick-actions-item">
+                                                            <img src="../assets/m_micro.png" style="width: 40px;">
+                                                            <span class="text">Microciclo</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="col-6 col-md-4 p-0" href="../MESO/INICIO MESO.html">
+                                                        <div class="quick-actions-item">
+                                                            <img src="../assets/m_meso.png" style="width: 40px;">
+                                                            <span class="text">Mesociclo</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="col-6 col-md-4 p-0" href="../MACRO/INICIO MACRO.html">
+                                                        <div class="quick-actions-item">
+                                                            <img src="../assets/m_macro.png" style="width: 40px;">
+                                                            <span class="text">Macrociclo</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <!-- Main Menu -->
+                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false" title="Menu">
+                                        <img src="../assets/menu_menu.png" style="width: 28px;">
+                                    </a>
+                                    <div class="dropdown-menu quick-actions quick-actions-info animated fadeIn">
+                                        <div class="quick-actions-scroll scrollbar-outer">
+                                            <div class="quick-actions-items">
+                                                <div class="row m-0">
+                                                    <a class="col-6 col-md-4 p-0" href="../index.html">
+                                                        <div class="quick-actions-item">
+                                                            <img src="../assets/m_inicio.png" style="width: 40px;">
+                                                            <span class="text">Inicio</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="col-6 col-md-4 p-0" href="../ATLETAS/Atletas INICIO.html">
+                                                        <div class="quick-actions-item">
+                                                            <img src="../assets/m_atletas.png" style="width: 40px;">
+                                                            <span class="text">Atletas</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="col-6 col-md-4 p-0" href="Informes Inicio.html">
+                                                        <div class="quick-actions-item">
+                                                            <img src="../assets/d_informes.png" style="width: 40px;">
+                                                            <span class="text">Informes</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <!-- User Menu -->
+                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+                                        <div style="float: left; padding: 10px; color: #535353;">| YUC</div>
+                                        <div class="avatar-sm" style="float: left;">
+                                            <img src="../assets/user_242.png" alt="..." class="avatar-img rounded-circle">
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user animated fadeIn">
+                                        <div class="dropdown-user-scroll scrollbar-outer">
+                                            <li>
+                                                <a class="dropdown-item" href="../login.html">Salir</a>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-panel" style="width: 100%;">
+            <div class="content">
+                <div class="container">
+                    <!-- Page Title -->
+                    <div class="page-inner">
+                        <div class="page-header">
+                            <h4 class="page-title">
+                                <i class="fas fa-chart-bar"></i> Informes  
+                                <i class="fas fa-angle-right" style="font-size: 14px;"></i> 
+                                Consulta
+                            </h4>
+                        </div>
+
+                        <!-- Filter Buttons -->
+                        <div class="filter-buttons">
+                            <button class="btn btn-primary btn-filter" onclick="window.location.href='Informes Inicio.html'">
+                                <i class="fas fa-search"></i> Consulta
+                            </button>
+                            <button class="btn btn-info btn-filter" onclick="window.location.href='REPORTES/LACTATO/AGREGAR LACTATO.html'">
+                                <i class="fas fa-plus"></i> Informe de lactato
+                            </button>
+                            <button class="btn btn-success btn-filter" onclick="window.location.href='REPORTES/ERGO/AGREGAR ERGO.html'">
+                                <i class="fas fa-plus"></i> Informe ergoespirométrico
+                            </button>
+                        </div>
+
+                        <!-- Athletes List -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <p class="mb-3">
+                                        <i class="fas fa-filter"></i> Limpiar filtro | Viendo 
+                                        <span id="athleteCount">0</span> de 
+                                        <span id="totalAthletes">0</span> resultados.
+                                    </p>
+
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th style="width: 600px;">Opciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="athletesTableBody">
+                                            <!-- Athletes will be loaded here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="../assets/logo_all.png" alt="logo" class="navbar-brand">
+                        </div>
+                        <div class="col-sm-9" style="text-align: right; padding-top: 15px; font-weight: 700; color: #003A5D;">
+                            Copyright © 2025 by <a href="http://allinyourmind.es/" target="_blank">ALL IN YOUR MIND</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/jquery.min.js.descarga"></script>
+    <script src="../assets/popper.min.js.descarga"></script>
+    <script src="../assets/bootstrap.min.js.descarga"></script>
+    <script src="../assets/atlantis2.min.js.descarga"></script>
+    <script src="../assets/sweetalert.min.js.descarga"></script>
+
+    <script>
+        $(document).ready(function() {
+            loadAthletes();
+        });
+
+        async function loadAthletes() {
+            try {
+                const response = await fetch('/api/informes/athletes');
+                const data = await response.json();
+                
+                if (data.success && data.athletes) {
+                    displayAthletes(data.athletes);
+                } else {
+                    console.error('Error loading athletes');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        function displayAthletes(athletes) {
+            const tbody = document.getElementById('athletesTableBody');
+            tbody.innerHTML = '';
+            
+            document.getElementById('athleteCount').textContent = athletes.length;
+            document.getElementById('totalAthletes').textContent = athletes.length;
+            
+            athletes.forEach(athlete => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${athlete.nombre} ${athlete.apellido}</td>
+                    <td>
+                        <button class="btn btn-sm btn-info btn-action" onclick="addLactato(${athlete.id})">
+                            <i class="fas fa-flask"></i> Lactato
+                        </button>
+                        <button class="btn btn-sm btn-success btn-action" onclick="addErgo(${athlete.id})">
+                            <i class="fas fa-heartbeat"></i> Ergoespirométrico
+                        </button>
+                        <button class="btn btn-sm btn-primary btn-action" onclick="viewReports(${athlete.id})">
+                            <i class="fas fa-chart-bar"></i> Datos año
+                        </button>
+                        <button class="btn btn-sm btn-warning btn-action" onclick="viewInformes(${athlete.id})">
+                            <i class="fas fa-file-alt"></i> Informes
+                        </button>
+                        <button class="btn btn-sm btn-danger btn-action" onclick="deleteAthlete(${athlete.id})">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function addLactato(athleteId) {
+            window.location.href = `REPORTES/LACTATO/AGREGAR LACTATO.html?atleta_id=${athleteId}`;
+        }
+
+        function addErgo(athleteId) {
+            window.location.href = `REPORTES/ERGO/AGREGAR ERGO.html?atleta_id=${athleteId}`;
+        }
+
+        function viewReports(athleteId) {
+            window.location.href = `REPORTES/REPORTES.html?atleta_id=${athleteId}`;
+        }
+
+        function viewInformes(athleteId) {
+            window.location.href = `REPORTES/REPORTES.html?atleta_id=${athleteId}`;
+        }
+
+        function deleteAthlete(athleteId) {
+            swal({
+                title: "¿Estás seguro?",
+                text: "Esta acción eliminará al atleta de la base de datos",
+                icon: "warning",
+                buttons: ["Cancelar", "Eliminar"],
+                dangerMode: true,
+            }).then(async (willDelete) => {
+                if (willDelete) {
+                    try {
+                        const response = await fetch(`/api/athletes/${athleteId}`, {
+                            method: 'DELETE'
+                        });
+                        const data = await response.json();
+                        
+                        if (data.success) {
+                            swal("¡Eliminado!", "El atleta ha sido eliminado", "success");
+                            loadAthletes(); // Reload list
+                        } else {
+                            swal("Error", data.error || "Error al eliminar atleta", "error");
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        swal("Error", "Error de conexión al servidor", "error");
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
