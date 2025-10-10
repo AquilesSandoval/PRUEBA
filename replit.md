@@ -133,33 +133,48 @@ The application now includes a secure authentication system:
    - All endpoints support: nombre, apellido, fecha_nacimiento, email, telefono, deporte_principal, genero, peso, altura, notas
 
 2. **Athlete Add Form** (`ATLETAS/Atletas AGREGAR.html`):
-   - Clean, simplified form with essential athlete fields
+   - Comprehensive form with ALL athlete fields matching design requirements
+   - Fields include: nombre, apellidos, fecha_nacimiento, empresa, correo, contraseña
+   - Training zones: Default Control Zonas para Carrera/Natación/Ciclismo (FC, Potencia, Velocidad)
+   - Additional fields: teléfono, forma, fatiga, deporte, tipo de contrato
+   - Toggle switch for "Activo" status
+   - Emergency contacts (2 sets): contacto, teléfono, parentesco
+   - Medical info: tipo de sangre, alergias, datos gastos médicos
+   - Other: hospital, número afiliación federación
+   - File uploads: foto, concierto, electrocardiograma
    - Input validation and required field indicators
    - Real-time API integration with success/error handling
    - Redirect to athlete list after successful creation
-   - Icons: 💾 Save button, Cancel button with icon
+   - Minimalist Font Awesome icons for all buttons
 
 3. **Athlete List with Cards** (`ATLETAS/Atletas INICIO.html`):
+   - Added 4 empty placeholder cards at top of page with minimalist icons
    - Replaced static table with dynamic card-based grid layout
    - Real-time athlete loading from API
    - Search functionality (by name, email, phone)
    - Filter by sport (Carrera, Bici, Natación, Triatlón, Otro)
    - Card displays: photo, name, age, email, phone, sport badge
-   - Action buttons per card: ✏️ Edit, 🗑️ Delete
+   - Action buttons per card with Font Awesome icons: <i class="fas fa-edit"> Edit, <i class="fas fa-trash"> Delete
    - Sport-specific color coding for visual differentiation
    - Responsive 3-column grid (adjusts to screen size)
 
-4. **UI Enhancements**:
-   - Added emoji icons to all interactive buttons (☰ menu, ✏️ edit, 🗑️ delete, 💾 save)
+4. **UI Enhancements & Icon Updates**:
+   - Replaced ALL emoji icons with minimalist Font Awesome icons
+   - Menu hamburguesa: <i class="fas fa-bars"> instead of ☰ emoji
+   - Edit button: <i class="fas fa-edit"> instead of ✏️ emoji
+   - Delete button: <i class="fas fa-trash"> instead of 🗑️ emoji
+   - Save button: <i class="fas fa-save"> instead of 💾 emoji
+   - Modern Inter font applied across all pages (assets/modern-font.css)
    - Hover effects on athlete cards
    - Color-coded sport badges
    - Loading states and empty state messaging
    - Confirmation dialogs for delete operations
 
-2. **Index page redesign:**
+5. **Index page redesign:**
    - Replaced world map with ALL IN YOUR MIND logo
-   - Removed "Actividades realizadas", "Actividades programadas", "Competiciones" sections
-   - Kept only: Logo, "Mis pendientes", "Cumpleaños del Mes"
+   - Kept "Mis pendientes" card with "Añadir pendiente" button
+   - Kept "Cumpleaños del Mes" card
+   - Clean, minimalist design
 
 3. **JavaScript error fixes:**
    - Fixed DataTable initialization errors by adding existence checks
