@@ -16,6 +16,7 @@
 <link href="../assets/fonts.min.css" rel="stylesheet">
 <link href="../assets/bootstrap.min.css" rel="stylesheet">
 <link href="../assets/atlantis2.css" rel="stylesheet">
+    <link href="../assets/modern-font.css" rel="stylesheet">
 <script src="../assets/jquery-2.1.4.js.descarga"></script>    <link rel="stylesheet" href="../assets/demo.css">
     <link rel="stylesheet" href="../assets/alertif.min.css">
 
@@ -30,7 +31,7 @@
             <div class="nav-top">
                 <div class="container d-flex flex-row">
 
-                    <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+                    <button class="topbar-toggler more" style="font-size: 20px;">☰</button>
                     <!-- Logo Header -->
                     <a class="logo d-flex align-items-center" href="../index.html"><img src="../assets/logo_all.png" alt="logo" class="navbar-brand"></a>                    <!-- End Logo Header -->
 
@@ -513,21 +514,10 @@
     let allAthletes = [];
     let filteredAthletes = [];
     
-    // Check authentication
-    const token = localStorage.getItem('authToken');
-    if (!token) {
-        window.location.href = '../login.html';
-        return;
-    }
-    
     // Load athletes
     async function loadAthletes() {
         try {
-            const response = await fetch('/api/athletes', {
-                headers: {
-                    'Authorization': 'Bearer ' + token
-                }
-            });
+            const response = await fetch('/api/athletes');
             
             if (!response.ok) {
                 throw new Error('Error al cargar atletas');
@@ -673,10 +663,7 @@
             if (willDelete) {
                 try {
                     const response = await fetch(`/api/athletes/${id}`, {
-                        method: 'DELETE',
-                        headers: {
-                            'Authorization': 'Bearer ' + token
-                        }
+                        method: 'DELETE'
                     });
                     
                     const data = await response.json();

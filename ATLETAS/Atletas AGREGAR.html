@@ -11,6 +11,7 @@
     <link href="../assets/fonts.min.css" rel="stylesheet">
     <link href="../assets/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/atlantis2.css" rel="stylesheet">
+    <link href="../assets/modern-font.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/demo.css">
     <link rel="stylesheet" href="../assets/alertif.min.css">
     <link rel="stylesheet" href="EDITAR/Atletas Editar.css">
@@ -25,7 +26,7 @@
         <div class="main-header" data-background-color="white" style="">
             <div class="nav-top">
                 <div class="container d-flex flex-row">
-                    <button class="topbar-toggler more">☰</button>
+                    <button class="topbar-toggler more" style="font-size: 20px;">☰</button>
                     
                     <!-- Logo Header -->
                     <a class="logo d-flex align-items-center" href="../index.html">
@@ -298,13 +299,6 @@
     <script src="../assets/sweetalert.min.js.descarga"></script>
     
     <script>
-        // Get token from localStorage
-        const token = localStorage.getItem('authToken');
-        
-        if (!token) {
-            window.location.href = '../login.html';
-        }
-        
         // Form submission
         document.getElementById('addAthleteForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -326,8 +320,7 @@
                 const response = await fetch('/api/athletes', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + token
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(formData)
                 });
