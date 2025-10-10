@@ -501,6 +501,221 @@ app.get('/api/informes/lactato/:id', async (req, res) => {
   }
 });
 
+// Get all athletes for informes page
+app.get('/api/informes/athletes', async (req, res) => {
+  try {
+    const result = await pool.query(
+      `SELECT id, nombre, apellido, email, telefono, foto_url, deporte_principal 
+       FROM atletas 
+       WHERE activo = true 
+       ORDER BY nombre, apellido`
+    );
+    res.json({ success: true, athletes: result.rows });
+  } catch (error) {
+    console.error('Error fetching athletes for informes:', error);
+    res.status(500).json({ error: 'Error fetching athletes' });
+  }
+});
+
+// Get informes by athlete
+app.get('/api/informes/by-athlete/:athleteId', async (req, res) => {
+  try {
+    const { athleteId } = req.params;
+    const result = await pool.query(
+      `SELECT i.*, 
+              il.umbral_aerobico_fc as lactato_umbral_aerobico,
+              il.umbral_anaerobico_fc as lactato_umbral_anaerobico,
+              ie.vo2max as ergo_vo2max,
+              ie.fc_maxima as ergo_fc_maxima
+       FROM informes i
+       LEFT JOIN informes_lactato il ON i.id = il.informe_id
+       LEFT JOIN informes_ergo ie ON i.id = ie.informe_id
+       WHERE i.atleta_id = $1
+       ORDER BY i.fecha_evaluacion DESC`,
+      [athleteId]
+    );
+    res.json({ success: true, informes: result.rows });
+  } catch (error) {
+    console.error('Error fetching informes by athlete:', error);
+    res.status(500).json({ error: 'Error fetching informes' });
+  }
+});
+
+// Create lactato report
+app.post('/api/informes/lactato', async (req, res) => {
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    
+    const {
+      atleta_id,
+      fecha_prueba,
+      deporte,
+      protocolo_prueba,
+      temperatura_ambiente,
+      humedad_ambiente,
+      umbral_aerobico_fc,
+      umbral_aerobico_velocidad,
+      umbral_aerobico_lactato,
+      umbral_anaerobico_fc,
+      umbral_anaerobico_velocidad,
+      umbral_anaerobico_lactato,
+      vo2max_estimado,
+      fc_maxima_alcanzada,
+      datos_mediciones,
+      conclusiones,
+      recomendaciones_entrenamiento,
+      notas
+    } = req.body;
+    
+    // Create main informe record
+    const informeResult = await client.query(
+      `INSERT INTO informes (atleta_id, tipo_informe, fecha_evaluacion, nombre_informe, datos_informe, conclusiones, recomendaciones)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)
+       RETURNING *`,
+      [
+        atleta_id,
+        'lactato',
+        fecha_prueba,
+        `Informe de Lactato - ${deporte}`,
+        JSON.stringify(datos_mediciones || {}),
+        conclusiones,
+        recomendaciones_entrenamiento
+      ]
+    );
+    
+    const informe_id = informeResult.rows[0].id;
+    
+    // Create lactato specific record
+    const lactatoResult = await client.query(
+      `INSERT INTO informes_lactato (
+        informe_id, atleta_id, fecha_prueba, deporte, protocolo_prueba,
+        temperatura_ambiente, humedad_ambiente,
+        umbral_aerobico_fc, umbral_aerobico_velocidad, umbral_aerobico_lactato,
+        umbral_anaerobico_fc, umbral_anaerobico_velocidad, umbral_anaerobico_lactato,
+        vo2max_estimado, fc_maxima_alcanzada,
+        datos_mediciones, conclusiones, recomendaciones_entrenamiento, notas
+      )
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)
+      RETURNING *`,
+      [
+        informe_id, atleta_id, fecha_prueba, deporte, protocolo_prueba,
+        temperatura_ambiente, humedad_ambiente,
+        umbral_aerobico_fc, umbral_aerobico_velocidad, umbral_aerobico_lactato,
+        umbral_anaerobico_fc, umbral_anaerobico_velocidad, umbral_anaerobico_lactato,
+        vo2max_estimado, fc_maxima_alcanzada,
+        JSON.stringify(datos_mediciones || {}), conclusiones, recomendaciones_entrenamiento, notas
+      ]
+    );
+    
+    await client.query('COMMIT');
+    res.status(201).json({ 
+      success: true, 
+      informe_id: informe_id,
+      lactato_id: lactatoResult.rows[0].id
+    });
+  } catch (error) {
+    await client.query('ROLLBACK');
+    console.error('Error creating lactato report:', error);
+    res.status(500).json({ error: 'Error creating lactato report' });
+  } finally {
+    client.release();
+  }
+});
+
+// Create ergo report
+app.post('/api/informes/ergo', async (req, res) => {
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    
+    const {
+      atleta_id,
+      fecha_prueba,
+      deporte,
+      protocolo_prueba,
+      vo2max,
+      vo2max_absoluto,
+      vco2max,
+      ventilacion_maxima,
+      fc_maxima,
+      fc_reposo,
+      fc_umbral_ventilatorio_1,
+      fc_umbral_ventilatorio_2,
+      vel_umbral_ventilatorio_1,
+      vel_umbral_ventilatorio_2,
+      potencia_maxima,
+      potencia_umbral,
+      cociente_respiratorio_max,
+      equivalente_ventilatorio_o2,
+      equivalente_ventilatorio_co2,
+      datos_mediciones,
+      conclusiones,
+      recomendaciones_entrenamiento,
+      zonas_entrenamiento,
+      notas
+    } = req.body;
+    
+    // Create main informe record
+    const informeResult = await client.query(
+      `INSERT INTO informes (atleta_id, tipo_informe, fecha_evaluacion, nombre_informe, datos_informe, conclusiones, recomendaciones)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)
+       RETURNING *`,
+      [
+        atleta_id,
+        'ergoespirometrico',
+        fecha_prueba,
+        `Informe Ergoespirométrico - ${deporte}`,
+        JSON.stringify(datos_mediciones || {}),
+        conclusiones,
+        recomendaciones_entrenamiento
+      ]
+    );
+    
+    const informe_id = informeResult.rows[0].id;
+    
+    // Create ergo specific record
+    const ergoResult = await client.query(
+      `INSERT INTO informes_ergo (
+        informe_id, atleta_id, fecha_prueba, deporte, protocolo_prueba,
+        vo2max, vo2max_absoluto, vco2max, ventilacion_maxima,
+        fc_maxima, fc_reposo,
+        fc_umbral_ventilatorio_1, fc_umbral_ventilatorio_2,
+        vel_umbral_ventilatorio_1, vel_umbral_ventilatorio_2,
+        potencia_maxima, potencia_umbral,
+        cociente_respiratorio_max, equivalente_ventilatorio_o2, equivalente_ventilatorio_co2,
+        datos_mediciones, conclusiones, recomendaciones_entrenamiento, zonas_entrenamiento, notas
+      )
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25)
+      RETURNING *`,
+      [
+        informe_id, atleta_id, fecha_prueba, deporte, protocolo_prueba,
+        vo2max, vo2max_absoluto, vco2max, ventilacion_maxima,
+        fc_maxima, fc_reposo,
+        fc_umbral_ventilatorio_1, fc_umbral_ventilatorio_2,
+        vel_umbral_ventilatorio_1, vel_umbral_ventilatorio_2,
+        potencia_maxima, potencia_umbral,
+        cociente_respiratorio_max, equivalente_ventilatorio_o2, equivalente_ventilatorio_co2,
+        JSON.stringify(datos_mediciones || {}), conclusiones, recomendaciones_entrenamiento, 
+        JSON.stringify(zonas_entrenamiento || {}), notas
+      ]
+    );
+    
+    await client.query('COMMIT');
+    res.status(201).json({ 
+      success: true, 
+      informe_id: informe_id,
+      ergo_id: ergoResult.rows[0].id
+    });
+  } catch (error) {
+    await client.query('ROLLBACK');
+    console.error('Error creating ergo report:', error);
+    res.status(500).json({ error: 'Error creating ergo report' });
+  } finally {
+    client.release();
+  }
+});
+
 // Default route to serve index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'index.html'));
