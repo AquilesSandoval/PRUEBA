@@ -252,12 +252,19 @@ The application now includes a secure authentication system:
   - ✅ List athletes in card-based layout with search and filters
   - ✅ Edit athletes (integration with existing EDITAR page)
   - ✅ Delete athletes (soft delete with confirmation)
-- ✅ Reports system foundation implemented
+- ✅ Reports system fully implemented
   - ✅ Main reports page with athlete list and action buttons
   - ✅ Lactate report form with full data capture and API integration
   - ✅ Ergospirometric report form with full data capture and API integration
   - ✅ Backend API endpoints for creating and retrieving reports
-  - ⚠️ Visualization pages pending (INFORME LACTATO.html, ERGOESPIROMETRICO.html)
+  - ✅ **Lactate report visualization (INFORME LACTATO.html)** - Loads REAL data from API (October 11, 2025)
+    - Created `informe-lactato-api.js` replacing hardcoded data
+    - Fetches data from `GET /api/informes/lactato/:id` endpoint
+    - Renders dynamic Highcharts graphs with FC, LA, and RPE from user submissions
+    - Displays athlete name, test date, and sport from database
+    - Shows training zones table if available
+    - Replaced ALL hardcoded "Alberto" data with real user-submitted data
+  - ⚠️ Ergospirometric visualization page pending (ERGOESPIROMETRICO.html)
   - ⚠️ Reports history page pending (REPORTES.html)
 - ⚠️ JWT verification middleware not yet implemented on protected routes (recommended for production)
 

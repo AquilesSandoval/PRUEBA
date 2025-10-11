@@ -469,35 +469,45 @@ app.get('/api/informes/lactato/:id', async (req, res) => {
     );
     
     if (result.rows.length === 0) {
-      return res.status(404).json({ error: 'Report not found' });
+      return res.status(404).json({ success: false, error: 'Report not found' });
     }
     
     const row = result.rows[0];
+    
+    // Parsear datos_mediciones si es un string JSON
+    let datosMediciones = {};
+    if (row.datos_mediciones) {
+      datosMediciones = typeof row.datos_mediciones === 'string' 
+        ? JSON.parse(row.datos_mediciones) 
+        : row.datos_mediciones;
+    }
+    
     const data = {
+      success: true,
       informe: {
         id: row.id,
-        fecha: row.fecha_evaluacion,
-        atleta: {
-          nombre: row.nombre,
-          apellido: row.apellido,
-          foto: row.foto_url
-        }
-      },
-      datos_prueba: {
-        ritmo_min_100: [],
-        fc_ppm: [],
-        lactato_mmol: [],
-        rpe_0_10: []
-      },
-      analisis: {
-        zonas: []
+        atleta_nombre: `${row.nombre} ${row.apellido}`,
+        fecha_prueba: row.fecha_prueba,
+        deporte: row.deporte,
+        protocolo_prueba: row.protocolo_prueba,
+        umbral_aerobico_fc: row.umbral_aerobico_fc,
+        umbral_aerobico_velocidad: row.umbral_aerobico_velocidad,
+        umbral_aerobico_lactato: row.umbral_aerobico_lactato,
+        umbral_anaerobico_fc: row.umbral_anaerobico_fc,
+        umbral_anaerobico_velocidad: row.umbral_anaerobico_velocidad,
+        umbral_anaerobico_lactato: row.umbral_anaerobico_lactato,
+        datos_mediciones: datosMediciones,
+        conclusiones: row.conclusiones,
+        recomendaciones_entrenamiento: row.recomendaciones_entrenamiento,
+        notas: row.notas,
+        foto_url: row.foto_url
       }
     };
     
     res.json(data);
   } catch (error) {
     console.error('Error fetching lactato report:', error);
-    res.status(500).json({ error: 'Error fetching lactato report' });
+    res.status(500).json({ success: false, error: 'Error fetching lactato report' });
   }
 });
 
