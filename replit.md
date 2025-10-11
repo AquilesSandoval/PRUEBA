@@ -79,7 +79,7 @@ The application follows a traditional architecture with a clear separation of co
   - Ready for competitions and tests (tables to be added later)
 - **Data Flow**: List → Click Dashboard → Pass ID → Load athlete's planning → Display personalized dashboard
 
-### Dashboard Navigation Fixed (October 11, 2025)
+### Dashboard Navigation & API Fixed (October 11, 2025)
 - ✅ **Navegación del dashboard completamente funcional** - Todos los botones pasan ID del atleta correctamente
 - **Correcciones de Navegación**:
   - Botón "Entrevista" → `Entrevista/PARQ.html?id=${atletaId}` ✅
@@ -87,6 +87,8 @@ The application follows a traditional architecture with a clear separation of co
   - Botón "Editar" → `../EDITAR/Atletas Editar.html?id=${atletaId}` ✅
 - **Bug Fix JavaScript**: Cambiado `let atletaIdActual` a `var atletaIdActual` para evitar "temporal dead zone" error
 - **Event Handlers**: Agregados manejadores jQuery para los 3 botones dentro de $(document).ready()
+- **Bug Fix Backend API**: Corregido query de mesociclos - cambiado `tipo` por `tipo_mesociclo` (nombre correcto de columna)
+- **Dashboard carga sin errores**: El endpoint `/api/dashboard/planificacion/:atletaId` funciona correctamente
 
 ### Entrevistas PARQ Functionality Complete (October 11, 2025)
 - ✅ **Sistema completo de entrevistas PARQ implementado** - Navegación, carga y guardado de datos
