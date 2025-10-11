@@ -1,0 +1,51 @@
+Hola, necesito que transformes mi archivo dashboard/atletas dashboard.htm en un dashboard dinámico y funcional para cada uno de mis atletas, utilizando mi script Atletas DASHBOARD.js como base.
+
+El objetivo principal es que la sección de planificación (el calendario con los Macrociclos, Programas, Competiciones y Tests) cargue y muestre los datos específicos del atleta seleccionado a través de un ID en la URL.
+
+Por favor, sigue estos pasos con precisión:
+
+1. Implementa la Lógica para Leer el ID del Atleta.
+
+En el archivo Atletas DASHBOARD.js, dentro del $(document).ready(function() { ... });, añade el código necesario para leer el parámetro id de la URL (por ejemplo, de ...&id=146). Almacena este atletaId en una variable global para que esté disponible para otras funciones.
+
+Si no se encuentra un id en la URL, detén la ejecución de cualquier función de carga de datos para evitar errores.
+
+2. Crea una Función Central para Cargar los Datos de Planificación.
+
+Crea una nueva función principal en Atletas DASHBOARD.js llamada cargarPlanificacion(atletaId).
+
+Esta función debe ejecutar una única llamada AJAX a una nueva ruta en mi backend (puedes llamarla /web/index.php?r=athletesathlete/get-planificacion-data).
+
+La llamada AJAX debe enviar el atletaId al servidor.
+
+El servidor deberá responder con un objeto JSON que contenga toda la planificación del atleta, incluyendo:
+
+Datos del perfil (nombre, foto, nivelC, etc.).
+
+Un array con los macrociclos guardados.
+
+Un array con los mesociclos y microciclos del programa.
+
+Un array con las competiciones.
+
+Un array con los tests.
+
+3. Renderiza Dinámicamente el Calendario de Planificación.
+
+En la función success de tu nueva llamada AJAX, procesa el JSON recibido.
+
+Actualiza la información básica: Usa los datos del perfil para cambiar el nombre del atleta en el <h2> y la imagen en id="selectedImg1".
+
+Renderiza la planificación: Esta es la parte más importante. El HTML actual tiene filas (<div class="scroll row">) para Macrociclo, Programa, Competiciones y Tests, llenas de divs estáticos. Debes eliminar esos divs estáticos y generar dinámicamente el contenido de estas filas usando los datos recibidos del servidor.
+
+Por cada macrociclo, mesociclo, competición o test en los arrays recibidos, genera el div correspondiente en el HTML.
+
+Asegúrate de que cada div generado tenga los data-attributes correctos (data-identifier, data-startdate, data-enddate, etc.) para que los botones de editar, mover y eliminar que ya existen en mi script sigan funcionando.
+
+4. Adapta las Funciones Existentes para que Usen el atletaId.
+
+Revisa las funciones existentes en Atletas DASHBOARD.js que guardan o modifican datos (como add_event, savecomments, add_test, add_competition, savelogro, etc.).
+
+Modifícalas para que, en sus llamadas AJAX, incluyan el athlete_id que capturaste al inicio. Esto asegurará que cualquier nuevo evento, nota o programa se guarde para el atleta correcto.
+
+El resultado final debe ser un dashboard que, al abrirse con un ID de atleta, muestre su calendario de entrenamiento personalizado y permita modificarlo, guardando los cambios específicamente para ese atleta.

@@ -723,6 +723,58 @@ app.post('/api/informes/ergo', async (req, res) => {
   }
 });
 
+// Dashboard planification endpoint
+app.get('/api/dashboard/planificacion/:atletaId', async (req, res) => {
+  try {
+    const { atletaId } = req.params;
+    
+    // Get athlete data
+    const atletaResult = await pool.query(
+      'SELECT id, nombre, apellido, foto_url, deporte_principal, email FROM atletas WHERE id = $1',
+      [atletaId]
+    );
+    
+    if (atletaResult.rows.length === 0) {
+      return res.status(404).json({ success: false, error: 'Atleta no encontrado' });
+    }
+    
+    // Get macrociclos
+    const macrociclosResult = await pool.query(
+      `SELECT id, nombre, descripcion, fecha_inicio, fecha_fin, objetivo_principal, estado 
+       FROM macrociclos WHERE atleta_id = $1 ORDER BY fecha_inicio`,
+      [atletaId]
+    );
+    
+    // Get mesociclos
+    const mesociclosResult = await pool.query(
+      `SELECT id, macrociclo_id, nombre, descripcion, fecha_inicio, fecha_fin, objetivo, tipo 
+       FROM mesociclos WHERE atleta_id = $1 ORDER BY fecha_inicio`,
+      [atletaId]
+    );
+    
+    // Get microciclos
+    const microciclosResult = await pool.query(
+      `SELECT id, mesociclo_id, nombre, semana, descripcion, fecha_inicio, fecha_fin 
+       FROM microciclos WHERE atleta_id = $1 ORDER BY fecha_inicio`,
+      [atletaId]
+    );
+    
+    res.json({
+      success: true,
+      atleta: atletaResult.rows[0],
+      macrociclos: macrociclosResult.rows,
+      mesociclos: mesociclosResult.rows,
+      microciclos: microciclosResult.rows,
+      competiciones: [], // TODO: Add when competition table is available
+      tests: [] // TODO: Add when tests table is available
+    });
+    
+  } catch (error) {
+    console.error('Error fetching dashboard data:', error);
+    res.status(500).json({ success: false, error: 'Error al obtener datos del dashboard' });
+  }
+});
+
 // Default route to serve index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'index.html'));

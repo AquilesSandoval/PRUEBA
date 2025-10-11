@@ -589,6 +589,9 @@
                             </div>
                         </div>
                         <div class="mt-3 d-flex justify-content-end">
+                            <button class="btn btn-sm btn-primary mr-2" onclick="openDashboard(${athlete.id})" title="Dashboard">
+                                <i class="fas fa-chart-line"></i> Dashboard
+                            </button>
                             <button class="btn btn-sm btn-info mr-2" onclick="editAthlete(${athlete.id})" title="Editar">
                                 <i class="fas fa-edit"></i> Editar
                             </button>
@@ -648,6 +651,10 @@
     document.getElementById('filterDeporte').addEventListener('change', filterAthletes);
     
     // Global functions for buttons
+    window.openDashboard = function(id) {
+        window.location.href = `DASHBORD/Atletas DASHBOARD.html?id=${id}`;
+    };
+    
     window.editAthlete = function(id) {
         window.location.href = `EDITAR/Atletas Editar.html?id=${id}`;
     };

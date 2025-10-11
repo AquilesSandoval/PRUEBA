@@ -271,7 +271,7 @@ $('#sport_sostenibilidad').change(function() {
         type: 'get',
         url: "/web/index.php?r=athletesathlete/getsettings",
         data: {
-            "athlete_id": 146,
+            "athlete_id": atletaIdActual,
             "sport": $('#sport_sostenibilidad').val(),
         },
         success: function(data) {
@@ -342,7 +342,7 @@ function saveDT() {
         type: 'get',
         url: "/web/index.php?r=athletesathlete/savemedias",
         data: {
-            "athlete_id": 146,
+            "athlete_id": atletaIdActual,
             "d1": d1,
             "d2": d2,
             "d3": d3,
@@ -400,7 +400,7 @@ function saveSettings() {
         type: 'get',
         url: "/web/index.php?r=athletesathlete/savesettings",
         data: {
-            "athlete_id": 146,
+            "athlete_id": atletaIdActual,
             "cumbral1": cumbral1,
             "cumbral2": cumbral2,
             "cumbral3": cumbral3,
@@ -1272,9 +1272,9 @@ $(function() {
                                         },
                                     });
                                 /*swal("Fecha cambiada correctamente", {
-                                	icon: "success",
-                                	buttons: false,
-                                	timer: 3000,
+                                        icon: "success",
+                                        buttons: false,
+                                        timer: 3000,
                                 });*/
                                 setTimeout(function() {
                                     location.reload();
@@ -1328,11 +1328,11 @@ function llamaComentario(idfeedback) {
             $("#comentDato4").html(resp[3]);
             $("#comentDato5").html(resp[4]);
             /*swal("Registro guardado!", "Espere un momento.", 
-			{
-				icon: "success",
-			}).then((result) => {
-			  //window.location.reload();
-			});*/
+                        {
+                                icon: "success",
+                        }).then((result) => {
+                          //window.location.reload();
+                        });*/
         },
         error: function(data) {},
     }); //content
@@ -1807,18 +1807,18 @@ function doChart(data) {
                 tickInterval: 5
             }
             /*, {
-            			// Segundo eje y
-            			title: {
-            				text: 'Diff'
-            			},
-            			minorGridLineWidth: 1,
-            			gridLineWidth: 1,
-            			alternateGridColor: null,
-            			labels: {
-            				format: '{value}'
-            			},
-            			opposite: true
-            		}/** */
+                                // Segundo eje y
+                                title: {
+                                        text: 'Diff'
+                                },
+                                minorGridLineWidth: 1,
+                                gridLineWidth: 1,
+                                alternateGridColor: null,
+                                labels: {
+                                        format: '{value}'
+                                },
+                                opposite: true
+                        }/** */
         ],
         plotOptions: {
             spline: {
@@ -1835,22 +1835,22 @@ function doChart(data) {
         },
         series: [
             /*{
-            			name: 'Max - '+varATitle,
-            			data: varA,
-            			yAxis: 0,
-            			color: '#003A5D'
-            		}, {
-            			name: 'Record - '+varATitle,
-            			data: varARecord,
-            			yAxis: 1,
-            			color: '#25d366'
-            		},{
-            			name: 'Diff - '+varATitle,
-            			data: varDA,
-            			yAxis: 0,
-            			color: '#dc3545'
-            		},
-            		*/
+                                name: 'Max - '+varATitle,
+                                data: varA,
+                                yAxis: 0,
+                                color: '#003A5D'
+                        }, {
+                                name: 'Record - '+varATitle,
+                                data: varARecord,
+                                yAxis: 1,
+                                color: '#25d366'
+                        },{
+                                name: 'Diff - '+varATitle,
+                                data: varDA,
+                                yAxis: 0,
+                                color: '#dc3545'
+                        },
+                        */
             {
                 name: 'Max - ' + varBTitle,
                 data: varB,
@@ -1868,11 +1868,11 @@ function doChart(data) {
                 color: '#bb2d3b'
             }
             /*,{
-            			name:'Linea ajustada',
-            			data:lineaAjustada,
-            			yaxis:0,
-            			color: '#000',
-            		}*/
+                                name:'Linea ajustada',
+                                data:lineaAjustada,
+                                yaxis:0,
+                                color: '#000',
+                        }*/
         ]
     }); /**/
     if (data.sport == 'C') {
@@ -1967,14 +1967,14 @@ function doChart(data) {
                 color: 'rgba(80, 180, 50, 0.8)'
             },
             /*{
-            	name: 'Tendencia - '+varATitle,
-            	type: 'line',
-            	data: lineaAjustada,
-            	color: 'rgba(237, 86, 27, 0.8)',
-            	marker: {
-            		enabled: false
-            	},
-            	dashStyle: 'Solid'
+                name: 'Tendencia - '+varATitle,
+                type: 'line',
+                data: lineaAjustada,
+                color: 'rgba(237, 86, 27, 0.8)',
+                marker: {
+                        enabled: false
+                },
+                dashStyle: 'Solid'
             },*/
             {
                 name: 'Línea de Tendencia (Logarítmica)',
@@ -2051,8 +2051,8 @@ $('#btnPronostico').click(function() {
 
     //buscar datos de A y B segun la grafica deseada:
     /*
-    	Si es km o mt, entonces tomar grafica de velocidad / distancia (grafica 4)
-    	Si es hr o min, entonces tomar grafica de velocidad / Tiempo (grafica 3)
+        Si es km o mt, entonces tomar grafica de velocidad / distancia (grafica 4)
+        Si es hr o min, entonces tomar grafica de velocidad / Tiempo (grafica 3)
     */
     /*const B_distancia = 31.099783710544287;
     const A_distancia = -1.9665490881722816;
@@ -2193,6 +2193,59 @@ scrollvideo();
 
 $(document).ready(function() {
 
+    // ========== CÓDIGO DINÁMICO: Captura ID del atleta desde URL ==========
+    let atletaIdActual = null;
+    
+    // Obtener ID del atleta desde la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    atletaIdActual = urlParams.get('id');
+    
+    if (!atletaIdActual) {
+        swal("Error", "No se especificó el ID del atleta. Redirigiendo...", "error").then(() => {
+            window.location.href = '../Atletas INICIO.html';
+        });
+        return;
+    }
+    
+    console.log('Dashboard cargado para atleta ID:', atletaIdActual);
+    
+    // Función maestra para cargar toda la planificación del atleta
+    function cargarPlanificacion(atletaId) {
+        console.log('Cargando planificación para atleta:', atletaId);
+        
+        $.ajax({
+            type: 'GET',
+            url: `/api/dashboard/planificacion/${atletaId}`,
+            success: function(data) {
+                if (data.success) {
+                    console.log('Datos de planificación recibidos:', data);
+                    
+                    // Actualizar datos del perfil
+                    if (data.atleta) {
+                        $('#athlete_name').text(data.atleta.nombre + ' ' + data.atleta.apellido);
+                        if (data.atleta.foto_url) {
+                            $('#selectedImg1').attr('src', data.atleta.foto_url);
+                        }
+                    }
+                    
+                    // TODO: Renderizar calendario dinámicamente aquí
+                    // Se implementará después de crear el endpoint
+                    
+                } else {
+                    swal("Error", data.error || "Error al cargar la planificación", "error");
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error al cargar planificación:', error);
+                swal("Error", "Error al conectar con el servidor", "error");
+            }
+        });
+    }
+    
+    // Cargar planificación al inicio
+    cargarPlanificacion(atletaIdActual);
+    // ========== FIN CÓDIGO DINÁMICO ==========
+
     //$('.test').select2();
     valorSeleccionado = '';
     validaChk(3);
@@ -2261,7 +2314,7 @@ $(document).ready(function() {
             data: {
                 "valor": _valor,
                 "campo": _nivel,
-                "athlete_id": 146,
+                "athlete_id": atletaIdActual,
 
             },
             success: function(data) {
@@ -2291,20 +2344,20 @@ $(document).ready(function() {
         $('#divcContent').hide();
         
         if($('#sport_select').val()=="1"){
-        	$('#divbLevel').show();
-        	$('#divbContent').show();
+                $('#divbLevel').show();
+                $('#divbContent').show();
         }
         else if($('#sport_select').val()=="2"){
-        	$('#divnLevel').show();
-        	$('#divnContent').show();
+                $('#divnLevel').show();
+                $('#divnContent').show();
         }
         else if($('#sport_select').val()=="3"){
-        	$('#divcLevel').show();
-        	$('#divcContent').show();
+                $('#divcLevel').show();
+                $('#divcContent').show();
         }
         else{
-        	$('#divLevel').show();
-        	$('#divContent').show();
+                $('#divLevel').show();
+                $('#divContent').show();
         }*/
     });
 
@@ -2336,7 +2389,7 @@ $(document).ready(function() {
                 "distance": distance,
                 "location": place,
                 "others": others,
-                "athlete_id": 146,
+                "athlete_id": atletaIdActual,
 
             },
             success: function(data) {
@@ -2598,7 +2651,7 @@ $(document).ready(function() {
             data: {
                 "name": name,
                 "date": date,
-                "athlete_id": 146,
+                "athlete_id": atletaIdActual,
 
             },
             success: function(data) {
@@ -2673,7 +2726,7 @@ $(document).ready(function() {
                 "siglas": siglas,
                 "descripcion": descripcion,
                 "date": date,
-                "athlete_id": 146,
+                "athlete_id": atletaIdActual,
             },
             success: function(data) {
                 console.log(data);
@@ -2696,7 +2749,7 @@ $(document).ready(function() {
                 "descripcion": descripcion,
                 "date": date,
                 "id": id,
-                "athlete_id": 146,
+                "athlete_id": atletaIdActual,
             },
             success: function(data) {
                 console.log(data);
@@ -2774,7 +2827,7 @@ $(document).ready(function() {
                 "updated_at": updated_at,
                 "start_date": start_date,
                 "end_date": end_date,
-                "athlete_id": 146,
+                "athlete_id": atletaIdActual,
                 "width": (64 * weeks),
                 "xn": xn,
                 "weeks": weeks
@@ -2844,29 +2897,29 @@ $(document).ready(function() {
         }
     });
     /*$('#microciclo_select').select2({
-    	placeholder: 'Buscar...',
-    	minimumInputLength: 3, // Número mínimo de caracteres para activar la búsqueda
-    	ajax: {
-    		url: '/web/index.php?r=progressionsprogression/getmicrociclo', // Ruta del script que procesa la búsqueda
-    		dataType: 'json',
-    		delay: 250, // Retraso en milisegundos antes de enviar la solicitud
-    		data: function (params) {
-    			return {
-    				word: params.term, // Término de búsqueda introducido por el usuario
-    				check:$('#checkmic').is(':checked')
-    			};
-    		},
-    		processResults: function (data) {
-    			console.log(data);
-    			$('#btnPrevisualizarM').show();
+        placeholder: 'Buscar...',
+        minimumInputLength: 3, // Número mínimo de caracteres para activar la búsqueda
+        ajax: {
+                url: '/web/index.php?r=progressionsprogression/getmicrociclo', // Ruta del script que procesa la búsqueda
+                dataType: 'json',
+                delay: 250, // Retraso en milisegundos antes de enviar la solicitud
+                data: function (params) {
+                        return {
+                                word: params.term, // Término de búsqueda introducido por el usuario
+                                check:$('#checkmic').is(':checked')
+                        };
+                },
+                processResults: function (data) {
+                        console.log(data);
+                        $('#btnPrevisualizarM').show();
 
-    			return {
-    				results: data
-    			};
-    		},
-    		cache: true
-    	},
-    	width:'100%'
+                        return {
+                                results: data
+                        };
+                },
+                cache: true
+        },
+        width:'100%'
     });*/
     $('#search_ma').click(function() {
 
@@ -3173,7 +3226,7 @@ $(document).ready(function() {
             type: 'get',
             url: "/web/index.php?r=mesocyclesmesocycle/clone",
             data: {
-                "athlete_id": 146,
+                "athlete_id": atletaIdActual,
                 "option": option, //determina si es mesociclo microciclo y macrociclo
                 "id": microciclo, //puede ser entero ej. 1775, o en formato 1775_1 donde 1775 es el mesociclo y 1 es la carpeta 
                 "start_date": start_date,
@@ -3305,7 +3358,7 @@ $(document).ready(function() {
             type: 'get',
             url: "/web/index.php?r=mesocyclesmesocycle/combinar",
             data: {
-                "athlete_id": 146,
+                "athlete_id": atletaIdActual,
                 "option": 2, //determina que es mesociclo
                 "id": 0,
                 "combinar": true,
@@ -3714,9 +3767,9 @@ $(document).ready(function() {
 });
 
 /*
-	$('#add_ss').data('option', '2');
+        $('#add_ss').data('option', '2');
     getModalMesociclo();
-	*/
+        */
 
 function activarDistancia() {
     let sel = $('#hddCombinaMesoDeporteID').val();
@@ -3778,12 +3831,12 @@ function validaChkCombinaMeso(valor) {
     $('#hddCombinaMesoDeporteID').val(0);
 
     /*$("#divTriatlon").hide();
-	$("#divDuatlon").hide();
-	$("#divAquatlon").hide();
+        $("#divDuatlon").hide();
+        $("#divAquatlon").hide();
     /*$('.spanVistaNatacion').hide();
     $('.spanVistaCiclismo').hide();
     $('.spanVistaCarrera').hide();
-	*/
+        */
 
     if (valor == 1) {
         $('#divDeporteCombinaMeso1').removeClass("btn-border");
@@ -4545,7 +4598,7 @@ function add_event_competition(id) {
         url: "/web/index.php?r=athletesathlete/addcompetition",
         data: {
             "event_id": id,
-            "athlete_id": 146,
+            "athlete_id": atletaIdActual,
         },
         success: function(data) {
             console.log(data);
@@ -4638,7 +4691,7 @@ function update_logro(id) {
         error: function(data) {},
     });
 }
-banderaReporte = 1; //1 = ACTIVIDADES RECIBIDAS 	|| 	2 = ACTIVIDADES PROGRAMADAS
+banderaReporte = 1; //1 = ACTIVIDADES RECIBIDAS         ||      2 = ACTIVIDADES PROGRAMADAS
 function selecciona(_opt) {
     banderaReporte = _opt;
     if (_opt == 1) {

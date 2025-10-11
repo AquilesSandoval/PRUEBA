@@ -61,3 +61,20 @@ The application follows a traditional architecture with a clear separation of co
 - Populates "Datos de la prueba" containers with real test data
 - Fills "Zonas de entrenamiento" (Zona 2, 4, 6) with actual submitted zone data
 - Updated redirect in `agregar-lactato-api.js` to use new filename
+
+### Dynamic Athlete Dashboard (October 11, 2025)
+- ✅ **Dashboard now fully dynamic** - Loads individual athlete's planning based on URL parameter
+- **Frontend Changes** (`ATLETAS/Atletas INICIO.html`):
+  - Added "Dashboard" button for each athlete with chart-line icon
+  - Button links to `DASHBORD/Atletas DASHBOARD.html?id=ATHLETE_ID`
+- **JavaScript Updates** (`ATLETAS/DASHBORD/Atletas DASHBOARD.js`):
+  - Captures athlete ID from URL parameter on page load
+  - Global variable `atletaIdActual` stores current athlete ID
+  - Created `cargarPlanificacion(atletaId)` master function to load dashboard data
+  - Replaced ALL hardcoded athlete_id: 146 with dynamic `atletaIdActual` (12 instances)
+  - Updates athlete name and photo from API data
+- **Backend API** (`server/index.js`):
+  - New endpoint: `GET /api/dashboard/planificacion/:atletaId`
+  - Returns complete planning data: athlete info, macrociclos, mesociclos, microciclos
+  - Ready for competitions and tests (tables to be added later)
+- **Data Flow**: List → Click Dashboard → Pass ID → Load athlete's planning → Display personalized dashboard
