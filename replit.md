@@ -78,3 +78,34 @@ The application follows a traditional architecture with a clear separation of co
   - Returns complete planning data: athlete info, macrociclos, mesociclos, microciclos
   - Ready for competitions and tests (tables to be added later)
 - **Data Flow**: List → Click Dashboard → Pass ID → Load athlete's planning → Display personalized dashboard
+
+### Database Schema Complete Alignment (October 11, 2025)
+- ✅ **Database redefined to match schema.sql** - All tables from schema.sql now implemented
+- **New Tables Created** (13 tables added):
+  - `ejercicios` - Exercise library with categories, difficulty levels, and instructions
+  - `circuitos` - Training circuits with duration and difficulty
+  - `circuitos_ejercicios` - Exercises within circuits (series, reps, rest times)
+  - `sesiones_circuitos` - Circuits assigned to training sessions
+  - `zonas_entrenamiento` - Personalized training zones (10 zones per athlete/sport)
+  - `entrevistas` - Athlete interviews/questionnaires (PARQ, injuries, objectives)
+  - `drills` - Technical drills library (swimming, running, cycling)
+  - `bloques_drills` - Drill blocks grouping multiple drills
+  - `bloques_drills_items` - Drills within blocks with order and repetitions
+  - `planes_predefinidos` - Predefined mesocycle templates with session configurations
+  - `actividades_importadas` - Activities imported from Garmin/Strava
+  - `metricas_rendimiento` - Performance metrics tracking (weight, VO2max, HRV, etc.)
+  - `rutina_dia` - **NEW custom table**: Daily routines with FK to macro/meso/microciclos
+- **Custom Table RutinaDia**:
+  - `idrutinadias` (SERIAL PRIMARY KEY)
+  - `macrociclo_id`, `mesociclo_id`, `microciclo_id` (all nullable FKs)
+  - `semana` (INT) - Week number
+  - `dia` (ENUM: Lunes, Martes, Miércoles, Jueves, Viernes, Sábado, Domingo)
+  - `descripcion` (TEXT) - Daily routine description
+- **PostgreSQL Type Conversions**:
+  - MySQL AUTO_INCREMENT → PostgreSQL SERIAL
+  - MySQL ENUM → PostgreSQL custom ENUM types
+  - MySQL JSON → PostgreSQL JSONB (better performance)
+  - MySQL DECIMAL → PostgreSQL NUMERIC
+  - MySQL DATETIME → PostgreSQL TIMESTAMP
+- **Total Tables**: 22 tables (9 existing + 13 new)
+- **Database Status**: Fully aligned with schema.sql + custom RutinaDia table
