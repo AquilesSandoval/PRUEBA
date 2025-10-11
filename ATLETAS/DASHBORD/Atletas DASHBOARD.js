@@ -2192,7 +2192,7 @@ $('#btnPronostico').click(function() {
 scrollvideo();
 
 // ========== VARIABLE GLOBAL: ID del atleta actual ==========
-let atletaIdActual = null;
+var atletaIdActual = null;
 
 // Obtener ID del atleta desde la URL (se ejecuta inmediatamente)
 (function() {
@@ -2253,6 +2253,18 @@ $(document).ready(function() {
     $('#btnEntrevista').on('click', function(e) {
         e.preventDefault();
         window.location.href = `Entrevista/PARQ.html?id=${atletaIdActual}`;
+    });
+    
+    // Configurar botón de Informes con ID dinámico
+    $('#btnInformes').on('click', function(e) {
+        e.preventDefault();
+        window.location.href = `../../INFORMES/Informes Inicio.html?id=${atletaIdActual}`;
+    });
+    
+    // Configurar botón de Editar con ID dinámico
+    $('#btnEditar').on('click', function(e) {
+        e.preventDefault();
+        window.location.href = `../EDITAR/Atletas Editar.html?id=${atletaIdActual}`;
     });
     // ========== FIN CÓDIGO DINÁMICO ==========
 
