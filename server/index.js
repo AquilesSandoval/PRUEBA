@@ -754,7 +754,7 @@ app.get('/api/dashboard/planificacion/:atletaId', async (req, res) => {
     
     // Get microciclos
     const microciclosResult = await pool.query(
-      `SELECT id, mesociclo_id, nombre, semana, descripcion, fecha_inicio, fecha_fin 
+      `SELECT id, mesociclo_id, nombre, semana_numero, descripcion, fecha_inicio, fecha_fin 
        FROM microciclos WHERE atleta_id = $1 ORDER BY fecha_inicio`,
       [atletaId]
     );
