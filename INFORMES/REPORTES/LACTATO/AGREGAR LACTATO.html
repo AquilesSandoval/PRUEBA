@@ -1076,12 +1076,27 @@
                                 <div class="col-sm-12 float-left  pleft-0">
                                         <div id="error_agregar" class="alert alert-danger" role="alert" style="color: red; display: none;">
                                         </div>
-                                        <table width="100%" class="table table-responsive table-striped table-bordered table-sm">
-                                                <tbody>
-</tbody><tbody id="table-body">
-</tbody>
-                                                <tbody>
-</tbody></table>
+                                        <table width="100%" class="table table-striped table-bordered table-sm">
+                                                <thead>
+                                                <tr style="background: #003a5d; color: #FFFFFF;">
+                                                        <td width="12%">Distancia (m)</td>
+                                                        <td width="12%">Tiempo (min:ss)</td>
+                                                        <td width="12%">F. Ciclo1 (TB, ss.dd)</td>
+                                                        <td width="12%">F. Ciclo2 (TB, ss.dd)</td>
+                                                        <td width="12%">FC (ppm)</td>
+                                                        <td width="10%">RPE (0-10)</td>
+                                                        <td width="12%">LA (mMol/L)</td>
+                                                        <td width="12%">Velocidad(V)</td>
+                                                        <td width="6%">
+                                                                <button type="button" class="btn btn-sm btn-primary" id="btnAddRow" title="Agregar fila">
+                                                                        <i class="fa fa-plus"></i>
+                                                                </button>
+                                                        </td>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="table-body">
+                                                </tbody>
+                                        </table>
                                         
                                         <div align="right">
                                                 <a class="add-modal-click btn btn-info btnAddform" style="display:none;" id="abreModal1" value="index.php?r=reportsfolder/createmodal" href="#" title="Buscar facturas" data-toggle="modal">

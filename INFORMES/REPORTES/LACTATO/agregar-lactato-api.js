@@ -12,6 +12,46 @@ $(document).ready(function() {
         }
     }
     
+    // Función para agregar fila a la tabla de registro de datos
+    let rowCount = 0;
+    function addTableRow() {
+        rowCount++;
+        const row = `
+            <tr id="row-${rowCount}">
+                <td><input type="text" class="form-control form-control-sm" name="medicion[${rowCount}][distancia]" placeholder="0"></td>
+                <td><input type="text" class="form-control form-control-sm" name="medicion[${rowCount}][tiempo]" placeholder="00:00"></td>
+                <td><input type="text" class="form-control form-control-sm" name="medicion[${rowCount}][ciclo1]" placeholder="0.00"></td>
+                <td><input type="text" class="form-control form-control-sm" name="medicion[${rowCount}][ciclo2]" placeholder="0.00"></td>
+                <td><input type="number" class="form-control form-control-sm" name="medicion[${rowCount}][fc]" placeholder="0"></td>
+                <td><input type="number" class="form-control form-control-sm" name="medicion[${rowCount}][rpe]" placeholder="0" min="0" max="10"></td>
+                <td><input type="number" step="0.1" class="form-control form-control-sm" name="medicion[${rowCount}][la]" placeholder="0.0"></td>
+                <td><input type="text" class="form-control form-control-sm" name="medicion[${rowCount}][potenciaCarrera]" placeholder="0"></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-danger btnRemoveRow" data-row="row-${rowCount}" title="Eliminar">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        `;
+        $('#table-body').append(row);
+    }
+    
+    // Agregar al menos una fila al cargar
+    addTableRow();
+    
+    // Evento para agregar fila
+    $(document).on('click', '#btnAddRow', function(e) {
+        e.preventDefault();
+        addTableRow();
+    });
+    
+    // Evento para eliminar fila
+    $(document).on('click', '.btnRemoveRow', function(e) {
+        e.preventDefault();
+        const rowId = $(this).data('row');
+        $('#' + rowId).remove();
+    });
+    
     // Interceptar el envío del formulario
     $('#w0').on('submit', async function(e) {
         e.preventDefault();

@@ -210,9 +210,13 @@ The application now includes a secure authentication system:
    - Uses original AGREGAR LACTATO.html file with API integration
    - Accepts athlete_id from URL parameter via `agregar-lactato-api.js`
    - Integrates with existing form fields and validation
-   - Hidden unnecessary fields: fecha nacimiento, género, estatura (October 11, 2025)
-   - Includes "Registro de datos" table with columns: Distancia, Tiempo, F. Ciclo1/2, FC, RPE, LA, Velocidad
-   - Includes "Zonas de entrenamiento" table with columns: Zona, V (Km/h), Ritmo, FC, Lactato, Potencia
+   - **Hidden unnecessary fields**: fecha nacimiento, género, estatura (October 11, 2025)
+   - **"Registro de datos" table** (October 11, 2025):
+     - Added complete table header with columns: Distancia (m), Tiempo (min:ss), F. Ciclo1 (TB, ss.dd), F. Ciclo2 (TB, ss.dd), FC (ppm), RPE (0-10), LA (mMol/L), Velocidad(V)
+     - Dynamic row addition with + button
+     - Delete row functionality with trash icon
+     - Minimum 1 row added automatically on page load
+   - **"Zonas de entrenamiento" table**: Already present with columns: Zona, V (Km/h), Ritmo, FC, Lactato, Potencia
    - Saves to database via POST /api/informes/lactato (updated to match actual DB schema)
    - Backend endpoint fixed to only use existing table columns (October 11, 2025)
    - Redirects to INFORME LACTATO.html after successful save
