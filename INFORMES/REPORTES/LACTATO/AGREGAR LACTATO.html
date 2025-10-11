@@ -1009,7 +1009,7 @@
 </div>        </div>
                                 <div style="clear: both;"></div>
                                 
-                                <div class="col-sm-4 float-left  pleft-0" style="display:none;">
+                                <div class="col-sm-4 float-left  pleft-0">
                                         <div class="form-group field-reportsfolder-birthdate">
 <label class="control-label" for="reportsfolder-birthdate">Fecha de nacimiento</label>
 <input type="date" id="reportsfolder-birthdate" class="form-control form-control-sm" name="Reportsfolder[birthdate]" value="1975-12-24">
@@ -1031,7 +1031,7 @@
 
 <div class="help-block errorHiden"></div>
 </div>                          </div>
-                                <div class="col-sm-4 float-left  pleft-0" style="display:none;">
+                                <div class="col-sm-4 float-left  pleft-0">
                                         <div class="form-group field-reportsfolder-gender">
 <label class="control-label" for="reportsfolder-gender">Género</label>
 <select id="reportsfolder-gender" class="form-control" name="Reportsfolder[gender]" value="1" required="required" style="height: 31px">
@@ -1042,7 +1042,7 @@
 
 <div class="help-block errorHiden"></div>
 </div>                          </div>
-                                <div class="col-sm-4 float-left  pleft-0" style="display:none;">
+                                <div class="col-sm-4 float-left  pleft-0">
                                         <div class="form-group field-reportsfolder-height required">
 <label class="control-label" for="reportsfolder-height">Estatura</label>
 <input type="number" id="reportsfolder-height" class="form-control form-control-sm" name="Reportsfolder[height]" value="168" placeholder="---" min="0" step="001" aria-required="true">
@@ -1148,8 +1148,32 @@
                                                         </td>
                                                 </tr>
                                                 </thead>
-                                                <tbody>
-</tbody></table>
+                                                <tbody id="zonas-tbody">
+                                                        <tr>
+                                                                <td>Zona 2</td>
+                                                                <td><input type="text" class="form-control form-control-sm" id="reportsfolder-txtZona2V" name="Zona[2][velocidad]" placeholder="--.-"></td>
+                                                                <td class="tdcolumnaCarrera"><input type="text" class="form-control form-control-sm" id="reportsfolder-txtZona2Ritmo" name="Zona[2][ritmo]" placeholder="--:--"></td>
+                                                                <td><input type="number" class="form-control form-control-sm" id="reportsfolder-txtZona2FC" name="Zona[2][fc]" placeholder="---"></td>
+                                                                <td><input type="text" class="form-control form-control-sm" id="reportsfolder-txtZona2LA" name="Zona[2][lactato]" placeholder="--.-"></td>
+                                                                <td class="dtPotenciaCarrera"><input type="text" class="form-control form-control-sm" id="reportsfolder-txtZona2Potencia" name="Zona[2][potencia]" placeholder="--.-"></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td>Zona 4</td>
+                                                                <td><input type="text" class="form-control form-control-sm" id="reportsfolder-txtZona4V" name="Zona[4][velocidad]" placeholder="--.-"></td>
+                                                                <td class="tdcolumnaCarrera"><input type="text" class="form-control form-control-sm" id="reportsfolder-txtZona4Ritmo" name="Zona[4][ritmo]" placeholder="--:--"></td>
+                                                                <td><input type="number" class="form-control form-control-sm" id="reportsfolder-txtZona4FC" name="Zona[4][fc]" placeholder="---"></td>
+                                                                <td><input type="text" class="form-control form-control-sm" id="reportsfolder-txtZona4LA" name="Zona[4][lactato]" placeholder="--.-"></td>
+                                                                <td class="dtPotenciaCarrera"><input type="text" class="form-control form-control-sm" id="reportsfolder-txtZona4Potencia" name="Zona[4][potencia]" placeholder="--.-"></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td>Zona 6</td>
+                                                                <td><input type="text" class="form-control form-control-sm" id="reportsfolder-txtZona6V" name="Zona[6][velocidad]" placeholder="--.-"></td>
+                                                                <td class="tdcolumnaCarrera"><input type="text" class="form-control form-control-sm" id="reportsfolder-txtZona6Ritmo" name="Zona[6][ritmo]" placeholder="--:--"></td>
+                                                                <td><input type="number" class="form-control form-control-sm" id="reportsfolder-txtZona6FC" name="Zona[6][fc]" placeholder="---"></td>
+                                                                <td><input type="text" class="form-control form-control-sm" id="reportsfolder-txtZona6LA" name="Zona[6][lactato]" placeholder="--.-"></td>
+                                                                <td class="dtPotenciaCarrera"><input type="text" class="form-control form-control-sm" id="reportsfolder-txtZona6Potencia" name="Zona[6][potencia]" placeholder="--.-"></td>
+                                                        </tr>
+                                                </tbody></table>
                                 </div>
 
                                 <div class="col-sm-12 float-left  pleft-0">

@@ -210,13 +210,19 @@ The application now includes a secure authentication system:
    - Uses original AGREGAR LACTATO.html file with API integration
    - Accepts athlete_id from URL parameter via `agregar-lactato-api.js`
    - Integrates with existing form fields and validation
-   - **Hidden unnecessary fields**: fecha nacimiento, género, estatura (October 11, 2025)
-   - **"Registro de datos" table** (October 11, 2025):
-     - Added complete table header with columns: Distancia (m), Tiempo (min:ss), F. Ciclo1 (TB, ss.dd), F. Ciclo2 (TB, ss.dd), FC (ppm), RPE (0-10), LA (mMol/L), Velocidad(V)
+   - **All fields visible in Datos generales**: fecha nacimiento, género, estatura, nombre, peso (restored October 11, 2025)
+   - **"Registro de datos" table** - Changes dynamically by sport (October 11, 2025):
+     - **Carrera**: Distancia (m), Tiempo (min:ss), F. Ciclo1, F. Ciclo2, FC (ppm), RPE (0-10), LA (mMol/L), Velocidad(V)
+     - **Ciclismo**: Potencia (W) (m), FC (ppm), RPE (0-10), LA (mMol/L)
+     - **Natación**: Distancia (m), Tiempo (min:ss), F. Ciclo1, F. Ciclo2, FC (ppm), RPE (0-10), LA (mMol/L)
      - Dynamic row addition with + button
      - Delete row functionality with trash icon
      - Minimum 1 row added automatically on page load
-   - **"Zonas de entrenamiento" table**: Already present with columns: Zona, V (Km/h), Ritmo, FC, Lactato, Potencia
+   - **"Zonas de entrenamiento" table** - Shows Zona 2, 4, 6 and changes by sport (October 11, 2025):
+     - **Carrera**: V (Km/hr), Ritmo (mins/km), FC (ppm), Lactato(mMol/L), Potencia(W)
+     - **Ciclismo**: P (w), FC (ppm), Lactato(mMol/L)
+     - **Natación**: Ritmo (min/100), Ritmo (cms/km), FC (ppm), Lactato(mMol/L)
+   - Tables automatically update when sport radio button changes
    - Saves to database via POST /api/informes/lactato (updated to match actual DB schema)
    - Backend endpoint fixed to only use existing table columns (October 11, 2025)
    - Redirects to INFORME LACTATO.html after successful save
