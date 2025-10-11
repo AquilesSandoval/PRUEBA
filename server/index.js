@@ -552,16 +552,12 @@ app.post('/api/informes/lactato', async (req, res) => {
       fecha_prueba,
       deporte,
       protocolo_prueba,
-      temperatura_ambiente,
-      humedad_ambiente,
       umbral_aerobico_fc,
       umbral_aerobico_velocidad,
       umbral_aerobico_lactato,
       umbral_anaerobico_fc,
       umbral_anaerobico_velocidad,
       umbral_anaerobico_lactato,
-      vo2max_estimado,
-      fc_maxima_alcanzada,
       datos_mediciones,
       conclusiones,
       recomendaciones_entrenamiento,
@@ -577,7 +573,7 @@ app.post('/api/informes/lactato', async (req, res) => {
         atleta_id,
         'lactato',
         fecha_prueba,
-        `Informe de Lactato - ${deporte}`,
+        `Informe de Lactato - ${deporte || 'Carrera'}`,
         JSON.stringify(datos_mediciones || {}),
         conclusiones,
         recomendaciones_entrenamiento
@@ -586,24 +582,20 @@ app.post('/api/informes/lactato', async (req, res) => {
     
     const informe_id = informeResult.rows[0].id;
     
-    // Create lactato specific record
+    // Create lactato specific record - SOLO campos que existen en la tabla
     const lactatoResult = await client.query(
       `INSERT INTO informes_lactato (
         informe_id, atleta_id, fecha_prueba, deporte, protocolo_prueba,
-        temperatura_ambiente, humedad_ambiente,
         umbral_aerobico_fc, umbral_aerobico_velocidad, umbral_aerobico_lactato,
         umbral_anaerobico_fc, umbral_anaerobico_velocidad, umbral_anaerobico_lactato,
-        vo2max_estimado, fc_maxima_alcanzada,
         datos_mediciones, conclusiones, recomendaciones_entrenamiento, notas
       )
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
       RETURNING *`,
       [
         informe_id, atleta_id, fecha_prueba, deporte, protocolo_prueba,
-        temperatura_ambiente, humedad_ambiente,
         umbral_aerobico_fc, umbral_aerobico_velocidad, umbral_aerobico_lactato,
         umbral_anaerobico_fc, umbral_anaerobico_velocidad, umbral_anaerobico_lactato,
-        vo2max_estimado, fc_maxima_alcanzada,
         JSON.stringify(datos_mediciones || {}), conclusiones, recomendaciones_entrenamiento, notas
       ]
     );

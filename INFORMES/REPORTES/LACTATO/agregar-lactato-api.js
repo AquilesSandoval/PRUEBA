@@ -23,22 +23,18 @@ $(document).ready(function() {
             return false;
         }
         
-        // Recopilar datos del formulario
+        // Recopilar datos del formulario - SOLO campos que existen en la base de datos
         const formData = {
             atleta_id: parseInt(selectedAthleteId),
-            fecha_prueba: new Date().toISOString().split('T')[0], // Fecha actual por defecto
+            fecha_prueba: $('#reportsfolder-sporttestdate').val() || new Date().toISOString().split('T')[0],
             deporte: '',
             protocolo_prueba: '',
-            temperatura_ambiente: null,
-            humedad_ambiente: null,
             umbral_aerobico_fc: null,
             umbral_aerobico_velocidad: null,
             umbral_aerobico_lactato: null,
             umbral_anaerobico_fc: null,
             umbral_anaerobico_velocidad: null,
             umbral_anaerobico_lactato: null,
-            vo2max_estimado: null,
-            fc_maxima_alcanzada: null,
             datos_mediciones: {},
             conclusiones: '',
             recomendaciones_entrenamiento: '',
@@ -54,38 +50,67 @@ $(document).ready(function() {
             formData.deporte = 'Natación';
         }
         
-        // Recopilar datos de las zonas (si existen los campos)
+        // Recopilar datos de las zonas
         formData.umbral_aerobico_fc = parseInt($('#reportsfolder-txtZona2FC').val()) || null;
-        formData.umbral_aerobico_velocidad = $('#reportsfolder-txtZona2V').val() || null;
+        formData.umbral_aerobico_velocidad = parseFloat($('#reportsfolder-txtZona2V').val()) || null;
         formData.umbral_aerobico_lactato = parseFloat($('#reportsfolder-txtZona2LA').val()) || null;
         
         formData.umbral_anaerobico_fc = parseInt($('#reportsfolder-txtZona4FC').val()) || null;
-        formData.umbral_anaerobico_velocidad = $('#reportsfolder-txtZona4V').val() || null;
+        formData.umbral_anaerobico_velocidad = parseFloat($('#reportsfolder-txtZona4V').val()) || null;
         formData.umbral_anaerobico_lactato = parseFloat($('#reportsfolder-txtZona4LA').val()) || null;
         
-        formData.vo2max_estimado = parseFloat($('#reportsfolder-txtVO2max').val()) || null;
-        formData.fc_maxima_alcanzada = parseInt($('#reportsfolder-txtFCmax').val()) || null;
+        // Recopilar comentario general
+        formData.notas = $('#reportsfolder-txtComentario').val() || '';
         
         // Recopilar datos de la tabla de mediciones
         const mediciones = [];
         $('#table-body tr').each(function() {
             const row = $(this);
             const medicion = {
-                distancia: row.find('input[name*="[distancia]"]').val(),
-                tiempo: row.find('input[name*="[tiempo]"]').val(),
-                ciclo1: row.find('input[name*="[ciclo1]"]').val(),
-                ciclo2: row.find('input[name*="[ciclo2]"]').val(),
-                fc: row.find('input[name*="[fc]"]').val(),
-                rpe: row.find('input[name*="[rpe]"]').val(),
-                la: row.find('input[name*="[la]"]').val(),
-                potenciaCarrera: row.find('input[name*="[potenciaCarrera]"]').val()
+                distancia: row.find('input[name*="[distancia]"]').val() || row.find('td').eq(0).find('input').val(),
+                tiempo: row.find('input[name*="[tiempo]"]').val() || row.find('td').eq(1).find('input').val(),
+                ciclo1: row.find('input[name*="[ciclo1]"]').val() || row.find('td').eq(2).find('input').val(),
+                ciclo2: row.find('input[name*="[ciclo2]"]').val() || row.find('td').eq(3).find('input').val(),
+                fc: row.find('input[name*="[fc]"]').val() || row.find('td').eq(4).find('input').val(),
+                rpe: row.find('input[name*="[rpe]"]').val() || row.find('td').eq(5).find('input').val(),
+                la: row.find('input[name*="[la]"]').val() || row.find('td').eq(6).find('input').val(),
+                potenciaCarrera: row.find('input[name*="[potenciaCarrera]"]').val() || row.find('td').eq(7).find('input').val()
             };
-            mediciones.push(medicion);
+            
+            // Solo agregar si tiene al menos un valor
+            if (medicion.distancia || medicion.tiempo || medicion.fc || medicion.la) {
+                mediciones.push(medicion);
+            }
         });
         
+        // Guardar mediciones en datos_mediciones
         if (mediciones.length > 0) {
             formData.datos_mediciones = { mediciones: mediciones };
         }
+        
+        // Recopilar zonas de entrenamiento
+        const zonas = [];
+        $('table').eq(1).find('tbody tr').each(function() {
+            const row = $(this);
+            const zona = {
+                zona: row.find('td').eq(0).text().trim(),
+                velocidad_kmh: row.find('input').eq(0).val(),
+                ritmo_min_km: row.find('input').eq(1).val(),
+                fc_ppm: row.find('input').eq(2).val(),
+                lactato_mmol: row.find('input').eq(3).val(),
+                potencia_w: row.find('input').eq(4).val()
+            };
+            
+            if (zona.velocidad_kmh || zona.fc_ppm) {
+                zonas.push(zona);
+            }
+        });
+        
+        if (zonas.length > 0) {
+            formData.datos_mediciones.zonas = zonas;
+        }
+        
+        console.log('Datos a enviar:', formData);
         
         try {
             const response = await fetch('/api/informes/lactato', {
