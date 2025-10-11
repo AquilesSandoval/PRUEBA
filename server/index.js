@@ -21,6 +21,11 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files (frontend)
 app.use(express.static(path.join(__dirname, '..')));
 
+// Special handling for files with spaces in their names
+app.get('/INFORMES/REPORTES/LACTATO/INFORME%20LACTATO.html', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'INFORMES', 'REPORTES', 'LACTATO', 'INFORME LACTATO.html'));
+});
+
 // JWT Secret - MUST be set via environment variable
 const JWT_SECRET = process.env.JWT_SECRET;
 

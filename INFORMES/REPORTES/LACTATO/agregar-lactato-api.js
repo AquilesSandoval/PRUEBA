@@ -295,7 +295,7 @@ $(document).ready(function() {
                     buttons: false,
                     timer: 1500
                 }).then(() => {
-                    window.location.href = `INFORME%20LACTATO.html?id=${data.informe_id}`;
+                    window.location.href = `informe-lactato.html?id=${data.informe_id}`;
                 });
             } else {
                 swal("Error", data.error || "Error al crear el informe", "error");
