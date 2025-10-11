@@ -38,3 +38,26 @@ The application follows a traditional architecture with a clear separation of co
     -   Express.js
     -   jsonwebtoken (JWT authentication)
     -   bcrypt (password hashing)
+
+## Recent Changes
+
+### Athlete Edit Functionality Fixed (October 11, 2025)
+- ✅ **FIXED**: Edit button now loads correct athlete data
+- **Backend API**: Updated `GET /api/athletes/:id` to return `{success: true, athlete: {...}}` format
+- **JavaScript Updates** (`ATLETAS/EDITAR/Atletas Editar.js`):
+  - Loads all available athlete fields from database: nombre, apellido, email, telefono, fecha_nacimiento, deporte_principal, genero, peso, altura, notas
+  - Correctly reads athlete ID from URL parameter
+  - Populates form fields with selected athlete's data
+  - Save button updates athlete with all modified fields
+  - Redirect to athlete list after successful save
+- **Data Flow**: List page → Click Edit → Pass ID via URL → Load athlete data → Edit → Save → Update database → Redirect to list
+
+### Lactate Report Visualization (October 11, 2025)
+- ✅ **File renamed**: `INFORME LACTATO.html` → `informe-lactato.html` (removed spaces for better URL handling)
+- Created `informe-lactato-api.js` replacing ALL hardcoded data
+- Fetches data from `GET /api/informes/lactato/:id` endpoint
+- Renders dynamic Highcharts graphs with FC, LA, and RPE from user submissions
+- Displays athlete name, test date, and sport from database
+- Populates "Datos de la prueba" containers with real test data
+- Fills "Zonas de entrenamiento" (Zona 2, 4, 6) with actual submitted zone data
+- Updated redirect in `agregar-lactato-api.js` to use new filename

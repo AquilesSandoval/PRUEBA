@@ -28,18 +28,31 @@ async function loadAthleteData(id) {
         if (data.success && data.athlete) {
             const athlete = data.athlete;
             
-            // Populate form fields
+            // Populate basic fields
             $('#athletesathlete-first_name').val(athlete.nombre || '');
             $('#athletesathlete-last_name').val(athlete.apellido || '');
-            $('#athletesathlete-birthday').val(athlete.fecha_nacimiento || '');
+            $('#athletesathlete-birthday').val(athlete.fecha_nacimiento ? athlete.fecha_nacimiento.split('T')[0] : '');
             $('#athletesathlete-email').val(athlete.email || '');
-            $('#athletesathlete-company').val(athlete.empresa || '');
+            $('#athletesathlete-contact').val(athlete.telefono || '');
             $('#athletesathlete-sport_id').val(athlete.deporte_principal || '').trigger('change');
-            $('#athletesathlete-contract_type_id').val(athlete.tipo_contrato || '').trigger('change');
             $('#pass').val(''); // Don't populate password
             
+            // Populate additional fields if they exist
+            if (athlete.genero) {
+                $(`input[name="Athletesathlete[genero]"][value="${athlete.genero}"]`).prop('checked', true);
+            }
+            if (athlete.peso) {
+                $('#athletesathlete-weight').val(athlete.peso);
+            }
+            if (athlete.altura) {
+                $('#athletesathlete-height').val(athlete.altura);
+            }
+            if (athlete.notas) {
+                $('#athletesathlete-notas').val(athlete.notas);
+            }
+            
         } else {
-            swal("Error", "No se pudo cargar los datos del atleta", "error");
+            swal("Error", data.error || "No se pudo cargar los datos del atleta", "error");
         }
     } catch (error) {
         console.error('Error loading athlete:', error);
@@ -76,8 +89,12 @@ async function saveAthlete() {
         apellido: apellido,
         fecha_nacimiento: $('#athletesathlete-birthday').val() || null,
         email: email || null,
-        telefono: $('#athletesathlete-phone').val() || null,
-        deporte_principal: $('#athletesathlete-sport_id').val() || null
+        telefono: $('#athletesathlete-contact').val() || null,
+        deporte_principal: $('#athletesathlete-sport_id').val() || null,
+        genero: $('input[name="Athletesathlete[genero]"]:checked').val() || null,
+        peso: $('#athletesathlete-weight').val() || null,
+        altura: $('#athletesathlete-height').val() || null,
+        notas: $('#athletesathlete-notas').val() || null
     };
     
     try {
