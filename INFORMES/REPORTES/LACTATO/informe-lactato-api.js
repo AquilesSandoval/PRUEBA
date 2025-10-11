@@ -23,9 +23,8 @@ $(document).ready(async function() {
         console.log('Informe cargado:', informe);
         
         // Actualizar información del atleta en la página
-        $('#athlete-name').text(informe.atleta_nombre || 'N/A');
-        $('#test-date').text(informe.fecha_prueba || 'N/A');
-        $('#sport').text(informe.deporte || 'N/A');
+        $('#athlete-name-lactato').text(informe.atleta_nombre || 'N/A');
+        $('#fecha-prueba-lactato').text(informe.fecha_prueba || 'N/A');
         
         // Extraer datos de mediciones
         let mediciones = [];
@@ -229,26 +228,49 @@ $(document).ready(async function() {
             }
         });
         
-        // Mostrar tabla de zonas de entrenamiento si existen
+        // Llenar contenedores de datos de la prueba
+        if (mediciones.length > 0) {
+            // Crear strings con todos los valores separados por comas
+            const ritmos = mediciones.map(m => m.tiempo || m.ritmo || '-').join(', ');
+            const fcs = mediciones.map(m => m.fc || '-').join(', ');
+            const lactatos = mediciones.map(m => m.la || '-').join(', ');
+            const rpes = mediciones.map(m => m.rpe || '-').join(', ');
+            
+            $('#ritmo-data-container').text(ritmos);
+            $('#fc-data-container').text(fcs);
+            $('#lactato-data-container').text(lactatos);
+            $('#rpe-data-container').text(rpes);
+        }
+        
+        // Mostrar zonas de entrenamiento si existen
         if (informe.datos_mediciones && informe.datos_mediciones.zonas) {
             const zonas = informe.datos_mediciones.zonas;
-            let zonasHtml = '<h4>Zonas de Entrenamiento</h4><table class="table table-bordered"><thead><tr>';
-            zonasHtml += '<th>Zona</th><th>Velocidad</th><th>Ritmo</th><th>FC</th><th>Lactato</th><th>Potencia</th>';
-            zonasHtml += '</tr></thead><tbody>';
             
-            zonas.forEach(zona => {
-                zonasHtml += '<tr>';
-                zonasHtml += `<td>${zona.zona || ''}</td>`;
-                zonasHtml += `<td>${zona.velocidad_kmh || '-'}</td>`;
-                zonasHtml += `<td>${zona.ritmo_min_km || '-'}</td>`;
-                zonasHtml += `<td>${zona.fc_ppm || '-'}</td>`;
-                zonasHtml += `<td>${zona.lactato_mmol || '-'}</td>`;
-                zonasHtml += `<td>${zona.potencia_w || '-'}</td>`;
-                zonasHtml += '</tr>';
-            });
+            // Buscar Zona 2, 4 y 6
+            const zona2 = zonas.find(z => z.zona === 'Zona 2');
+            const zona4 = zonas.find(z => z.zona === 'Zona 4');
+            const zona6 = zonas.find(z => z.zona === 'Zona 6');
             
-            zonasHtml += '</tbody></table>';
-            $('#zonas-container').html(zonasHtml);
+            // Llenar Zona 2
+            if (zona2) {
+                $('#zona2-ritmo').html(`<strong>Ritmo:</strong> ${zona2.ritmo_min_km || '-'}`);
+                $('#zona2-fc').html(`<strong>FC:</strong> ${zona2.fc_ppm || '-'}`);
+                $('#zona2-lactato').html(`<strong>LA:</strong> ${zona2.lactato_mmol || '-'}`);
+            }
+            
+            // Llenar Zona 4
+            if (zona4) {
+                $('#zona4-ritmo').html(`<strong>Ritmo:</strong> ${zona4.ritmo_min_km || '-'}`);
+                $('#zona4-fc').html(`<strong>FC:</strong> ${zona4.fc_ppm || '-'}`);
+                $('#zona4-lactato').html(`<strong>LA:</strong> ${zona4.lactato_mmol || '-'}`);
+            }
+            
+            // Llenar Zona 6
+            if (zona6) {
+                $('#zona6-ritmo').html(`<strong>Ritmo:</strong> ${zona6.ritmo_min_km || '-'}`);
+                $('#zona6-fc').html(`<strong>FC:</strong> ${zona6.fc_ppm || '-'}`);
+                $('#zona6-lactato').html(`<strong>LA:</strong> ${zona6.lactato_mmol || '-'}`);
+            }
         }
         
         // Mostrar notas/comentarios si existen
