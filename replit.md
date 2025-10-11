@@ -88,7 +88,21 @@ The application follows a traditional architecture with a clear separation of co
 - **Bug Fix JavaScript**: Cambiado `let atletaIdActual` a `var atletaIdActual` para evitar "temporal dead zone" error
 - **Event Handlers**: Agregados manejadores jQuery para los 3 botones dentro de $(document).ready()
 - **Bug Fix Backend API**: Corregido query de mesociclos - cambiado `tipo` por `tipo_mesociclo` (nombre correcto de columna)
+- **Bug Fix Microciclos**: Corregido query - cambiado `semana` por `semana_numero` (nombre correcto de columna)
 - **Dashboard carga sin errores**: El endpoint `/api/dashboard/planificacion/:atletaId` funciona correctamente
+
+### Entrevistas PARQ - Mejoras UX (October 11, 2025)
+- ✅ **SweetAlert agregado a todas las páginas de entrevistas** - Alertas de guardado funcionando correctamente
+- ✅ **Switches visuales mejorados** - Cambio automático a verde cuando están en "SI"
+- **Implementación de Switches**:
+  - Función `actualizarColorSwitch()` cambia color según estado (verde="SI", negro="NO")
+  - Función `aplicarEstilosSwitches()` aplica estilos al cargar página
+  - Listener automático detecta cambios en todos los switches
+  - Estilos se aplican después de cargar datos de la base de datos
+- **Alertas de Guardado**:
+  - SweetAlert agregado a: PARQ.html, Fuerza.html, CardioVascualr.html, Lesiones.html, Objetivos.html, Sensorial.html, otros.html
+  - Alerta de éxito al guardar: "¡Guardado! Datos guardados correctamente"
+  - Alerta de error con mensaje descriptivo en caso de fallo
 
 ### Entrevistas PARQ Functionality Complete (October 11, 2025)
 - ✅ **Sistema completo de entrevistas PARQ implementado** - Navegación, carga y guardado de datos
