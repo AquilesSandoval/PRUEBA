@@ -2191,14 +2191,18 @@ $('#btnPronostico').click(function() {
 
 scrollvideo();
 
-$(document).ready(function() {
+// ========== VARIABLE GLOBAL: ID del atleta actual ==========
+let atletaIdActual = null;
 
-    // ========== CÓDIGO DINÁMICO: Captura ID del atleta desde URL ==========
-    let atletaIdActual = null;
-    
-    // Obtener ID del atleta desde la URL
+// Obtener ID del atleta desde la URL (se ejecuta inmediatamente)
+(function() {
     const urlParams = new URLSearchParams(window.location.search);
     atletaIdActual = urlParams.get('id');
+})();
+
+$(document).ready(function() {
+
+    // ========== CÓDIGO DINÁMICO: Validar ID del atleta ==========
     
     if (!atletaIdActual) {
         swal("Error", "No se especificó el ID del atleta. Redirigiendo...", "error").then(() => {
@@ -2244,6 +2248,12 @@ $(document).ready(function() {
     
     // Cargar planificación al inicio
     cargarPlanificacion(atletaIdActual);
+    
+    // Configurar botón de Entrevista con ID dinámico
+    $('#btnEntrevista').on('click', function(e) {
+        e.preventDefault();
+        window.location.href = `Entrevista/PARQ.html?id=${atletaIdActual}`;
+    });
     // ========== FIN CÓDIGO DINÁMICO ==========
 
     //$('.test').select2();

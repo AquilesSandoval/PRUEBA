@@ -775,6 +775,95 @@ app.get('/api/dashboard/planificacion/:atletaId', async (req, res) => {
   }
 });
 
+// PARQ Entrevistas - Obtener datos de entrevista
+app.get('/api/parq/get-data/:atletaId/:tipo', async (req, res) => {
+  try {
+    const { atletaId, tipo } = req.params;
+    
+    const result = await pool.query(
+      `SELECT * FROM entrevistas 
+       WHERE atleta_id = $1 AND tipo_entrevista = $2 
+       ORDER BY created_at DESC 
+       LIMIT 1`,
+      [atletaId, tipo]
+    );
+    
+    if (result.rows.length > 0) {
+      res.json({
+        success: true,
+        data: result.rows[0]
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        message: 'No se encontraron datos de entrevista'
+      });
+    }
+  } catch (error) {
+    console.error('Error al obtener datos de entrevista:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Error al obtener datos de entrevista'
+    });
+  }
+});
+
+// PARQ Entrevistas - Guardar datos de entrevista
+app.post('/api/parq/save-data', async (req, res) => {
+  try {
+    const { atleta_id, tipo_entrevista, datos_entrevista } = req.body;
+    
+    if (!atleta_id || !tipo_entrevista || !datos_entrevista) {
+      return res.status(400).json({
+        success: false,
+        error: 'Faltan datos requeridos'
+      });
+    }
+    
+    // Verificar si ya existe una entrevista de este tipo para este atleta
+    const existingResult = await pool.query(
+      'SELECT id FROM entrevistas WHERE atleta_id = $1 AND tipo_entrevista = $2',
+      [atleta_id, tipo_entrevista]
+    );
+    
+    let result;
+    
+    if (existingResult.rows.length > 0) {
+      // Actualizar entrevista existente
+      result = await pool.query(
+        `UPDATE entrevistas 
+         SET datos_entrevista = $1, 
+             fecha_entrevista = CURRENT_DATE,
+             updated_at = CURRENT_TIMESTAMP
+         WHERE atleta_id = $2 AND tipo_entrevista = $3
+         RETURNING *`,
+        [JSON.stringify(datos_entrevista), atleta_id, tipo_entrevista]
+      );
+    } else {
+      // Crear nueva entrevista
+      result = await pool.query(
+        `INSERT INTO entrevistas 
+         (atleta_id, tipo_entrevista, fecha_entrevista, datos_entrevista)
+         VALUES ($1, $2, CURRENT_DATE, $3)
+         RETURNING *`,
+        [atleta_id, tipo_entrevista, JSON.stringify(datos_entrevista)]
+      );
+    }
+    
+    res.json({
+      success: true,
+      data: result.rows[0]
+    });
+    
+  } catch (error) {
+    console.error('Error al guardar datos de entrevista:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Error al guardar datos de entrevista'
+    });
+  }
+});
+
 // Default route to serve index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'index.html'));

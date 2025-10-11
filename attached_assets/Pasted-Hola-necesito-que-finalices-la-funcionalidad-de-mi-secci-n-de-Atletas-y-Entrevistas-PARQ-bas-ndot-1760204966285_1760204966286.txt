@@ -1,0 +1,53 @@
+Hola, necesito que finalices la funcionalidad de mi sección de Atletas y Entrevistas (PARQ) basándote en los archivos que ya tengo.
+
+Por favor, sigue estas instrucciones en dos partes:
+
+Parte 1: Ajustes en dashboard/atletas dashboard.htm
+Objetivo: Limpiar el menú del dashboard y conectar correctamente los botones "Regresar" y "Entrevista".
+
+Abre el archivo dashboard/atletas dashboard.htm.
+
+En el menú de acciones rápidas, elimina los siguientes elementos:
+
+Contrato
+
+Electro
+
+Emergencia
+
+Zonas
+
+Forma Recuperación
+
+Actualiza los enlaces restantes:
+
+Botón "Regresar": Su enlace (href) debe apuntar a la página principal donde se listan todos mis atletas.
+
+Botón "Entrevista": Su enlace (href) debe apuntar a PARQ.html. Es fundamental que el enlace sea dinámico y pase el ID del atleta que se está viendo. El formato debe ser PARQ.html?id=ATLETA_ID.
+
+Parte 2: Activar la Funcionalidad de PARQ.html
+Objetivo: Hacer que la página de entrevistas sea completamente funcional, permitiendo navegar entre secciones y guardar los datos de cada atleta en la base de datos.
+
+Navegación entre Pestañas:
+
+En PARQ.html, las pestañas que se ven en la imagen (Datos Personales, Fuerza, Cardiovascular, Lesiones, Nutrición, Objetivos) deben funcionar como enlaces.
+
+Cada enlace debe llevar a su sección correspondiente, siempre pasando el id del atleta en la URL. Por ejemplo, si estoy en PARQ.html?id=146, al hacer clic en "Lesiones", la URL debería ser lesiones.html?id=146.
+
+Implementa la Lógica de Datos Dinámicos en un script entrevistas.js:
+
+Lectura del ID: En cada página de la sección PARQ, el script debe primero leer el atletaId de la URL.
+
+Cargar Datos Existentes: Crea una función cargarDatosEntrevista(atletaId) que, al cargar la página, haga una llamada AJAX a una ruta de mi backend (ej. /parq/get-data). Esta petición debe solicitar los datos guardados para ese atletaId. Al recibir la respuesta, rellena automáticamente los campos del formulario con la información existente del atleta.
+
+Guardar Datos:
+
+En cada formulario de la sección PARQ, asegúrate de que haya un botón de tipo "submit" o un botón con un id (ej. id="guardarParq").
+
+Crea una función que se active al hacer clic en ese botón. Esta función debe recolectar todos los datos del formulario que se está viendo.
+
+Realiza una llamada AJAX de tipo POST a una ruta del backend (ej. /parq/save-data), enviando el atletaId y todos los datos del formulario.
+
+El backend guardará o actualizará la información en la base de datos para ese atleta específico.
+
+Al recibir una respuesta exitosa del servidor, muestra una alerta de "Datos guardados correctamente" usando sweetalert.

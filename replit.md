@@ -79,6 +79,28 @@ The application follows a traditional architecture with a clear separation of co
   - Ready for competitions and tests (tables to be added later)
 - **Data Flow**: List → Click Dashboard → Pass ID → Load athlete's planning → Display personalized dashboard
 
+### Entrevistas PARQ Functionality Complete (October 11, 2025)
+- ✅ **Sistema completo de entrevistas PARQ implementado** - Navegación, carga y guardado de datos
+- **Dashboard Updates** (`ATLETAS/DASHBORD/Atletas DASHBOARD.html`):
+  - Menú limpiado: eliminados botones Contrato, Electro, Emergencia, Zonas, Forma Recuperación
+  - Botón "Entrevista" ahora redirige a `Entrevista/PARQ.html?id=ATLETA_ID` dinámicamente
+  - Navegación simplificada: Regresar, Entrevista, Informes, Editar
+- **PARQ Navigation** (todas las páginas de entrevistas):
+  - Pestañas de navegación actualizadas con clase `nav-parq` y atributo `data-page`
+  - Navegación entre secciones con paso automático de ID del atleta
+  - Secciones: PAR-Q, Cardiovascular, Sensorial, Otros, Lesiones, Fuerza, Deportivos, Objetivos
+- **JavaScript Shared** (`entrevistas.js`):
+  - Captura automática del atletaId desde URL en todas las páginas
+  - Función `cargarDatosEntrevista(atletaId)` - Carga datos existentes de la base de datos
+  - Función `guardarDatosEntrevista()` - Guarda/actualiza datos con AJAX
+  - Relleno automático de formularios (checkbox, radio, select, input)
+  - Alertas de éxito con SweetAlert
+- **Backend API** (`server/index.js`):
+  - `GET /api/parq/get-data/:atletaId/:tipo` - Obtiene datos de entrevista por tipo
+  - `POST /api/parq/save-data` - Guarda o actualiza entrevista en tabla `entrevistas`
+  - Maneja tipos: PARQ, fuerza, cardiovascular, lesiones, objetivos, sensorial, otros
+- **Data Flow**: Dashboard → Click Entrevista → PARQ.html?id=X → Navegación con ID → Cargar datos → Editar → Guardar → DB actualizada → Alerta éxito
+
 ### Database Schema Complete Alignment (October 11, 2025)
 - ✅ **Database redefined to match schema.sql** - All tables from schema.sql now implemented
 - **New Tables Created** (13 tables added):
