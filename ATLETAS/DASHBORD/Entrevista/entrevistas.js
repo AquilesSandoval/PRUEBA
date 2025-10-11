@@ -18,6 +18,35 @@ $(document).ready(function() {
     console.log('Entrevista cargada para atleta ID:', atletaIdActual);
     
     
+    // ========== FUNCIÓN PARA ACTUALIZAR COLOR DE SWITCHES ==========
+    function actualizarColorSwitch($checkbox) {
+        const $toggle = $checkbox.closest('.toggle');
+        if ($checkbox.is(':checked')) {
+            // Cambiar a verde cuando está en SI
+            $toggle.removeClass('btn-black off').addClass('btn-success');
+            $toggle.find('.toggle-off').removeClass('active');
+            $toggle.find('.toggle-on').addClass('active');
+        } else {
+            // Volver a negro cuando está en NO
+            $toggle.removeClass('btn-success').addClass('btn-black off');
+            $toggle.find('.toggle-on').removeClass('active');
+            $toggle.find('.toggle-off').addClass('active');
+        }
+    }
+    
+    // Aplicar estilos a todos los switches al cargar
+    function aplicarEstilosSwitches() {
+        $('input[type="checkbox"][data-toggle="toggle"]').each(function() {
+            actualizarColorSwitch($(this));
+        });
+    }
+    
+    // Detectar cambios en los switches
+    $(document).on('change', 'input[type="checkbox"][data-toggle="toggle"]', function() {
+        actualizarColorSwitch($(this));
+    });
+    
+    
     // ========== NAVEGACIÓN ENTRE PESTAÑAS CON PASO DE ID ==========
     $('.nav-parq').on('click', function(e) {
         e.preventDefault();
@@ -80,6 +109,11 @@ $(document).ready(function() {
                     });
                     
                     console.log('Formulario rellenado con datos existentes');
+                    
+                    // Aplicar estilos de switches después de cargar datos
+                    setTimeout(function() {
+                        aplicarEstilosSwitches();
+                    }, 300);
                 } else {
                     console.log('No hay datos previos para esta entrevista');
                 }
