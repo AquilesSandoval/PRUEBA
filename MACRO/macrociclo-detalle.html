@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Macrociclo - AIYM</title>
+    <link rel="icon" type="image/png" href="../assets/favicon-32x32.png">
+    
+    <link href="../assets/fonts.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/atlantis2.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/training-app-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .page-header {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .macro-info {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .semana-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .semana-header {
+            background: #003B5C;
+            color: white;
+            padding: 12px 20px;
+            margin: -20px -20px 20px -20px;
+            border-radius: 10px 10px 0 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .dia-section {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #003B5C;
+        }
+        
+        .dia-nombre {
+            font-size: 16px;
+            font-weight: 600;
+            color: #003B5C;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sesion-item {
+            background: white;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .sesion-nombre {
+            font-weight: 600;
+            color: #003B5C;
+            margin-bottom: 5px;
+        }
+        
+        .sesion-descripcion {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 3px 0;
+        }
+        
+        .sesion-hora {
+            color: #999;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .no-sesiones {
+            color: #999;
+            font-style: italic;
+            font-size: 14px;
+        }
+        
+        .loading-spinner {
+            text-align: center;
+            padding: 40px;
+            color: #003B5C;
+        }
+        
+        .info-badge {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 14px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="page-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="m-0">
+                    <i class="fas fa-calendar-alt"></i> <span id="macroNombre">Detalle Macrociclo</span>
+                </h1>
+                <a href="macrociclos-lista.html" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Volver a la lista
+                </a>
+            </div>
+        </div>
+        
+        <div id="loadingSpinner" class="loading-spinner">
+            <i class="fas fa-spinner fa-spin fa-3x"></i>
+            <p class="mt-3">Cargando información del macrociclo...</p>
+        </div>
+        
+        <div id="macroInfoContainer" style="display: none;">
+            <div class="macro-info">
+                <div id="macroInfoContent"></div>
+            </div>
+            
+            <div id="semanasContainer">
+                <!-- Las semanas se cargarán aquí -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="../assets/jquery-2.1.4.js"></script>
+    <script src="../assets/bootstrap.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const macrocicloId = urlParams.get('id');
+            
+            if (!macrocicloId) {
+                window.location.href = 'macrociclos-lista.html';
+                return;
+            }
+            
+            loadMacrociclo(macrocicloId);
+        });
+        
+        async function loadMacrociclo(id) {
+            try {
+                const response = await fetch(`/api/macrociclos/${id}`);
+                const data = await response.json();
+                
+                $('#loadingSpinner').hide();
+                
+                if (data.success && data.macrociclo) {
+                    displayMacrociclo(data.macrociclo);
+                    $('#macroInfoContainer').show();
+                } else {
+                    showError('Macrociclo no encontrado');
+                }
+            } catch (error) {
+                console.error('Error al cargar macrociclo:', error);
+                $('#loadingSpinner').hide();
+                showError('Error al cargar el macrociclo');
+            }
+        }
+        
+        function displayMacrociclo(macro) {
+            // Actualizar título
+            $('#macroNombre').text(macro.nombre);
+            
+            // Mostrar información general
+            const atletaNombre = macro.atleta_nombre ? 
+                `${macro.atleta_nombre} ${macro.atleta_apellido}` : 
+                'Plantilla';
+            
+            const fechaInicio = new Date(macro.fecha_inicio).toLocaleDateString('es-ES');
+            const fechaFin = new Date(macro.fecha_fin).toLocaleDateString('es-ES');
+            
+            const infoHTML = `
+                <div class="mb-3">
+                    <span class="info-badge">
+                        <i class="fas fa-user"></i> ${atletaNombre}
+                    </span>
+                    <span class="info-badge">
+                        <i class="fas fa-calendar"></i> ${fechaInicio} - ${fechaFin}
+                    </span>
+                    <span class="info-badge">
+                        <i class="fas fa-dumbbell"></i> ${macro.total_sesiones || 0} sesiones
+                    </span>
+                </div>
+                ${macro.objetivo_principal ? `
+                    <div class="mt-2">
+                        <strong><i class="fas fa-bullseye"></i> Objetivo:</strong> ${macro.objetivo_principal}
+                    </div>
+                ` : ''}
+                ${macro.descripcion ? `
+                    <div class="mt-2">
+                        <strong><i class="fas fa-info-circle"></i> Descripción:</strong> ${macro.descripcion}
+                    </div>
+                ` : ''}
+            `;
+            
+            $('#macroInfoContent').html(infoHTML);
+            
+            // Mostrar semanas
+            if (macro.semanas && macro.semanas.length > 0) {
+                displaySemanas(macro.semanas);
+            } else {
+                $('#semanasContainer').html(`
+                    <div class="text-center p-4 text-muted">
+                        <i class="fas fa-inbox fa-3x mb-3"></i>
+                        <p>No hay sesiones programadas en este macrociclo</p>
+                    </div>
+                `);
+            }
+        }
+        
+        function displaySemanas(semanas) {
+            const container = $('#semanasContainer');
+            container.empty();
+            
+            const diasOrden = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            const diasES = {
+                'Monday': 'Lunes',
+                'Tuesday': 'Martes',
+                'Wednesday': 'Miércoles',
+                'Thursday': 'Jueves',
+                'Friday': 'Viernes',
+                'Saturday': 'Sábado',
+                'Sunday': 'Domingo'
+            };
+            
+            semanas.forEach(semana => {
+                const semanaHTML = `
+                    <div class="semana-card">
+                        <div class="semana-header">
+                            <i class="fas fa-calendar-week"></i> Semana ${semana.numero}
+                        </div>
+                        <div id="semana-${semana.numero}-dias"></div>
+                    </div>
+                `;
+                
+                container.append(semanaHTML);
+                
+                const diasContainer = $(`#semana-${semana.numero}-dias`);
+                
+                semana.dias.forEach(dia => {
+                    // Traducir nombre del día
+                    let diaNombreES = dia.nombre.trim();
+                    for (const [en, es] of Object.entries(diasES)) {
+                        if (dia.nombre.includes(en)) {
+                            diaNombreES = es;
+                            break;
+                        }
+                    }
+                    
+                    const fechaDia = new Date(dia.fecha).toLocaleDateString('es-ES', { 
+                        day: '2-digit', 
+                        month: '2-digit' 
+                    });
+                    
+                    let diaHTML = `
+                        <div class="dia-section">
+                            <div class="dia-nombre">
+                                <i class="fas fa-calendar-day"></i>
+                                <span>${diaNombreES} (${fechaDia})</span>
+                            </div>
+                    `;
+                    
+                    if (dia.sesiones && dia.sesiones.length > 0) {
+                        dia.sesiones.forEach(sesion => {
+                            diaHTML += `
+                                <div class="sesion-item">
+                                    ${sesion.nombre_sesion ? `
+                                        <div class="sesion-nombre">${sesion.nombre_sesion}</div>
+                                    ` : ''}
+                                    ${sesion.descripcion ? `
+                                        <div class="sesion-descripcion">${sesion.descripcion.replace(/\n/g, '<br>')}</div>
+                                    ` : ''}
+                                    ${sesion.hora ? `
+                                        <div class="sesion-hora mt-2">
+                                            <i class="fas fa-clock"></i> ${sesion.hora}
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            `;
+                        });
+                    } else {
+                        diaHTML += '<div class="no-sesiones">Descanso</div>';
+                    }
+                    
+                    diaHTML += '</div>';
+                    diasContainer.append(diaHTML);
+                });
+            });
+        }
+        
+        function showError(message) {
+            $('#semanasContainer').html(`
+                <div class="text-center p-4 text-danger">
+                    <i class="fas fa-exclamation-triangle fa-3x mb-3"></i>
+                    <p>${message}</p>
+                    <a href="macrociclos-lista.html" class="btn btn-primary mt-3">Volver a la lista</a>
+                </div>
+            `);
+        }
+    </script>
+</body>
+</html>
