@@ -46,6 +46,30 @@ The application follows a traditional architecture with a clear separation of co
 
 ## Recent Changes
 
+### Vistas de Macrociclos y Detalle de Ejercicios (October 13, 2025)
+- ✅ **Sistema completo de visualización de macrociclos** - Lista y detalle con ejercicios por semana y día
+- **Páginas Creadas**:
+  - `MACRO/macrociclos-lista.html` - Lista todos los macrociclos con tarjetas informativas
+  - `MACRO/macrociclo-detalle.html` - Muestra ejercicios organizados por semana y día
+  - `MACRO/INICIO MACRO.html` - Actualizado con botón para acceder a lista de macrociclos
+- **Endpoint API Mejorado** (`server/index.js`):
+  - `GET /api/macrociclos/:id` - Agrupación automática de sesiones por semana y día
+  - Devuelve estructura: macrociclo → semanas → días → sesiones
+  - Incluye ordenamiento automático de días (Lunes-Domingo)
+  - Calcula número de semana basado en fecha de inicio
+- **UI/UX de Lista**:
+  - Tarjetas con información: nombre, atleta/plantilla, fechas, número de sesiones
+  - Badge de "Plantilla" o "Atleta: Nombre"
+  - Botón "Ver detalle" en cada tarjeta
+  - Diseño responsive con hover effects
+- **UI/UX de Detalle**:
+  - Header con información general del macrociclo
+  - Semanas agrupadas en tarjetas con fondo azul #003B5C
+  - Días organizados con nombre traducido (Lunes, Martes, etc.)
+  - Sesiones con nombre, descripción y hora
+  - Indicador "Descanso" para días sin sesiones
+  - Navegación: botón "Volver a la lista"
+
 ### Importación de Macrociclos desde Supabase (October 13, 2025)
 - ✅ **50 macrociclos importados con 4,880+ sesiones** - Plantillas de entrenamiento para diferentes niveles
 - **Modificaciones al Esquema**:
@@ -61,7 +85,7 @@ The application follows a traditional architecture with a clear separation of co
   - Maneja plantillas genéricas: CORREDORA N2, CORREDOR A1, TRIATLETA HOMBRE B1, etc.
 - **Endpoints API Creados** (`server/index.js`):
   - `GET /api/macrociclos` - Lista todos los macrociclos con filtro opcional por atleta_id
-  - `GET /api/macrociclos/:id` - Obtiene un macrociclo con todas sus sesiones
+  - `GET /api/macrociclos/:id` - Obtiene un macrociclo con todas sus sesiones agrupadas
   - Incluye información de atleta (nombre, apellido) y conteo de sesiones
 - **Macrociclos Importados**:
   - Carrera: 5K, 10K, 21K, 42K (niveles SE, IN, B1, B2, A1, A2, N1, N2)
