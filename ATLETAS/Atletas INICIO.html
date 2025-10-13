@@ -356,6 +356,9 @@
                                                         <div class="ml-auto">
 
                                                                 <div class="page-header-breadcrumb">
+                                                                        <button id="btnSyncSupabase" class="btn btn-success btn-sm mr-2 fontBold" title="Sincronizar atletas desde Supabase Storage">
+                                                                            <i class="fas fa-sync-alt"></i> Sincronizar Supabase
+                                                                        </button>
                                                                         <a class="btn btn-info  btn-sm mr-2 fontBold" href="Atletas AGREGAR.html"><i class="icon-plus" style="font-weight:700"></i> Agregar</a>                                                            </div>
 
                                                         </div>
@@ -691,7 +694,13 @@
     
     // Load on page ready
     loadAthletes();
+    
+    // Hacer la función cargarAtletas disponible globalmente para supabase-sync.js
+    window.cargarAtletas = loadAthletes;
 })();
 </script>
+
+<!-- Script de sincronización con Supabase -->
+<script src="supabase-sync.js"></script>
 
 </body></html>
