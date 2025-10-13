@@ -4,6 +4,7 @@ const path = require('path');
 const { Pool } = require('pg');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { createClient } = require('@supabase/supabase-js');
 
 const app = express();
 const PORT = 5000;
@@ -12,6 +13,19 @@ const PORT = 5000;
 const pool = new Pool({ 
   connectionString: process.env.DATABASE_URL
 });
+
+// Supabase client initialization
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+const supabaseBucket = process.env.SUPABASE_BUCKET;
+
+let supabase = null;
+if (supabaseUrl && supabaseKey) {
+  supabase = createClient(supabaseUrl, supabaseKey);
+  console.log('Supabase client initialized successfully');
+} else {
+  console.warn('Supabase credentials not found. Supabase features will be disabled.');
+}
 
 // Middleware
 app.use(cors());
@@ -860,6 +874,144 @@ app.post('/api/parq/save-data', async (req, res) => {
     res.status(500).json({
       success: false,
       error: 'Error al guardar datos de entrevista'
+    });
+  }
+});
+
+// Supabase Sync Endpoint - Sincronizar atletas desde Supabase Storage
+app.post('/api/sync/atletas-supabase', async (req, res) => {
+  try {
+    if (!supabase) {
+      return res.status(503).json({
+        success: false,
+        error: 'Supabase no está configurado. Verifica las credenciales.'
+      });
+    }
+
+    console.log('[SUPABASE SYNC] Iniciando sincronización de atletas...');
+
+    // 1. Descargar el archivo JSON desde Supabase Storage
+    const { data: fileData, error: downloadError } = await supabase
+      .storage
+      .from(supabaseBucket)
+      .download('Atletas/datos_atletas_completo.json');
+
+    if (downloadError) {
+      console.error('[SUPABASE SYNC] Error al descargar JSON:', downloadError);
+      return res.status(500).json({
+        success: false,
+        error: 'Error al descargar datos desde Supabase: ' + downloadError.message
+      });
+    }
+
+    // 2. Leer el contenido del archivo
+    const jsonText = await fileData.text();
+    const atletasData = JSON.parse(jsonText);
+
+    console.log(`[SUPABASE SYNC] ${atletasData.length} atletas encontrados en JSON`);
+
+    // 3. Procesar cada atleta
+    let insertados = 0;
+    let actualizados = 0;
+    let errores = 0;
+
+    for (const atleta of atletasData) {
+      try {
+        // Generar la URL de la foto desde Supabase Storage
+        const fotoUrl = `${supabaseUrl}/storage/v1/object/public/${supabaseBucket}/AtletasFotos/${atleta.id}.jpg`;
+
+        // Verificar si el atleta ya existe
+        const checkResult = await pool.query(
+          'SELECT id FROM atletas WHERE id = $1',
+          [atleta.id]
+        );
+
+        if (checkResult.rows.length > 0) {
+          // Actualizar atleta existente
+          await pool.query(
+            `UPDATE atletas SET
+              nombre = $1,
+              apellido = $2,
+              fecha_nacimiento = $3,
+              email = $4,
+              telefono = $5,
+              foto_url = $6,
+              deporte_principal = $7,
+              genero = $8,
+              peso = $9,
+              altura = $10,
+              notas = $11,
+              updated_at = CURRENT_TIMESTAMP
+            WHERE id = $12`,
+            [
+              atleta.nombre,
+              atleta.apellido,
+              atleta.fecha_nacimiento || null,
+              atleta.email || null,
+              atleta.telefono || null,
+              fotoUrl,
+              atleta.deporte_principal || null,
+              atleta.genero || null,
+              atleta.peso || null,
+              atleta.altura || null,
+              atleta.notas || null,
+              atleta.id
+            ]
+          );
+          actualizados++;
+          console.log(`[SUPABASE SYNC] ✅ Actualizado: ${atleta.nombre} ${atleta.apellido} (ID: ${atleta.id})`);
+        } else {
+          // Insertar nuevo atleta
+          await pool.query(
+            `INSERT INTO atletas 
+            (id, nombre, apellido, fecha_nacimiento, email, telefono, foto_url, 
+             deporte_principal, genero, peso, altura, notas, activo)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, true)`,
+            [
+              atleta.id,
+              atleta.nombre,
+              atleta.apellido,
+              atleta.fecha_nacimiento || null,
+              atleta.email || null,
+              atleta.telefono || null,
+              fotoUrl,
+              atleta.deporte_principal || null,
+              atleta.genero || null,
+              atleta.peso || null,
+              atleta.altura || null,
+              atleta.notas || null
+            ]
+          );
+          insertados++;
+          console.log(`[SUPABASE SYNC] ✅ Insertado: ${atleta.nombre} ${atleta.apellido} (ID: ${atleta.id})`);
+        }
+      } catch (atletaError) {
+        errores++;
+        console.error(`[SUPABASE SYNC] ❌ Error procesando atleta ${atleta.id}:`, atletaError.message);
+      }
+    }
+
+    console.log('[SUPABASE SYNC] Sincronización completada');
+    console.log(`  - Insertados: ${insertados}`);
+    console.log(`  - Actualizados: ${actualizados}`);
+    console.log(`  - Errores: ${errores}`);
+
+    res.json({
+      success: true,
+      message: 'Sincronización completada',
+      stats: {
+        total: atletasData.length,
+        insertados,
+        actualizados,
+        errores
+      }
+    });
+
+  } catch (error) {
+    console.error('[SUPABASE SYNC] Error general:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Error al sincronizar atletas: ' + error.message
     });
   }
 });
