@@ -940,19 +940,62 @@ app.get('/api/macrociclos/:id', async (req, res) => {
       });
     }
     
-    // Get sesiones del macrociclo
+    // Get sesiones del macrociclo agrupadas por semana
     const sesionesResult = await pool.query(
-      `SELECT * FROM sesiones 
-       WHERE macrociclo_id = $1 
-       ORDER BY fecha, hora`,
+      `SELECT 
+        s.*,
+        EXTRACT(WEEK FROM s.fecha) - EXTRACT(WEEK FROM m.fecha_inicio) + 1 as semana_numero,
+        EXTRACT(DOW FROM s.fecha) as dia_semana,
+        TO_CHAR(s.fecha, 'Day') as dia_nombre
+       FROM sesiones s
+       JOIN macrociclos m ON s.macrociclo_id = m.id
+       WHERE s.macrociclo_id = $1 
+       ORDER BY s.fecha, s.hora`,
       [id]
     );
+    
+    // Agrupar sesiones por semana y día
+    const semanas = {};
+    sesionesResult.rows.forEach(sesion => {
+      const semanaNum = sesion.semana_numero;
+      if (!semanas[semanaNum]) {
+        semanas[semanaNum] = {
+          numero: semanaNum,
+          dias: {}
+        };
+      }
+      
+      const diaNum = sesion.dia_semana;
+      if (!semanas[semanaNum].dias[diaNum]) {
+        semanas[semanaNum].dias[diaNum] = {
+          nombre: sesion.dia_nombre.trim(),
+          fecha: sesion.fecha,
+          sesiones: []
+        };
+      }
+      
+      semanas[semanaNum].dias[diaNum].sesiones.push(sesion);
+    });
+    
+    // Convertir a array ordenado
+    const semanasArray = Object.values(semanas).sort((a, b) => a.numero - b.numero);
+    semanasArray.forEach(semana => {
+      semana.dias = Object.values(semana.dias).sort((a, b) => {
+        const order = { 'Monday': 1, 'Tuesday': 2, 'Wednesday': 3, 'Thursday': 4, 'Friday': 5, 'Saturday': 6, 'Sunday': 7 };
+        const aDay = a.nombre.includes('Monday') ? 1 : a.nombre.includes('Tuesday') ? 2 : a.nombre.includes('Wednesday') ? 3 : 
+                     a.nombre.includes('Thursday') ? 4 : a.nombre.includes('Friday') ? 5 : a.nombre.includes('Saturday') ? 6 : 7;
+        const bDay = b.nombre.includes('Monday') ? 1 : b.nombre.includes('Tuesday') ? 2 : b.nombre.includes('Wednesday') ? 3 : 
+                     b.nombre.includes('Thursday') ? 4 : b.nombre.includes('Friday') ? 5 : b.nombre.includes('Saturday') ? 6 : 7;
+        return aDay - bDay;
+      });
+    });
     
     res.json({
       success: true,
       macrociclo: {
         ...macroResult.rows[0],
-        sesiones: sesionesResult.rows
+        semanas: semanasArray,
+        total_sesiones: sesionesResult.rows.length
       }
     });
     
