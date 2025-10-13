@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ES-es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aiym Panel :: AIYM YUC</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <link rel="icon" type="image/png" href="../assets/favicon-32x32.png">
+    
+    <link href="../assets/fonts.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/atlantis2.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/demo.css">
+    <link rel="stylesheet" href="../assets/alertif.min.css">
+    <link rel="stylesheet" href="../assets/training-app-styles.css">
+    <link rel="stylesheet" href="../MACRO/MACROCICLO.css">
+</head>
+
+<body data-background-color="bg3">
+    <div class="wrapper page-container">
+        <div class="main-header" data-background-color="white">
+            <div class="nav-top">
+                <div class="container d-flex flex-row">
+                    <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+                    <a class="logo d-flex align-items-center" href="../index.html">
+                        <img src="../assets/logo_all.png" alt="logo" class="navbar-brand">
+                    </a>
+                    
+                    <nav class="navbar navbar-header navbar-expand-lg p-0">
+                        <div class="container-fluid p-0">
+                            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+                                        <div style="float: left; padding: 10px 7px; color: #535353;">| YUC</div>
+                                        <div class="avatar-sm" style="float: left;">
+                                            <img src="../assets/user_242.png" alt="..." class="avatar-img rounded-circle imgshadow">
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user animated fadeIn">
+                                        <div class="dropdown-user-scroll scrollbar-outer">
+                                            <li>
+                                                <div class="user-box">
+                                                    <div class="avatar-lg">
+                                                        <img src="../assets/user_242.png" alt="image profile" class="avatar-img rounded">
+                                                    </div>
+                                                    <div class="u-text">
+                                                        <h4></h4>
+                                                        <p class="text-muted">AIYM YUC</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#" onclick="logout(); return false;" style="color:#777; font-weight:400;">Salir</a>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <div class="container" style="min-height: 550px;">
+                <div class="page-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-header">
+                                <h4 class="page-title" id="mesoTitle">Mesociclo</h4>
+                                <ul class="breadcrumbs" style="font-weight: 400;">
+                                    <li class="nav-home">
+                                        <a href="../index.html"><i class="flaticon-home"></i></a>
+                                    </li>
+                                    <li class="separator"><i class="flaticon-right-arrow"></i></li>
+                                    <li class="nav-item">Mesociclo</li>
+                                </ul>
+                                <div class="ml-auto">
+                                    <div class="page-header-breadcrumb"></div>
+                                </div>
+                            </div>
+
+                            <div id="loadingSpinner" class="text-center py-5">
+                                <div class="spinner-border" style="width: 3rem; height: 3rem; color: #003B5C;" role="status">
+                                    <span class="sr-only">Cargando...</span>
+                                </div>
+                                <p class="mt-3">Cargando mesociclo...</p>
+                            </div>
+
+                            <div id="mesoContent" style="display: none;">
+                                <form id="mesoForm">
+                                    <div id="weekContainer">
+                                        <!-- Weeks will be loaded here -->
+                                    </div>
+                                    
+                                    <div align="right">
+                                        <button type="button" class="btn btn-default" onclick="window.location.href='listado-mesociclos.html'">
+                                            Cancelar
+                                        </button>
+                                        <button type="button" class="btn btn-primary" onclick="guardarMeso()">
+                                            Guardar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="clear: both;"></div>
+        <div class="footer">
+            <div class="container">
+                <div class="col-sm-12">
+                    <div class="col-sm-3" style="float: left;">
+                        <img src="../assets/logo_all.png" alt="logo" class="navbar-brand">
+                    </div>
+                    <div class="col-sm-9" style="float: left; text-align: right; padding-top: 15px; font-weight: 700; color: #003A5D;">
+                        Copyright © 2025 by <a href="http://allinyourmind.es/" target="_blank">ALL IN YOUR MIND</a>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+
+    <script src="../assets/jquery.min.js.descarga"></script>
+    <script src="../assets/bootstrap.min.js.descarga"></script>
+    <script src="../assets/atlantis2.min.js.descarga"></script>
+    <script src="../assets/sweetalert.min.js.descarga"></script>
+    
+    <script>
+        const diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const mesocicloId = urlParams.get('id');
+            
+            if (!mesocicloId) {
+                window.location.href = 'listado-mesociclos.html';
+                return;
+            }
+            
+            loadMesociclo(mesocicloId);
+        });
+
+        async function loadMesociclo(id) {
+            try {
+                const response = await fetch(`/api/mesociclos/${id}`);
+                const data = await response.json();
+                
+                $('#loadingSpinner').hide();
+                
+                if (data.success && data.mesociclo) {
+                    displayMesociclo(data.mesociclo);
+                    $('#mesoContent').show();
+                } else {
+                    showError('Mesociclo no encontrado');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                $('#loadingSpinner').hide();
+                showError('Error al cargar el mesociclo');
+            }
+        }
+
+        function displayMesociclo(meso) {
+            $('#mesoTitle').text(meso.nombre);
+            
+            if (meso.semanas && meso.semanas.length > 0) {
+                displayWeeks(meso.semanas);
+            } else {
+                $('#weekContainer').html('<div class="alert alert-info">No hay sesiones programadas en este mesociclo</div>');
+            }
+        }
+
+        function displayWeeks(semanas) {
+            const container = $('#weekContainer');
+            container.empty();
+            
+            semanas.forEach((semana, index) => {
+                const weekHTML = createWeekRow(semana, index);
+                container.append(weekHTML);
+            });
+        }
+
+        function createWeekRow(semana, weekIndex) {
+            const diasOrden = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+            const diasMap = {};
+            
+            semana.dias.forEach(dia => {
+                diasMap[dia.nombre] = dia;
+            });
+
+            let html = `
+                <div class="week_item row week${weekIndex}" id="week${weekIndex}" data-cont="${weekIndex}" style="margin-bottom: 25px;">
+                    <div class="col colModif2" style="min-height: 180px; padding: 0 10px;">
+                        <div class="fondoBordeBlanco" style="padding: 15px; text-align: center;">
+                            <b class="clsSemana" style="font-size: 18px; color: #333;">Semana ${semana.numero}</b>
+                            <br><br>
+                            <img src="../assets/ecos70.png" class="centrado" style="cursor: pointer; margin: 0 auto; display: block;">
+                            <div class="centrado" style="color:white; cursor: pointer; padding-left:6px; margin-top: -35px; font-weight: bold; font-size: 16px;">
+                                ${semana.dias.reduce((total, dia) => total + (dia.sesiones ? dia.sesiones.length : 0), 0)}
+                            </div>
+                        </div>
+                    </div>
+            `;
+
+            diasOrden.forEach((diaKey, diaIndex) => {
+                const diaNombre = diasSemana[diaIndex];
+                const dia = diasMap[diaKey];
+                
+                html += `
+                    <div class="col colModif" style="padding: 0 8px;">
+                        <div style="font-weight: bold; color: #333; font-size: 14px; margin-bottom: 10px; text-align: left;">
+                            ${diaNombre}
+                        </div>
+                        <div class="cuadroInfo" id="${diaKey.toLowerCase()}${weekIndex}" style="min-height: 120px;">
+                `;
+
+                if (dia && dia.sesiones && dia.sesiones.length > 0) {
+                    dia.sesiones.forEach((sesion, sesionIndex) => {
+                        const iconoDeporte = getDeporteIcon(sesion.nombre);
+                        const colorFondo = getSesionColor(sesion.nombre);
+                        
+                        html += `
+                            <div style="background-color:${colorFondo}; padding: 10px 8px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                <div style="display: flex; align-items: center; margin-bottom: 6px;">
+                                    <img src="${iconoDeporte}" style="width: 18px; height: 18px; margin-right: 8px;" alt="icono">
+                                    <input type="time" value="${sesion.hora || '00:00'}" style="font-size: 12px; padding: 2px 4px; background-color: rgba(255,255,255,0.3); border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; color: #333; font-weight: 500;">
+                                </div>
+                                <div style="font-size: 12px; font-weight: 600; color: #333; margin-bottom: 4px; line-height: 1.3;">
+                                    ${sesion.nombre || 'Sesión'}
+                                </div>
+                                <div style="font-size: 10px; color: #555; line-height: 1.2;">
+                                    ${sesion.descripcion ? sesion.descripcion.substring(0, 100) + (sesion.descripcion.length > 100 ? '...' : '') : ''}
+                                </div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    html += `
+                        <div style="background-color: #f5f5f5; padding: 8px; border-radius: 6px; text-align: center; color: #999; font-size: 11px;">
+                            Descanso
+                        </div>
+                    `;
+                }
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += '</div>';
+            return html;
+        }
+
+        function getDeporteIcon(nombreSesion) {
+            if (!nombreSesion) return '../assets/race-blue-icon.png';
+            
+            const nombre = nombreSesion.toLowerCase();
+            if (nombre.includes('carrera') || nombre.includes('run') || nombre.includes('core') || nombre.includes('fza')) {
+                return '../assets/race-blue-icon.png';
+            } else if (nombre.includes('fuerza') || nombre.includes('strength') || nombre.includes('funcional')) {
+                return '../assets/force-blue-icon.png';
+            } else if (nombre.includes('natacion') || nombre.includes('swim')) {
+                return '../assets/swimming-blue-icon.png';
+            } else if (nombre.includes('ciclismo') || nombre.includes('bike')) {
+                return '../assets/cycling-blue-icon.png';
+            }
+            return '../assets/race-blue-icon.png';
+        }
+
+        function getSesionColor(nombreSesion) {
+            if (!nombreSesion) return '#B8D4E0';
+            
+            const nombre = nombreSesion.toLowerCase();
+            if (nombre.includes('carrera') || nombre.includes('run') || nombre.includes('core') || nombre.includes('fza')) {
+                return '#7FD1AE';
+            } else if (nombre.includes('fuerza') || nombre.includes('strength') || nombre.includes('funcional')) {
+                return '#A8D5BA';
+            } else if (nombre.includes('natacion') || nombre.includes('swim')) {
+                return '#A8D0E6';
+            } else if (nombre.includes('ciclismo') || nombre.includes('bike')) {
+                return '#C2E0F4';
+            }
+            return '#B8D4E0';
+        }
+
+        function showError(message) {
+            $('#mesoContent').html(`
+                <div class="alert alert-danger text-center">
+                    <p>${message}</p>
+                    <a href="listado-mesociclos.html" class="btn btn-primary mt-3">Volver al listado</a>
+                </div>
+            `).show();
+        }
+
+        function guardarMeso() {
+            swal('Guardado', 'Mesociclo actualizado correctamente', 'success');
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = '/login.html';
+        }
+    </script>
+</body>
+</html>
