@@ -41,6 +41,30 @@ The application follows a traditional architecture with a clear separation of co
 
 ## Recent Changes
 
+### Cumpleaños del Mes - Funcionalidad Dinámica (October 13, 2025)
+- ✅ **Sistema de cumpleaños completamente funcional** - Navegación mensual y carga dinámica de atletas
+- **Backend API** (`server/index.js`):
+  - Endpoint `GET /api/birthdays/:month` - Obtiene atletas que cumplen años en mes específico (1-12)
+  - Query PostgreSQL con `EXTRACT(MONTH FROM fecha_nacimiento)` para filtrar por mes
+  - Ordenado por día del mes ascendente
+  - Solo muestra atletas activos
+- **Frontend Updates** (`index.html`):
+  - ID `birthdayContainer` para contenedor dinámico
+  - ID `currentMonthName` para mostrar nombre del mes actual
+  - Spinner de carga mientras se obtienen datos
+- **JavaScript** (`index-birthdays.js`):
+  - Variable `currentMonth` con mes actual del sistema
+  - Función `loadBirthdays(month)` - Fetch a API y muestra atletas
+  - Función `displayBirthdays(birthdays)` - Renderiza tarjetas con foto, nombre, fecha
+  - Navegación mensual con botones izquierda/derecha (`#left_date`, `#right_date`)
+  - Manejo de estados: loading, sin cumpleaños, error
+  - Auto-carga del mes actual al cargar página
+- **UI/UX**:
+  - Tarjetas con foto circular, nombre completo, y fecha de cumpleaños
+  - Ícono de pastel de cumpleaños en cada tarjeta
+  - Mensajes informativos cuando no hay cumpleaños
+  - Navegación fluida entre meses del año
+
 ### Importación de Atletas desde Supabase Storage (October 13, 2025)
 - ✅ **593 atletas importados exitosamente desde Supabase Storage** - Migración completa de datos
 - **Script de Importación** (`scripts/import-atletas-supabase.js`):
