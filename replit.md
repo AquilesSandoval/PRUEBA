@@ -46,9 +46,10 @@ The application follows a traditional architecture with a clear separation of co
 
 ## Recent Changes
 
-### Diseño de Macrociclos Idéntico al Original (October 13, 2025)
+### Diseño de Macrociclos Idéntico al Original - Auto-carga (October 13, 2025)
 - ✅ **Diseño completamente idéntico al sistema original** - Recreado desde archivos HTML originales
 - **Páginas Creadas**:
+  - `MACRO/INICIO MACRO.html` - Auto-carga tabla de macrociclos sin necesidad de botón
   - `MACRO/listado-macrociclos.html` - Lista de macrociclos con tabla estilo GridView
   - `MACRO/detalle-macrociclo.html` - Vista de detalle con estructura week_item original
 - **Estructura de Detalle (Idéntica al Original)**:
@@ -66,10 +67,11 @@ The application follows a traditional architecture with a clear separation of co
   - `.fondoBordeBlanco` - Box blanco con sombra para info de semana
   - `.cuadroInfo` - Contenedor de sesiones del día
 - **Funcionalidades**:
+  - **Auto-carga automática**: INICIO MACRO carga macrociclos sin necesidad de hacer clic
   - Carga dinámica de datos desde `/api/macrociclos` y `/api/macrociclos/:id`
   - Filtro de búsqueda en tiempo real
   - Contador de resultados ("Viendo X de Y resultados")
-  - Botones de editar, copiar, mover macrociclo (iconos Font Awesome)
+  - **Botón único de acción**: Solo icono de ojo (👁️) para ver detalle del macrociclo
   - Navegación fluida entre listado y detalle
 - **Diseño Visual**:
   - Colores fieles al original: #003a5d (azul oscuro), #173B5C (azul medio), #B2C4CE (azul claro)
