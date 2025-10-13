@@ -41,6 +41,23 @@ The application follows a traditional architecture with a clear separation of co
 
 ## Recent Changes
 
+### Integración con Supabase Storage (October 13, 2025)
+- ✅ **Sincronización de atletas desde Supabase Storage implementada** - Sistema completo de importación de datos
+- **Backend Integration** (`server/index.js`):
+  - Cliente Supabase inicializado con credenciales desde secrets
+  - Nuevo endpoint: `POST /api/sync/atletas-supabase`
+  - Descarga JSON desde `Atletas/datos_atletas_completo.json` en bucket Supabase
+  - Genera URLs de fotos: `{SUPABASE_URL}/storage/v1/object/public/{BUCKET}/AtletasFotos/{id}.jpg`
+  - Inserta nuevos atletas o actualiza existentes (upsert basado en ID)
+  - Logs detallados de sincronización: insertados, actualizados, errores
+- **Frontend Integration** (`ATLETAS/Atletas INICIO.html`):
+  - Botón "Sincronizar Supabase" agregado en página de atletas
+  - Script `supabase-sync.js` con función asíncrona de sincronización
+  - Alertas con SweetAlert mostrando estadísticas de sincronización
+  - Recarga automática de lista de atletas después de sincronizar
+- **Secrets configurados**: SUPABASE_URL, SUPABASE_KEY, SUPABASE_BUCKET
+- **Data Flow**: Click botón → POST a API → Descarga JSON → Upsert a DB → Muestra estadísticas → Recarga lista
+
 ### Athlete Edit Functionality Fixed (October 11, 2025)
 - ✅ **FIXED**: Edit button now loads correct athlete data
 - **Backend API**: Updated `GET /api/athletes/:id` to return `{success: true, athlete: {...}}` format
