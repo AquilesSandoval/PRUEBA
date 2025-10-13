@@ -402,6 +402,11 @@
                                                     <p class="mt-2">Cargando atletas...</p>
                                                 </div>
                                             </div>
+                                            
+                                            <!-- Pagination -->
+                                            <div id="paginationContainer" class="row mt-4">
+                                                <!-- Pagination will be loaded here -->
+                                            </div>
 
                                         </div>
 
@@ -513,6 +518,8 @@
 (function() {
     let allAthletes = [];
     let filteredAthletes = [];
+    let currentPage = 1;
+    const itemsPerPage = 50;
     
     // Load athletes
     async function loadAthletes() {
@@ -525,8 +532,10 @@
             
             allAthletes = await response.json();
             filteredAthletes = allAthletes;
+            currentPage = 1;
             displayAthletes();
             updateCount();
+            displayPagination();
         } catch (error) {
             console.error('Error:', error);
             document.getElementById('athletesContainer').innerHTML = `
@@ -539,7 +548,7 @@
         }
     }
     
-    // Display athletes
+    // Display athletes with pagination
     function displayAthletes() {
         const container = document.getElementById('athletesContainer');
         
@@ -556,8 +565,31 @@
             return;
         }
         
-        let html = '';
-        filteredAthletes.forEach(athlete => {
+        // Calculate pagination
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedAthletes = filteredAthletes.slice(startIndex, endIndex);
+        
+        // Display as table list
+        let html = `
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead style="background-color: #003B5C; color: white;">
+                            <tr>
+                                <th width="80">Foto</th>
+                                <th>Nombre Completo</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>Deporte</th>
+                                <th>Edad</th>
+                                <th width="200" class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+        `;
+        
+        paginatedAthletes.forEach(athlete => {
             const photoUrl = athlete.foto_url || '../athlete/default.png';
             const deporte = athlete.deporte_principal || 'Otro';
             const email = athlete.email || 'Sin email';
@@ -565,47 +597,133 @@
             const edad = athlete.fecha_nacimiento ? calcularEdad(athlete.fecha_nacimiento) : 'N/A';
             
             html += `
-                <div class="col-md-6 col-lg-4">
-                    <div class="athlete-card">
-                        <div class="d-flex">
-                            <div class="mr-3">
-                                <img src="${photoUrl}" alt="${athlete.nombre}" class="athlete-avatar" 
-                                     onerror="this.src='../athlete/default.png'">
-                            </div>
-                            <div class="flex-grow-1">
-                                <div class="athlete-name">${athlete.nombre} ${athlete.apellido}</div>
-                                <div class="athlete-info">
-                                    <i class="fas fa-birthday-cake"></i> ${edad} años
-                                </div>
-                                <div class="athlete-info">
-                                    <i class="fas fa-envelope"></i> ${email}
-                                </div>
-                                <div class="athlete-info">
-                                    <i class="fas fa-phone"></i> ${telefono}
-                                </div>
-                                <span class="athlete-sport-badge athlete-sport-${deporte}">
-                                    ${deporte}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="mt-3 d-flex justify-content-end">
-                            <button class="btn btn-sm btn-primary mr-2" onclick="openDashboard(${athlete.id})" title="Dashboard">
-                                <i class="fas fa-chart-line"></i> Dashboard
-                            </button>
-                            <button class="btn btn-sm btn-info mr-2" onclick="editAthlete(${athlete.id})" title="Editar">
-                                <i class="fas fa-edit"></i> Editar
-                            </button>
-                            <button class="btn btn-sm btn-danger" onclick="deleteAthlete(${athlete.id}, '${athlete.nombre} ${athlete.apellido}')" title="Eliminar">
-                                <i class="fas fa-trash"></i> Eliminar
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <tr>
+                    <td>
+                        <img src="${photoUrl}" alt="${athlete.nombre}" 
+                             class="rounded-circle" 
+                             width="50" height="50" 
+                             style="object-fit: cover; border: 2px solid #003B5C;"
+                             onerror="this.src='../athlete/default.png'">
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <strong>${athlete.nombre} ${athlete.apellido}</strong>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <i class="fas fa-envelope text-muted"></i> ${email}
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <i class="fas fa-phone text-muted"></i> ${telefono}
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <span class="badge athlete-sport-badge athlete-sport-${deporte}">
+                            ${deporte}
+                        </span>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <i class="fas fa-birthday-cake text-muted"></i> ${edad} años
+                    </td>
+                    <td class="text-center" style="vertical-align: middle;">
+                        <button class="btn btn-sm btn-primary" onclick="openDashboard(${athlete.id})" title="Dashboard">
+                            <i class="fas fa-chart-line"></i>
+                        </button>
+                        <button class="btn btn-sm btn-info" onclick="editAthlete(${athlete.id})" title="Editar">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteAthlete(${athlete.id}, '${athlete.nombre} ${athlete.apellido}')" title="Eliminar">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
             `;
         });
         
+        html += `
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        `;
+        
         container.innerHTML = html;
     }
+    
+    // Display pagination
+    function displayPagination() {
+        const totalPages = Math.ceil(filteredAthletes.length / itemsPerPage);
+        const paginationContainer = document.getElementById('paginationContainer');
+        
+        if (totalPages <= 1) {
+            paginationContainer.innerHTML = '';
+            return;
+        }
+        
+        let html = `
+            <nav aria-label="Paginación de atletas">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                        <a class="page-link" href="javascript:void(0)" onclick="changePage(${currentPage - 1})">
+                            <i class="fas fa-chevron-left"></i> Anterior
+                        </a>
+                    </li>
+        `;
+        
+        // Show page numbers
+        const maxPagesToShow = 5;
+        let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+        let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+        
+        if (endPage - startPage < maxPagesToShow - 1) {
+            startPage = Math.max(1, endPage - maxPagesToShow + 1);
+        }
+        
+        if (startPage > 1) {
+            html += `<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="changePage(1)">1</a></li>`;
+            if (startPage > 2) {
+                html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+            }
+        }
+        
+        for (let i = startPage; i <= endPage; i++) {
+            html += `
+                <li class="page-item ${i === currentPage ? 'active' : ''}">
+                    <a class="page-link" href="javascript:void(0)" onclick="changePage(${i})">${i}</a>
+                </li>
+            `;
+        }
+        
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) {
+                html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+            }
+            html += `<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="changePage(${totalPages})">${totalPages}</a></li>`;
+        }
+        
+        html += `
+                    <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                        <a class="page-link" href="javascript:void(0)" onclick="changePage(${currentPage + 1})">
+                            Siguiente <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="text-center text-muted">
+                Mostrando ${(currentPage - 1) * itemsPerPage + 1} - ${Math.min(currentPage * itemsPerPage, filteredAthletes.length)} de ${filteredAthletes.length} atletas
+            </div>
+        `;
+        
+        paginationContainer.innerHTML = html;
+    }
+    
+    // Change page
+    window.changePage = function(page) {
+        const totalPages = Math.ceil(filteredAthletes.length / itemsPerPage);
+        if (page < 1 || page > totalPages) return;
+        
+        currentPage = page;
+        displayAthletes();
+        displayPagination();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
     
     // Calculate age
     function calcularEdad(fechaNacimiento) {
@@ -642,8 +760,10 @@
             return matchesSearch && matchesDeporte;
         });
         
+        currentPage = 1; // Reset to first page when filtering
         displayAthletes();
         updateCount();
+        displayPagination();
     }
     
     // Event listeners

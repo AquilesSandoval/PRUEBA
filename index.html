@@ -200,7 +200,7 @@
                 </div>
                                 <div class="col-sm-7" style="float: left; text-align: right;">
                     <a id="left_date" style="cursor: pointer;"><i class="fas fa-angle-left"></i></a>
-                    <strong>Septiembre </strong>
+                    <strong id="currentMonthName">Septiembre </strong>
                     <img alt="" src="assets/birthday-cake.png" width="20">
                     <a id="right_date" style="cursor: pointer;"><i class="fas fa-angle-right"></i></a>
                 </div>
@@ -208,10 +208,13 @@
 
             <div style="clear: both;"></div>
 
-            <div class="card-body" style="max-height: 200px;  overflow:scroll; padding-left: 0;">
-                
-                
-                
+            <div id="birthdayContainer" class="card-body" style="max-height: 200px;  overflow:scroll; padding-left: 0;">
+                <div class="text-center py-3">
+                    <div class="spinner-border spinner-border-sm text-info" role="status">
+                        <span class="sr-only">Cargando...</span>
+                    </div>
+                    <p class="mt-2 text-muted" style="font-size: 12px;">Cargando cumpleaños...</p>
+                </div>
             </div>
 
 
