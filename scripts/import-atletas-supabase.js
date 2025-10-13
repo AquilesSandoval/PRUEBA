@@ -19,7 +19,33 @@ async function importarAtletas() {
     const supabase = createClient(supabaseUrl, supabaseKey);
     console.log('✅ Conectado a Supabase');
 
-    // 2. Descargar el archivo JSON
+    // 2. Listar fotos para mapear extensiones
+    console.log('📸 Detectando extensiones de fotos...');
+    const { data: files, error: listError } = await supabase
+      .storage
+      .from(supabaseBucket)
+      .list('AtletasFotos', {
+        limit: 1000,
+        sortBy: { column: 'name', order: 'asc' }
+      });
+
+    if (listError) {
+      console.warn('⚠️  No se pudieron listar fotos:', listError.message);
+    }
+
+    // Crear mapa de ID a extensión
+    const fotoMap = {};
+    if (files) {
+      files.forEach(file => {
+        const match = file.name.match(/^(\d+)\.(jpg|jpeg|png)$/i);
+        if (match) {
+          fotoMap[match[1]] = match[2].toLowerCase();
+        }
+      });
+      console.log(`✅ ${Object.keys(fotoMap).length} fotos mapeadas\n`);
+    }
+
+    // 3. Descargar el archivo JSON
     console.log('📥 Descargando datos_atletas_completo.json...');
     const { data: fileData, error: downloadError } = await supabase
       .storage
@@ -30,7 +56,7 @@ async function importarAtletas() {
       throw new Error('Error al descargar JSON: ' + downloadError.message);
     }
 
-    // 3. Leer el contenido del archivo
+    // 4. Leer el contenido del archivo
     const jsonText = await fileData.text();
     const atletasData = JSON.parse(jsonText);
 
@@ -48,8 +74,9 @@ async function importarAtletas() {
 
     for (const atleta of atletasData) {
       try {
-        // Generar la URL de la foto desde Supabase Storage
-        const fotoUrl = `${supabaseUrl}/storage/v1/object/public/${supabaseBucket}/AtletasFotos/${atleta.id}.jpg`;
+        // Generar la URL de la foto desde Supabase Storage con extensión correcta
+        const extension = fotoMap[atleta.id] || 'jpg'; // Default a jpg si no se encuentra
+        const fotoUrl = `${supabaseUrl}/storage/v1/object/public/${supabaseBucket}/AtletasFotos/${atleta.id}.${extension}`;
 
         // Verificar si el atleta ya existe
         const checkResult = await pool.query(

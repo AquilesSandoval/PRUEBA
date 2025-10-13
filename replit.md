@@ -1,7 +1,7 @@
 # AIYM Training Application
 
 ## Overview
-AIYM is a comprehensive athlete training management system designed to streamline athlete, training cycle, session, and performance assessment management for sports trainers. Originally built with a PHP/Yii backend, this version has been migrated to Node.js/Express and PostgreSQL. The project's ambition is to provide a robust, modern platform for efficient athletic program administration and performance tracking.
+AIYM is a comprehensive athlete training management system designed to streamline athlete, training cycle, session, and performance assessment management for sports trainers. The project's ambition is to provide a robust, modern platform for efficient athletic program administration and performance tracking. It has been migrated to Node.js/Express and PostgreSQL.
 
 ## User Preferences
 - I want iterative development.
@@ -11,8 +11,9 @@ AIYM is a comprehensive athlete training management system designed to streamlin
 - Do not make changes to the file `Y`.
 
 ## System Architecture
-The application follows a traditional architecture with a clear separation of concerns:
--   **UI/UX Decisions**: The frontend utilizes static HTML/CSS/JavaScript with jQuery, Bootstrap, and Leaflet for interactivity and mapping. The design emphasizes a clean, minimalist aesthetic with Font Awesome icons, a modern 'Inter' font, and sport-specific color coding for visual differentiation (e.g., on athlete cards).
+The application follows a traditional architecture with a clear separation of concerns.
+
+-   **UI/UX Decisions**: The frontend utilizes static HTML/CSS/JavaScript with jQuery, Bootstrap, and Leaflet for interactivity and mapping. The design emphasizes a clean, minimalist aesthetic with Font Awesome icons, a modern 'Inter' font, and sport-specific color coding.
 -   **Technical Implementations**:
     -   **Backend**: Node.js with Express, running on port 5000.
     -   **Frontend**: Static HTML/CSS/JavaScript with jQuery, Bootstrap, and Leaflet.
@@ -24,7 +25,9 @@ The application follows a traditional architecture with a clear separation of co
     -   **Training Cycle Management (MACRO/MESO/MICRO)**: Support for Macrocycles (6-12 months), Mesocycles (3-6 weeks), and Microcycles (weekly).
     -   **Performance Reports (INFORMES)**: Ergospirometric tests and lactate analysis. Dynamic report forms with sport-specific data capture and real-time Highcharts visualizations for lactate reports (FC, LA, RPE).
     -   **Additional Features**: Modules for exercises, circuits, drills, and sessions are included.
--   **System Design Choices**: The system serves static files from the root directory and exposes a RESTful API for data operations. The database schema is defined in `schema.sql`, encompassing tables for athletes, training cycles, sessions, reports, and user authentication.
+    -   **Interviews**: Complete system for PARQ, cardiovascular, strength, injuries, objectives, and sensorial interviews with dynamic data loading and saving.
+    -   **Birthdays**: Dynamic display of athlete birthdays with monthly navigation.
+-   **System Design Choices**: The system serves static files from the root directory and exposes a RESTful API for data operations. The database schema is defined in `schema.sql`, encompassing tables for athletes, training cycles, sessions, reports, user authentication, exercises, circuits, drills, training zones, and interviews. A custom `rutina_dia` table exists for daily routines.
 
 ## External Dependencies
 -   **Database**: PostgreSQL (Neon)
@@ -34,163 +37,9 @@ The application follows a traditional architecture with a clear separation of co
     -   Leaflet (for maps)
     -   Font Awesome (icons)
     -   Highcharts (for data visualization in reports)
+    -   SweetAlert (for alerts)
 -   **Backend Libraries**:
     -   Express.js
     -   jsonwebtoken (JWT authentication)
     -   bcrypt (password hashing)
-
-## Recent Changes
-
-### Cumpleaños del Mes - Funcionalidad Dinámica (October 13, 2025)
-- ✅ **Sistema de cumpleaños completamente funcional** - Navegación mensual y carga dinámica de atletas
-- **Backend API** (`server/index.js`):
-  - Endpoint `GET /api/birthdays/:month` - Obtiene atletas que cumplen años en mes específico (1-12)
-  - Query PostgreSQL con `EXTRACT(MONTH FROM fecha_nacimiento)` para filtrar por mes
-  - Ordenado por día del mes ascendente
-  - Solo muestra atletas activos
-- **Frontend Updates** (`index.html`):
-  - ID `birthdayContainer` para contenedor dinámico
-  - ID `currentMonthName` para mostrar nombre del mes actual
-  - Spinner de carga mientras se obtienen datos
-- **JavaScript** (`index-birthdays.js`):
-  - Variable `currentMonth` con mes actual del sistema
-  - Función `loadBirthdays(month)` - Fetch a API y muestra atletas
-  - Función `displayBirthdays(birthdays)` - Renderiza tarjetas con foto, nombre, fecha
-  - Navegación mensual con botones izquierda/derecha (`#left_date`, `#right_date`)
-  - Manejo de estados: loading, sin cumpleaños, error
-  - Auto-carga del mes actual al cargar página
-- **UI/UX**:
-  - Tarjetas con foto circular, nombre completo, y fecha de cumpleaños
-  - Ícono de pastel de cumpleaños en cada tarjeta
-  - Mensajes informativos cuando no hay cumpleaños
-  - Navegación fluida entre meses del año
-
-### Importación de Atletas desde Supabase Storage (October 13, 2025)
-- ✅ **593 atletas importados exitosamente desde Supabase Storage** - Migración completa de datos
-- **Script de Importación** (`scripts/import-atletas-supabase.js`):
-  - Cliente Supabase conectado con credenciales desde secrets
-  - Descarga automática de `Atletas/datos_atletas_completo.json` desde bucket
-  - Mapeo de campos del JSON: `Nombre(s)` → `nombre`, `Apellidos` → `apellido`, `Correo` → `email`, etc.
-  - Genera URLs de fotos: `{SUPABASE_URL}/storage/v1/object/public/{BUCKET}/AtletasFotos/{id}.jpg`
-  - Upsert inteligente: Inserta nuevos atletas o actualiza existentes basado en ID
-  - Logs detallados: 593 insertados, 0 errores
-- **Backend Integration** (`server/index.js`):
-  - Cliente Supabase inicializado en servidor
-  - Endpoint `POST /api/sync/atletas-supabase` disponible para futuras sincronizaciones
-- **Secrets configurados**: SUPABASE_URL, SUPABASE_KEY, SUPABASE_BUCKET
-- **Resultado**: 600 atletas totales en base de datos (593 de Supabase + 7 existentes)
-
-### Athlete Edit Functionality Fixed (October 11, 2025)
-- ✅ **FIXED**: Edit button now loads correct athlete data
-- **Backend API**: Updated `GET /api/athletes/:id` to return `{success: true, athlete: {...}}` format
-- **JavaScript Updates** (`ATLETAS/EDITAR/Atletas Editar.js`):
-  - Loads all available athlete fields from database: nombre, apellido, email, telefono, fecha_nacimiento, deporte_principal, genero, peso, altura, notas
-  - Correctly reads athlete ID from URL parameter
-  - Populates form fields with selected athlete's data
-  - Save button updates athlete with all modified fields
-  - Redirect to athlete list after successful save
-- **Data Flow**: List page → Click Edit → Pass ID via URL → Load athlete data → Edit → Save → Update database → Redirect to list
-
-### Lactate Report Visualization (October 11, 2025)
-- ✅ **File renamed**: `INFORME LACTATO.html` → `informe-lactato.html` (removed spaces for better URL handling)
-- Created `informe-lactato-api.js` replacing ALL hardcoded data
-- Fetches data from `GET /api/informes/lactato/:id` endpoint
-- Renders dynamic Highcharts graphs with FC, LA, and RPE from user submissions
-- Displays athlete name, test date, and sport from database
-- Populates "Datos de la prueba" containers with real test data
-- Fills "Zonas de entrenamiento" (Zona 2, 4, 6) with actual submitted zone data
-- Updated redirect in `agregar-lactato-api.js` to use new filename
-
-### Dynamic Athlete Dashboard (October 11, 2025)
-- ✅ **Dashboard now fully dynamic** - Loads individual athlete's planning based on URL parameter
-- **Frontend Changes** (`ATLETAS/Atletas INICIO.html`):
-  - Added "Dashboard" button for each athlete with chart-line icon
-  - Button links to `DASHBORD/Atletas DASHBOARD.html?id=ATHLETE_ID`
-- **JavaScript Updates** (`ATLETAS/DASHBORD/Atletas DASHBOARD.js`):
-  - Captures athlete ID from URL parameter on page load
-  - Global variable `atletaIdActual` stores current athlete ID
-  - Created `cargarPlanificacion(atletaId)` master function to load dashboard data
-  - Replaced ALL hardcoded athlete_id: 146 with dynamic `atletaIdActual` (12 instances)
-  - Updates athlete name and photo from API data
-- **Backend API** (`server/index.js`):
-  - New endpoint: `GET /api/dashboard/planificacion/:atletaId`
-  - Returns complete planning data: athlete info, macrociclos, mesociclos, microciclos
-  - Ready for competitions and tests (tables to be added later)
-- **Data Flow**: List → Click Dashboard → Pass ID → Load athlete's planning → Display personalized dashboard
-
-### Dashboard Navigation & API Fixed (October 11, 2025)
-- ✅ **Navegación del dashboard completamente funcional** - Todos los botones pasan ID del atleta correctamente
-- **Correcciones de Navegación**:
-  - Botón "Entrevista" → `Entrevista/PARQ.html?id=${atletaId}` ✅
-  - Botón "Informes" → `../../INFORMES/Informes Inicio.html?id=${atletaId}` ✅
-  - Botón "Editar" → `../EDITAR/Atletas Editar.html?id=${atletaId}` ✅
-- **Bug Fix JavaScript**: Cambiado `let atletaIdActual` a `var atletaIdActual` para evitar "temporal dead zone" error
-- **Event Handlers**: Agregados manejadores jQuery para los 3 botones dentro de $(document).ready()
-- **Bug Fix Backend API**: Corregido query de mesociclos - cambiado `tipo` por `tipo_mesociclo` (nombre correcto de columna)
-- **Bug Fix Microciclos**: Corregido query - cambiado `semana` por `semana_numero` (nombre correcto de columna)
-- **Dashboard carga sin errores**: El endpoint `/api/dashboard/planificacion/:atletaId` funciona correctamente
-
-### Entrevistas PARQ - Mejoras UX (October 11, 2025)
-- ✅ **SweetAlert agregado a todas las páginas de entrevistas** - Alertas de guardado funcionando correctamente
-- ✅ **Switches visuales mejorados** - Cambio automático a verde cuando están en "SI"
-- **Implementación de Switches**:
-  - Función `actualizarColorSwitch()` cambia color según estado (verde="SI", negro="NO")
-  - Función `aplicarEstilosSwitches()` aplica estilos al cargar página
-  - Listener automático detecta cambios en todos los switches
-  - Estilos se aplican después de cargar datos de la base de datos
-- **Alertas de Guardado**:
-  - SweetAlert agregado a: PARQ.html, Fuerza.html, CardioVascualr.html, Lesiones.html, Objetivos.html, Sensorial.html, otros.html
-  - Alerta de éxito al guardar: "¡Guardado! Datos guardados correctamente"
-  - Alerta de error con mensaje descriptivo en caso de fallo
-
-### Entrevistas PARQ Functionality Complete (October 11, 2025)
-- ✅ **Sistema completo de entrevistas PARQ implementado** - Navegación, carga y guardado de datos
-- **Dashboard Updates** (`ATLETAS/DASHBORD/Atletas DASHBOARD.html`):
-  - Menú limpiado: eliminados botones Contrato, Electro, Emergencia, Zonas, Forma Recuperación
-  - Navegación simplificada: Regresar, Entrevista, Informes, Editar
-- **PARQ Navigation** (todas las páginas de entrevistas):
-  - Pestañas de navegación actualizadas con clase `nav-parq` y atributo `data-page`
-  - Navegación entre secciones con paso automático de ID del atleta
-  - Secciones: PAR-Q, Cardiovascular, Sensorial, Otros, Lesiones, Fuerza, Deportivos, Objetivos
-- **JavaScript Shared** (`entrevistas.js`):
-  - Captura automática del atletaId desde URL en todas las páginas
-  - Función `cargarDatosEntrevista(atletaId)` - Carga datos existentes de la base de datos
-  - Función `guardarDatosEntrevista()` - Guarda/actualiza datos con AJAX
-  - Relleno automático de formularios (checkbox, radio, select, input)
-  - Alertas de éxito con SweetAlert
-- **Backend API** (`server/index.js`):
-  - `GET /api/parq/get-data/:atletaId/:tipo` - Obtiene datos de entrevista por tipo
-  - `POST /api/parq/save-data` - Guarda o actualiza entrevista en tabla `entrevistas`
-  - Maneja tipos: PARQ, fuerza, cardiovascular, lesiones, objetivos, sensorial, otros
-- **Data Flow**: Dashboard → Click Entrevista → PARQ.html?id=X → Navegación con ID → Cargar datos → Editar → Guardar → DB actualizada → Alerta éxito
-
-### Database Schema Complete Alignment (October 11, 2025)
-- ✅ **Database redefined to match schema.sql** - All tables from schema.sql now implemented
-- **New Tables Created** (13 tables added):
-  - `ejercicios` - Exercise library with categories, difficulty levels, and instructions
-  - `circuitos` - Training circuits with duration and difficulty
-  - `circuitos_ejercicios` - Exercises within circuits (series, reps, rest times)
-  - `sesiones_circuitos` - Circuits assigned to training sessions
-  - `zonas_entrenamiento` - Personalized training zones (10 zones per athlete/sport)
-  - `entrevistas` - Athlete interviews/questionnaires (PARQ, injuries, objectives)
-  - `drills` - Technical drills library (swimming, running, cycling)
-  - `bloques_drills` - Drill blocks grouping multiple drills
-  - `bloques_drills_items` - Drills within blocks with order and repetitions
-  - `planes_predefinidos` - Predefined mesocycle templates with session configurations
-  - `actividades_importadas` - Activities imported from Garmin/Strava
-  - `metricas_rendimiento` - Performance metrics tracking (weight, VO2max, HRV, etc.)
-  - `rutina_dia` - **NEW custom table**: Daily routines with FK to macro/meso/microciclos
-- **Custom Table RutinaDia**:
-  - `idrutinadias` (SERIAL PRIMARY KEY)
-  - `macrociclo_id`, `mesociclo_id`, `microciclo_id` (all nullable FKs)
-  - `semana` (INT) - Week number
-  - `dia` (ENUM: Lunes, Martes, Miércoles, Jueves, Viernes, Sábado, Domingo)
-  - `descripcion` (TEXT) - Daily routine description
-- **PostgreSQL Type Conversions**:
-  - MySQL AUTO_INCREMENT → PostgreSQL SERIAL
-  - MySQL ENUM → PostgreSQL custom ENUM types
-  - MySQL JSON → PostgreSQL JSONB (better performance)
-  - MySQL DECIMAL → PostgreSQL NUMERIC
-  - MySQL DATETIME → PostgreSQL TIMESTAMP
-- **Total Tables**: 22 tables (9 existing + 13 new)
-- **Database Status**: Fully aligned with schema.sql + custom RutinaDia table
+    -   Supabase client (for data import from Supabase Storage)
