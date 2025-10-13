@@ -46,29 +46,43 @@ The application follows a traditional architecture with a clear separation of co
 
 ## Recent Changes
 
-### Vistas de Macrociclos y Detalle de Ejercicios (October 13, 2025)
+### Rediseño de Vista de Macrociclos - Formato Tabla (October 13, 2025)
+- ✅ **Vista tipo tabla mejorada** - Semanas como filas, días como columnas (Lunes-Domingo)
+- **Cambios en INICIO MACRO.html**:
+  - **Lista automática de macrociclos** - Se cargan automáticamente sin necesidad de botón
+  - Tabla responsive con información de macrociclo, tipo (plantilla/atleta), fechas y sesiones
+  - Click en fila o botón "Ver" para acceder al detalle
+  - Spinner de carga y manejo de errores
+- **Rediseño de macrociclo-detalle.html**:
+  - **Estructura tipo tabla**: Semanas = filas horizontales, Días = columnas verticales
+  - Header de tabla con días: Lunes, Martes, Miércoles, Jueves, Viernes, Sábado, Domingo
+  - Celda de semana con fondo #003B5C (color principal)
+  - Cada día muestra: fecha, sesiones con nombre/descripción/hora, o "Descanso" si no hay sesiones
+  - Sesiones con borde lateral de color según deporte (verde=carrera, azul=triatlón)
+  - Info badges con datos del macrociclo: atleta, fechas, total sesiones, objetivo
+  - Scroll horizontal para tablas anchas en móviles
+- **Paleta de colores aplicada**:
+  - #003B5C (azul principal) - Headers, etiquetas de semana
+  - #f4f6f9 (fondo suave) - Background general
+  - #f8f9fa (gris claro) - Sesiones
+  - Colores deportivos: verde (#4CAF50), azul (#2196F3), cyan (#00BCD4), naranja (#FF9800)
+- **UX mejorado**:
+  - Auto-carga sin clics adicionales
+  - Navegación fluida entre lista y detalle
+  - Vista clara de planificación semanal en formato calendario
+  - Responsive design para móviles y tablets
+
+### Vistas de Macrociclos y Detalle de Ejercicios (October 13, 2025) [DEPRECADO - Reemplazado por diseño tabla]
 - ✅ **Sistema completo de visualización de macrociclos** - Lista y detalle con ejercicios por semana y día
 - **Páginas Creadas**:
-  - `MACRO/macrociclos-lista.html` - Lista todos los macrociclos con tarjetas informativas
-  - `MACRO/macrociclo-detalle.html` - Muestra ejercicios organizados por semana y día
-  - `MACRO/INICIO MACRO.html` - Actualizado con botón para acceder a lista de macrociclos
+  - `MACRO/macrociclos-lista.html` - [DEPRECADO] Reemplazado por auto-carga en INICIO MACRO
+  - `MACRO/macrociclo-detalle.html` - Rediseñado con formato tabla
+  - `MACRO/INICIO MACRO.html` - Actualizado con carga automática de tabla
 - **Endpoint API Mejorado** (`server/index.js`):
   - `GET /api/macrociclos/:id` - Agrupación automática de sesiones por semana y día
   - Devuelve estructura: macrociclo → semanas → días → sesiones
   - Incluye ordenamiento automático de días (Lunes-Domingo)
   - Calcula número de semana basado en fecha de inicio
-- **UI/UX de Lista**:
-  - Tarjetas con información: nombre, atleta/plantilla, fechas, número de sesiones
-  - Badge de "Plantilla" o "Atleta: Nombre"
-  - Botón "Ver detalle" en cada tarjeta
-  - Diseño responsive con hover effects
-- **UI/UX de Detalle**:
-  - Header con información general del macrociclo
-  - Semanas agrupadas en tarjetas con fondo azul #003B5C
-  - Días organizados con nombre traducido (Lunes, Martes, etc.)
-  - Sesiones con nombre, descripción y hora
-  - Indicador "Descanso" para días sin sesiones
-  - Navegación: botón "Volver a la lista"
 
 ### Importación de Macrociclos desde Supabase (October 13, 2025)
 - ✅ **50 macrociclos importados con 4,880+ sesiones** - Plantillas de entrenamiento para diferentes niveles
