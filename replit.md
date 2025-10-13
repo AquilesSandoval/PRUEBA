@@ -46,38 +46,41 @@ The application follows a traditional architecture with a clear separation of co
 
 ## Recent Changes
 
-### Diseño de Macrociclos Idéntico al Original - Auto-carga (October 13, 2025)
-- ✅ **Diseño completamente idéntico al sistema original** - Recreado desde archivos HTML originales
-- **Páginas Creadas**:
+### Diseño de Macrociclos Mejorado - Espaciado y Legibilidad (October 13, 2025)
+- ✅ **Diseño mejorado basado en referencias visuales** - Mejor espaciado, colores vivos e iconos claros
+- **Páginas Creadas/Actualizadas**:
   - `MACRO/INICIO MACRO.html` - Auto-carga tabla de macrociclos sin necesidad de botón
-  - `MACRO/listado-macrociclos.html` - Lista de macrociclos con tabla estilo GridView
-  - `MACRO/detalle-macrociclo.html` - Vista de detalle con estructura week_item original
-- **Estructura de Detalle (Idéntica al Original)**:
-  - Filas verticales por semana (week_item)
-  - Primera columna: Info de semana con fondo blanco (fondoBordeBlanco, clsSemana)
-  - Días como columnas horizontales (colModif) - 7 columnas (12.5% cada una)
-  - Sesiones en cuadroInfo con iconos de deporte y colores por tipo
-  - Iconos: race-blue-icon.png, swim-icon.png, bike-icon.png
-  - Colores de sesión: #B2C4CE (carrera), #43b02a (fuerza)
-- **Estilos CSS Utilizados** (de MACROCICLO.css):
-  - `.week_item` - Contenedor de fila de semana
-  - `.colModif` - Columna de día (width: 12.5%)
-  - `.colModif2` - Primera columna con info de semana
-  - `.clsSemana` - Título "Semana X" (font-weight: bold, font-size: 17px)
-  - `.fondoBordeBlanco` - Box blanco con sombra para info de semana
-  - `.cuadroInfo` - Contenedor de sesiones del día
+  - `MACRO/listado-macrociclos.html` - Lista de macrociclos con botón único de ver detalle
+  - `MACRO/detalle-macrociclo.html` - Vista de detalle mejorada con espaciado optimizado
+- **Mejoras Visuales en Detalle**:
+  - **Espaciado mejorado**: margin-bottom 25px entre semanas, padding 0 8px en columnas de días
+  - **Días de semana prominentes**: font-weight bold, font-size 14px, color #333
+  - **Info de semana**: Texto centrado, font-size 18px para "Semana X"
+  - **Recuadros de sesión**: padding 10px 8px, border-radius 8px, box-shadow sutil
+  - **Días sin sesiones**: Mensaje "Descanso" con fondo #f5f5f5
+- **Colores Mejorados** (más vivos y legibles):
+  - **Carrera/Core/FZA**: #7FD1AE (verde menta brillante)
+  - **Fuerza**: #A8D5BA (verde suave)
+  - **Natación**: #A8D0E6 (azul claro)
+  - **Ciclismo**: #C2E0F4 (azul cielo)
+  - **Texto en sesiones**: #333 (oscuro para mejor contraste)
+- **Iconos Font Awesome Visibles**:
+  - `fas fa-running` - Carrera/Core/FZA
+  - `fas fa-dumbbell` - Fuerza
+  - `fas fa-swimmer` - Natación
+  - `fas fa-biking` - Ciclismo
+  - Tamaño 16px, color #333, con margin-right 8px
+- **Campo de hora mejorado**:
+  - Font-size 12px, padding 2px 4px
+  - Background rgba(255,255,255,0.3) para contraste
+  - Border sutil rgba(0,0,0,0.1)
 - **Funcionalidades**:
   - **Auto-carga automática**: INICIO MACRO carga macrociclos sin necesidad de hacer clic
-  - Carga dinámica de datos desde `/api/macrociclos` y `/api/macrociclos/:id`
+  - Carga dinámica desde `/api/macrociclos` y `/api/macrociclos/:id`
   - Filtro de búsqueda en tiempo real
   - Contador de resultados ("Viendo X de Y resultados")
-  - **Botón único de acción**: Solo icono de ojo (👁️) para ver detalle del macrociclo
+  - **Botón único de acción**: Solo icono de ojo (👁️) para ver detalle
   - Navegación fluida entre listado y detalle
-- **Diseño Visual**:
-  - Colores fieles al original: #003a5d (azul oscuro), #173B5C (azul medio), #B2C4CE (azul claro)
-  - Tipografía con font-size y font-weight exactos del original
-  - Estructura HTML idéntica a la aplicación original
-  - Breadcrumbs de navegación (Inicio > Macrociclo / Consulta)
 
 ### Rediseño de Vista de Macrociclos - Formato Tabla (October 13, 2025) [DEPRECADO - Reemplazado por diseño original]
 - ✅ **Vista tipo tabla mejorada** - Semanas como filas, días como columnas (Lunes-Domingo)
