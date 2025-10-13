@@ -190,14 +190,8 @@
                         <td data-th="#">${index + 1}</td>
                         <td data-th="Código : " style="vertical-align: top;">${macro.nombre}</td>
                         <td>
-                            <a href="detalle-macrociclo.html?id=${macro.id}" title="Editar" data-pjax="0">
-                                <i style="width:23px; font-size:17px; color:#003a5d; font-weight:500" class="fas fa-pencil-alt"></i>
-                            </a>
-                            <a href="javascript:;" onclick="copiarMacro(${macro.id}, '${macro.nombre}')" title="Copiar macrociclo" data-pjax="0">
-                                <i class="far fa-copy" style="font-size:18px; width:22px; color:#173B5C;"></i>
-                            </a>
-                            <a href="javascript:;" onclick="moverMacro(${macro.id}, '${macro.nombre}')" title="Mover macrociclo" data-pjax="0" style="margin-right:5px;">
-                                <i class="icon-cursor-move" style="font-size:16px; width:15px; color:#173B5C;"></i>
+                            <a href="detalle-macrociclo.html?id=${macro.id}" title="Ver detalle" data-pjax="0">
+                                <i style="width:23px; font-size:17px; color:#003a5d; font-weight:500" class="fas fa-eye"></i>
                             </a>
                         </td>
                     </tr>
