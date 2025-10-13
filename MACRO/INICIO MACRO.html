@@ -338,13 +338,14 @@
                     </div>
                 </div>
                          <div class="card">
-                <div class="card-body text-center py-5">
-                    <i class="fas fa-calendar-alt" style="font-size: 64px; color: #003B5C; margin-bottom: 20px;"></i>
-                    <h3 style="color: #003B5C; margin-bottom: 15px;">Macrociclos Disponibles</h3>
-                    <p class="text-muted mb-4">Consulta todos los macrociclos importados con sus sesiones y ejercicios detallados</p>
-                    <a href="macrociclos-lista.html" class="btn btn-primary btn-lg" style="background-color: #003B5C; border-color: #003B5C; padding: 12px 40px;">
-                        <i class="fas fa-list"></i> Ver Lista de Macrociclos
-                    </a>
+                <div class="card-body">
+                    <div id="loadingMacros" class="text-center py-5">
+                        <i class="fas fa-spinner fa-spin fa-3x" style="color: #003B5C;"></i>
+                        <p class="mt-3 text-muted">Cargando macrociclos...</p>
+                    </div>
+                    <div id="macrosContainer" style="display: none;">
+                        <!-- Los macrociclos se cargarán aquí automáticamente -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -453,4 +454,92 @@
 <script src="../assets/training-app-logic.js"></script>
 <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div>    <script src="INICIO MACRO.js"></script>
 <script src="/logout.js"></script>
+
+<script>
+// Auto-cargar macrociclos
+$(document).ready(function() {
+    loadMacrociclosAuto();
+});
+
+async function loadMacrociclosAuto() {
+    try {
+        const response = await fetch('/api/macrociclos');
+        const data = await response.json();
+        
+        $('#loadingMacros').hide();
+        
+        if (data.success && data.macrociclos.length > 0) {
+            displayMacrociclosTable(data.macrociclos);
+            $('#macrosContainer').show();
+        } else {
+            $('#macrosContainer').html('<div class="text-center py-4 text-muted"><i class="fas fa-inbox fa-3x mb-3"></i><p>No hay macrociclos disponibles</p></div>').show();
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        $('#loadingMacros').hide();
+        $('#macrosContainer').html('<div class="text-center py-4 text-danger"><i class="fas fa-exclamation-triangle fa-3x mb-3"></i><p>Error al cargar macrociclos</p></div>').show();
+    }
+}
+
+function displayMacrociclosTable(macrociclos) {
+    const container = $('#macrosContainer');
+    
+    let html = `
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead style="background-color: #003B5C; color: white;">
+                    <tr>
+                        <th>Macrociclo</th>
+                        <th>Tipo</th>
+                        <th>Fechas</th>
+                        <th>Sesiones</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `;
+    
+    macrociclos.forEach(macro => {
+        const esPlantilla = !macro.atleta_nombre;
+        const atletaNombre = macro.atleta_nombre ? 
+            `${macro.atleta_nombre} ${macro.atleta_apellido}` : 
+            'Plantilla';
+        
+        const fechaInicio = new Date(macro.fecha_inicio).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
+        const fechaFin = new Date(macro.fecha_fin).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
+        
+        const badgeClass = esPlantilla ? 'badge-secondary' : 'badge-success';
+        
+        html += `
+            <tr onclick="verMacrocicloDetalle(${macro.id})" style="cursor: pointer;">
+                <td>
+                    <strong>${macro.nombre}</strong>
+                    ${macro.objetivo_principal ? `<br><small class="text-muted">${macro.objetivo_principal}</small>` : ''}
+                </td>
+                <td><span class="badge ${badgeClass}">${atletaNombre}</span></td>
+                <td><small>${fechaInicio} - ${fechaFin}</small></td>
+                <td><span class="badge badge-info">${macro.total_sesiones || 0} sesiones</span></td>
+                <td>
+                    <button class="btn btn-sm btn-primary" onclick="event.stopPropagation(); verMacrocicloDetalle(${macro.id})">
+                        <i class="fas fa-eye"></i> Ver
+                    </button>
+                </td>
+            </tr>
+        `;
+    });
+    
+    html += `
+                </tbody>
+            </table>
+        </div>
+    `;
+    
+    container.html(html);
+}
+
+function verMacrocicloDetalle(macrocicloId) {
+    window.location.href = `macrociclo-detalle.html?id=${macrocicloId}`;
+}
+</script>
+
 </body></html>
