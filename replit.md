@@ -46,7 +46,38 @@ The application follows a traditional architecture with a clear separation of co
 
 ## Recent Changes
 
-### Rediseño de Vista de Macrociclos - Formato Tabla (October 13, 2025)
+### Diseño de Macrociclos Idéntico al Original (October 13, 2025)
+- ✅ **Diseño completamente idéntico al sistema original** - Recreado desde archivos HTML originales
+- **Páginas Creadas**:
+  - `MACRO/listado-macrociclos.html` - Lista de macrociclos con tabla estilo GridView
+  - `MACRO/detalle-macrociclo.html` - Vista de detalle con estructura week_item original
+- **Estructura de Detalle (Idéntica al Original)**:
+  - Filas verticales por semana (week_item)
+  - Primera columna: Info de semana con fondo blanco (fondoBordeBlanco, clsSemana)
+  - Días como columnas horizontales (colModif) - 7 columnas (12.5% cada una)
+  - Sesiones en cuadroInfo con iconos de deporte y colores por tipo
+  - Iconos: race-blue-icon.png, swim-icon.png, bike-icon.png
+  - Colores de sesión: #B2C4CE (carrera), #43b02a (fuerza)
+- **Estilos CSS Utilizados** (de MACROCICLO.css):
+  - `.week_item` - Contenedor de fila de semana
+  - `.colModif` - Columna de día (width: 12.5%)
+  - `.colModif2` - Primera columna con info de semana
+  - `.clsSemana` - Título "Semana X" (font-weight: bold, font-size: 17px)
+  - `.fondoBordeBlanco` - Box blanco con sombra para info de semana
+  - `.cuadroInfo` - Contenedor de sesiones del día
+- **Funcionalidades**:
+  - Carga dinámica de datos desde `/api/macrociclos` y `/api/macrociclos/:id`
+  - Filtro de búsqueda en tiempo real
+  - Contador de resultados ("Viendo X de Y resultados")
+  - Botones de editar, copiar, mover macrociclo (iconos Font Awesome)
+  - Navegación fluida entre listado y detalle
+- **Diseño Visual**:
+  - Colores fieles al original: #003a5d (azul oscuro), #173B5C (azul medio), #B2C4CE (azul claro)
+  - Tipografía con font-size y font-weight exactos del original
+  - Estructura HTML idéntica a la aplicación original
+  - Breadcrumbs de navegación (Inicio > Macrociclo / Consulta)
+
+### Rediseño de Vista de Macrociclos - Formato Tabla (October 13, 2025) [DEPRECADO - Reemplazado por diseño original]
 - ✅ **Vista tipo tabla mejorada** - Semanas como filas, días como columnas (Lunes-Domingo)
 - **Cambios en INICIO MACRO.html**:
   - **Lista automática de macrociclos** - Se cargan automáticamente sin necesidad de botón
