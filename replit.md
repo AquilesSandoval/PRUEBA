@@ -14,7 +14,7 @@ AIYM is a comprehensive athlete training management system designed to streamlin
 The application follows a traditional architecture with a clear separation of concerns, utilizing a RESTful API for data operations and serving static files.
 
 ### UI/UX Decisions
-The frontend uses static HTML/CSS/JavaScript with jQuery, Bootstrap, and Leaflet for interactivity and mapping. The design emphasizes a clean, minimalist aesthetic with Font Awesome icons, the 'Inter' font, and sport-specific color coding. Visualizations are powered by Highcharts.
+The frontend uses static HTML/CSS/JavaScript with jQuery, Bootstrap, and Leaflet for interactivity and mapping. The design emphasizes a clean, minimalist aesthetic with Font Awesome icons, the 'Touch Me Sans Petite Semi Bold' font globally, and sport-specific color coding using #4acf74 (green) and #b2c4ce (blue-gray) for Macrociclo and Mesociclo sections. Visualizations are powered by Highcharts. Exercise descriptions display with line breaks for better readability (one line per sub-exercise).
 
 ### Technical Implementations
 - **Backend**: Node.js with Express, running on port 5000.
@@ -25,7 +25,7 @@ The frontend uses static HTML/CSS/JavaScript with jQuery, Bootstrap, and Leaflet
 
 ### Feature Specifications
 - **Athlete Management (ATLETAS)**: Full CRUD for athletes, including profiles, Garmin/Strava integration, interviews (PARQ, cardiovascular), and assessments. Features card-based listings with search/filter and soft-delete. Photos are dynamically loaded from Supabase Storage with correct extensions.
-- **Training Cycle Management (MACRO/MESO/MICRO)**: Supports Macrocycles (6-12 months), Mesocycles (3-6 weeks), and Microcycles (weekly). Includes a fully functional mesocycle system with pagination and offline architecture, mirroring macrocycle design.
+- **Training Cycle Management (MACRO/MESO/MICRO)**: Supports Macrocycles (6-12 months), Mesocycles (3-6 weeks), and Microcycles (weekly). Includes a fully functional mesocycle system with pagination and offline architecture, mirroring macrocycle design. Exercise descriptions display with white-space: pre-line for line-separated sub-exercises. Uses #4acf74 and #b2c4ce color scheme.
 - **Performance Reports (INFORMES)**: Ergospirometric tests and lactate analysis. Dynamic report forms with sport-specific data capture and real-time Highcharts visualizations.
 - **Additional Features**: Modules for exercises, circuits, drills, and sessions. Comprehensive interview system (PARQ, cardiovascular, strength, injuries, objectives, sensorial) with dynamic data handling. Dynamic display of athlete birthdays with monthly navigation.
 

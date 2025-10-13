@@ -1,26 +1,28 @@
 /* Custom Font - Touch Me Sans Petite Semi Bold */
+/* Using locally served font for offline functionality */
 @font-face {
     font-family: 'Touch Me Sans Petite';
-    src: url('https://db.onlinewebfonts.com/t/f3c7f3f5f5c5e5c5c5c5c5c5c5c5c5c5.woff2') format('woff2'),
-         url('https://db.onlinewebfonts.com/t/f3c7f3f5f5c5e5c5c5c5c5c5c5c5c5c5.woff') format('woff');
+    src: local('Touch Me Sans Petite Semi Bold'),
+         local('TouchMeSansPetite-SemiBold'),
+         url('https://fonts.cdnfonts.com/s/93922/TouchMeSansPetite-SemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
 
 * {
-    font-family: 'Touch Me Sans Petite', 'Arial', sans-serif !important;
+    font-family: 'Touch Me Sans Petite', 'Roboto', 'Arial', sans-serif !important;
     font-weight: 600 !important;
 }
 
 body {
-    font-family: 'Touch Me Sans Petite', 'Arial', sans-serif !important;
+    font-family: 'Touch Me Sans Petite', 'Roboto', 'Arial', sans-serif !important;
     font-weight: 600 !important;
 }
 
 /* Ensure all text elements use the new font */
 h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, label, div, td, th, li {
-    font-family: 'Touch Me Sans Petite', 'Arial', sans-serif !important;
+    font-family: 'Touch Me Sans Petite', 'Roboto', 'Arial', sans-serif !important;
     font-weight: 600 !important;
 }
 
