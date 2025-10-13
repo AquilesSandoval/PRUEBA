@@ -878,6 +878,35 @@ app.post('/api/parq/save-data', async (req, res) => {
   }
 });
 
+// Get birthdays by month
+app.get('/api/birthdays/:month', async (req, res) => {
+  try {
+    const { month } = req.params; // 1-12
+    
+    // Query para obtener atletas que cumplen años en el mes especificado
+    const result = await pool.query(
+      `SELECT id, nombre, apellido, fecha_nacimiento, foto_url, deporte_principal
+       FROM atletas 
+       WHERE EXTRACT(MONTH FROM fecha_nacimiento) = $1
+         AND activo = true
+       ORDER BY EXTRACT(DAY FROM fecha_nacimiento) ASC`,
+      [month]
+    );
+    
+    res.json({
+      success: true,
+      birthdays: result.rows
+    });
+    
+  } catch (error) {
+    console.error('Error al obtener cumpleaños:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Error al obtener cumpleaños'
+    });
+  }
+});
+
 // Supabase Sync Endpoint - Sincronizar atletas desde Supabase Storage
 app.post('/api/sync/atletas-supabase', async (req, res) => {
   try {
