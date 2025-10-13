@@ -46,12 +46,22 @@ The application follows a traditional architecture with a clear separation of co
 
 ## Recent Changes
 
-### Diseño de Macrociclos Mejorado - Espaciado y Legibilidad (October 13, 2025)
-- ✅ **Diseño mejorado basado en referencias visuales** - Mejor espaciado, colores vivos e iconos claros
+### Diseño de Macrociclos Mejorado + Arquitectura Offline (October 13, 2025)
+- ✅ **Diseño mejorado con recursos 100% locales** - Mejor espaciado, colores vivos, iconos claros y funcionalidad offline completa
 - **Páginas Creadas/Actualizadas**:
   - `MACRO/INICIO MACRO.html` - Auto-carga tabla de macrociclos sin necesidad de botón
   - `MACRO/listado-macrociclos.html` - Lista de macrociclos con botón único de ver detalle
-  - `MACRO/detalle-macrociclo.html` - Vista de detalle mejorada con espaciado optimizado
+  - `MACRO/detalle-macrociclo.html` - Vista de detalle mejorada con recursos locales y espaciado optimizado
+- **Arquitectura Offline Completada**:
+  - **jQuery y Bootstrap locales**: Migrados de CDN a `../assets/jquery.min.js.descarga` y `../assets/bootstrap.min.js.descarga`
+  - **Spinner Bootstrap local**: `spinner-border` con estilos locales (reemplaza Font Awesome CDN)
+  - **Iconos deportivos locales**: PNG desde `assets/` para funcionalidad sin conexión
+    - `race-blue-icon.png` - Carrera/Core/FZA
+    - `force-blue-icon.png` - Fuerza
+    - `swimming-blue-icon.png` - Natación
+    - `cycling-blue-icon.png` - Ciclismo
+  - **Cero dependencias CDN**: Todas las librerías (jQuery, Bootstrap, SweetAlert, Atlantis) servidas localmente
+  - **Archivos locales corregidos**: `atlantis2.min.js.descarga`, `jquery.min.js.descarga`, `bootstrap.min.js.descarga`
 - **Mejoras Visuales en Detalle**:
   - **Espaciado mejorado**: margin-bottom 25px entre semanas, padding 0 8px en columnas de días
   - **Días de semana prominentes**: font-weight bold, font-size 14px, color #333
@@ -64,12 +74,6 @@ The application follows a traditional architecture with a clear separation of co
   - **Natación**: #A8D0E6 (azul claro)
   - **Ciclismo**: #C2E0F4 (azul cielo)
   - **Texto en sesiones**: #333 (oscuro para mejor contraste)
-- **Iconos Font Awesome Visibles**:
-  - `fas fa-running` - Carrera/Core/FZA
-  - `fas fa-dumbbell` - Fuerza
-  - `fas fa-swimmer` - Natación
-  - `fas fa-biking` - Ciclismo
-  - Tamaño 16px, color #333, con margin-right 8px
 - **Campo de hora mejorado**:
   - Font-size 12px, padding 2px 4px
   - Background rgba(255,255,255,0.3) para contraste
@@ -81,6 +85,7 @@ The application follows a traditional architecture with a clear separation of co
   - Contador de resultados ("Viendo X de Y resultados")
   - **Botón único de acción**: Solo icono de ojo (👁️) para ver detalle
   - Navegación fluida entre listado y detalle
+  - **100% funcional offline**: Todos los recursos (CSS, JS, iconos) disponibles localmente
 
 ### Rediseño de Vista de Macrociclos - Formato Tabla (October 13, 2025) [DEPRECADO - Reemplazado por diseño original]
 - ✅ **Vista tipo tabla mejorada** - Semanas como filas, días como columnas (Lunes-Domingo)
