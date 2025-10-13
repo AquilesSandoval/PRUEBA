@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ES-es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aiym Panel :: AIYM YUC</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <link rel="icon" type="image/png" href="../assets/favicon-32x32.png">
+    
+    <link href="../assets/fonts.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/atlantis2.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/demo.css">
+    <link rel="stylesheet" href="../assets/alertif.min.css">
+    <link rel="stylesheet" href="../assets/training-app-styles.css">
+    <link rel="stylesheet" href="MACROCICLO.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body data-background-color="bg3">
+    <div class="wrapper page-container">
+        <div class="main-header" data-background-color="white">
+            <div class="nav-top">
+                <div class="container d-flex flex-row">
+                    <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+                    <a class="logo d-flex align-items-center" href="../index.html">
+                        <img src="../assets/logo_all.png" alt="logo" class="navbar-brand">
+                    </a>
+                    
+                    <nav class="navbar navbar-header navbar-expand-lg p-0">
+                        <div class="container-fluid p-0">
+                            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                                <li class="nav-item dropdown hidden-caret">
+                                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+                                        <div style="float: left; padding: 10px 7px; color: #535353;">| YUC</div>
+                                        <div class="avatar-sm" style="float: left;">
+                                            <img src="../assets/user_242.png" alt="..." class="avatar-img rounded-circle imgshadow">
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user animated fadeIn">
+                                        <div class="dropdown-user-scroll scrollbar-outer">
+                                            <li>
+                                                <div class="user-box">
+                                                    <div class="avatar-lg">
+                                                        <img src="../assets/user_242.png" alt="image profile" class="avatar-img rounded">
+                                                    </div>
+                                                    <div class="u-text">
+                                                        <h4></h4>
+                                                        <p class="text-muted">AIYM YUC</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#" onclick="logout(); return false;" style="color:#777; font-weight:400;">Salir</a>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <div class="container" style="min-height: 550px;">
+                <div class="page-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-header">
+                                <h4 class="page-title" id="macroTitle">Macrociclo</h4>
+                                <ul class="breadcrumbs" style="font-weight: 400;">
+                                    <li class="nav-home">
+                                        <a href="../index.html"><i class="flaticon-home"></i></a>
+                                    </li>
+                                    <li class="separator"><i class="flaticon-right-arrow"></i></li>
+                                    <li class="nav-item">Macrociclo</li>
+                                </ul>
+                                <div class="ml-auto">
+                                    <div class="page-header-breadcrumb"></div>
+                                </div>
+                            </div>
+
+                            <div id="loadingSpinner" class="text-center py-5">
+                                <i class="fas fa-spinner fa-spin fa-3x" style="color: #003B5C;"></i>
+                                <p class="mt-3">Cargando macrociclo...</p>
+                            </div>
+
+                            <div id="macroContent" style="display: none;">
+                                <form id="macroForm">
+                                    <div id="weekContainer">
+                                        <!-- Weeks will be loaded here -->
+                                    </div>
+                                    
+                                    <div align="right">
+                                        <button type="button" class="btn btn-default" onclick="window.location.href='listado-macrociclos.html'">
+                                            Cancelar
+                                        </button>
+                                        <button type="button" class="btn btn-primary" onclick="guardarMacro()">
+                                            Guardar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="clear: both;"></div>
+        <div class="footer">
+            <div class="container">
+                <div class="col-sm-12">
+                    <div class="col-sm-3" style="float: left;">
+                        <img src="../assets/logo_all.png" alt="logo" class="navbar-brand">
+                    </div>
+                    <div class="col-sm-9" style="float: left; text-align: right; padding-top: 15px; font-weight: 700; color: #003A5D;">
+                        Copyright © 2025 by <a href="http://allinyourmind.es/" target="_blank">ALL IN YOUR MIND</a>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/atlantis2.min.js"></script>
+    <script src="../assets/sweetalert.min.js.descarga"></script>
+    
+    <script>
+        const diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+        const diasOrden = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const macrocicloId = urlParams.get('id');
+            
+            if (!macrocicloId) {
+                window.location.href = 'listado-macrociclos.html';
+                return;
+            }
+            
+            loadMacrociclo(macrocicloId);
+        });
+
+        async function loadMacrociclo(id) {
+            try {
+                const response = await fetch(`/api/macrociclos/${id}`);
+                const data = await response.json();
+                
+                $('#loadingSpinner').hide();
+                
+                if (data.success && data.macrociclo) {
+                    displayMacrociclo(data.macrociclo);
+                    $('#macroContent').show();
+                } else {
+                    showError('Macrociclo no encontrado');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                $('#loadingSpinner').hide();
+                showError('Error al cargar el macrociclo');
+            }
+        }
+
+        function displayMacrociclo(macro) {
+            $('#macroTitle').text(macro.nombre);
+            
+            if (macro.semanas && macro.semanas.length > 0) {
+                displayWeeks(macro.semanas);
+            } else {
+                $('#weekContainer').html('<div class="alert alert-info">No hay sesiones programadas en este macrociclo</div>');
+            }
+        }
+
+        function displayWeeks(semanas) {
+            const container = $('#weekContainer');
+            container.empty();
+            
+            semanas.forEach((semana, index) => {
+                const weekHTML = createWeekRow(semana, index);
+                container.append(weekHTML);
+            });
+        }
+
+        function createWeekRow(semana, weekIndex) {
+            const diasMap = {};
+            semana.dias.forEach(dia => {
+                let diaKey = 'Monday';
+                for (let i = 0; i < diasOrden.length; i++) {
+                    if (dia.nombre.includes(diasOrden[i])) {
+                        diaKey = diasOrden[i];
+                        break;
+                    }
+                }
+                diasMap[diaKey] = dia;
+            });
+
+            let html = `
+                <div class="week_item row week${weekIndex}" id="week${weekIndex}" data-cont="${weekIndex}">
+                    <div class="col colModif2" style="min-height: 180px">
+                        <div class="fondoBordeBlanco">
+                            <br>
+                            <b class="clsSemana">Semana ${semana.numero}</b>
+                            <br>
+                            <img src="../assets/ecos70.png" class="centrado" style="cursor: pointer;">
+                            <div class="centrado" style="color:white; cursor: pointer; padding-left:6px;">
+                                ${semana.dias.reduce((total, dia) => total + (dia.sesiones ? dia.sesiones.length : 0), 0)}
+                            </div>
+                        </div>
+                    </div>
+            `;
+
+            diasOrden.forEach((diaKey, diaIndex) => {
+                const diaNombre = diasSemana[diaIndex];
+                const dia = diasMap[diaKey];
+                
+                html += `
+                    <div class="col colModif">
+                        ${diaNombre}
+                        <div class="cuadroInfo" id="${diaKey.toLowerCase()}${weekIndex}">
+                `;
+
+                if (dia && dia.sesiones && dia.sesiones.length > 0) {
+                    dia.sesiones.forEach((sesion, sesionIndex) => {
+                        const iconoDeporte = getDeporteIcon(sesion.tipo_sesion);
+                        const colorFondo = getSesionColor(sesion.tipo_sesion);
+                        
+                        html += `
+                            <div style="border:solid 0px; background-color:${colorFondo}; padding:5px; border: 1px solid #f0e8f0; border-radius:12px; margin-bottom:10px;">
+                                <img width="15" src="${iconoDeporte}" style="position:relative; float:left; left:03px;">
+                                <input type="time" value="${sesion.hora || '00:00'}" style="width:82px; font-size:10px; padding:0px; position:relative; float:left; left:15px; top:5px; background-color: transparent; box-shadow: 0 0 0 0 transparent; letter-spacing: .01px; border:solid 0px;">
+                                <br>
+                                <span style="font-size:11px; padding:0px 05px 0px 3px; color:#fff;">
+                                    ${sesion.nombre_sesion || 'Sesión'}
+                                </span>
+                                <br>
+                                <span style="font-size:09px; padding:3px; color:#fff;">
+                                    ${sesion.descripcion || ''}
+                                </span>
+                            </div>
+                        `;
+                    });
+                }
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += '</div>';
+            return html;
+        }
+
+        function getDeporteIcon(tipoSesion) {
+            if (!tipoSesion) return '../assets/race-blue-icon.png';
+            
+            const tipo = tipoSesion.toLowerCase();
+            if (tipo.includes('carrera') || tipo.includes('run')) {
+                return '../assets/race-blue-icon.png';
+            } else if (tipo.includes('natacion') || tipo.includes('swim')) {
+                return '../assets/swim-icon.png';
+            } else if (tipo.includes('ciclismo') || tipo.includes('bike')) {
+                return '../assets/bike-icon.png';
+            }
+            return '../assets/race-blue-icon.png';
+        }
+
+        function getSesionColor(tipoSesion) {
+            if (!tipoSesion) return '#B2C4CE';
+            
+            const tipo = tipoSesion.toLowerCase();
+            if (tipo.includes('carrera') || tipo.includes('run')) {
+                return '#B2C4CE';
+            } else if (tipo.includes('fuerza') || tipo.includes('strength')) {
+                return '#43b02a';
+            }
+            return '#B2C4CE';
+        }
+
+        function showError(message) {
+            $('#macroContent').html(`
+                <div class="alert alert-danger text-center">
+                    <p>${message}</p>
+                    <a href="listado-macrociclos.html" class="btn btn-primary mt-3">Volver al listado</a>
+                </div>
+            `).show();
+        }
+
+        function guardarMacro() {
+            swal('Guardado', 'Macrociclo actualizado correctamente', 'success');
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = '/login.html';
+        }
+    </script>
+</body>
+</html>
