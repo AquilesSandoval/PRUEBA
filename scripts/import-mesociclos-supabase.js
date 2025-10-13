@@ -46,7 +46,22 @@ async function importarMesociclos() {
     let insertados = 0;
     let errores = 0;
 
-    for (const meso of mesociclosData) {
+    // Solo importar mesociclos con sesiones
+    const mesosConSesiones = mesociclosData.filter(m => 
+      m.semanas && m.semanas.some(s => 
+        s.dias && s.dias.some(d => 
+          d.ejercicios && d.ejercicios.length > 0
+        )
+      )
+    );
+    
+    console.log(`📊 Mesociclos con sesiones: ${mesosConSesiones.length} de ${mesociclosData.length}\n`);
+    
+    // Solo importar los primeros 10 para prueba
+    const mesosParaImportar = mesosConSesiones.slice(0, 10);
+    console.log(`📋 Importando ${mesosParaImportar.length} mesociclos de prueba\n`);
+    
+    for (const meso of mesosParaImportar) {
       try {
         const codigoCombo = meso.combobox?.find(c => c.name === 'Mesocyclesmesocycle[codigo]');
         const codigo = codigoCombo?.selected || `MESO-${meso.id}`;
@@ -117,7 +132,7 @@ async function importarMesociclos() {
 
             const microcicloResult = await pool.query(
               `INSERT INTO microciclos 
-               (mesociclo_id, atleta_id, numero_semana, fecha_inicio, fecha_fin)
+               (mesociclo_id, atleta_id, semana_numero, fecha_inicio, fecha_fin)
                VALUES ($1, $2, $3, $4, $5)
                RETURNING id`,
               [
@@ -132,9 +147,14 @@ async function importarMesociclos() {
             const microcicloId = microcicloResult.rows[0].id;
 
             if (semana.dias && Array.isArray(semana.dias)) {
-              for (const dia of semana.dias) {
+              for (let diaIdx = 0; diaIdx < semana.dias.length; diaIdx++) {
+                const dia = semana.dias[diaIdx];
                 const nombreDia = dia.nombre;
                 const diaEnum = diasMap[nombreDia] || nombreDia;
+                
+                // Calculate the date for this session
+                const fechaSesion = new Date(inicioSemana);
+                fechaSesion.setDate(fechaSesion.getDate() + diaIdx);
                 
                 if (dia.ejercicios && Array.isArray(dia.ejercicios)) {
                   for (const ejercicio of dia.ejercicios) {
@@ -145,16 +165,19 @@ async function importarMesociclos() {
 
                     await pool.query(
                       `INSERT INTO sesiones 
-                       (microciclo_id, atleta_id, dia_semana, nombre, descripcion, hora_planificada, estado)
-                       VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+                       (microciclo_id, mesociclo_id, atleta_id, fecha, hora, nombre_sesion, descripcion, tipo_sesion, estado, notas)
+                       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
                       [
                         microcicloId,
+                        mesocicloId,
                         atletaId,
-                        diaEnum,
+                        fechaSesion.toISOString().split('T')[0],
+                        hora,
                         nombreSesion,
                         descripcionCompleta,
-                        hora,
-                        'planificada'
+                        nombreSesion,
+                        'planificada',
+                        `Día: ${diaEnum}`
                       ]
                     );
 
@@ -178,7 +201,7 @@ async function importarMesociclos() {
     console.log('\n=== RESUMEN DE IMPORTACIÓN ===');
     console.log(`✅ Mesociclos insertados: ${insertados}`);
     console.log(`❌ Errores: ${errores}`);
-    console.log(`📊 Total procesados: ${mesociclosData.length}`);
+    console.log(`📊 Total procesados: ${mesosConSesiones.length}`);
 
   } catch (error) {
     console.error('❌ Error general:', error);

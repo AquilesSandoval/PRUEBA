@@ -223,14 +223,15 @@
 
                 if (dia && dia.sesiones && dia.sesiones.length > 0) {
                     dia.sesiones.forEach((sesion, sesionIndex) => {
-                        const iconoDeporte = getDeporteIcon(sesion.nombre);
-                        const colorFondo = getSesionColor(sesion.nombre);
+                        const iconoDeporte = getDeporteIcon(sesion.tipo_sesion || sesion.nombre);
+                        const colorFondo = getSesionColor(sesion.tipo_sesion || sesion.nombre);
+                        const horaFormateada = sesion.hora ? sesion.hora.substring(0, 5) : '00:00';
                         
                         html += `
                             <div style="background-color:${colorFondo}; padding: 10px 8px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                                 <div style="display: flex; align-items: center; margin-bottom: 6px;">
                                     <img src="${iconoDeporte}" style="width: 18px; height: 18px; margin-right: 8px;" alt="icono">
-                                    <input type="time" value="${sesion.hora || '00:00'}" style="font-size: 12px; padding: 2px 4px; background-color: rgba(255,255,255,0.3); border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; color: #333; font-weight: 500;">
+                                    <input type="time" value="${horaFormateada}" style="font-size: 12px; padding: 2px 4px; background-color: rgba(255,255,255,0.3); border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; color: #333; font-weight: 500;">
                                 </div>
                                 <div style="font-size: 12px; font-weight: 600; color: #333; margin-bottom: 4px; line-height: 1.3;">
                                     ${sesion.nombre || 'Sesión'}
@@ -259,33 +260,33 @@
             return html;
         }
 
-        function getDeporteIcon(nombreSesion) {
-            if (!nombreSesion) return '../assets/race-blue-icon.png';
+        function getDeporteIcon(tipoSesion) {
+            if (!tipoSesion) return '../assets/race-blue-icon.png';
             
-            const nombre = nombreSesion.toLowerCase();
-            if (nombre.includes('carrera') || nombre.includes('run') || nombre.includes('core') || nombre.includes('fza')) {
+            const tipo = tipoSesion.toLowerCase();
+            if (tipo.includes('carrera') || tipo.includes('run') || tipo.includes('core') || tipo.includes('fza')) {
                 return '../assets/race-blue-icon.png';
-            } else if (nombre.includes('fuerza') || nombre.includes('strength') || nombre.includes('funcional')) {
+            } else if (tipo.includes('fuerza') || tipo.includes('strength') || tipo.includes('funcional')) {
                 return '../assets/force-blue-icon.png';
-            } else if (nombre.includes('natacion') || nombre.includes('swim')) {
+            } else if (tipo.includes('natacion') || tipo.includes('swim')) {
                 return '../assets/swimming-blue-icon.png';
-            } else if (nombre.includes('ciclismo') || nombre.includes('bike')) {
+            } else if (tipo.includes('ciclismo') || tipo.includes('bike') || tipo.includes('bici')) {
                 return '../assets/cycling-blue-icon.png';
             }
             return '../assets/race-blue-icon.png';
         }
 
-        function getSesionColor(nombreSesion) {
-            if (!nombreSesion) return '#B8D4E0';
+        function getSesionColor(tipoSesion) {
+            if (!tipoSesion) return '#B8D4E0';
             
-            const nombre = nombreSesion.toLowerCase();
-            if (nombre.includes('carrera') || nombre.includes('run') || nombre.includes('core') || nombre.includes('fza')) {
+            const tipo = tipoSesion.toLowerCase();
+            if (tipo.includes('carrera') || tipo.includes('run') || tipo.includes('core') || tipo.includes('fza')) {
                 return '#7FD1AE';
-            } else if (nombre.includes('fuerza') || nombre.includes('strength') || nombre.includes('funcional')) {
+            } else if (tipo.includes('fuerza') || tipo.includes('strength') || tipo.includes('funcional')) {
                 return '#A8D5BA';
-            } else if (nombre.includes('natacion') || nombre.includes('swim')) {
+            } else if (tipo.includes('natacion') || tipo.includes('swim')) {
                 return '#A8D0E6';
-            } else if (nombre.includes('ciclismo') || nombre.includes('bike')) {
+            } else if (tipo.includes('ciclismo') || tipo.includes('bike') || tipo.includes('bici')) {
                 return '#C2E0F4';
             }
             return '#B8D4E0';

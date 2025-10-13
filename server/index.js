@@ -1093,13 +1093,13 @@ app.get('/api/mesociclos/:id', async (req, res) => {
     const sesionesResult = await pool.query(
       `SELECT 
         s.*,
-        mc.numero_semana as semana_numero,
-        s.dia_semana as dia_nombre
+        mc.semana_numero,
+        REGEXP_REPLACE(s.notas, 'Día: ', '', 'i') as dia_nombre
        FROM sesiones s
        JOIN microciclos mc ON s.microciclo_id = mc.id
        WHERE mc.mesociclo_id = $1 
-       ORDER BY mc.numero_semana, 
-       CASE s.dia_semana
+       ORDER BY mc.semana_numero, 
+       CASE REGEXP_REPLACE(s.notas, 'Día: ', '', 'i')
          WHEN 'Lunes' THEN 1
          WHEN 'Martes' THEN 2
          WHEN 'Miercoles' THEN 3
@@ -1108,7 +1108,7 @@ app.get('/api/mesociclos/:id', async (req, res) => {
          WHEN 'Sabado' THEN 6
          WHEN 'Domingo' THEN 7
        END,
-       s.hora_planificada`,
+       s.hora`,
       [id]
     );
     
@@ -1133,9 +1133,10 @@ app.get('/api/mesociclos/:id', async (req, res) => {
       
       semanas[semanaNum].dias[diaNombre].sesiones.push({
         id: sesion.id,
-        nombre: sesion.nombre,
+        nombre: sesion.nombre_sesion,
         descripcion: sesion.descripcion,
-        hora: sesion.hora_planificada,
+        hora: sesion.hora,
+        tipo_sesion: sesion.tipo_sesion,
         estado: sesion.estado
       });
     });
