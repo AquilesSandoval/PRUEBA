@@ -236,8 +236,8 @@
                                 <div style="font-size: 12px; font-weight: 600; color: #333; margin-bottom: 4px; line-height: 1.3;">
                                     ${sesion.nombre || 'Sesión'}
                                 </div>
-                                <div style="font-size: 10px; color: #555; line-height: 1.2;">
-                                    ${sesion.descripcion ? sesion.descripcion.substring(0, 100) + (sesion.descripcion.length > 100 ? '...' : '') : ''}
+                                <div style="font-size: 10px; color: #555; line-height: 1.4; white-space: pre-line;">
+                                    ${sesion.descripcion || ''}
                                 </div>
                             </div>
                         `;
@@ -277,19 +277,19 @@
         }
 
         function getSesionColor(tipoSesion) {
-            if (!tipoSesion) return '#B8D4E0';
+            if (!tipoSesion) return '#b2c4ce';
             
             const tipo = tipoSesion.toLowerCase();
             if (tipo.includes('carrera') || tipo.includes('run') || tipo.includes('core') || tipo.includes('fza')) {
-                return '#7FD1AE';
+                return '#4acf74';
             } else if (tipo.includes('fuerza') || tipo.includes('strength') || tipo.includes('funcional')) {
-                return '#A8D5BA';
+                return '#4acf74';
             } else if (tipo.includes('natacion') || tipo.includes('swim')) {
-                return '#A8D0E6';
+                return '#b2c4ce';
             } else if (tipo.includes('ciclismo') || tipo.includes('bike') || tipo.includes('bici')) {
-                return '#C2E0F4';
+                return '#b2c4ce';
             }
-            return '#B8D4E0';
+            return '#b2c4ce';
         }
 
         function showError(message) {
