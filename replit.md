@@ -41,22 +41,20 @@ The application follows a traditional architecture with a clear separation of co
 
 ## Recent Changes
 
-### Integración con Supabase Storage (October 13, 2025)
-- ✅ **Sincronización de atletas desde Supabase Storage implementada** - Sistema completo de importación de datos
-- **Backend Integration** (`server/index.js`):
-  - Cliente Supabase inicializado con credenciales desde secrets
-  - Nuevo endpoint: `POST /api/sync/atletas-supabase`
-  - Descarga JSON desde `Atletas/datos_atletas_completo.json` en bucket Supabase
+### Importación de Atletas desde Supabase Storage (October 13, 2025)
+- ✅ **593 atletas importados exitosamente desde Supabase Storage** - Migración completa de datos
+- **Script de Importación** (`scripts/import-atletas-supabase.js`):
+  - Cliente Supabase conectado con credenciales desde secrets
+  - Descarga automática de `Atletas/datos_atletas_completo.json` desde bucket
+  - Mapeo de campos del JSON: `Nombre(s)` → `nombre`, `Apellidos` → `apellido`, `Correo` → `email`, etc.
   - Genera URLs de fotos: `{SUPABASE_URL}/storage/v1/object/public/{BUCKET}/AtletasFotos/{id}.jpg`
-  - Inserta nuevos atletas o actualiza existentes (upsert basado en ID)
-  - Logs detallados de sincronización: insertados, actualizados, errores
-- **Frontend Integration** (`ATLETAS/Atletas INICIO.html`):
-  - Botón "Sincronizar Supabase" agregado en página de atletas
-  - Script `supabase-sync.js` con función asíncrona de sincronización
-  - Alertas con SweetAlert mostrando estadísticas de sincronización
-  - Recarga automática de lista de atletas después de sincronizar
+  - Upsert inteligente: Inserta nuevos atletas o actualiza existentes basado en ID
+  - Logs detallados: 593 insertados, 0 errores
+- **Backend Integration** (`server/index.js`):
+  - Cliente Supabase inicializado en servidor
+  - Endpoint `POST /api/sync/atletas-supabase` disponible para futuras sincronizaciones
 - **Secrets configurados**: SUPABASE_URL, SUPABASE_KEY, SUPABASE_BUCKET
-- **Data Flow**: Click botón → POST a API → Descarga JSON → Upsert a DB → Muestra estadísticas → Recarga lista
+- **Resultado**: 600 atletas totales en base de datos (593 de Supabase + 7 existentes)
 
 ### Athlete Edit Functionality Fixed (October 11, 2025)
 - ✅ **FIXED**: Edit button now loads correct athlete data
