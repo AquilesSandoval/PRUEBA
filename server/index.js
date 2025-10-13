@@ -878,6 +878,93 @@ app.post('/api/parq/save-data', async (req, res) => {
   }
 });
 
+// Get macrociclos
+app.get('/api/macrociclos', async (req, res) => {
+  try {
+    const { atleta_id } = req.query;
+    
+    let query = `
+      SELECT 
+        m.*,
+        a.nombre as atleta_nombre,
+        a.apellido as atleta_apellido,
+        (SELECT COUNT(*) FROM sesiones WHERE macrociclo_id = m.id) as total_sesiones
+      FROM macrociclos m
+      LEFT JOIN atletas a ON m.atleta_id = a.id
+    `;
+    
+    const params = [];
+    if (atleta_id) {
+      query += ' WHERE m.atleta_id = $1';
+      params.push(atleta_id);
+    }
+    
+    query += ' ORDER BY m.created_at DESC';
+    
+    const result = await pool.query(query, params);
+    
+    res.json({
+      success: true,
+      macrociclos: result.rows
+    });
+    
+  } catch (error) {
+    console.error('Error al obtener macrociclos:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Error al obtener macrociclos'
+    });
+  }
+});
+
+// Get single macrociclo with details
+app.get('/api/macrociclos/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    const macroResult = await pool.query(
+      `SELECT 
+        m.*,
+        a.nombre as atleta_nombre,
+        a.apellido as atleta_apellido
+      FROM macrociclos m
+      LEFT JOIN atletas a ON m.atleta_id = a.id
+      WHERE m.id = $1`,
+      [id]
+    );
+    
+    if (macroResult.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        error: 'Macrociclo no encontrado'
+      });
+    }
+    
+    // Get sesiones del macrociclo
+    const sesionesResult = await pool.query(
+      `SELECT * FROM sesiones 
+       WHERE macrociclo_id = $1 
+       ORDER BY fecha, hora`,
+      [id]
+    );
+    
+    res.json({
+      success: true,
+      macrociclo: {
+        ...macroResult.rows[0],
+        sesiones: sesionesResult.rows
+      }
+    });
+    
+  } catch (error) {
+    console.error('Error al obtener macrociclo:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Error al obtener macrociclo'
+    });
+  }
+});
+
 // Get birthdays by month
 app.get('/api/birthdays/:month', async (req, res) => {
   try {
