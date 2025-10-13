@@ -1008,6 +1008,166 @@ app.get('/api/macrociclos/:id', async (req, res) => {
   }
 });
 
+// Get mesociclos with pagination
+app.get('/api/mesociclos', async (req, res) => {
+  try {
+    const { atleta_id, page = 1, limit = 50 } = req.query;
+    const offset = (page - 1) * limit;
+    
+    let countQuery = `SELECT COUNT(*) as total FROM mesociclos m`;
+    let query = `
+      SELECT 
+        m.*,
+        a.nombre as atleta_nombre,
+        a.apellido as atleta_apellido,
+        (SELECT COUNT(*) FROM sesiones s JOIN microciclos mc ON s.microciclo_id = mc.id WHERE mc.mesociclo_id = m.id) as total_sesiones
+      FROM mesociclos m
+      LEFT JOIN atletas a ON m.atleta_id = a.id
+    `;
+    
+    const params = [];
+    const countParams = [];
+    
+    if (atleta_id) {
+      query += ' WHERE m.atleta_id = $1';
+      countQuery += ' WHERE m.atleta_id = $1';
+      params.push(atleta_id);
+      countParams.push(atleta_id);
+    }
+    
+    query += ` ORDER BY m.created_at DESC LIMIT $${params.length + 1} OFFSET $${params.length + 2}`;
+    params.push(limit, offset);
+    
+    const [result, countResult] = await Promise.all([
+      pool.query(query, params),
+      pool.query(countQuery, countParams)
+    ]);
+    
+    const total = parseInt(countResult.rows[0].total);
+    const totalPages = Math.ceil(total / limit);
+    
+    res.json({
+      success: true,
+      mesociclos: result.rows,
+      pagination: {
+        total,
+        page: parseInt(page),
+        limit: parseInt(limit),
+        totalPages
+      }
+    });
+    
+  } catch (error) {
+    console.error('Error al obtener mesociclos:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Error al obtener mesociclos'
+    });
+  }
+});
+
+// Get single mesociclo with details
+app.get('/api/mesociclos/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    const mesoResult = await pool.query(
+      `SELECT 
+        m.*,
+        a.nombre as atleta_nombre,
+        a.apellido as atleta_apellido
+      FROM mesociclos m
+      LEFT JOIN atletas a ON m.atleta_id = a.id
+      WHERE m.id = $1`,
+      [id]
+    );
+    
+    if (mesoResult.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        error: 'Mesociclo no encontrado'
+      });
+    }
+    
+    // Get sesiones del mesociclo agrupadas por semana
+    const sesionesResult = await pool.query(
+      `SELECT 
+        s.*,
+        mc.numero_semana as semana_numero,
+        s.dia_semana as dia_nombre
+       FROM sesiones s
+       JOIN microciclos mc ON s.microciclo_id = mc.id
+       WHERE mc.mesociclo_id = $1 
+       ORDER BY mc.numero_semana, 
+       CASE s.dia_semana
+         WHEN 'Lunes' THEN 1
+         WHEN 'Martes' THEN 2
+         WHEN 'Miercoles' THEN 3
+         WHEN 'Jueves' THEN 4
+         WHEN 'Viernes' THEN 5
+         WHEN 'Sabado' THEN 6
+         WHEN 'Domingo' THEN 7
+       END,
+       s.hora_planificada`,
+      [id]
+    );
+    
+    // Agrupar sesiones por semana y día
+    const semanas = {};
+    sesionesResult.rows.forEach(sesion => {
+      const semanaNum = sesion.semana_numero;
+      if (!semanas[semanaNum]) {
+        semanas[semanaNum] = {
+          numero: semanaNum,
+          dias: {}
+        };
+      }
+      
+      const diaNombre = sesion.dia_nombre;
+      if (!semanas[semanaNum].dias[diaNombre]) {
+        semanas[semanaNum].dias[diaNombre] = {
+          nombre: diaNombre,
+          sesiones: []
+        };
+      }
+      
+      semanas[semanaNum].dias[diaNombre].sesiones.push({
+        id: sesion.id,
+        nombre: sesion.nombre,
+        descripcion: sesion.descripcion,
+        hora: sesion.hora_planificada,
+        estado: sesion.estado
+      });
+    });
+    
+    // Convertir a array ordenado
+    const semanasArray = Object.values(semanas).sort((a, b) => a.numero - b.numero);
+    const diasOrden = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+    
+    semanasArray.forEach(semana => {
+      semana.dias = Object.values(semana.dias).sort((a, b) => {
+        return diasOrden.indexOf(a.nombre) - diasOrden.indexOf(b.nombre);
+      });
+    });
+    
+    res.json({
+      success: true,
+      mesociclo: {
+        ...mesoResult.rows[0],
+        semanas: semanasArray,
+        total_sesiones: sesionesResult.rows.length
+      }
+    });
+    
+  } catch (error) {
+    console.error('Error al obtener mesociclo:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Error al obtener mesociclo'
+    });
+  }
+});
+
 // Get birthdays by month
 app.get('/api/birthdays/:month', async (req, res) => {
   try {
