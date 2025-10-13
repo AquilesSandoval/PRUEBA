@@ -57,6 +57,14 @@ async function importarAtletas() {
           [atleta.id]
         );
 
+        // Mapear campos del JSON a nombres correctos
+        const nombre = atleta['Nombre(s)'] || atleta.nombre || '';
+        const apellido = atleta['Apellidos'] || atleta.apellido || '';
+        const fechaNacimiento = atleta['Fecha Nacimiento'] || atleta.fecha_nacimiento || null;
+        const email = atleta['Correo'] || atleta.email || null;
+        const telefono = atleta['Telefono'] || atleta.telefono || null;
+        const deportePrincipal = atleta['Deporte'] || atleta.deporte_principal || null;
+
         if (checkResult.rows.length > 0) {
           // Actualizar atleta existente
           await pool.query(
@@ -75,13 +83,13 @@ async function importarAtletas() {
               updated_at = CURRENT_TIMESTAMP
             WHERE id = $12`,
             [
-              atleta.nombre || '',
-              atleta.apellido || '',
-              atleta.fecha_nacimiento || null,
-              atleta.email || null,
-              atleta.telefono || null,
+              nombre,
+              apellido,
+              fechaNacimiento,
+              email,
+              telefono,
               fotoUrl,
-              atleta.deporte_principal || null,
+              deportePrincipal,
               atleta.genero || null,
               atleta.peso || null,
               atleta.altura || null,
@@ -90,7 +98,7 @@ async function importarAtletas() {
             ]
           );
           actualizados++;
-          console.log(`🔄 Actualizado: ${atleta.nombre} ${atleta.apellido} (ID: ${atleta.id})`);
+          console.log(`🔄 Actualizado: ${nombre} ${apellido} (ID: ${atleta.id})`);
         } else {
           // Insertar nuevo atleta
           await pool.query(
@@ -100,13 +108,13 @@ async function importarAtletas() {
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, true)`,
             [
               atleta.id,
-              atleta.nombre || '',
-              atleta.apellido || '',
-              atleta.fecha_nacimiento || null,
-              atleta.email || null,
-              atleta.telefono || null,
+              nombre,
+              apellido,
+              fechaNacimiento,
+              email,
+              telefono,
               fotoUrl,
-              atleta.deporte_principal || null,
+              deportePrincipal,
               atleta.genero || null,
               atleta.peso || null,
               atleta.altura || null,
@@ -114,7 +122,7 @@ async function importarAtletas() {
             ]
           );
           insertados++;
-          console.log(`✅ Insertado: ${atleta.nombre} ${atleta.apellido} (ID: ${atleta.id})`);
+          console.log(`✅ Insertado: ${nombre} ${apellido} (ID: ${atleta.id})`);
         }
       } catch (atletaError) {
         errores++;
