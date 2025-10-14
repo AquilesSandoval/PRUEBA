@@ -130,7 +130,7 @@ const diasMap = {
       }
       
       console.log(`✅ ${nombreMacro}`);
-      console.log(`   └─ ${semana.dias ? semana.dias.length : 0} días × ${macro.semanas?.length || 0} semanas = ${sesionesCreadas} sesiones`);
+      console.log(`   └─ ${macro.semanas?.length || 0} semanas → ${sesionesCreadas} sesiones`);
       
       totalMacros++;
       totalSesiones += sesionesCreadas;
