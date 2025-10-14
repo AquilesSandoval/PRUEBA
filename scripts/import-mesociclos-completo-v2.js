@@ -52,7 +52,7 @@ async function importMesociclos(mesociclosData) {
       
       console.log(`\n🔄 Procesando Mesociclo ID: ${mesoId} (${totalSemanas} semanas)`);
       
-      // Insertar mesociclo
+      // Insertar mesociclo (saltar si ya existe)
       const mesoResult = await sql`
         INSERT INTO mesociclos (
           codigo,
@@ -67,8 +67,15 @@ async function importMesociclos(mesociclosData) {
           ${totalSemanas},
           'planificado'
         )
+        ON CONFLICT (codigo) DO NOTHING
         RETURNING id
       `;
+      
+      // Si el mesociclo ya existe, saltar
+      if (mesoResult.length === 0) {
+        console.log(`  ⏭️  Ya existe, saltando...`);
+        continue;
+      }
       
       const mesocicloId = mesoResult[0].id;
       mesociclosImported++;
