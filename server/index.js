@@ -1034,7 +1034,7 @@ app.get('/api/mesociclos', async (req, res) => {
       countParams.push(atleta_id);
     }
     
-    query += ` ORDER BY m.created_at DESC LIMIT $${params.length + 1} OFFSET $${params.length + 2}`;
+    query += ` ORDER BY m.id ASC LIMIT $${params.length + 1} OFFSET $${params.length + 2}`;
     params.push(limit, offset);
     
     const [result, countResult] = await Promise.all([
