@@ -25,9 +25,9 @@ The frontend uses static HTML/CSS/JavaScript with jQuery, Bootstrap, and Leaflet
 
 ### Feature Specifications
 - **Athlete Management (ATLETAS)**: Full CRUD for athletes, including profiles, Garmin/Strava integration, interviews (PARQ, cardiovascular), and assessments. Features card-based listings with search/filter and soft-delete. Photos are dynamically loaded from Supabase Storage with correct extensions.
-- **Training Cycle Management (MACRO/MESO/MICRO)**: Supports Macrocycles (6-12 months), Mesocycles (3-6 weeks), and Microcycles (weekly). Includes fully functional macrocycle, mesocycle, and microcycle systems with pagination and offline architecture. All data imported from Supabase Storage buckets. Exercise descriptions display with white-space: pre-line for line-separated sub-exercises. Uses #4acf74 and #b2c4ce color scheme.
+- **Training Cycle Management (MACRO/MESO/MICRO)**: Supports Macrocycles (6-12 months), Mesocycles (3-6 weeks), and Microcycles (weekly). Includes fully functional macrocycle, mesocycle, and microcycle systems with pagination (50 per page) and offline architecture. All data imported from Supabase Storage buckets. Exercise descriptions display with white-space: pre-line for line-separated sub-exercises. Uses #4acf74 and #b2c4ce color scheme.
   - **Macrocycles**: 10 imported with 315 sessions
-  - **Mesocycles**: 10 imported with pagination
+  - **Mesocycles**: 1,092 imported from mesociclo-completo.json with 3,416 microciclos (semanas) and 32,489 sesiones
   - **Microcycles**: 103 imported with 279+ sessions, weekly planning structure
 - **Performance Reports (INFORMES)**: Ergospirometric tests and lactate analysis. Dynamic report forms with sport-specific data capture and real-time Highcharts visualizations.
 - **Additional Features**: Modules for exercises, circuits, drills, and sessions. Comprehensive interview system (PARQ, cardiovascular, strength, injuries, objectives, sensorial) with dynamic data handling. Dynamic display of athlete birthdays with monthly navigation.

@@ -113,7 +113,7 @@
                                             </tbody>
                                         </table>
                                         
-                                        <div id="pagination" class="text-center mt-3" style="display:none;">
+                                        <div id="pagination" class="text-center mt-3" style="display: block !important;">
                                             <nav>
                                                 <ul class="pagination justify-content-center">
                                                     <!-- Pagination buttons will be inserted here -->
@@ -222,61 +222,66 @@
                 return;
             }
 
-            const paginationUl = $('#pagination ul');
+            const paginationDiv = $('#pagination');
+            const paginationUl = paginationDiv.find('ul.pagination');
+            
             paginationUl.empty();
+
+            let paginationHTML = '';
 
             // Previous button
             const prevDisabled = pagination.page === 1 ? 'disabled' : '';
-            paginationUl.append(`
+            paginationHTML += `
                 <li class="page-item ${prevDisabled}">
-                    <a class="page-link" href="#" onclick="loadMesociclos(${pagination.page - 1}); return false;">Anterior</a>
+                    <a class="page-link" href="#" onclick="loadMesociclos(${pagination.page - 1}); return false;" ${prevDisabled ? 'tabindex="-1"' : ''}>Anterior</a>
                 </li>
-            `);
+            `;
 
-            // Page numbers
-            const startPage = Math.max(1, pagination.page - 2);
-            const endPage = Math.min(pagination.totalPages, pagination.page + 2);
+            // Page numbers - Show more pages
+            const startPage = Math.max(1, pagination.page - 3);
+            const endPage = Math.min(pagination.totalPages, pagination.page + 3);
 
             if (startPage > 1) {
-                paginationUl.append(`
+                paginationHTML += `
                     <li class="page-item">
                         <a class="page-link" href="#" onclick="loadMesociclos(1); return false;">1</a>
                     </li>
-                `);
+                `;
                 if (startPage > 2) {
-                    paginationUl.append('<li class="page-item disabled"><span class="page-link">...</span></li>');
+                    paginationHTML += '<li class="page-item disabled"><span class="page-link">...</span></li>';
                 }
             }
 
             for (let i = startPage; i <= endPage; i++) {
                 const active = i === pagination.page ? 'active' : '';
-                paginationUl.append(`
+                paginationHTML += `
                     <li class="page-item ${active}">
                         <a class="page-link" href="#" onclick="loadMesociclos(${i}); return false;">${i}</a>
                     </li>
-                `);
+                `;
             }
 
             if (endPage < pagination.totalPages) {
                 if (endPage < pagination.totalPages - 1) {
-                    paginationUl.append('<li class="page-item disabled"><span class="page-link">...</span></li>');
+                    paginationHTML += '<li class="page-item disabled"><span class="page-link">...</span></li>';
                 }
-                paginationUl.append(`
+                paginationHTML += `
                     <li class="page-item">
                         <a class="page-link" href="#" onclick="loadMesociclos(${pagination.totalPages}); return false;">${pagination.totalPages}</a>
                     </li>
-                `);
+                `;
             }
 
             // Next button
             const nextDisabled = pagination.page === pagination.totalPages ? 'disabled' : '';
-            paginationUl.append(`
+            paginationHTML += `
                 <li class="page-item ${nextDisabled}">
-                    <a class="page-link" href="#" onclick="loadMesociclos(${pagination.page + 1}); return false;">Siguiente</a>
+                    <a class="page-link" href="#" onclick="loadMesociclos(${pagination.page + 1}); return false;" ${nextDisabled ? 'tabindex="-1"' : ''}>Siguiente</a>
                 </li>
-            `);
+            `;
 
-            $('#pagination').show();
+            paginationUl.html(paginationHTML);
+            paginationDiv.show();
         }
 
         function filterMesos(searchTerm) {

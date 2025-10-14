@@ -1019,8 +1019,7 @@ app.get('/api/mesociclos', async (req, res) => {
       SELECT 
         m.*,
         a.nombre as atleta_nombre,
-        a.apellido as atleta_apellido,
-        (SELECT COUNT(*) FROM sesiones s JOIN microciclos mc ON s.microciclo_id = mc.id WHERE mc.mesociclo_id = m.id) as total_sesiones
+        a.apellido as atleta_apellido
       FROM mesociclos m
       LEFT JOIN atletas a ON m.atleta_id = a.id
     `;
