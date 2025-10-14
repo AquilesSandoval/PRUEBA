@@ -899,7 +899,7 @@ app.get('/api/macrociclos', async (req, res) => {
       params.push(atleta_id);
     }
     
-    query += ' ORDER BY m.created_at DESC';
+    query += ' ORDER BY m.id ASC';
     
     const result = await pool.query(query, params);
     
