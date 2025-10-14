@@ -1092,22 +1092,12 @@ app.get('/api/mesociclos/:id', async (req, res) => {
     const sesionesResult = await pool.query(
       `SELECT 
         s.*,
-        mc.semana_numero,
-        REGEXP_REPLACE(s.notas, 'Día: ', '', 'i') as dia_nombre
+        EXTRACT(WEEK FROM s.fecha) - EXTRACT(WEEK FROM m.fecha_inicio) + 1 as semana_numero,
+        TRIM(TO_CHAR(s.fecha, 'Day')) as dia_nombre
        FROM sesiones s
-       JOIN microciclos mc ON s.microciclo_id = mc.id
-       WHERE mc.mesociclo_id = $1 
-       ORDER BY mc.semana_numero, 
-       CASE REGEXP_REPLACE(s.notas, 'Día: ', '', 'i')
-         WHEN 'Lunes' THEN 1
-         WHEN 'Martes' THEN 2
-         WHEN 'Miercoles' THEN 3
-         WHEN 'Jueves' THEN 4
-         WHEN 'Viernes' THEN 5
-         WHEN 'Sabado' THEN 6
-         WHEN 'Domingo' THEN 7
-       END,
-       s.hora`,
+       JOIN mesociclos m ON s.mesociclo_id = m.id
+       WHERE s.mesociclo_id = $1 
+       ORDER BY s.fecha, s.hora`,
       [id]
     );
     
@@ -1142,11 +1132,18 @@ app.get('/api/mesociclos/:id', async (req, res) => {
     
     // Convertir a array ordenado
     const semanasArray = Object.values(semanas).sort((a, b) => a.numero - b.numero);
-    const diasOrden = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+    const diasOrden = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const diasEspanol = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
     
     semanasArray.forEach(semana => {
-      semana.dias = Object.values(semana.dias).sort((a, b) => {
-        return diasOrden.indexOf(a.nombre) - diasOrden.indexOf(b.nombre);
+      semana.dias = Object.values(semana.dias).map(dia => {
+        const diaIndex = diasOrden.indexOf(dia.nombre);
+        return {
+          ...dia,
+          nombre: diaIndex >= 0 ? diasEspanol[diaIndex] : dia.nombre
+        };
+      }).sort((a, b) => {
+        return diasEspanol.indexOf(a.nombre) - diasEspanol.indexOf(b.nombre);
       });
     });
     
