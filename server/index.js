@@ -1169,6 +1169,142 @@ app.get('/api/mesociclos/:id', async (req, res) => {
   }
 });
 
+// Get all microciclos with pagination
+app.get('/api/microciclos', async (req, res) => {
+  try {
+    const page = req.query.page || 1;
+    const limit = req.query.limit || 10;
+    const offset = (page - 1) * limit;
+    
+    const result = await pool.query(
+      `SELECT 
+        mc.*,
+        a.nombre as atleta_nombre,
+        a.apellido as atleta_apellido,
+        COUNT(s.id) as total_sesiones
+      FROM microciclos mc
+      LEFT JOIN atletas a ON mc.atleta_id = a.id
+      LEFT JOIN sesiones s ON s.microciclo_id = mc.id
+      GROUP BY mc.id, a.id
+      ORDER BY mc.created_at DESC
+      LIMIT $1 OFFSET $2`,
+      [limit, offset]
+    );
+    
+    const countResult = await pool.query('SELECT COUNT(DISTINCT mc.id) as total FROM microciclos mc');
+    
+    const total = parseInt(countResult.rows[0].total);
+    const totalPages = Math.ceil(total / limit);
+    
+    res.json({
+      success: true,
+      microciclos: result.rows,
+      pagination: {
+        total,
+        page: parseInt(page),
+        limit: parseInt(limit),
+        totalPages
+      }
+    });
+    
+  } catch (error) {
+    console.error('Error al obtener microciclos:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Error al obtener microciclos'
+    });
+  }
+});
+
+// Get single microciclo with details
+app.get('/api/microciclos/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    const microResult = await pool.query(
+      `SELECT 
+        mc.*,
+        a.nombre as atleta_nombre,
+        a.apellido as atleta_apellido
+      FROM microciclos mc
+      LEFT JOIN atletas a ON mc.atleta_id = a.id
+      WHERE mc.id = $1`,
+      [id]
+    );
+    
+    if (microResult.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        error: 'Microciclo no encontrado'
+      });
+    }
+    
+    // Get sesiones del microciclo agrupadas por día
+    const sesionesResult = await pool.query(
+      `SELECT 
+        s.*,
+        REGEXP_REPLACE(s.notas, 'Día: ', '', 'i') as dia_nombre
+       FROM sesiones s
+       WHERE s.microciclo_id = $1 
+       ORDER BY 
+       CASE REGEXP_REPLACE(s.notas, 'Día: ', '', 'i')
+         WHEN 'Lunes' THEN 1
+         WHEN 'Martes' THEN 2
+         WHEN 'Miercoles' THEN 3
+         WHEN 'Jueves' THEN 4
+         WHEN 'Viernes' THEN 5
+         WHEN 'Sabado' THEN 6
+         WHEN 'Domingo' THEN 7
+       END,
+       s.hora`,
+      [id]
+    );
+    
+    // Agrupar sesiones por día
+    const dias = {};
+    sesionesResult.rows.forEach(sesion => {
+      const diaNombre = sesion.dia_nombre;
+      if (!dias[diaNombre]) {
+        dias[diaNombre] = {
+          nombre: diaNombre,
+          sesiones: []
+        };
+      }
+      
+      dias[diaNombre].sesiones.push({
+        id: sesion.id,
+        nombre: sesion.nombre_sesion,
+        descripcion: sesion.descripcion,
+        hora: sesion.hora,
+        tipo_sesion: sesion.tipo_sesion,
+        estado: sesion.estado
+      });
+    });
+    
+    // Convertir a array ordenado
+    const diasOrden = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+    const diasArray = Object.values(dias).sort((a, b) => {
+      return diasOrden.indexOf(a.nombre) - diasOrden.indexOf(b.nombre);
+    });
+    
+    res.json({
+      success: true,
+      microciclo: {
+        ...microResult.rows[0],
+        dias: diasArray,
+        total_sesiones: sesionesResult.rows.length
+      }
+    });
+    
+  } catch (error) {
+    console.error('Error al obtener microciclo:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Error al obtener microciclo'
+    });
+  }
+});
+
 // Get birthdays by month
 app.get('/api/birthdays/:month', async (req, res) => {
   try {

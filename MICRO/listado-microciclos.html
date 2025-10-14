@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Microciclos - AIYM</title>
+    
+    <!-- CSS Files -->
+    <link href="../assets/fonts.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/atlantis2.css" rel="stylesheet">
+    <link href="../assets/demo.css" rel="stylesheet">
+    <link href="../assets/training-app-styles.css" rel="stylesheet">
+    <link href="../assets/modern-font.css" rel="stylesheet">
+</head>
+<body data-background-color="bg3">
+    <div class="wrapper page-container">
+        <!-- Header -->
+        <div class="main-header" data-background-color="white">
+            <div class="nav-top">
+                <div class="container d-flex flex-row">
+                    <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+                    <a class="logo d-flex align-items-center" href="../index.html">
+                        <img src="../assets/logo_all.png" alt="logo" class="navbar-brand">
+                    </a>
+                    
+                    <nav class="navbar navbar-header navbar-expand-lg p-0">
+                        <div class="container-fluid p-0">
+                            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="../index.html" title="Inicio">
+                                        <i class="fas fa-home" style="font-size: 20px;"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">| YUC</span>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="profile-pic" href="#">
+                                        <img src="../assets/icon.png" alt="user-img" class="img-circle">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-panel">
+            <div class="container" style="min-height: 550px;">
+                <div class="page-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-header">
+                                <h5 class="page-title">Listado de Microciclos 
+                                    <i class="far fa-folder-open" style="font-size: 18px; margin-left: 10px;"></i>
+                                    <a href="../index.html" style="margin-left: 10px;">Consulta</a>
+                                </h5>
+                            </div>
+
+                            <!-- Filtros y búsqueda -->
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <p id="filter-info">
+                                                <span id="clear-filter" style="cursor: pointer; color: #1572E8;">✖ Limpiar filtro</span> | 
+                                                Viendo <span id="results-info">cargando...</span> resultados.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <input type="text" id="search-input" class="form-control" placeholder="Buscar..." style="max-width: 300px; display: inline-block;">
+                                        </div>
+                                    </div>
+
+                                    <!-- Tabla de resultados -->
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Código</th>
+                                                <th>Semana</th>
+                                                <th>Sesiones</th>
+                                                <th>Fecha Inicio</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="microciclos-table">
+                                            <tr>
+                                                <td colspan="6" class="text-center">Cargando...</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <!-- Paginación -->
+                                    <div class="row mt-3">
+                                        <div class="col-md-12 text-center">
+                                            <div id="pagination"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/jquery.min.js.descarga"></script>
+    <script src="../assets/bootstrap.min.js.descarga"></script>
+    <script src="../assets/atlantis2.min.js.descarga"></script>
+    <script src="../assets/api-adapter.js"></script>
+    <script src="../assets/training-app.js"></script>
+
+    <script>
+        let currentPage = 1;
+        let totalPages = 1;
+        let allMicrociclos = [];
+
+        async function loadMicrociclos(page = 1) {
+            try {
+                const response = await fetch(`/api/microciclos?page=${page}&limit=10`);
+                const data = await response.json();
+
+                if (data.success) {
+                    allMicrociclos = data.microciclos;
+                    currentPage = data.pagination.page;
+                    totalPages = data.pagination.totalPages;
+                    
+                    renderTable(allMicrociclos);
+                    renderPagination();
+                    updateResultsInfo(data.pagination);
+                }
+            } catch (error) {
+                console.error('Error loading microciclos:', error);
+                document.getElementById('microciclos-table').innerHTML = `
+                    <tr><td colspan="6" class="text-center text-danger">Error al cargar microciclos</td></tr>
+                `;
+            }
+        }
+
+        function renderTable(microciclos) {
+            const tbody = document.getElementById('microciclos-table');
+            
+            if (microciclos.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" class="text-center">No hay microciclos disponibles</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = microciclos.map((micro, index) => {
+                const rowNum = (currentPage - 1) * 10 + index + 1;
+                const fechaInicio = new Date(micro.fecha_inicio).toLocaleDateString('es-ES');
+                
+                return `
+                    <tr>
+                        <td>${rowNum}</td>
+                        <td>${micro.nombre || `MICRO-${micro.id}`}</td>
+                        <td>${micro.semana_numero || 1}</td>
+                        <td>${micro.total_sesiones || 0}</td>
+                        <td>${fechaInicio}</td>
+                        <td>
+                            <a href="detalle-microciclo.html?id=${micro.id}" class="btn btn-sm btn-primary">
+                                👁️
+                            </a>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function renderPagination() {
+            const pagination = document.getElementById('pagination');
+            let html = '';
+
+            if (totalPages > 1) {
+                // Previous button
+                html += `<button class="btn btn-sm ${currentPage === 1 ? 'btn-secondary disabled' : 'btn-primary'}" 
+                         onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+                         &laquo; Anterior
+                         </button>`;
+
+                // Page numbers
+                for (let i = 1; i <= totalPages; i++) {
+                    if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+                        html += `<button class="btn btn-sm ${i === currentPage ? 'btn-info' : 'btn-outline-primary'}" 
+                                 onclick="changePage(${i})">${i}</button>`;
+                    } else if (i === currentPage - 3 || i === currentPage + 3) {
+                        html += '<span class="mx-2">...</span>';
+                    }
+                }
+
+                // Next button
+                html += `<button class="btn btn-sm ${currentPage === totalPages ? 'btn-secondary disabled' : 'btn-primary'}" 
+                         onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+                         Siguiente &raquo;
+                         </button>`;
+            }
+
+            pagination.innerHTML = html;
+        }
+
+        function updateResultsInfo(pagination) {
+            const start = (pagination.page - 1) * pagination.limit + 1;
+            const end = Math.min(pagination.page * pagination.limit, pagination.total);
+            document.getElementById('results-info').textContent = `${start} de ${pagination.total}`;
+        }
+
+        function changePage(page) {
+            if (page >= 1 && page <= totalPages) {
+                loadMicrociclos(page);
+            }
+        }
+
+        // Search functionality
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filtered = allMicrociclos.filter(micro => 
+                (micro.nombre || '').toLowerCase().includes(searchTerm) ||
+                (micro.atleta_nombre || '').toLowerCase().includes(searchTerm)
+            );
+            renderTable(filtered);
+        });
+
+        // Clear filter
+        document.getElementById('clear-filter').addEventListener('click', () => {
+            document.getElementById('search-input').value = '';
+            renderTable(allMicrociclos);
+        });
+
+        // Initialize
+        loadMicrociclos();
+    </script>
+</body>
+</html>
