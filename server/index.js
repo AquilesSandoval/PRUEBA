@@ -1468,6 +1468,111 @@ app.post('/api/sync/atletas-supabase', async (req, res) => {
   }
 });
 
+// ============ EJERCICIOS ENDPOINTS ============
+
+// Get all carpetas (folders) de ejercicios
+app.get('/api/ejercicios/carpetas', async (req, res) => {
+  try {
+    const result = await pool.query(`
+      SELECT 
+        carpeta,
+        COUNT(*) as total_ejercicios
+      FROM ejercicios
+      WHERE carpeta IS NOT NULL AND activo = true
+      GROUP BY carpeta
+      ORDER BY carpeta
+    `);
+
+    res.json({
+      success: true,
+      carpetas: result.rows
+    });
+  } catch (error) {
+    console.error('Error obteniendo carpetas:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Error al obtener carpetas de ejercicios'
+    });
+  }
+});
+
+// Get ejercicios by carpeta (folder)
+app.get('/api/ejercicios/carpeta/:nombre', async (req, res) => {
+  try {
+    const { nombre } = req.params;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 1000; // Cargar todos los ejercicios por defecto
+    const offset = (page - 1) * limit;
+
+    // Get total count
+    const countResult = await pool.query(
+      'SELECT COUNT(*) FROM ejercicios WHERE carpeta = $1 AND activo = true',
+      [nombre]
+    );
+    const totalCount = parseInt(countResult.rows[0].count);
+
+    // Get ejercicios with pagination
+    const result = await pool.query(
+      `SELECT 
+        id, nombre, descripcion_atleta, categoria, nivel, 
+        deporte, tipo, imagen_path, video_path
+      FROM ejercicios 
+      WHERE carpeta = $1 AND activo = true
+      ORDER BY nombre
+      LIMIT $2 OFFSET $3`,
+      [nombre, limit, offset]
+    );
+
+    res.json({
+      success: true,
+      carpeta: nombre,
+      ejercicios: result.rows,
+      pagination: {
+        page,
+        limit,
+        total: totalCount,
+        totalPages: Math.ceil(totalCount / limit)
+      }
+    });
+  } catch (error) {
+    console.error('Error obteniendo ejercicios:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Error al obtener ejercicios'
+    });
+  }
+});
+
+// Get ejercicio detail by ID
+app.get('/api/ejercicios/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const result = await pool.query(
+      `SELECT * FROM ejercicios WHERE id = $1`,
+      [id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        error: 'Ejercicio no encontrado'
+      });
+    }
+
+    res.json({
+      success: true,
+      ejercicio: result.rows[0]
+    });
+  } catch (error) {
+    console.error('Error obteniendo detalle de ejercicio:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Error al obtener detalle del ejercicio'
+    });
+  }
+});
+
 // Default route to serve index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'index.html'));
