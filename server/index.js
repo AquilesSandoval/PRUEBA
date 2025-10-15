@@ -1515,7 +1515,7 @@ app.get('/api/ejercicios/carpeta/:nombre', async (req, res) => {
     const result = await pool.query(
       `SELECT 
         id, nombre, descripcion_atleta, categoria, nivel, 
-        deporte, tipo, imagen_path, video_path
+        deporte, tipo, imagen_url, video_url
       FROM ejercicios 
       WHERE carpeta = $1 AND activo = true
       ORDER BY nombre
