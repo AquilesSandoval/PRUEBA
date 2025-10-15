@@ -109,8 +109,8 @@ async function importEjercicios() {
                             deporte,
                             tipo,
                             descripcion_tecnica,
-                            imagen_path,
-                            video_path,
+                            imagen_url,
+                            video_url,
                             activo
                         ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
                         ON CONFLICT DO NOTHING
