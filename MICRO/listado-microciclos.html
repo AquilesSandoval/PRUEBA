@@ -123,7 +123,7 @@
 
         async function loadMicrociclos(page = 1) {
             try {
-                const response = await fetch(`/api/microciclos?page=${page}&limit=10`);
+                const response = await fetch(`/api/microciclos?page=${page}&limit=100`);
                 const data = await response.json();
 
                 if (data.success) {
@@ -152,7 +152,7 @@
             }
 
             tbody.innerHTML = microciclos.map((micro, index) => {
-                const rowNum = (currentPage - 1) * 10 + index + 1;
+                const rowNum = (currentPage - 1) * 100 + index + 1;
                 const fechaInicio = new Date(micro.fecha_inicio).toLocaleDateString('es-ES');
                 
                 return `

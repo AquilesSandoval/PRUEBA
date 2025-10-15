@@ -1169,7 +1169,7 @@ app.get('/api/mesociclos/:id', async (req, res) => {
 app.get('/api/microciclos', async (req, res) => {
   try {
     const page = req.query.page || 1;
-    const limit = req.query.limit || 10;
+    const limit = req.query.limit || 100;
     const offset = (page - 1) * limit;
     
     const result = await pool.query(
@@ -1182,7 +1182,7 @@ app.get('/api/microciclos', async (req, res) => {
       LEFT JOIN atletas a ON mc.atleta_id = a.id
       LEFT JOIN sesiones s ON s.microciclo_id = mc.id
       GROUP BY mc.id, a.id
-      ORDER BY mc.created_at DESC
+      ORDER BY mc.id ASC
       LIMIT $1 OFFSET $2`,
       [limit, offset]
     );
