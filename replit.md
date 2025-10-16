@@ -4,12 +4,15 @@
 AIYM is a comprehensive athlete training management system designed to streamline athlete, training cycle, session, and performance assessment management for sports trainers. The project aims to provide a robust, modern platform for efficient athletic program administration and performance tracking, leveraging Node.js/Express and PostgreSQL.
 
 ## Recent Changes
+- **Complete UI Modernization (Oct 16, 2025)**: Applied consistent modern design system across all training sections:
+  - **Color Palette**: #28a9e2 (primary blue), #0e4165 (dark blue), #add6e8 (light blue), #67889e (medium blue)
+  - **Shared CSS**: Created assets/shared-modern.css for unified styling across Ejercicios, Circuitos, Drills, Mesociclos, and Macrociclos
+  - **Modern Footer**: Consistent footer design with logo, quick navigation links (Inicio, Atletas, Informes, Ejercicios), social media icons (Facebook, Twitter, Instagram, LinkedIn), and copyright across all pages
+  - **Updated Pages**: EJERCICIO INICIO.html, INICIO CIRCUITO.html, INICIO DRILLS.html, INICIO MESO.html, INICIO MACRO.html all feature modern footer and design system
 - **Dashboard Redesign (Oct 16, 2025)**: Complete visual overhaul of index.html with modern design featuring:
-  - New color palette: #28a9e2 (primary blue), #0e4165 (dark blue), #add6e8 (light blue), #67889e (medium blue)
   - Responsive image carousel with 4 professional stock photos and auto-rotation (5s intervals)
   - Modernized "Mis Pendientes" and "Cumpleaños del Mes" cards with gradient headers
   - Animated statistics cards showing Atletas Activos, Programas en Curso, Ejercicios Disponibles, Sesiones Completadas
-  - Enhanced footer with navigation links and social media icons
   - Custom CSS (index-modern.css) with animations: fadeIn, slideUp, pulse effects
   - Carousel JavaScript (index-carousel.js) with smooth transitions and dot navigation
 - **Microcycle Loading Indicator (Oct 16, 2025)**: Added spinner and "Cargando microciclos..." message to INICIO MICRO.js to improve UX during 2-3 second data load
