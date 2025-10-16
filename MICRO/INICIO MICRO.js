@@ -45,7 +45,7 @@ function renderTable(micros) {
                 <td>${rowNum}</td>
                 <td>${micro.nombre || `Microciclo ${micro.id}`}</td>
                 <td>
-                    <a href="detalle-microciclo.html?id=${micro.id}" class="btn btn-sm btn-primary" title="Ver">
+                    <a href="MICROSICLO.html?id=${micro.id}" class="btn btn-sm btn-primary" title="Ver">
                         <i class="fa fa-eye"></i>
                     </a>
                 </td>
