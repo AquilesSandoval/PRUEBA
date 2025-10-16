@@ -4,14 +4,16 @@
 AIYM is a comprehensive athlete training management system designed to streamline athlete, training cycle, session, and performance assessment management for sports trainers. The project aims to provide a robust, modern platform for efficient athletic program administration and performance tracking, leveraging Node.js/Express and PostgreSQL.
 
 ## Recent Changes
-- **Dashboard Redesign (Oct 16, 2025)**: Complete visual overhaul of index.html with modern design featuring:
+- **Dashboard Redesign - Enhanced (Oct 16, 2025)**: Complete visual overhaul of index.html with modern, dynamic design featuring:
   - New color palette: #28a9e2 (primary blue), #0e4165 (dark blue), #add6e8 (light blue), #67889e (medium blue)
-  - Responsive image carousel with 4 professional stock photos and auto-rotation (5s intervals)
-  - Modernized "Mis Pendientes" and "Cumpleaños del Mes" cards with gradient headers
-  - Animated statistics cards showing Atletas Activos, Programas en Curso, Ejercicios Disponibles, Sesiones Completadas
-  - Enhanced footer with navigation links and social media icons
-  - Custom CSS (index-modern.css) with animations: fadeIn, slideUp, pulse effects
-  - Carousel JavaScript (index-carousel.js) with smooth transitions and dot navigation
+  - Dynamic image carousel with 5 high-impact stock photos and auto-rotation (5s intervals)
+  - Advanced CSS animations: carouselFade, slideInFromLeft/Right, slideUpFade, bounceIn, textGlow, countUp, floatAnimation
+  - Modernized "Mis Pendientes" and "Cumpleaños del Mes" cards with gradient headers and hover effects
+  - Animated statistics cards with image icons (replaced Font Awesome) showing Atletas Activos, Programas en Curso, Ejercicios Disponibles (512), Sesiones Completadas
+  - Enhanced footer with navigation links, social media icons with rotation animations
+  - Custom CSS (index-modern.css) with 15+ animations and transformations
+  - Carousel JavaScript (index-carousel.js) with smooth transitions, zoom effects, and dot navigation
+  - Interactive hover effects: scale, rotate, glow, slide, bounce, and color transitions
 - **Microcycle Loading Indicator (Oct 16, 2025)**: Added spinner and "Cargando microciclos..." message to INICIO MICRO.js to improve UX during 2-3 second data load
 - **Microcycle Navigation Fix (Oct 15, 2025)**: Updated detalle-microciclo.html links to MICROSICLO.html in INICIO MICRO.js and listado-microciclos.html
 - **Exercise Display System (Oct 2025)**: Migrated from imagen_path/video_path to imagen_url/video_url with public Supabase Storage URLs (512 exercises)
