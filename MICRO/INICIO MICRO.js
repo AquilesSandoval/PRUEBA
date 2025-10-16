@@ -6,6 +6,17 @@ let filteredMicros = [];
 
 // Cargar microciclos desde el API
 async function loadMicrociclos(page = 1) {
+    // Mostrar indicador de carga
+    const tbody = document.querySelector('#w0 tbody');
+    tbody.innerHTML = `
+        <tr>
+            <td colspan="3" class="text-center" style="padding: 40px;">
+                <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #4acf74;"></i>
+                <p class="mt-3 mb-0" style="color: #666;">Cargando microciclos...</p>
+            </td>
+        </tr>
+    `;
+    
     try {
         const response = await fetch(`/api/microciclos?page=${page}&limit=100`);
         const data = await response.json();
