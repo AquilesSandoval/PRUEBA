@@ -1,471 +1,455 @@
 <!DOCTYPE html>
-
-<html lang="ES-es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="ES-es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Aiym Panel :: AIYM YUC</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
     <link rel="icon" type="image/png" href="https://app.allinyourmind.es/web/require/img/favicon-32x32.png">
-    
 
-    
-    <link rel="stylesheet" href="assets/css">
-        
-    <meta name="csrf-param" content="_csrf">
-<meta name="csrf-token" content="5AFOAf9sAY8K1M-cf3EeNsPe-SDCV59xly26XHYh9AiQOCR5jDs2wVyNrMUzKXdA9u6uR7cg1yi6YPMwPVTNaw==">
-
-<link href="assets/leaflet.css" rel="stylesheet" position="1">
-<link href="assets/esri-leaflet-geocoder.css" rel="stylesheet" position="1">
-<link href="assets/fonts.min.css" rel="stylesheet">
-<link href="assets/bootstrap.min.css" rel="stylesheet">
-<link href="assets/atlantis2.css" rel="stylesheet">
-    <link href="assets/modern-font.css" rel="stylesheet">
-<script src="assets/jquery-2.1.4.js.descarga"></script>
-<script src="api-adapter.js"></script>
-<script src="assets/leaflet.js.descarga"></script>
-<script src="assets/esri-leaflet.js.descarga"></script>
-<script src="assets/esri-leaflet-geocoder.js.descarga"></script>    <link rel="stylesheet" href="assets/demo.css">
-    <link rel="stylesheet" href="assets/alertif.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="index-modern.css">
+
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="5AFOAf9sAY8K1M-cf3EeNsPe-SDCV59xly26XHYh9AiQOCR5jDs2wVyNrMUzKXdA9u6uR7cg1yi6YPMwPVTNaw==">
 </head>
 
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="https://sergiogomeztrainer.com/wp-content/uploads/2020/05/logo-azul.png" alt="ALL IN YOUR MIND" class="logo">
+                    <span class="location-badge">YUC</span>
+                </div>
 
-<body data-background-color="bg3">
-    <div class="wrapper page-container">
+                <nav class="nav-menu">
+                    <button class="nav-item" onclick="window.location.href='index.html'" title="Inicio">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <span>Inicio</span>
+                    </button>
 
-        <div class="main-header" data-background-color="white" style="">
-            <div class="nav-top">
-                <div class="container d-flex flex-row">
+                    <button class="nav-item" onclick="window.location.href='ATLETAS/Atletas INICIO.html'" title="Atletas">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span>Atletas</span>
+                    </button>
 
-                    <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
-                    
-                    <a class="logo d-flex align-items-center" href="index.html"><img src="assets/logo_all.png" alt="logo" class="navbar-brand"></a>                    
-
-                    
-                    <nav class="navbar navbar-header navbar-expand-lg p-0">
-
-                        <div class="container-fluid p-0">
-
-                            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-                                                                <li class="nav-item dropdown hidden-caret">
-                                    <a class="nav-link" data-toggle="dropdown" href="INICIO.html#" aria-expanded="false" title="Entrenamientos">
-                                        <img src="assets/menu_entrenamientos.png" style="width: 28px;">                                        
-                                    </a>
-                                    <div class="dropdown-menu quick-actions quick-actions-info animated fadeIn">
-                                        
-                                        <div class="scroll-wrapper quick-actions-scroll scrollbar-outer" style="position: relative;"><div class="quick-actions-scroll scrollbar-outer scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
-                                            <div class="quick-actions-items">
-                                                <div class="row m-0">
-                                                    <a class="col-6 col-md-4 p-0" href="POSIBLES NO NECESARIOS/EJERCICIO/EJERCICIO INICIO.html"><div class="quick-actions-item">
-                                                                                                                                                        <img src="assets/m_ejercicio.png" style="width: 40px;">
-                                                                                                                                                        <span class="text">Ejercicio</span>
-                                                                                                                                                </div></a><a class="col-6 col-md-4 p-0" href="POSIBLES NO NECESARIOS/Circuitos/INICIO CIRCUITO.html"><div class="quick-actions-item">
-                                                                                                                                                        <img src="assets/m_circuito.png" style="width: 40px;">
-                                                                                                                                                        <span class="text">Circuito</span>
-                                                                                                                                                </div></a><a class="col-6 col-md-4 p-0" href="POSIBLES NO NECESARIOS/DRILLS/INICIO DRILLS.html"><div class="quick-actions-item">
-                                                                                                                                                <img src="assets/drills.svg" style="width: 32px;margin-top:4px;margin-bottom:4px">
-                                                                                                                                                <span class="text">Drills</span>
-                                                                                                                                        </div></a><a class="col-6 col-md-4 p-0" href="MICRO/INICIO MICRO.html"><div class="quick-actions-item">
-                                                                                                                                                        <img src="assets/m_micro.png" style="width: 40px;">
-                                                                                                                                                        <span class="text">Microciclo</span>
-                                                                                                                                                </div></a><a class="col-6 col-md-4 p-0" href="MESO/INICIO MESO.html"><div class="quick-actions-item">
-                                                                                                                                                        <img src="assets/m_meso.png" style="width: 40px;">
-                                                                                                                                                        <span class="text">Mesociclo</span>
-                                                                                                                                                </div></a><a class="col-6 col-md-4 p-0" href="MACRO/INICIO MACRO.html"><div class="quick-actions-item">
-                                                                                                                                                        <img src="assets/m_macro.png" style="width: 40px;">
-                                                                                                                                                        <span class="text">Macrociclo</span>
-                                                                                                                                                </div></a>
-                                                </div>
-                                            </div>
-                                        </div><div class="scroll-element scroll-x"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
-                                    </div>
-                                </li>
-
-
-                                <li class="nav-item dropdown hidden-caret">
-                                    <a class="nav-link" data-toggle="dropdown" href="INICIO.html#" aria-expanded="false" title="Menu">
-                                        
-                                        <img src="assets/menu_menu.png" style="width: 28px;">                                    </a>
-                                    <div class="dropdown-menu  quick-actions quick-actions-info animated fadeIn">
-                                        
-                                        <div class="scroll-wrapper quick-actions-scroll scrollbar-outer" style="position: relative;"><div class="quick-actions-scroll scrollbar-outer scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
-                                            <div class="quick-actions-items">
-                                                <div class="row m-0">
-                                                    <a class="col-6 col-md-4 p-0" href="index.html"><div class="quick-actions-item">
-                                                                                                                                                        
-                                                                                                                                                        <img src="assets/m_inicio.png" style="width: 40px;">
-                                                                                                                                                        <span class="text">Inicio</span>
-                                                                                                                                                </div></a><a class="col-6 col-md-4 p-0" href="ATLETAS/Atletas INICIO.html"><div class="quick-actions-item">
-                                                                                                                                                        
-                                                                                                                                                        <img src="assets/m_atletas.png" style="width: 40px;">
-                                                                                                                                                        <span class="text">Atletas</span>
-                                                                                                                                                </div></a><a class="col-6 col-md-4 p-0" href="INFORMES/Informes Inicio.html"><div class="quick-actions-item">
-                                                                                                                                                        
-                                                                                                                                                        <img src="assets/d_informes.png" style="width: 40px;">
-                                                                                                                                                        <span class="text">Informes</span>
-                                                                                                                                                </div></a>                                                </div>
-                                            </div>
-                                        </div><div class="scroll-element scroll-x"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
-                                    </div>
-                                </li>
-                                
-
-                                                                <li class="nav-item dropdown hidden-caret">
-                                    <a class="dropdown-toggle profile-pic " data-toggle="dropdown" href="INICIO.html#" aria-expanded="false">
-                                        <div style="float: left; padding: 10px; 7px; color: #535353;">
-                                            | YUC                                        </div>
-
-                                        <div class="avatar-sm" style="float: left;">
-                                            <img src="assets/user_242.png" alt="..." class="avatar-img rounded-circle imgshadow">
-
-                                        </div>
-
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-user animated fadeIn">
-                                        <div class="scroll-wrapper dropdown-user-scroll scrollbar-outer" style="position: relative;"><div class="dropdown-user-scroll scrollbar-outer scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
-                                            <li>
-                                                <div class="user-box">
-
-                                                    <div class="avatar-lg"><img src="assets/user_242.png" alt="image profile" class="avatar-img rounded"></div>
-                                                    <div class="u-text">
-                                                        <h4>
-                                                                                                                    </h4>
-                                                        <p class="text-muted">
-                                                            AIYM YUC                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="javascript:void(0)" onclick="logout()" style="color:#777; font-weight:400;">Salir</a>                                            </li>
-                                        </div><div class="scroll-element scroll-x"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
-                                    </ul>
-                                </li>
-                            </ul>
+                    <button class="nav-item dropdown-trigger" title="Entrenamientos">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                        <span>Entrenamientos</span>
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                        <div class="dropdown-menu">
+                            <a href="POSIBLES NO NECESARIOS/EJERCICIO/EJERCICIO INICIO.html">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                                </svg>
+                                Ejercicio
+                            </a>
+                            <a href="POSIBLES NO NECESARIOS/Circuitos/INICIO CIRCUITO.html">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                Circuito
+                            </a>
+                            <a href="POSIBLES NO NECESARIOS/DRILLS/INICIO DRILLS.html">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>
+                                Drills
+                            </a>
+                            <a href="MICRO/INICIO MICRO.html">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                Microciclo
+                            </a>
+                            <a href="MESO/INICIO MESO.html">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    <path d="M8 14h.01"></path>
+                                    <path d="M12 14h.01"></path>
+                                    <path d="M16 14h.01"></path>
+                                </svg>
+                                Mesociclo
+                            </a>
+                            <a href="MACRO/INICIO MACRO.html">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                                </svg>
+                                Macrociclo
+                            </a>
                         </div>
-                    </nav>
-                    
-                </div>
-            </div>
-
-        </div>
-
-        <div class="main-panel">
-            <div class="container" style="min-height: 550px;">
-
-                
-                
-
-
-
-<!-- Hero Section con Carrusel -->
-<div class="row" style="margin-top: 30px; margin-bottom: 30px;">
-    <div class="col-sm-8">
-        <div class="hero-carousel" id="heroCarousel">
-            <div class="carousel-container">
-                <!-- Slide 1 -->
-                <div class="carousel-slide active">
-                    <img src="attached_assets/stock_images/professional_athleti_244f1263.jpg" alt="Entrenamiento Profesional">
-                    <div class="carousel-overlay">
-                        <h2>ALL IN YOUR MIND</h2>
-                        <p>Sistema integral de gestión y entrenamiento deportivo</p>
-                    </div>
-                </div>
-                <!-- Slide 2 -->
-                <div class="carousel-slide">
-                    <img src="attached_assets/stock_images/athlete_running_trai_a886f7b5.jpg" alt="Rendimiento Deportivo">
-                    <div class="carousel-overlay">
-                        <h2>Optimiza el Rendimiento</h2>
-                        <p>Seguimiento completo de atletas y programas de entrenamiento</p>
-                    </div>
-                </div>
-                <!-- Slide 3 -->
-                <div class="carousel-slide">
-                    <img src="attached_assets/stock_images/sports_performance_t_f231ecd1.jpg" alt="Tecnología Deportiva">
-                    <div class="carousel-overlay">
-                        <h2>Análisis y Datos</h2>
-                        <p>Informes ergospirométricos y evaluación de lactato</p>
-                    </div>
-                </div>
-                <!-- Slide 4 -->
-                <div class="carousel-slide">
-                    <img src="attached_assets/stock_images/professional_athleti_51de6dad.jpg" alt="Coaching Profesional">
-                    <div class="carousel-overlay">
-                        <h2>Entrenamiento Personalizado</h2>
-                        <p>Macro, meso y microciclos adaptados a cada atleta</p>
-                    </div>
-                </div>
-                
-                <!-- Dots de navegación -->
-                <div class="carousel-dots">
-                    <span class="carousel-dot active"></span>
-                    <span class="carousel-dot"></span>
-                    <span class="carousel-dot"></span>
-                    <span class="carousel-dot"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-sm-4">
-        <!-- Mis Pendientes -->
-        <div class="modern-card pendientes-card">
-            <div class="card-header-modern">
-                <h5><i class="fa fa-tasks"></i> Mis Pendientes</h5>
-                <span class="date-badge">Mar 30 Sep 2025</span>
-            </div>
-            <div class="pendientes-scroll">
-                <div id="accordion" role="tablist">
-                    <!-- Los pendientes se cargarán aquí dinámicamente -->
-                </div>
-            </div>
-            <button class="add-pendiente-btn" id="add_pend">
-                <i class="fa fa-plus"></i> Añadir Pendiente
-            </button>
-        </div>
-
-        <!-- Cumpleaños del Mes -->
-        <div class="modern-card birthday-card">
-            <div class="birthday-header">
-                <h5><i class="fa fa-birthday-cake"></i> Cumpleaños del Mes</h5>
-                <div class="birthday-nav">
-                    <button class="birthday-nav-btn" id="left_date">
-                        <i class="fas fa-chevron-left"></i>
                     </button>
-                    <strong id="currentMonthName">Septiembre</strong>
-                    <button class="birthday-nav-btn" id="right_date">
-                        <i class="fas fa-chevron-right"></i>
+
+                    <button class="nav-item" onclick="window.location.href='INFORMES/Informes Inicio.html'" title="Informes">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <span>Informes</span>
+                    </button>
+                </nav>
+
+                <div class="user-section">
+                    <div class="user-info">
+                        <span class="user-name">AIYM YUC</span>
+                        <img src="https://app.allinyourmind.es/media/users/user_242.png" alt="User" class="user-avatar">
+                    </div>
+                    <button class="logout-btn" onclick="logout()" title="Cerrar Sesión">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
                     </button>
                 </div>
             </div>
-            <div class="birthday-scroll" id="birthdayContainer">
-                <div class="text-center py-3">
-                    <div class="loading-spinner"></div>
-                    <p class="mt-3 text-muted" style="font-size: 12px;">Cargando cumpleaños...</p>
-                </div>
-            </div>
         </div>
-    </div>
-</div>
+    </header>
 
-<!-- Stats Cards -->
-<div class="stats-grid">
-    <div class="stat-card">
-        <div class="stat-icon">
-            <i class="fa fa-users"></i>
-        </div>
-        <div class="stat-value" data-value="0">0</div>
-        <div class="stat-label">Atletas Activos</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-icon">
-            <i class="fa fa-chart-line"></i>
-        </div>
-        <div class="stat-value" data-value="0">0</div>
-        <div class="stat-label">Programas en Curso</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-icon">
-            <i class="fa fa-dumbbell"></i>
-        </div>
-        <div class="stat-value" data-value="512">0</div>
-        <div class="stat-label">Ejercicios Disponibles</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-icon">
-            <i class="fa fa-clipboard-check"></i>
-        </div>
-        <div class="stat-value" data-value="0">0</div>
-        <div class="stat-label">Sesiones Completadas</div>
-    </div>
-</div>
-<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                    <div id="modal_ubicacion" name="modal_ubicacion" class="">
-                        Nueva ubicación                    </div>
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body" id="modal_body_l" name="modal_body_l">
-                <label>Título</label>
-                <input class="form-control" type="text" value="" name="nombre" id="nombre">
-                <label>Latitud</label>
-                <input class="form-control" type="text" value="0" name="latitud" id="latitud">
-                <label>Longitud</label>
-                <input class="form-control" type="text" value="0" name="longitud" id="longitud">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" id="add_ubi" name="add_ubi" class="btn btn-secondary">Guardar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                    <div id="modal_data" name="modal_data" class="">
-                        Editar datos                    </div>
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body" id="modal_body_2" name="modal_body_2">
-                <label>Km Recorridos</label>
-                <input class="form-control" type="text" value="0" name="kms" id="kms">
-                <label>Países</label>
-                <input class="form-control" type="text" value="0" name="paises" id="paises">
-                <label>Estados</label>
-                <input class="form-control" type="text" value="" name="estados" id="estados">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" id="add_data" name="add_data" class="btn btn-secondary">Guardar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                    <div id="modal_pendiente" name="modal_pendiente" class="">
-                        Nuevo pendiente                    </div>
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-
-
-            <div class="modal-body" id="modal_body_3" name="modal_body_3">
-
-                <label>Escriba el pendiente</label>
-                <textarea class="form-control" type="text" value="" name="name" id="name" rows="3" required=""></textarea>
-                <label>Fecha</label>
-                <input class="form-control" type="date" value="" name="date" id="date" required="">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="submit" id="add_pendiente" name="add_pendiente" class="btn btn-secondary">Guardar</button>
-            </div>
-
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                    <div id="modal_pendiente" name="modal_pendiente" class="">
-                        Actualizar pendiente                    </div>
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <input type="hidden" name="" id="id_edit" value="">
-
-            <div class="modal-body" id="modal_body_4" name="modal_body_3">
-
-                <label>Escriba el pendiente</label>
-                <textarea class="form-control" type="text" value="" name="name" id="name_edit" rows="3" required=""></textarea>
-                <label>Fecha</label>
-                <input class="form-control" type="date" value="" name="date" id="date_edit" required="">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="submit" id="update_pendiente" name="update_pendiente" class="btn btn-secondary">Guardar</button>
-            </div>
-
-        </div>
-    </div>
-</div>
-<script src="assets/sweetalert.min.js.descarga"></script>
-
-
-<script src="assets/datatables2.min.js.descarga"></script>
-
-<script src="assets/html2canvas.min.js.descarga" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-            </div>
-        </div>
-
-
-        <div style="clear: both;"></div>
-        <!-- Modern Footer -->
-        <div class="modern-footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div>
-                        <img src="assets/logo_all.png" alt="ALL IN YOUR MIND" class="footer-logo">
-                        <p style="margin-top: 15px; color: #add6e8; font-size: 14px;">
-                            Sistema integral de gestión<br>y entrenamiento deportivo
-                        </p>
-                    </div>
-                    <div class="footer-links">
-                        <a href="index.html">Inicio</a>
-                        <a href="ATLETAS/Atletas INICIO.html">Atletas</a>
-                        <a href="INFORMES/Informes Inicio.html">Informes</a>
-                        <a href="POSIBLES NO NECESARIOS/EJERCICIO/EJERCICIO INICIO.html">Ejercicios</a>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-image">
+                    <video autoplay loop muted playsinline class="hero-img">
+                        <source src="https://video.wixstatic.com/video/a4d916_6324e581868148dd83747a99d8c81b7e/1080p/mp4/file.mp4" type="video/mp4">
+                    </video>
+                    <div class="hero-overlay">
+                        <img src="https://sergiogomeztrainer.com/wp-content/uploads/2020/05/logo-azul.png" alt="ALL IN YOUR MIND Logo" class="hero-logo">
+                        <p class="hero-subtitle">Sistema integral de gestión y entrenamiento deportivo</p>
+                        <div class="hero-badge">Yucatán</div>
                     </div>
                 </div>
-                
+            </section>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Pendientes Section -->
+                <section class="pendientes-section">
+                    <div class="section-header">
+                        <h2>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 11 12 14 22 4"></polyline>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                            </svg>
+                            Mis Pendientes
+                        </h2>
+                        <span class="date-badge">Mar 30 Sep 2025</span>
+                    </div>
+
+                    <div class="pendientes-list" id="accordion">
+                        <!-- Pendientes se cargan dinámicamente -->
+                    </div>
+
+                    <button class="add-btn" id="add_pend">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Añadir Pendiente
+                    </button>
+                </section>
+
+                <!-- Cumpleaños Section -->
+                <section class="birthday-section">
+                    <div class="section-header">
+                        <h2>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Cumpleaños del Mes
+                        </h2>
+                        <div class="month-nav">
+                            <button class="month-nav-btn" id="left_date">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                </svg>
+                            </button>
+                            <strong id="currentMonthName">Septiembre</strong>
+                            <button class="month-nav-btn" id="right_date">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="birthday-list" id="birthdayContainer">
+                        <div class="loading-state">
+                            <div class="spinner"></div>
+                            <p>Cargando cumpleaños...</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Stats Grid -->
+            <section class="stats-section">
+                <div class="stat-card" data-animate>
+                    <div class="stat-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" data-target="124">0</div>
+                        <div class="stat-label">Atletas Activos</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-animate>
+                    <div class="stat-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="20" x2="12" y2="10"></line>
+                            <line x1="18" y1="20" x2="18" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="16"></line>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" data-target="47">0</div>
+                        <div class="stat-label">Programas Activos</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-animate>
+                    <div class="stat-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" data-target="512">0</div>
+                        <div class="stat-label">Ejercicios</div>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-animate>
+                    <div class="stat-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 11 12 14 22 4"></polyline>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" data-target="1856">0</div>
+                        <div class="stat-label">Sesiones Completadas</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="https://sergiogomeztrainer.com/wp-content/uploads/2020/05/logo-azul.png" alt="ALL IN YOUR MIND" class="footer-logo">
+                    <p>Sistema integral de gestión<br>y entrenamiento deportivo</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Navegación</h3>
+                    <a href="index.html">Inicio</a>
+                    <a href="ATLETAS/Atletas INICIO.html">Atletas</a>
+                    <a href="INFORMES/Informes Inicio.html">Informes</a>
+                </div>
+
                 <div class="footer-social">
-                    <a href="#" class="social-icon" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="social-icon" title="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-icon" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="social-icon" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" title="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" title="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                
-                <div class="footer-bottom">
-                    <p>Copyright © 2025 by <a href="http://allinyourmind.es/" target="_blank" style="color: #28a9e2; text-decoration: none; font-weight: 600;">ALL IN YOUR MIND</a></p>
-                    <p style="font-size: 12px; margin-top: 5px; opacity: 0.8;">Sistema de Entrenamiento Deportivo Profesional</p>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Copyright © 2025 by <a href="http://allinyourmind.es/" target="_blank">ALL IN YOUR MIND</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="exampleModal3">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Nuevo Pendiente</h5>
+                    <button class="modal-close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <label>Escriba el pendiente</label>
+                    <textarea class="form-control" id="name" rows="3" required></textarea>
+                    <label>Fecha</label>
+                    <input class="form-control" type="date" id="date" required>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-primary" id="add_pendiente">Guardar</button>
                 </div>
             </div>
         </div>
-
-
     </div>
 
+    <div class="modal" id="exampleModal4">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Actualizar Pendiente</h5>
+                    <button class="modal-close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="id_edit">
+                    <label>Escriba el pendiente</label>
+                    <textarea class="form-control" id="name_edit" rows="3" required></textarea>
+                    <label>Fecha</label>
+                    <input class="form-control" type="date" id="date_edit" required>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-primary" id="update_pendiente">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate stats
+            const animateValue = (element, start, end, duration) => {
+                const range = end - start;
+                const increment = end > start ? 1 : -1;
+                const stepTime = Math.abs(Math.floor(duration / range));
+                let current = start;
 
-    
-    <script src="assets/jquery.min.js.descarga"></script>
-    <script src="assets/alertif.min.js.descarga"></script>
-    <script src="assets/bootstrap-toggle.min.js.descarga"></script>
-    <script src="assets/yii.js.descarga"></script>
-<script src="assets/jquery-ui.min.js.descarga"></script>
-<script src="assets/popper.min.js.descarga"></script>
-<script src="assets/bootstrap.min.js.descarga"></script>
-<script src="assets/jquery.scrollbar.min.js.descarga"></script>
-<script src="assets/atlantis2.min.js.descarga"></script>
+                const timer = setInterval(() => {
+                    current += increment;
+                    element.textContent = current;
+                    if (current === end) {
+                        clearInterval(timer);
+                    }
+                }, stepTime);
+            };
 
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const valueElement = entry.target.querySelector('.stat-value');
+                        const target = parseInt(valueElement.dataset.target);
+                        animateValue(valueElement, 0, target, 2000);
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
 
+            document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
+            // Dropdown menu
+            document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    trigger.classList.toggle('active');
+                });
+            });
 
+            document.addEventListener('click', () => {
+                document.querySelectorAll('.dropdown-trigger').forEach(t => t.classList.remove('active'));
+            });
 
-<script src="assets/bootstrap-notify.min.js.descarga"></script>
-<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div>    <script src="logout.js"></script>
+            // Modal handlers
+            const modalTriggers = document.querySelectorAll('[data-toggle="modal"]');
+            modalTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const targetModal = document.querySelector(trigger.dataset.target);
+                    if (targetModal) targetModal.classList.add('show');
+                });
+            });
+
+            document.querySelectorAll('[data-dismiss="modal"]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.closest('.modal').classList.remove('show');
+                });
+            });
+
+            document.getElementById('add_pend')?.addEventListener('click', () => {
+                document.getElementById('exampleModal3').classList.add('show');
+            });
+        });
+
+        // Logout function
+        function logout() {
+            Swal.fire({
+                title: '¿Cerrar sesión?',
+                text: '¿Estás seguro de que quieres salir?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#28a9e2',
+                cancelButtonColor: '#67889e',
+                confirmButtonText: 'Sí, salir',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/logout';
+                }
+            });
+        }
+    </script>
+    <script src="logout.js"></script>
     <script src="index.js"></script>
     <script src="index-birthdays.js"></script>
-    <script src="index-carousel.js"></script>
-</body></html>
+</body>
+</html>
